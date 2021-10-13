@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "account/message/Id.proto";
+import "account/message/Account.proto";
+import "account/message/SignIn.proto";
+import "account/message/SignUp.proto";
+
+option java_multiple_files = true;
+
+service AccountRouter {
+  rpc getAccountById(StringId) returns (AccountResponseProto) {}
+  rpc signIn(SignInRequestProto) returns (SignInResponseProto) {}
+  rpc signUp(SignUpRequestProto) returns (SignUpResponseProto) {}
+}
+

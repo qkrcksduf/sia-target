@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.common;
+
+option java_multiple_files = true;
+option java_outer_classname = "MultiPolygonProto";
+
+import "com/sia/common/Polygon.proto";
+
+message MultiPolygon {
+    repeated Polygon polygon = 1;
+    bytes wkb = 2;
+}

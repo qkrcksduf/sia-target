@@ -1,0 +1,1 @@
+/Users/chanyeol/workspace/development/study/tutorial/armeria-coding-test/app/build/classes/kotlin/main/com/sia/boot/app/LauncherKt$logger$1.class:/Users/chanyeol/workspace/development/study/tutorial/armeria-coding-test/app/build/classes/kotlin/main/com/sia/boot/app/LauncherKt.class

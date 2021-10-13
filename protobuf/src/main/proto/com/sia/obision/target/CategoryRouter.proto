@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.sia.obision.target;
+
+option java_multiple_files = true;
+
+import "com/sia/obision/target/v1/CreateCategoryV1.proto";
+import "com/sia/obision/target/v1/CreateTargetListV1.proto";
+import "com/sia/obision/target/v1/GetCategoryListV1.proto";
+import "com/sia/obision/target/v1/CreateCategoryListV1.proto";
+import "com/sia/obision/target/v1/UpdateCategoryV1.proto";
+import "com/sia/obision/target/v1/DeleteCategoryV1.proto";
+import "com/sia/obision/target/v1/DeleteCategoryListV1.proto";
+import "google/protobuf/empty.proto";
+
+service CategoryRouter {
+
+  rpc createCategory(v1.CreateCategoryRequestV1) returns (v1.CreateCategoryResponseV1){}
+  rpc createCategoryList(v1.CreateCategoryListRequestV1) returns (v1.CreateCategoryListResponseV1){}
+  rpc getCategoryList(google.protobuf.Empty) returns (v1.GetCategoryListResponseV1){}
+  rpc updateCategory(v1.UpdateCategoryRequestV1) returns (google.protobuf.Empty){}
+  rpc deleteCategory(v1.DeleteCategoryRequestV1) returns (google.protobuf.Empty){}
+  rpc deleteCategoryList(v1.DeleteCategoryListRequestV1) returns (google.protobuf.Empty){}
+
+}

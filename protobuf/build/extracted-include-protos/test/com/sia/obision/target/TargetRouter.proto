@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package com.sia.obision.target;
+
+option java_multiple_files = true;
+
+import "com/sia/obision/target/v1/CreateTargetV1.proto";
+import "com/sia/obision/target/v1/CreateTargetListV1.proto";
+import "com/sia/obision/target/v1/UpdateTargetV1.proto";
+import "com/sia/obision/target/v1/DeleteTargetV1.proto";
+import "com/sia/obision/target/v1/TargetSearchV1.proto";
+import "com/sia/obision/target/v1/BookMarkV1.proto";
+import "com/sia/obision/target/v1/DeleteTargetListV1.proto";
+import "com/sia/obision/target/v1/TargetFilterV1.proto";
+import "google/protobuf/empty.proto";
+
+service TargetRouter {
+  rpc createTarget(v1.CreateTargetRequestV1) returns (google.protobuf.Empty) {}
+  rpc createTargetList (v1.CreateTargetListRequestV1) returns (google.protobuf.Empty) {}
+  rpc targetSearch (v1.TargetSearchRequestV1) returns (v1.TargetSearchResponseV1) {}
+  rpc targetFilter (v1.TargetFilterRequestV1) returns (v1.TargetFilterResponseV1) {}
+  rpc updateTarget (v1.UpdateTargetRequestV1) returns (google.protobuf.Empty) {}
+  rpc deleteTarget (v1.DeleteTargetRequestV1) returns (google.protobuf.Empty) {}
+  rpc deleteTargetList (v1.DeleteTargetListRequestV1) returns (google.protobuf.Empty) {}
+  rpc bookMark (v1.BookMarkRequestV1) returns (google.protobuf.Empty) {}
+}

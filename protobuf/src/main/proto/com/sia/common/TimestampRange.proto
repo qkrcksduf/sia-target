@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.common;
+
+option java_multiple_files = true;
+option java_outer_classname = "TimestampRangeProto";
+
+import "google/protobuf/timestamp.proto";
+
+message TimestampRange {
+    google.protobuf.Timestamp start = 1;
+    google.protobuf.Timestamp end = 2;
+}

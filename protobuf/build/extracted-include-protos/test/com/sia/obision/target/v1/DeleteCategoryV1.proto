@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "DeleteCategoryV1Proto";
+
+import "com/sia/common/UUID.proto";
+
+message DeleteCategoryRequestV1 {
+  com.sia.common.UUID id = 1;
+}

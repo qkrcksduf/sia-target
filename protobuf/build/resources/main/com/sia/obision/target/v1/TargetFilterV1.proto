@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "TargetFilterV1Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/TimestampRange.proto";
+import "com/sia/common/SortDirection.proto";
+import "com/sia/common/Paging.proto";
+import "com/sia/obision/target/v1/TargetV1.proto";
+import "com/sia/obision/target/v1/TargetSortPropertyV1.proto";
+
+message TargetFilterRequestV1 {
+  TargetFilterProperty filterProperty = 1;
+  bool isFavorite = 2;
+  com.sia.common.SortDirection sortDirection = 3;
+  TargetSortProperty targetSortProperty = 4;
+  com.sia.common.Paging paging = 5;
+}
+
+message TargetFilterResponseV1 {
+  repeated Target target = 1;
+}
+
+message TargetFilterProperty {
+  repeated com.sia.common.UUID categoryId = 1;
+  com.sia.common.TimestampRange timeRange = 2;
+}

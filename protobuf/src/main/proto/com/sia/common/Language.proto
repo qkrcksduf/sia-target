@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.common;
+
+option java_multiple_files = true;
+option java_outer_classname = "LanguageProto";
+
+enum Language {
+  KR = 0;
+  EN = 1;
+}

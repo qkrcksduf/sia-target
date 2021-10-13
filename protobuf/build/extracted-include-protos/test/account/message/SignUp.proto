@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "account/message/AccountRole.proto";
+
+option java_multiple_files = true;
+
+message SignUpRequestProto {
+  string id = 1;
+  string name = 2;
+  string password = 3;
+  AccountRoleProto role = 4;
+}
+
+message SignUpResponseProto {
+  string id = 1;
+  string name = 2;
+  AccountRoleProto role = 3;
+}

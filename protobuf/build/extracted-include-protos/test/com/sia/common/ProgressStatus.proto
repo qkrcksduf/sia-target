@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.common;
+
+option java_multiple_files = true;
+option java_outer_classname = "ProgressStatusProto";
+
+enum ProgressStatus {
+    WAITING = 0;
+    IN_PROGRESS = 1;
+    SUCCESS = 2;
+    FAILED = 3;
+    CANCELED = 4;
+}

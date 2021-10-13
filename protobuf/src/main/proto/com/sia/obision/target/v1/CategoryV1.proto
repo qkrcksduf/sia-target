@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "CategoryV1Proto";
+
+import "com/sia/common/UUID.proto";
+
+message Category {
+  com.sia.common.UUID id = 1;
+  string mainCategory = 2;
+  string middleCategory = 3;
+  string subCategory = 4;
+}

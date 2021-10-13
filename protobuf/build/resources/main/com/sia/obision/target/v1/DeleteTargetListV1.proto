@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "DeleteTargetListV1Proto";
+
+import "com/sia/obision/target/v1/DeleteTargetV1.proto";
+
+message DeleteTargetListRequestV1 {
+  repeated DeleteTargetRequestV1 id = 1;
+}
