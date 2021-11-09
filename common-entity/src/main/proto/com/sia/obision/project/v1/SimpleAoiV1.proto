@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SimpleAoiV1Proto";
+
+import "com/sia/common/MultiPolygon.proto";
+import "com/sia/common/UUID.proto";
+
+message SimpleAoiV1 {
+    sia.common.UUID id = 1;
+    com.sia.common.MultiPolygon area=2;
+}

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.overview.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneLabelCountRequestV1Proto";
+
+import "com/sia/common/Period.proto";
+import "com/sia/common/UUID.proto";
+
+message SceneLabelCountRequestV1 {
+  // 필수
+  sia.common.UUID project_id = 1;
+  // 필수
+  common.Period period = 2;
+
+  // 선택, 없으면 전체 지역
+  sia.common.UUID aoi_id = 3;
+
+  // 선택, 없으면 모든 위성
+  repeated string satellite_names = 4;
+}

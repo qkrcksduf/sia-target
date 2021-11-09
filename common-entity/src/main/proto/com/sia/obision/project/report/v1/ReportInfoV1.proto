@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "ReportInfoV1Proto";
+
+import "com/sia/obision/project/v1/ReportTypeV1.proto";
+import "google/protobuf/timestamp.proto";
+import "com/sia/common/MongoId.proto";
+import "com/sia/obision/common/Region.proto";
+import "com/sia/obision/analysis/v1/AlgorithmCountV1.proto";
+
+message ReportInfoV1 {
+    // 필수
+    sia.common.MongoId id = 1;
+    // 필수
+    string name = 9;
+    // 필수
+    project.v1.ReportTypeV1 report_type = 2;
+    // 필수
+    sia.common.MongoId scene_id = 10;
+    // 필수
+    google.protobuf.Timestamp imaging_time = 11;
+    // 필수
+    google.protobuf.Timestamp created_time = 3;
+    // 필수
+    obision.common.Region region = 4;
+    // 필수
+    string satellite_name = 5;
+    // 필수
+    double cloud_coverage = 6;
+    // 필수
+    repeated analysis.v1.AlgorithmCountV1 algorithm_counts = 7;
+    // 필수
+    bool is_favorite = 8;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.labelearth.account.v1.entity;
+
+//option java_multiple_files = true;
+option java_outer_classname = "AccountStatusV1Proto";
+
+enum AccountStatusV1 {
+  PENDING = 0;
+  ACTIVATED = 1;
+  INACTIVATED = 2;
+}

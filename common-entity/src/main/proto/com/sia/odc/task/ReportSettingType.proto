@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.odc.task;
+
+/*
+ * AOI : AOI 기준으로 보고서를 출력함.
+ * SCENE : SCENE 기준으로 보고서를 출력함.
+ */
+
+option java_multiple_files = true;
+
+enum ReportTypeProto {
+    AOI = 0;
+    SCENE = 1;
+}

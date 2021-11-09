@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "ProjectLatestInferenceSceneResponseV1Proto";
+
+import "com/sia/obision/scene/v1/SceneV1.proto";
+
+message ProjectLatestInferenceSceneResponseV1 {
+  // 선택
+  com.sia.obision.scene.v1.SceneV1 scene = 1;
+}

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package com.sia.tiling.tile;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetSceneImageTileProto";
+
+import "com/sia/tiling/common/TMRImage.proto";
+
+message GetSceneImageTileRequest {
+  // 필수
+  string scene_id = 1;
+
+  // 필수
+  int32 x = 2;
+
+  // 필수
+  int32 y = 3;
+
+  // 필수
+  int32 z = 4;
+}
+
+message GetSceneImageTileResponse {
+  com.sia.tiling.common.TMRImage image = 1;
+}

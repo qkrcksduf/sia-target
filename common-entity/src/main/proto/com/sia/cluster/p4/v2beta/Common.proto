@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.cluster.p4.v2beta;
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.p4.v2beta";
+
+enum WorkType {
+    NULL = 0;
+    AUTO = 1;
+    MANUAL = 2;
+    TRAIN = 3;
+}
+
+message heartbeat {
+
+}

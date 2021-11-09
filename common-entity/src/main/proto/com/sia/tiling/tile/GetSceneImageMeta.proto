@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.tiling.tile;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetSceneImageMetaProto";
+
+import "com/sia/tiling/common/SceneImageMeta.proto";
+
+message GetSceneImageMetaRequest {
+  // 필수
+  repeated string scene_id = 1;
+}
+
+message GetSceneImageMetaResponse {
+  repeated com.sia.tiling.common.SceneImageMeta metas = 1;
+}

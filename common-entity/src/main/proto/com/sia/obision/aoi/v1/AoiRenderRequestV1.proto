@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.aoi.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AoiRenderRequestV1Proto";
+
+import "com/sia/obision/aoi/v1/AoiV1.proto";
+
+message AoiRenderRequestV1 {
+    repeated com.sia.obision.aoi.v1.AoiV1 aois = 1;
+    string style = 2;
+    string imageType = 3;
+}

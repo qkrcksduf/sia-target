@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.aoi;
+
+option java_multiple_files = true;
+
+import "com/sia/obision/aoi/v1/AoiRenderRequestV1.proto";
+import "google/protobuf/empty.proto";
+
+service AoiRenderRouter {
+    rpc requestAoiRenderingV1 (com.sia.obision.aoi.v1.AoiRenderRequestV1) returns (google.protobuf.Empty) {}
+}

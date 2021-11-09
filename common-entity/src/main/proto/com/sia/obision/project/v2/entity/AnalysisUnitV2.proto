@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v2.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "AnalysisUnitV2Proto";
+
+import "com/sia/common/Period.proto";
+import "com/sia/obision/aoi/v2/entity/AoiV2.proto";
+import "com/sia/obision/algorithm/v2/entity/AlgorithmV2.proto";
+
+import "com/sia/common/UUID.proto";
+
+message AnalysisUnitV2 {
+    sia.common.UUID id = 1;
+    /**
+        기본 정보
+     */
+    sia.common.Period analysis_period = 4;
+    repeated string satellite_names = 5;
+    /**
+        aoi_field
+        aoi 정보
+     */
+    repeated aoi.v2.entity.AoiV2 aois = 2;
+    /**
+        algorithm_field
+        알고리즘 정보
+     */
+    repeated algorithm.v2.entity.AlgorithmV2 algorithms = 3;
+
+}
+
+message AnalysisUnitAllFieldV2 {
+    bool id_field = 1;
+    bool period_field = 2;
+    bool satellite_field = 3;
+    aoi.v2.entity.AoiFieldV2 aoi_field = 4;
+    algorithm.v2.entity.AlgorithmFieldV2 algorithm_field = 5;
+
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneMetaRequestV1Proto";
+
+import "com/sia/common/MongoId.proto";
+
+message SceneMetaRequestV1 {
+    sia.common.MongoId scene_id = 1;
+}

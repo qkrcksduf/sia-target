@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.sia.labelearth.dataset;
+
+import "com/sia/labelearth/dataset/v1/CreateDatasetV1.proto";
+import "com/sia/labelearth/dataset/v1/UpdateDatasetV1.proto";
+import "com/sia/labelearth/dataset/v1/GetDatasetV1.proto";
+import "com/sia/labelearth/dataset/v1/GetDatasetsV1.proto";
+import "com/sia/labelearth/dataset/v1/DeleteDatasetV1.proto";
+
+option java_multiple_files = true;
+
+service DatasetRouter {
+  rpc createDatasetV1(v1.CreateDatasetRequestV1Proto) returns (v1.CreateDatasetResponseV1Proto) {}
+
+  rpc updateDatasetV1(v1.UpdateDatasetRequestV1Proto) returns (v1.UpdateDatasetResponseV1Proto) {}
+
+  rpc getDatasetsV1(v1.GetDatasetsRequestV1Proto) returns (v1.GetDatasetsResponseV1Proto) {}
+
+  rpc getDatasetV1(v1.GetDatasetRequestV1Proto) returns (v1.GetDatasetResponseV1Proto) {}
+
+  rpc deleteDatasetV1(v1.DeleteDatasetRequestV1Proto) returns (v1.DeleteDatasetResponseV1Proto) {}
+}

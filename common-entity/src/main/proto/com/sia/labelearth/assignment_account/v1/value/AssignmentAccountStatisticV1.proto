@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.labelearth.assignment_account.v1.value;
+
+import "com/sia/labelearth/account/v1/entity/AccountRoleV1.proto";
+import "com/sia/labelearth/assignment_account/v1/entity/AssignmentAccountStatusV1.proto";
+
+//option java_multiple_files = true;
+option java_outer_classname = "AssignmentAccountStatisticV1Proto";
+
+message AssignmentAccountStatisticV1 {
+  int32 assignment_account_id = 1;
+  string account_name = 2;
+  account.v1.entity.AccountRoleV1 role = 3;
+  v1.entity.AssignmentAccountStatusV1 status = 4;
+  int32 working_hours = 5;
+  int32 assignment_scene_count = 6;
+  int32 label_count = 7;
+}

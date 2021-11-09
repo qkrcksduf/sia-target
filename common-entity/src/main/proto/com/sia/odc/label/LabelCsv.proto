@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package com.sia.odc.label;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/label/MatchingType.proto";
+
+option java_multiple_files = true;
+
+message LabelCsvRequestProto {
+  repeated string label_id = 1;
+}
+
+message LabelCsvResponseProto {
+  string scene_name = 2; // 영상 이름
+  string label_id = 1; // 라벨 ID
+  string level1 = 16; // 라벨 클래스의 레벨 1 이름
+  string level2 = 17; // 라벨 클래스의 레벨 2 이름
+  string level3 = 18; // 라벨 클래스의 레벨 3 이름
+  string label_class = 19; // 라벨 클래스의 이름
+  string top1 = 3; // 인퍼런스 클래스 Top1
+  string top2 = 4; // 인퍼런스 클래스 Top2
+  string top3 = 5; // 인퍼런스 클래스 Top3
+  string sub_gt = 20; // 검수한 경우 검수한 라벨의 이름
+  string region = 21; // 라벨의 지역명
+  string satellite = 6; // 위성명
+  double latitude = 7; // 위도
+  double longitude = 8; // 경도
+  double confidence = 9; // 라벨 클래스의 컨피던스
+  MatchingType matching = 10;
+  double width = 11;
+  double height = 12;
+  double angle = 13;
+  google.protobuf.Timestamp createDate = 14;
+  google.protobuf.Timestamp sceneDate = 15;
+  repeated string aoi_names = 22;
+  double center_x = 23;
+  double center_y = 24;
+}
+
+message LabelCsvListResponseProto {
+  repeated LabelCsvResponseProto labels = 1;
+}
+
+message LabelSearchMonitorCsvListResponseProto {
+  repeated LabelCsvResponseProto labels = 1;
+  int32 total_label_count = 2;
+}

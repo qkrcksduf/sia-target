@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetAllAccountRequestV1Proto";
+
+import "com/sia/common/Paging.proto";
+
+message GetAllAccountRequestV1 {
+  // 검색어, 사용자 이름 또는 Email
+  string search_word = 1;
+  // 페이징 정보
+  com.sia.common.Paging paging = 2;
+}

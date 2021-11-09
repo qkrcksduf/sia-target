@@ -24,60 +24,64 @@ public final class TargetRouterOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n)com/sia/obision/target/TargetRouter.pr" +
-      "oto\022\026com.sia.obision.target\032.com/sia/obi" +
-      "sion/target/v1/CreateTargetV1.proto\0322com" +
-      "/sia/obision/target/v1/CreateTargetListV" +
-      "1.proto\032.com/sia/obision/target/v1/Updat" +
-      "eTargetV1.proto\032.com/sia/obision/target/" +
-      "v1/DeleteTargetV1.proto\032.com/sia/obision" +
-      "/target/v1/TargetSearchV1.proto\032*com/sia" +
-      "/obision/target/v1/BookMarkV1.proto\0322com" +
-      "/sia/obision/target/v1/DeleteTargetListV" +
-      "1.proto\032.com/sia/obision/target/v1/Targe" +
-      "tFilterV1.proto\032\033google/protobuf/empty.p" +
-      "roto2\254\006\n\014TargetRouter\022Z\n\014createTarget\0220." +
-      "com.sia.obision.target.v1.CreateTargetRe" +
-      "questV1\032\026.google.protobuf.Empty\"\000\022b\n\020cre" +
-      "ateTargetList\0224.com.sia.obision.target.v" +
-      "1.CreateTargetListRequestV1\032\026.google.pro" +
-      "tobuf.Empty\"\000\022u\n\014targetSearch\0220.com.sia." +
-      "obision.target.v1.TargetSearchRequestV1\032" +
-      "1.com.sia.obision.target.v1.TargetSearch" +
-      "ResponseV1\"\000\022u\n\014targetFilter\0220.com.sia.o" +
-      "bision.target.v1.TargetFilterRequestV1\0321" +
-      ".com.sia.obision.target.v1.TargetFilterR" +
-      "esponseV1\"\000\022Z\n\014updateTarget\0220.com.sia.ob" +
-      "ision.target.v1.UpdateTargetRequestV1\032\026." +
-      "google.protobuf.Empty\"\000\022Z\n\014deleteTarget\022" +
-      "0.com.sia.obision.target.v1.DeleteTarget" +
-      "RequestV1\032\026.google.protobuf.Empty\"\000\022b\n\020d" +
-      "eleteTargetList\0224.com.sia.obision.target" +
-      ".v1.DeleteTargetListRequestV1\032\026.google.p" +
-      "rotobuf.Empty\"\000\022R\n\010bookMark\022,.com.sia.ob" +
-      "ision.target.v1.BookMarkRequestV1\032\026.goog" +
-      "le.protobuf.Empty\"\000B\002P\001b\006proto3"
+      "oto\022\026com.sia.obision.target\0325com/sia/obi" +
+      "sion/target/v1/target/CreateTargetV1.pro" +
+      "to\0329com/sia/obision/target/v1/target/Cre" +
+      "ateTargetListV1.proto\0325com/sia/obision/t" +
+      "arget/v1/target/UpdateTargetV1.proto\0325co" +
+      "m/sia/obision/target/v1/target/DeleteTar" +
+      "getV1.proto\0325com/sia/obision/target/v1/t" +
+      "arget/TargetSearchV1.proto\0327com/sia/obis" +
+      "ion/target/v1/target/TargetBookMarkV1.pr" +
+      "oto\0329com/sia/obision/target/v1/target/De" +
+      "leteTargetListV1.proto\0325com/sia/obision/" +
+      "target/v1/target/TargetFilterV1.proto\032\033g" +
+      "oogle/protobuf/empty.proto2\372\006\n\014TargetRou" +
+      "ter\022a\n\014createTarget\0227.com.sia.obision.ta" +
+      "rget.v1.target.CreateTargetRequestV1\032\026.g" +
+      "oogle.protobuf.Empty\"\000\022i\n\020createTargetLi" +
+      "st\022;.com.sia.obision.target.v1.target.Cr" +
+      "eateTargetListRequestV1\032\026.google.protobu" +
+      "f.Empty\"\000\022\203\001\n\014targetSearch\0227.com.sia.obi" +
+      "sion.target.v1.target.TargetSearchReques" +
+      "tV1\0328.com.sia.obision.target.v1.target.T" +
+      "argetSearchResponseV1\"\000\022\203\001\n\014targetFilter" +
+      "\0227.com.sia.obision.target.v1.target.Targ" +
+      "etFilterRequestV1\0328.com.sia.obision.targ" +
+      "et.v1.target.TargetFilterResponseV1\"\000\022a\n" +
+      "\014updateTarget\0227.com.sia.obision.target.v" +
+      "1.target.UpdateTargetRequestV1\032\026.google." +
+      "protobuf.Empty\"\000\022a\n\014deleteTarget\0227.com.s" +
+      "ia.obision.target.v1.target.DeleteTarget" +
+      "RequestV1\032\026.google.protobuf.Empty\"\000\022i\n\020d" +
+      "eleteTargetList\022;.com.sia.obision.target" +
+      ".v1.target.DeleteTargetListRequestV1\032\026.g" +
+      "oogle.protobuf.Empty\"\000\022_\n\010bookMark\0229.com" +
+      ".sia.obision.target.v1.target.TargetBook" +
+      "MarkRequestV1\032\026.google.protobuf.Empty\"\000B" +
+      "\002P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.sia.obision.target.v1.CreateTargetV1Proto.getDescriptor(),
-          com.sia.obision.target.v1.CreateTargetListV1Proto.getDescriptor(),
-          com.sia.obision.target.v1.UpdateTargetV1Proto.getDescriptor(),
-          com.sia.obision.target.v1.DeleteTargetV1Proto.getDescriptor(),
-          com.sia.obision.target.v1.TargetSearchV1Proto.getDescriptor(),
-          com.sia.obision.target.v1.BookMartV1Proto.getDescriptor(),
-          com.sia.obision.target.v1.DeleteTargetListV1Proto.getDescriptor(),
-          com.sia.obision.target.v1.TargetFilterV1Proto.getDescriptor(),
+          com.sia.obision.target.v1.target.CreateTargetV1Proto.getDescriptor(),
+          com.sia.obision.target.v1.target.CreateTargetListV1Proto.getDescriptor(),
+          com.sia.obision.target.v1.target.UpdateTargetV1Proto.getDescriptor(),
+          com.sia.obision.target.v1.target.DeleteTargetV1Proto.getDescriptor(),
+          com.sia.obision.target.v1.target.TargetSearchV1Proto.getDescriptor(),
+          com.sia.obision.target.v1.target.TargetBookMartV1Proto.getDescriptor(),
+          com.sia.obision.target.v1.target.DeleteTargetListV1Proto.getDescriptor(),
+          com.sia.obision.target.v1.target.TargetFilterV1Proto.getDescriptor(),
           com.google.protobuf.EmptyProto.getDescriptor(),
         });
-    com.sia.obision.target.v1.CreateTargetV1Proto.getDescriptor();
-    com.sia.obision.target.v1.CreateTargetListV1Proto.getDescriptor();
-    com.sia.obision.target.v1.UpdateTargetV1Proto.getDescriptor();
-    com.sia.obision.target.v1.DeleteTargetV1Proto.getDescriptor();
-    com.sia.obision.target.v1.TargetSearchV1Proto.getDescriptor();
-    com.sia.obision.target.v1.BookMartV1Proto.getDescriptor();
-    com.sia.obision.target.v1.DeleteTargetListV1Proto.getDescriptor();
-    com.sia.obision.target.v1.TargetFilterV1Proto.getDescriptor();
+    com.sia.obision.target.v1.target.CreateTargetV1Proto.getDescriptor();
+    com.sia.obision.target.v1.target.CreateTargetListV1Proto.getDescriptor();
+    com.sia.obision.target.v1.target.UpdateTargetV1Proto.getDescriptor();
+    com.sia.obision.target.v1.target.DeleteTargetV1Proto.getDescriptor();
+    com.sia.obision.target.v1.target.TargetSearchV1Proto.getDescriptor();
+    com.sia.obision.target.v1.target.TargetBookMartV1Proto.getDescriptor();
+    com.sia.obision.target.v1.target.DeleteTargetListV1Proto.getDescriptor();
+    com.sia.obision.target.v1.target.TargetFilterV1Proto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
   }
 

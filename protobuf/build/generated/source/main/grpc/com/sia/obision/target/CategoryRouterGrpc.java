@@ -14,29 +14,29 @@ public final class CategoryRouterGrpc {
   public static final String SERVICE_NAME = "com.sia.obision.target.CategoryRouter";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.CreateCategoryRequestV1,
-      com.sia.obision.target.v1.CreateCategoryResponseV1> getCreateCategoryMethod;
+  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.CreateCategoryRequestV1,
+      com.sia.obision.target.v1.category.CreateCategoryResponseV1> getCreateCategoryMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "createCategory",
-      requestType = com.sia.obision.target.v1.CreateCategoryRequestV1.class,
-      responseType = com.sia.obision.target.v1.CreateCategoryResponseV1.class,
+      requestType = com.sia.obision.target.v1.category.CreateCategoryRequestV1.class,
+      responseType = com.sia.obision.target.v1.category.CreateCategoryResponseV1.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.CreateCategoryRequestV1,
-      com.sia.obision.target.v1.CreateCategoryResponseV1> getCreateCategoryMethod() {
-    io.grpc.MethodDescriptor<com.sia.obision.target.v1.CreateCategoryRequestV1, com.sia.obision.target.v1.CreateCategoryResponseV1> getCreateCategoryMethod;
+  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.CreateCategoryRequestV1,
+      com.sia.obision.target.v1.category.CreateCategoryResponseV1> getCreateCategoryMethod() {
+    io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.CreateCategoryRequestV1, com.sia.obision.target.v1.category.CreateCategoryResponseV1> getCreateCategoryMethod;
     if ((getCreateCategoryMethod = CategoryRouterGrpc.getCreateCategoryMethod) == null) {
       synchronized (CategoryRouterGrpc.class) {
         if ((getCreateCategoryMethod = CategoryRouterGrpc.getCreateCategoryMethod) == null) {
           CategoryRouterGrpc.getCreateCategoryMethod = getCreateCategoryMethod =
-              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.CreateCategoryRequestV1, com.sia.obision.target.v1.CreateCategoryResponseV1>newBuilder()
+              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.category.CreateCategoryRequestV1, com.sia.obision.target.v1.category.CreateCategoryResponseV1>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "createCategory"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.CreateCategoryRequestV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.category.CreateCategoryRequestV1.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.CreateCategoryResponseV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.category.CreateCategoryResponseV1.getDefaultInstance()))
               .setSchemaDescriptor(new CategoryRouterMethodDescriptorSupplier("createCategory"))
               .build();
         }
@@ -45,29 +45,29 @@ public final class CategoryRouterGrpc {
     return getCreateCategoryMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.CreateCategoryListRequestV1,
-      com.sia.obision.target.v1.CreateCategoryListResponseV1> getCreateCategoryListMethod;
+  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.CreateCategoryListRequestV1,
+      com.sia.obision.target.v1.category.CreateCategoryListResponseV1> getCreateCategoryListMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "createCategoryList",
-      requestType = com.sia.obision.target.v1.CreateCategoryListRequestV1.class,
-      responseType = com.sia.obision.target.v1.CreateCategoryListResponseV1.class,
+      requestType = com.sia.obision.target.v1.category.CreateCategoryListRequestV1.class,
+      responseType = com.sia.obision.target.v1.category.CreateCategoryListResponseV1.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.CreateCategoryListRequestV1,
-      com.sia.obision.target.v1.CreateCategoryListResponseV1> getCreateCategoryListMethod() {
-    io.grpc.MethodDescriptor<com.sia.obision.target.v1.CreateCategoryListRequestV1, com.sia.obision.target.v1.CreateCategoryListResponseV1> getCreateCategoryListMethod;
+  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.CreateCategoryListRequestV1,
+      com.sia.obision.target.v1.category.CreateCategoryListResponseV1> getCreateCategoryListMethod() {
+    io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.CreateCategoryListRequestV1, com.sia.obision.target.v1.category.CreateCategoryListResponseV1> getCreateCategoryListMethod;
     if ((getCreateCategoryListMethod = CategoryRouterGrpc.getCreateCategoryListMethod) == null) {
       synchronized (CategoryRouterGrpc.class) {
         if ((getCreateCategoryListMethod = CategoryRouterGrpc.getCreateCategoryListMethod) == null) {
           CategoryRouterGrpc.getCreateCategoryListMethod = getCreateCategoryListMethod =
-              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.CreateCategoryListRequestV1, com.sia.obision.target.v1.CreateCategoryListResponseV1>newBuilder()
+              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.category.CreateCategoryListRequestV1, com.sia.obision.target.v1.category.CreateCategoryListResponseV1>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "createCategoryList"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.CreateCategoryListRequestV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.category.CreateCategoryListRequestV1.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.CreateCategoryListResponseV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.category.CreateCategoryListResponseV1.getDefaultInstance()))
               .setSchemaDescriptor(new CategoryRouterMethodDescriptorSupplier("createCategoryList"))
               .build();
         }
@@ -77,28 +77,28 @@ public final class CategoryRouterGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      com.sia.obision.target.v1.GetCategoryListResponseV1> getGetCategoryListMethod;
+      com.sia.obision.target.v1.category.GetCategoryListResponseV1> getGetCategoryListMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getCategoryList",
       requestType = com.google.protobuf.Empty.class,
-      responseType = com.sia.obision.target.v1.GetCategoryListResponseV1.class,
+      responseType = com.sia.obision.target.v1.category.GetCategoryListResponseV1.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      com.sia.obision.target.v1.GetCategoryListResponseV1> getGetCategoryListMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, com.sia.obision.target.v1.GetCategoryListResponseV1> getGetCategoryListMethod;
+      com.sia.obision.target.v1.category.GetCategoryListResponseV1> getGetCategoryListMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, com.sia.obision.target.v1.category.GetCategoryListResponseV1> getGetCategoryListMethod;
     if ((getGetCategoryListMethod = CategoryRouterGrpc.getGetCategoryListMethod) == null) {
       synchronized (CategoryRouterGrpc.class) {
         if ((getGetCategoryListMethod = CategoryRouterGrpc.getGetCategoryListMethod) == null) {
           CategoryRouterGrpc.getGetCategoryListMethod = getGetCategoryListMethod =
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, com.sia.obision.target.v1.GetCategoryListResponseV1>newBuilder()
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, com.sia.obision.target.v1.category.GetCategoryListResponseV1>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "getCategoryList"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.GetCategoryListResponseV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.category.GetCategoryListResponseV1.getDefaultInstance()))
               .setSchemaDescriptor(new CategoryRouterMethodDescriptorSupplier("getCategoryList"))
               .build();
         }
@@ -107,27 +107,27 @@ public final class CategoryRouterGrpc {
     return getGetCategoryListMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.UpdateCategoryRequestV1,
+  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.UpdateCategoryRequestV1,
       com.google.protobuf.Empty> getUpdateCategoryMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "updateCategory",
-      requestType = com.sia.obision.target.v1.UpdateCategoryRequestV1.class,
+      requestType = com.sia.obision.target.v1.category.UpdateCategoryRequestV1.class,
       responseType = com.google.protobuf.Empty.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.UpdateCategoryRequestV1,
+  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.UpdateCategoryRequestV1,
       com.google.protobuf.Empty> getUpdateCategoryMethod() {
-    io.grpc.MethodDescriptor<com.sia.obision.target.v1.UpdateCategoryRequestV1, com.google.protobuf.Empty> getUpdateCategoryMethod;
+    io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.UpdateCategoryRequestV1, com.google.protobuf.Empty> getUpdateCategoryMethod;
     if ((getUpdateCategoryMethod = CategoryRouterGrpc.getUpdateCategoryMethod) == null) {
       synchronized (CategoryRouterGrpc.class) {
         if ((getUpdateCategoryMethod = CategoryRouterGrpc.getUpdateCategoryMethod) == null) {
           CategoryRouterGrpc.getUpdateCategoryMethod = getUpdateCategoryMethod =
-              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.UpdateCategoryRequestV1, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.category.UpdateCategoryRequestV1, com.google.protobuf.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "updateCategory"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.UpdateCategoryRequestV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.category.UpdateCategoryRequestV1.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setSchemaDescriptor(new CategoryRouterMethodDescriptorSupplier("updateCategory"))
@@ -138,27 +138,27 @@ public final class CategoryRouterGrpc {
     return getUpdateCategoryMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.DeleteCategoryRequestV1,
+  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.DeleteCategoryRequestV1,
       com.google.protobuf.Empty> getDeleteCategoryMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "deleteCategory",
-      requestType = com.sia.obision.target.v1.DeleteCategoryRequestV1.class,
+      requestType = com.sia.obision.target.v1.category.DeleteCategoryRequestV1.class,
       responseType = com.google.protobuf.Empty.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.DeleteCategoryRequestV1,
+  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.DeleteCategoryRequestV1,
       com.google.protobuf.Empty> getDeleteCategoryMethod() {
-    io.grpc.MethodDescriptor<com.sia.obision.target.v1.DeleteCategoryRequestV1, com.google.protobuf.Empty> getDeleteCategoryMethod;
+    io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.DeleteCategoryRequestV1, com.google.protobuf.Empty> getDeleteCategoryMethod;
     if ((getDeleteCategoryMethod = CategoryRouterGrpc.getDeleteCategoryMethod) == null) {
       synchronized (CategoryRouterGrpc.class) {
         if ((getDeleteCategoryMethod = CategoryRouterGrpc.getDeleteCategoryMethod) == null) {
           CategoryRouterGrpc.getDeleteCategoryMethod = getDeleteCategoryMethod =
-              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.DeleteCategoryRequestV1, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.category.DeleteCategoryRequestV1, com.google.protobuf.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "deleteCategory"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.DeleteCategoryRequestV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.category.DeleteCategoryRequestV1.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setSchemaDescriptor(new CategoryRouterMethodDescriptorSupplier("deleteCategory"))
@@ -169,27 +169,27 @@ public final class CategoryRouterGrpc {
     return getDeleteCategoryMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.DeleteCategoryListRequestV1,
+  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.DeleteCategoryListRequestV1,
       com.google.protobuf.Empty> getDeleteCategoryListMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "deleteCategoryList",
-      requestType = com.sia.obision.target.v1.DeleteCategoryListRequestV1.class,
+      requestType = com.sia.obision.target.v1.category.DeleteCategoryListRequestV1.class,
       responseType = com.google.protobuf.Empty.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.DeleteCategoryListRequestV1,
+  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.DeleteCategoryListRequestV1,
       com.google.protobuf.Empty> getDeleteCategoryListMethod() {
-    io.grpc.MethodDescriptor<com.sia.obision.target.v1.DeleteCategoryListRequestV1, com.google.protobuf.Empty> getDeleteCategoryListMethod;
+    io.grpc.MethodDescriptor<com.sia.obision.target.v1.category.DeleteCategoryListRequestV1, com.google.protobuf.Empty> getDeleteCategoryListMethod;
     if ((getDeleteCategoryListMethod = CategoryRouterGrpc.getDeleteCategoryListMethod) == null) {
       synchronized (CategoryRouterGrpc.class) {
         if ((getDeleteCategoryListMethod = CategoryRouterGrpc.getDeleteCategoryListMethod) == null) {
           CategoryRouterGrpc.getDeleteCategoryListMethod = getDeleteCategoryListMethod =
-              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.DeleteCategoryListRequestV1, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.category.DeleteCategoryListRequestV1, com.google.protobuf.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "deleteCategoryList"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.DeleteCategoryListRequestV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.category.DeleteCategoryListRequestV1.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setSchemaDescriptor(new CategoryRouterMethodDescriptorSupplier("deleteCategoryList"))
@@ -250,42 +250,42 @@ public final class CategoryRouterGrpc {
 
     /**
      */
-    public void createCategory(com.sia.obision.target.v1.CreateCategoryRequestV1 request,
-        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.CreateCategoryResponseV1> responseObserver) {
+    public void createCategory(com.sia.obision.target.v1.category.CreateCategoryRequestV1 request,
+        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.category.CreateCategoryResponseV1> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateCategoryMethod(), responseObserver);
     }
 
     /**
      */
-    public void createCategoryList(com.sia.obision.target.v1.CreateCategoryListRequestV1 request,
-        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.CreateCategoryListResponseV1> responseObserver) {
+    public void createCategoryList(com.sia.obision.target.v1.category.CreateCategoryListRequestV1 request,
+        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.category.CreateCategoryListResponseV1> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateCategoryListMethod(), responseObserver);
     }
 
     /**
      */
     public void getCategoryList(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.GetCategoryListResponseV1> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.category.GetCategoryListResponseV1> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetCategoryListMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateCategory(com.sia.obision.target.v1.UpdateCategoryRequestV1 request,
+    public void updateCategory(com.sia.obision.target.v1.category.UpdateCategoryRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateCategoryMethod(), responseObserver);
     }
 
     /**
      */
-    public void deleteCategory(com.sia.obision.target.v1.DeleteCategoryRequestV1 request,
+    public void deleteCategory(com.sia.obision.target.v1.category.DeleteCategoryRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteCategoryMethod(), responseObserver);
     }
 
     /**
      */
-    public void deleteCategoryList(com.sia.obision.target.v1.DeleteCategoryListRequestV1 request,
+    public void deleteCategoryList(com.sia.obision.target.v1.category.DeleteCategoryListRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteCategoryListMethod(), responseObserver);
     }
@@ -296,42 +296,42 @@ public final class CategoryRouterGrpc {
             getCreateCategoryMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.sia.obision.target.v1.CreateCategoryRequestV1,
-                com.sia.obision.target.v1.CreateCategoryResponseV1>(
+                com.sia.obision.target.v1.category.CreateCategoryRequestV1,
+                com.sia.obision.target.v1.category.CreateCategoryResponseV1>(
                   this, METHODID_CREATE_CATEGORY)))
           .addMethod(
             getCreateCategoryListMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.sia.obision.target.v1.CreateCategoryListRequestV1,
-                com.sia.obision.target.v1.CreateCategoryListResponseV1>(
+                com.sia.obision.target.v1.category.CreateCategoryListRequestV1,
+                com.sia.obision.target.v1.category.CreateCategoryListResponseV1>(
                   this, METHODID_CREATE_CATEGORY_LIST)))
           .addMethod(
             getGetCategoryListMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.google.protobuf.Empty,
-                com.sia.obision.target.v1.GetCategoryListResponseV1>(
+                com.sia.obision.target.v1.category.GetCategoryListResponseV1>(
                   this, METHODID_GET_CATEGORY_LIST)))
           .addMethod(
             getUpdateCategoryMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.sia.obision.target.v1.UpdateCategoryRequestV1,
+                com.sia.obision.target.v1.category.UpdateCategoryRequestV1,
                 com.google.protobuf.Empty>(
                   this, METHODID_UPDATE_CATEGORY)))
           .addMethod(
             getDeleteCategoryMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.sia.obision.target.v1.DeleteCategoryRequestV1,
+                com.sia.obision.target.v1.category.DeleteCategoryRequestV1,
                 com.google.protobuf.Empty>(
                   this, METHODID_DELETE_CATEGORY)))
           .addMethod(
             getDeleteCategoryListMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.sia.obision.target.v1.DeleteCategoryListRequestV1,
+                com.sia.obision.target.v1.category.DeleteCategoryListRequestV1,
                 com.google.protobuf.Empty>(
                   this, METHODID_DELETE_CATEGORY_LIST)))
           .build();
@@ -354,16 +354,16 @@ public final class CategoryRouterGrpc {
 
     /**
      */
-    public void createCategory(com.sia.obision.target.v1.CreateCategoryRequestV1 request,
-        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.CreateCategoryResponseV1> responseObserver) {
+    public void createCategory(com.sia.obision.target.v1.category.CreateCategoryRequestV1 request,
+        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.category.CreateCategoryResponseV1> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateCategoryMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void createCategoryList(com.sia.obision.target.v1.CreateCategoryListRequestV1 request,
-        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.CreateCategoryListResponseV1> responseObserver) {
+    public void createCategoryList(com.sia.obision.target.v1.category.CreateCategoryListRequestV1 request,
+        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.category.CreateCategoryListResponseV1> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateCategoryListMethod(), getCallOptions()), request, responseObserver);
     }
@@ -371,14 +371,14 @@ public final class CategoryRouterGrpc {
     /**
      */
     public void getCategoryList(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.GetCategoryListResponseV1> responseObserver) {
+        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.category.GetCategoryListResponseV1> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetCategoryListMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void updateCategory(com.sia.obision.target.v1.UpdateCategoryRequestV1 request,
+    public void updateCategory(com.sia.obision.target.v1.category.UpdateCategoryRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateCategoryMethod(), getCallOptions()), request, responseObserver);
@@ -386,7 +386,7 @@ public final class CategoryRouterGrpc {
 
     /**
      */
-    public void deleteCategory(com.sia.obision.target.v1.DeleteCategoryRequestV1 request,
+    public void deleteCategory(com.sia.obision.target.v1.category.DeleteCategoryRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteCategoryMethod(), getCallOptions()), request, responseObserver);
@@ -394,7 +394,7 @@ public final class CategoryRouterGrpc {
 
     /**
      */
-    public void deleteCategoryList(com.sia.obision.target.v1.DeleteCategoryListRequestV1 request,
+    public void deleteCategoryList(com.sia.obision.target.v1.category.DeleteCategoryListRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteCategoryListMethod(), getCallOptions()), request, responseObserver);
@@ -417,42 +417,42 @@ public final class CategoryRouterGrpc {
 
     /**
      */
-    public com.sia.obision.target.v1.CreateCategoryResponseV1 createCategory(com.sia.obision.target.v1.CreateCategoryRequestV1 request) {
+    public com.sia.obision.target.v1.category.CreateCategoryResponseV1 createCategory(com.sia.obision.target.v1.category.CreateCategoryRequestV1 request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateCategoryMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sia.obision.target.v1.CreateCategoryListResponseV1 createCategoryList(com.sia.obision.target.v1.CreateCategoryListRequestV1 request) {
+    public com.sia.obision.target.v1.category.CreateCategoryListResponseV1 createCategoryList(com.sia.obision.target.v1.category.CreateCategoryListRequestV1 request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateCategoryListMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sia.obision.target.v1.GetCategoryListResponseV1 getCategoryList(com.google.protobuf.Empty request) {
+    public com.sia.obision.target.v1.category.GetCategoryListResponseV1 getCategoryList(com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetCategoryListMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.google.protobuf.Empty updateCategory(com.sia.obision.target.v1.UpdateCategoryRequestV1 request) {
+    public com.google.protobuf.Empty updateCategory(com.sia.obision.target.v1.category.UpdateCategoryRequestV1 request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateCategoryMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.google.protobuf.Empty deleteCategory(com.sia.obision.target.v1.DeleteCategoryRequestV1 request) {
+    public com.google.protobuf.Empty deleteCategory(com.sia.obision.target.v1.category.DeleteCategoryRequestV1 request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteCategoryMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.google.protobuf.Empty deleteCategoryList(com.sia.obision.target.v1.DeleteCategoryListRequestV1 request) {
+    public com.google.protobuf.Empty deleteCategoryList(com.sia.obision.target.v1.category.DeleteCategoryListRequestV1 request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteCategoryListMethod(), getCallOptions(), request);
     }
@@ -474,23 +474,23 @@ public final class CategoryRouterGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sia.obision.target.v1.CreateCategoryResponseV1> createCategory(
-        com.sia.obision.target.v1.CreateCategoryRequestV1 request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.sia.obision.target.v1.category.CreateCategoryResponseV1> createCategory(
+        com.sia.obision.target.v1.category.CreateCategoryRequestV1 request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateCategoryMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sia.obision.target.v1.CreateCategoryListResponseV1> createCategoryList(
-        com.sia.obision.target.v1.CreateCategoryListRequestV1 request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.sia.obision.target.v1.category.CreateCategoryListResponseV1> createCategoryList(
+        com.sia.obision.target.v1.category.CreateCategoryListRequestV1 request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateCategoryListMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sia.obision.target.v1.GetCategoryListResponseV1> getCategoryList(
+    public com.google.common.util.concurrent.ListenableFuture<com.sia.obision.target.v1.category.GetCategoryListResponseV1> getCategoryList(
         com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetCategoryListMethod(), getCallOptions()), request);
@@ -499,7 +499,7 @@ public final class CategoryRouterGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> updateCategory(
-        com.sia.obision.target.v1.UpdateCategoryRequestV1 request) {
+        com.sia.obision.target.v1.category.UpdateCategoryRequestV1 request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateCategoryMethod(), getCallOptions()), request);
     }
@@ -507,7 +507,7 @@ public final class CategoryRouterGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> deleteCategory(
-        com.sia.obision.target.v1.DeleteCategoryRequestV1 request) {
+        com.sia.obision.target.v1.category.DeleteCategoryRequestV1 request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteCategoryMethod(), getCallOptions()), request);
     }
@@ -515,7 +515,7 @@ public final class CategoryRouterGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> deleteCategoryList(
-        com.sia.obision.target.v1.DeleteCategoryListRequestV1 request) {
+        com.sia.obision.target.v1.category.DeleteCategoryListRequestV1 request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteCategoryListMethod(), getCallOptions()), request);
     }
@@ -546,27 +546,27 @@ public final class CategoryRouterGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CREATE_CATEGORY:
-          serviceImpl.createCategory((com.sia.obision.target.v1.CreateCategoryRequestV1) request,
-              (io.grpc.stub.StreamObserver<com.sia.obision.target.v1.CreateCategoryResponseV1>) responseObserver);
+          serviceImpl.createCategory((com.sia.obision.target.v1.category.CreateCategoryRequestV1) request,
+              (io.grpc.stub.StreamObserver<com.sia.obision.target.v1.category.CreateCategoryResponseV1>) responseObserver);
           break;
         case METHODID_CREATE_CATEGORY_LIST:
-          serviceImpl.createCategoryList((com.sia.obision.target.v1.CreateCategoryListRequestV1) request,
-              (io.grpc.stub.StreamObserver<com.sia.obision.target.v1.CreateCategoryListResponseV1>) responseObserver);
+          serviceImpl.createCategoryList((com.sia.obision.target.v1.category.CreateCategoryListRequestV1) request,
+              (io.grpc.stub.StreamObserver<com.sia.obision.target.v1.category.CreateCategoryListResponseV1>) responseObserver);
           break;
         case METHODID_GET_CATEGORY_LIST:
           serviceImpl.getCategoryList((com.google.protobuf.Empty) request,
-              (io.grpc.stub.StreamObserver<com.sia.obision.target.v1.GetCategoryListResponseV1>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.sia.obision.target.v1.category.GetCategoryListResponseV1>) responseObserver);
           break;
         case METHODID_UPDATE_CATEGORY:
-          serviceImpl.updateCategory((com.sia.obision.target.v1.UpdateCategoryRequestV1) request,
+          serviceImpl.updateCategory((com.sia.obision.target.v1.category.UpdateCategoryRequestV1) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_DELETE_CATEGORY:
-          serviceImpl.deleteCategory((com.sia.obision.target.v1.DeleteCategoryRequestV1) request,
+          serviceImpl.deleteCategory((com.sia.obision.target.v1.category.DeleteCategoryRequestV1) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_DELETE_CATEGORY_LIST:
-          serviceImpl.deleteCategoryList((com.sia.obision.target.v1.DeleteCategoryListRequestV1) request,
+          serviceImpl.deleteCategoryList((com.sia.obision.target.v1.category.DeleteCategoryListRequestV1) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         default:

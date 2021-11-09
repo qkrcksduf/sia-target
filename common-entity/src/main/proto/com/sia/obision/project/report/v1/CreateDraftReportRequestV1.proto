@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateDraftReportRequestV1Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/obision/common/RGB.proto";
+import "com/sia/common/Point.proto";
+
+/*
+ * [GLC21]Kvision_UIG_초도판독보고서_v1.0_F.pptx 기준으로 이름을 작성하였습니다.
+ * name: 보고서 이름
+ * datetime: 보고 날짜 (영상 촬영 일시 or 보고서 생성 일시)
+ * location_properties: mgrs, geo 등을 포함하는 Map
+ * location_properties_keys: location_properties Map의 key 리스트
+ * secret_level: 보안 등급
+ * footer_content: 꼬리말
+ * article: 보고내용
+ * angle: 북위를 기준으로 돌아간 각도
+ * position: 영상 중앙의 좌표
+ * label_legend: 탐지된 객체 리스트 (LabelLegend.proto, RGB.proto 참고)
+ * captured_area_image: 캡쳐한 이미지
+ */
+
+message CreateDraftReportRequestV1 {
+  string name = 1;
+  google.protobuf.Timestamp datetime = 2;
+  map<string, string> location_properties = 3;
+  repeated string location_properties_key = 4;
+  string secret_level = 5;
+  string footer_content = 6;
+  string article = 7;
+  string satellite = 8;
+  double angle = 9;
+  com.sia.common.Point position = 10;
+  repeated LabelLegend label_legend = 11;
+  bytes captured_area_image = 12;
+}
+
+
+/**
+ * color: Int 타입의 r, g, b
+ * name: 객체 이름
+ * count: 객체 수
+ */
+
+message LabelLegend {
+  common.RGBProto color = 1;
+  string name = 2;
+  int32 count = 3;
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.labelearth.scene.v1.value;
+
+//option java_multiple_files = true;
+option java_outer_classname = "ScenePathV1Proto";
+
+message ScenePathV1 {
+  string id = 1;
+  string scene_path = 2;
+}

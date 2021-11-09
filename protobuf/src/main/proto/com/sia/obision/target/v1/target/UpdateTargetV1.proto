@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.target;
+
+option java_multiple_files = true;
+option java_outer_classname = "UpdateTargetV1Proto";
+
+import "com/sia/common/UUID.proto";
+
+message UpdateTargetRequestV1 {
+  string currentId = 1;
+  string newId = 2;
+  string name = 3;
+  com.sia.common.UUID categoryId = 4;
+  string mgrs = 5;
+  string latitude = 6;
+  string longitude = 7;
+  string be = 8;
+  string jdpi = 9;
+}

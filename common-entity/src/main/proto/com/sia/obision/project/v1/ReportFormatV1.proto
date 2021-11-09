@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "ReportFormatV1Proto";
+
+enum ReportFormatV1 {
+  PDF = 0;
+  HWP = 1;
+}

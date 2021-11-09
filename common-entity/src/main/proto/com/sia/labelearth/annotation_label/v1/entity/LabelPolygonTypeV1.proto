@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.labelearth.annotation_label.v1.entity;
+
+//option java_multiple_files = true;
+option java_outer_classname = "LabelPolygonTypeV1Proto";
+
+enum LabelPolygonTypeV1 {
+  POLYGON = 0;
+  RBOX = 1;
+}

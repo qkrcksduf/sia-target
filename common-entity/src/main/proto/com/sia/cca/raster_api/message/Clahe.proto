@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.sia.cca.raster_api.message;
+
+option java_multiple_files = true;
+
+import "com/sia/cca/cloud/message/Cloud.proto";
+
+message ClaheRequest {
+    string scene_id = 1;
+    bytes image = 2;
+    uint32 width = 3;
+    uint32 height = 4;
+    uint32 channel = 5;
+}
+
+message ClaheResponse {
+    string scene_id = 1;
+    string base64_image = 2;
+}

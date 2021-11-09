@@ -4,4 +4,4 @@ import io.grpc.Status
 import io.grpc.StatusException
 
 class IdDuplicationException(description: String? = null) :
-    StatusException(Status.INVALID_ARGUMENT.withDescription(description))
+    StatusException(Status.ALREADY_EXISTS.withDescription(description))

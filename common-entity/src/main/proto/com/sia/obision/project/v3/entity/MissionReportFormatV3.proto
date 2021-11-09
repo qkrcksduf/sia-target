@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v3.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "MissionReportFormatV3Proto";
+
+import "com/sia/common/UUID.proto";
+
+message MissionReportFormatV3 {
+    string krName = 1;
+    string enName = 2;
+    ReportTypeV3 type = 3;
+    ReportDetailV3 detail = 4;
+    LocationPresentationTypeV3 location_presentation = 5;
+    bool isDisplayTotalDetection = 6;
+    string krObjectName = 7;
+    string enObjectName = 8;
+    repeated NotFilmedAreaIconV3 notFilmedAreaIconV3 = 9;
+    // 보고서 생성 하는지에 대한 여부
+    bool isReportGeneration = 10;
+}
+
+message NotFilmedAreaIconV3 {
+    common.UUID algorithm_id = 1;
+    IconTypeV3 type = 2;
+}
+
+enum ReportTypeV3 {
+    REPORT_TYPE_V3_NONE = 0;
+    BASED_ON_SCENE = 1;
+    BASED_ON_AOI = 2;
+}
+
+enum ReportDetailV3 {
+    REPORT_DETAIL_V3_NONE = 0;
+    DETAIL_DEFAULT = 1;
+    DETAIL_GRAPH = 2;
+}
+
+enum LocationPresentationTypeV3 {
+    LOCATION_PRESENTATION_TYPE_V3_NONE = 0;
+    OBJECT_LOCATION = 1;
+    LOCATION_WITH_NUMBER = 2;
+}
+
+enum IconTypeV3 {
+    ICON_TYPE_NONE = 0;
+    CAR = 1;
+    AIRPLANE = 2;
+    TRAIN = 3;
+    SHIP = 4;
+}

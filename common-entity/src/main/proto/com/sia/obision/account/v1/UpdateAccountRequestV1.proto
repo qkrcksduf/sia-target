@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "UpdateAccountRequestV1Proto";
+
+import "com/sia/obision/account/v1/AccountPermissionV1.proto";
+import "google/protobuf/timestamp.proto";
+
+message UpdateAccountRequestV1 {
+  string id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string name=11;
+  string email = 4;
+  string old_password = 5;
+  string new_password = 6;
+  string organization = 7;
+  string position = 8;
+  AccountPermissionV1 permission = 9;
+  google.protobuf.Timestamp created_time = 10;
+}

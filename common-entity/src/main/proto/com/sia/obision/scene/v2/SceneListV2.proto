@@ -1,0 +1,148 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneListRequestV2Proto";
+
+import "com/sia/common/Extent.proto";
+import "com/sia/obision/common/Region.proto";
+import "com/sia/common/TimeZone.proto";
+import "com/sia/common/TimestampRange.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/common/MongoId.proto";
+import "com/sia/obision/scene/v2/entity/SceneV2.proto";
+import "com/sia/common/DoubleRange.proto";
+import "com/sia/obision/scene/v1/SceneStatusV1.proto";
+import "com/sia/common/Paging.proto";
+import "com/sia/common/SortDirection.proto";
+
+/**
+  영상 리스트 요청
+    필터링
+    옵션
+    정렬
+    페이징
+    필드 설정
+ */
+message SceneListRequestV2 {
+  SceneRequestFilterV2 filter = 1;
+  SceneRequestOptionV2 option = 2;
+  sia.common.SortDirection sort_direction = 3;
+  SceneListSortTargetV2 sort_target = 4;
+  sia.common.Paging paging = 5;
+  SceneListFieldV2 field = 6;
+}
+
+/**
+  영상 리스트 요청의 필터링
+    1. 영상 id 리스트
+    2. 프로젝트 id 리스트
+    3. 촬영 시간 범위 리스트
+    12. aoi id 리스트
+    4. 위성 리스트
+    5. 상태 리스트
+    6. 지역 리스트
+    7. 위치
+    8. 라벨 클래스 필터
+    9. aoi 커버리지 범위
+    10. 구름 커버리지 범위
+    11. 키워드 검색
+ */
+message SceneRequestFilterV2 {
+  repeated sia.common.MongoId scene_ids = 1;
+  repeated sia.common.UUID project_ids = 2;
+  repeated sia.common.TimestampRange imaging_time_ranges = 3;
+  repeated sia.common.UUID aoi_ids = 12;
+  repeated string satellite_names = 4;
+  repeated scene.v1.SceneStatusV1 status = 5;
+  repeated obision.common.Region regions = 6;
+  sia.common.Extent extent = 7;
+  LabelClassFilter label_class_filter = 8;
+  sia.common.DoubleRange aoi_coverage_range = 9;
+  sia.common.DoubleRange cloud_coverage_range = 10;
+  string keyword = 11;
+}
+
+
+message LabelClassFilter {
+  /*
+    해당 필터가 활성화 되었는지를 확실히 표시
+    true 일 경우에만 라벨 클래스에 대한 필터가 적용됨
+   */
+  bool activated = 1;
+  /*
+    true : 아무것도 검출되지 않은 영상 포함
+    기본값 : false
+   */
+  bool contain_nothing_detected = 2;
+  /*
+    해당 라벨 클래스가 검출된 영상
+   */
+  repeated sia.common.UUID label_class_ids = 3;
+}
+
+/**
+  영상 리스트 요청의 옵션
+  자신의 계정 id
+ */
+message SceneRequestOptionV2 {
+  /*
+    자신의 계정 id
+    즐겨찾기 기능을 위해 필요
+   */
+  string account_id = 1;
+  /*
+    특정 aoi 에만 필터링 하는 경우
+   */
+  com.sia.common.UUID aoi_id = 7;
+  /*
+    영상의 총 개수는 변하지 않지만 영상 리스트에 변동이 생기는 항목들
+   */
+  oneof tab {
+    bool favorite_tab = 2;
+    bool today_inferred_tab = 3;
+    bool today_reviewed_tab = 4;
+  }
+  /*
+    하나 이상 검출된 영상만 표시
+    영상의 총 개수에 영향을 줌
+   */
+  bool only_anything_detected = 5;
+  /*
+    '오늘' 이 들어가는 필터링을 위한 타임존 설정
+    기본값 : 서버의 기본값
+   */
+  com.sia.common.TimeZone timezone = 6;
+}
+
+/**
+  영상 리스트 응답
+  1. 영상 목록
+  2. 영상 총 개수
+  3. 오늘 인퍼런스된 영상 개수
+  4. 오늘 검수된 영상 개수
+*/
+message SceneListResponseV2 {
+  repeated scene.v2.entity.SceneV2 scenes = 1;
+  int32 total_count = 2;
+  int32 today_inferred_count = 3;
+  int32 today_reviewed_count = 4;
+}
+
+message SceneListFieldV2 {
+  scene.v2.entity.SceneFieldV2 scene_field = 1;
+  bool total_count_field = 2;
+  bool today_inferred_count = 3;
+  bool today_reviewed_count = 4;
+}
+
+enum SceneListSortTargetV2 {
+  IMAGING_TIME = 0;
+  NAME = 1;
+  STATUS = 2;
+  REGION = 4;
+  SATELLITE = 5;
+  OBJECT = 6;
+  AOI_COVERAGE = 7;
+}

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package com.sia.odc.aoi;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/common/WKB.proto";
+
+option java_outer_classname = "AoiProto";
+
+message Aoi {
+    int32 id=1;
+    string aoi_name=2;
+    AoiPolygonList polygon=3;
+    string create_user_id=4;
+    google.protobuf.Timestamp create_date=5;
+}
+
+message AoiList {
+    repeated Aoi aoi=1;
+}
+
+message AoiPolygon {
+    string name = 1;
+    com.sia.odc.common.WKB wkb = 2;
+}
+
+message AoiPolygonList {
+    repeated AoiPolygon polygon = 1;
+}

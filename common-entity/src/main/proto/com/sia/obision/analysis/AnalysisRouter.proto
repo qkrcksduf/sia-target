@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis;
+
+option java_multiple_files = true;
+
+import "com/sia/obision/analysis/v2/LabelListV2.proto";
+import "com/sia/obision/analysis/v2/ReviewLabelV2.proto";
+import "com/sia/obision/analysis/v2/UpdateReviewStatusV2.proto";
+import "com/sia/obision/analysis/v2/LabelChangeStreamV2.proto";
+import "com/sia/obision/analysis/v2/AoiLabelClasssCountListV2.proto";
+import "com/sia/obision/analysis/v2/DeleteLabelRequestV2.proto";
+import "com/sia/obision/analysis/v2/AnalyzeProjectRequestV2.proto";
+
+import "google/protobuf/empty.proto";
+
+service AnalysisRouter {
+  rpc getLabelListV2(v2.LabelListRequestV2) returns (v2.LabelListResponseV2) {}
+
+  rpc reviewLabelListV2(v2.ReviewLabelRequestV2) returns (v2.ReviewLabelResponseV2) {}
+
+  rpc updateReviewStatusV2(v2.UpdateReviewStatusRequestV2) returns (google.protobuf.Empty) {}
+  rpc getLabelChangeStreamV2(v2.LabelChangeStreamRequestV2) returns (stream v2.LabelChangeStreamResponseV2) {}
+
+  rpc getAoiLabelClassCountListV2(v2.AoiLabelClassCountListRequestV2) returns (v2.AoiLabelClassCountListResponseV2) {}
+
+  rpc deleteLabelListV2(v2.DeleteLabelRequestV2) returns (google.protobuf.Empty) {}
+
+  rpc analyzeProjectV2(v2.AnalyzeProjectRequestV2) returns (google.protobuf.Empty) {}
+}

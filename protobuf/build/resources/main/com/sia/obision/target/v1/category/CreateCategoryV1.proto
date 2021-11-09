@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.category;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateCategoryV1Proto";
+
+import "com/sia/common/UUID.proto";
+
+message CreateCategoryRequestV1 {
+  string mainCategory = 1;
+  string middleCategory = 2;
+  string subCategory = 3;
+}
+
+message CreateCategoryResponseV1 {
+  com.sia.common.UUID id = 1;
+}

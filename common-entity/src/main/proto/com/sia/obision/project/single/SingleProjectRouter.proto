@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package com.sia.obision.project.single;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/obision/project/single/v1/CreateSingleProjectRequestV1.proto";
+import "com/sia/obision/project/single/v1/CreateSingleProjectResponseV1.proto";
+import "com/sia/obision/project/single/v1/SingleProjectListRequestV1.proto";
+import "com/sia/obision/project/single/v1/SingleProjectListResponseV1.proto";
+import "com/sia/obision/project/single/v1/UpdateSingleProjectRequestV1.proto";
+import "com/sia/obision/project/single/v1/UpdateSingleProjectResponseV1.proto";
+import "com/sia/obision/project/single/v1/DeleteSingleProjectRequestV1.proto";
+import "com/sia/obision/project/single/v1/AddAnalysisUnitListRequestV1.proto";
+
+service SingleProjectRouter {
+    // deprecated
+    rpc createProjectV1 (com.sia.obision.project.single.v1.CreateSingleProjectRequestV1)
+    returns (com.sia.obision.project.single.v1.CreateSingleProjectResponseV1) {}
+
+    // deprecated
+    rpc getProjectListV1 (com.sia.obision.project.single.v1.SingleProjectListRequestV1)
+    returns (com.sia.obision.project.single.v1.SingleProjectListResponseV1) {}
+
+    // deprecated
+    rpc updateProjectV1 (com.sia.obision.project.single.v1.UpdateSingleProjectRequestV1)
+    returns (com.sia.obision.project.single.v1.UpdateSingleProjectResponseV1) {}
+
+    // deprecated
+    rpc deleteProjectV1 (com.sia.obision.project.single.v1.DeleteSingleProjectRequestV1)
+    returns (google.protobuf.Empty) {}
+
+    // deprecated
+    rpc addAnalysisUnitListV1(v1.AddAnalysisUnitListRequestV1) returns (google.protobuf.Empty) {}
+}

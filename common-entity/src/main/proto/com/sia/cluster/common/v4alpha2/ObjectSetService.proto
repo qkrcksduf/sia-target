@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package com.sia.cluster.common.v4alpha2;
+
+import "google/protobuf/empty.proto";
+import "com/sia/cluster/common/v4alpha2/ObjectSet.proto";
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.common.v4alpha2";
+
+service ObjectSetService {
+    rpc getObjectSet (GetObjectSetRequest) returns (ObjectSet) {
+
+    }
+
+    rpc listObjectSet (ListObjectSetRequest) returns (ListObjectSetResponse) {
+
+    }
+
+    rpc scheduleObjectSet (ScheduleObjectSetRequest) returns (ObjectSet) {
+
+    }
+
+    rpc updateObjectSet (UpdateObjectSetRequest) returns (ObjectSet) {
+
+    }
+
+    rpc deleteObjectSet (DeleteObjectSetRequest) returns (DeleteObjectSetResponse) {
+
+    }
+}

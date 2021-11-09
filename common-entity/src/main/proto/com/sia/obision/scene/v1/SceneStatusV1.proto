@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneStatusV1Proto";
+
+enum SceneStatusV1 {
+    DEFAULT = 0;
+    // 영상 데이터 생성중 - 인퍼런스 등록 안됨 -> WAITING
+    CREATING = 1;
+    // 인퍼런스 대기중 -> WAITING
+    QUEUED = 2;
+    // 인퍼런스 준비중 -> WAITING
+    INFERENCE_WAITING = 3;
+    // 인퍼런스 리소스 생성중
+    INFERENCE_RESOURCE_CREATING = 4;
+    // 인퍼런스 진행중
+    INFERENCE_PROGRESS = 5;
+    // 인퍼런스 마무리중 (라벨 생성중) -> INFERENCE_PROGRESS
+    INFERENCE_FINISHING = 6;
+    // 인퍼런스 완료 (라벨 생성 완료)
+    INFERENCE_COMPLETED = 7;
+
+    VALIDATION_PROGRESS = 8;
+    VALIDATION_COMPLETED = 9;
+    ERROR = 10;
+}

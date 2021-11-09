@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.kvision;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/obision/kvision/KSaveLabel.proto";
+import "com/sia/obision/kvision/KSaveSceneRequest.proto";
+
+service KVisionRouter {
+  rpc saveScene(kvision.KSaveSceneRequest) returns (google.protobuf.Empty) {}
+  rpc saveLabel(kvision.KSaveLabelRequest) returns (google.protobuf.Empty) {}
+}

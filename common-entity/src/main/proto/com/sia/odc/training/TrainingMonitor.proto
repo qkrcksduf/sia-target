@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.sia.odc.training;
+
+option java_multiple_files = true;
+
+/*
+ * 데이터 빌드 : 스냅샷을 Geococo format으로 변환
+ * data_build_eta : 데이터 빌드 완료 남은 시간 hh:mm:ss
+ * training_eta : 학습 완료 남은 시간 hh:mm:ss
+ * validation_eta : 평가 완료 남은 시간 hh:mm:ss
+ * data_build_progress : 데이터 빌드 진행률 0.0 ~ 1.0
+ * training_progress : 학습 진행률 0.0 ~ 1.0
+ * validation_progress : 평가 진행률 0.0 ~ 1.0
+ * loss : 학습이 잘되고 있는지에 대한 지표 범위는 float 자체, 무한대 또는 비정상으로 높은 값, NaN일 경우 학습에 이상이 있음.
+ * score_json : 평가 점수, 키 값은 추후 업데이트.
+ * error_type : 에러 타입
+ * error_value : 에러 값
+ */
+
+message TrainingMonitoringMessage {
+    string data_build_eta = 1;
+    string training_eta = 2;
+    string validation_eta = 3;
+    float data_build_progress = 4;
+    float training_progress = 5;
+    float validation_progress = 6;
+    float loss = 7;
+    string score_json = 8;
+    string error_type = 9;
+    string error_value = 10;
+}

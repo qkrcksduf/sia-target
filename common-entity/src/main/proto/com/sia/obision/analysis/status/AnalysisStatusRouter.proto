@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.status;
+
+option java_multiple_files = true;
+
+import "com/sia/obision/analysis/status/v1/RegionalAnalysisStatusListRequestV1.proto";
+import "com/sia/obision/analysis/status/v1/RegionalAnalysisStatusListResponseV1.proto";
+
+import "com/sia/obision/analysis/status/v1/SceneAnalysisStatusListRequestV1.proto";
+import "com/sia/obision/analysis/status/v1/SceneAnalysisStatusListResponseV1.proto";
+
+service AnalysisStatusRouter {
+    rpc getSceneAnalysisStatusListV1(com.sia.obision.analysis.status.v1.SceneAnalysisStatusListRequestV1)
+        returns (com.sia.obision.analysis.status.v1.SceneAnalysisStatusListResponseV1) { }
+
+    rpc getRegionalAnalysisStatusListV1(com.sia.obision.analysis.status.v1.RegionalAnalysisStatusListRequestV1)
+        returns (com.sia.obision.analysis.status.v1.RegionalAnalysisStatusListResponseV1) {}
+
+    rpc getSceneAnalysisStatusListStreamV1(com.sia.obision.analysis.status.v1.SceneAnalysisStatusListRequestV1)
+        returns (stream com.sia.obision.analysis.status.v1.SceneAnalysisStatusListResponseV1) { }
+}

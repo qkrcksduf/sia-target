@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package com.sia.odc.task;
+
+import "com/sia/odc/aoi/Aoi.proto";
+import "com/sia/odc/model/Model.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+
+message ModelsInTask {
+    repeated int32 model_id = 1;
+}
+
+message Task {
+    int32 id = 1;
+    string name = 2;
+    string eng_name = 9;
+    repeated int32 model_id_list = 3;
+    TaskAoiProto aoi = 4;
+    string report_type = 5;
+    int32 report_format_id = 6;
+    string report_format_name = 7;
+    bool is_activated = 8;
+}
+
+message TaskAoiProto {
+    int32 id=1;
+    string aoi_name=2;
+    google.protobuf.Timestamp create_date=5;
+}
+
+message TaskResponseProto {
+    int32 id = 1;
+    string task_name = 2;
+    string task_eng_name = 7;
+    com.sia.odc.aoi.Aoi aoi = 3;
+    repeated com.sia.odc.model.ModelProto models = 4;
+    ReportType report_type = 5;
+    int32 report_format_id = 6;
+}
+
+message TaskIdName {
+    int32 id = 1;
+    string name = 2;
+}
+
+message TaskList {
+    repeated com.sia.odc.task.Task tasks = 1;
+}
+
+message TaskIdList {
+    repeated int32 ids = 1;
+}
+
+enum ReportType {
+    NONE = 0;
+    AIRPLANE = 1;
+    CARGO_SHIP = 2;
+    OIL_TANKER = 3;
+    FOREIGN_AIRPLANE = 4;
+}

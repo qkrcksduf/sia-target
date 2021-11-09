@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package com.sia.tiling.common;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneProto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/common/Polygon.proto";
+
+message Scene {
+  string scene_id = 1;
+  string scene_path = 2;
+  SceneInfo scene_info = 3;
+  SceneMeta scene_meta = 4;
+  com.sia.common.Polygon area = 5;
+}
+
+message SceneInfo {
+  string satellite_name = 1;
+  google.protobuf.Timestamp imaging_time = 2;
+
+  // 지역 정보
+  string country_code = 3;
+
+  // 지역 정보
+  string province = 4;
+
+  // 지역 정보
+  string city = 5;
+}
+
+message SceneMeta {
+  int32 width = 1;
+  int32 height = 2;
+  double gsdX = 3;
+  double gsdY = 4;
+  int32 depth = 5;
+  string projection = 6;
+  repeated double geo_transforms = 7;
+}

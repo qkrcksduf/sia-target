@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.odc.training;
+
+option java_multiple_files = true;
+
+/**
+ * uuid: 삭제할 리소스의 uuid
+ */
+
+message DeleteTrainingResourceRequestProto {
+  string uuid = 1;
+}
+
+message DeleteTrainingResourceResponseProto {
+  string uuid = 1;
+}

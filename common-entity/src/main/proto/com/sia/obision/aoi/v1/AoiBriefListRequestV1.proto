@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.obision.aoi.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AoiBriefListRequestV1Proto";
+
+import "com/sia/common/UUID.proto";
+
+message AoiBriefListRequestV1 {
+  // 선택
+  repeated sia.common.UUID aoi_ids = 1;
+  // 선택
+  string creator = 2;
+}

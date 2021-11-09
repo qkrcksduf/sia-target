@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package com.sia.obision.aoi.v2.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "AoiV2Proto";
+
+import "com/sia/common/Point.proto";
+import "com/sia/common/MultiPolygon.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/common/Region.proto";
+
+message AoiV2 {
+    // 기본 제공
+    sia.common.UUID id = 1;
+    /**
+        base_field
+        기본 정보
+     */
+    string name = 2;
+    string creator = 4;
+    string district = 5;
+    map<string, string> properties = 6;
+    map<string, string> location_properties = 7;
+    double area = 8;
+    com.sia.obision.common.Region region = 9;
+
+    /**
+        area_field
+        범위 정보
+     */
+    com.sia.common.MultiPolygon polygon=3;
+
+    /*
+        center_field
+        중심점 정보
+     */
+    com.sia.common.Point centroid = 10;
+
+    /*
+        project_field
+
+     */
+    repeated ProjectInfoInAoiV2 project_infos = 11;
+
+}
+
+message AoiFieldV2 {
+    bool base_field = 1;
+    bool area_field = 2;
+    bool center_field = 3;
+    bool project_field = 4;
+}
+
+
+message ProjectInfoInAoiV2 {
+    sia.common.UUID id = 1;
+    string project_name = 2;
+}

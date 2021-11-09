@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AlgorithmBriefV1Proto";
+
+message AlgorithmBriefV1 {
+    string id = 1;
+    string name = 2;
+}

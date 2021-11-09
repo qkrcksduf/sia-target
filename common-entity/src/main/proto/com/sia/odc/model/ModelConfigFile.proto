@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package com.sia.odc.inference;
+
+option java_outer_classname = "ModelConfigFileProto";
+
+message Task {
+    required int32 task_id = 1;
+    repeated string model_path = 2;
+}
+
+message ModelConfigFile {
+    repeated Task task = 1;
+}

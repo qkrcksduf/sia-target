@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package com.sia.tiling.router;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/tiling/tile/CreateFullLevelTile.proto";
+import "com/sia/tiling/tile/GetSceneImageMeta.proto";
+import "com/sia/tiling/tile/GetSceneImageTile.proto";
+import "com/sia/tiling/tile/GetConvertedTileMeta.proto";
+import "com/sia/tiling/tile/GetWholeImage.proto";
+
+service TilingRouter {
+  // 전체 레벨 타일 생성 API
+  rpc createFullLevelTile (tile.CreateFullLevelTileRequest)
+      returns (google.protobuf.Empty) {}
+
+  // Scene Image 메타 조회
+  rpc getSceneImageMeta (tile.GetSceneImageMetaRequest)
+      returns (tile.GetSceneImageMetaResponse) {}
+
+  // 타일 조회 API
+  rpc getSceneImageTile (tile.GetSceneImageTileRequest)
+      returns (tile.GetSceneImageTileResponse) {}
+
+  // 타일 변환 좌표 API
+  rpc getConvertedTileMeta (tile.GetConvertedTileMetaRequest)
+      returns (tile.GetConvertedTileMetaResponse) {}
+
+  rpc getWholeImage(tile.GetWholeImageRequest)
+      returns (tile.GetWholeImageResponse) {}
+}

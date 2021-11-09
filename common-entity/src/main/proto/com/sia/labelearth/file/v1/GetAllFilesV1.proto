@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.labelearth.file.v1;
+
+import "com/sia/labelearth/file/v1/value/PathInfoV1.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "GetAllFilesV1Proto";
+
+message GetAllFilesRequestV1Proto {
+  repeated string paths = 1;
+  repeated string extensions = 2;
+}
+
+message GetAllFilesResponseV1Proto {
+  repeated v1.value.PathInfoV1 scene_file = 1;
+}

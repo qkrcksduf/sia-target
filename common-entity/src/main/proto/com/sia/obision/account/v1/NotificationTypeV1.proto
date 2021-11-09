@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "NotificationTypeV1Proto";
+
+/**
+ * 알림 종류.
+ *
+ * 어떤 종류에 알림을 보낸지에 대한 종류
+ *
+ */
+
+enum NotificationTypeV1 {
+  // 영상 판독이 완료 됬을 때 알림 설정
+  INFERENCE_COMPLETED = 0;
+  // 내가 작업한 검수 영상, 작성 댓글, 멘션의 알림 설정
+  JOB_EVENT = 1;
+  // 보고서 생성 완료에 대한 알림 설정
+  REPORT_CREATED = 2;
+  // 프로젝트 설정
+  PROJECT_EVENT = 3;
+}

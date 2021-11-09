@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package com.sia.odc.user;
+
+import "google/protobuf/timestamp.proto";
+
+option java_outer_classname = "UsageProto";
+
+message Usage {
+    required string id = 1;
+    required google.protobuf.Timestamp start_time = 2;
+    required google.protobuf.Timestamp end_time = 3;
+}

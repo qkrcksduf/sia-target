@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.obision.label_class.v1;
+
+option java_multiple_files = true;
+
+import "com/sia/common/UUID.proto";
+
+message LabelClassListRequestV1 {
+    repeated sia.common.UUID labelClassIds = 1;
+}

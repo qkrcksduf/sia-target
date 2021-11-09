@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.cca.account.message;
+
+option java_outer_classname = "GetAccountByProto";
+option java_multiple_files = true;
+
+import "com/sia/cca/account/message/Account.proto";
+
+message GetAccountByRequest {
+  // 선택
+  string email = 1;
+}
+
+message GetAccountByResponse {
+  string name = 2;
+  string email = 1;
+  AccountRoleProto role = 3;
+}

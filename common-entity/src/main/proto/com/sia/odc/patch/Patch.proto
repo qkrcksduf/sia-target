@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package com.sia.odc.patch;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/scene/Scene.proto";
+
+option java_outer_classname = "PatchProto";
+
+enum PatchStatus {
+    NULL = 0;
+    READY = 1;
+    ANNOTATING = 2;
+    ANNOTATED = 3;
+    REVIEWING = 4;
+    DENIED = 5;
+    COMPLETED = 6;
+}
+
+message CreatePatches {
+    int32 width = 1;
+    int32 height = 2;
+    int32 margin = 3;
+    repeated string scene_id = 4;
+}
+
+message Patch {
+    int32 id = 1;
+    PatchArea area = 2;
+    PatchStatus progress_status = 3;
+    repeated string geo_transform = 4;
+    google.protobuf.Timestamp last_updated = 5;
+    com.sia.odc.scene.Scene scene = 6;
+    string dataset_id = 7;
+}
+
+message PatchList {
+    repeated Patch patch = 1;
+}
+
+message PatchArea {
+    int32 left_top_x = 1;
+    int32 left_top_y = 2;
+    int32 width = 3;
+    int32 height = 4;
+}
+
+message PatchUpdate {
+    PatchStatus status = 1;
+    string annotator_id = 2;
+    string reviewer_id = 3;
+}

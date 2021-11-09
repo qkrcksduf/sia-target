@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.odc.gpu;
+
+import "com/sia/odc/inference/InferenceResource.proto";
+option java_multiple_files = true;
+
+message GPUMetric {
+    string uuid = 1;
+    string node = 2;
+    int32 num = 3;
+    float usage = 4;
+    float mem_used = 5;
+    float mem_free = 6;
+    int32 task = 7;
+    com.sia.odc.inference.WorkType type = 8;
+    bool is_train = 9;
+}
+
+message GPUMetrics {
+    repeated GPUMetric metrics = 1;
+}

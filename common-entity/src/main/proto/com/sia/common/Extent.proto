@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.sia.common;
+
+option java_multiple_files = true;
+option java_outer_classname = "ExtentProto";
+
+import "com/sia/common/GeoPoint.proto";
+
+message Extent {
+    // 필수
+    oneof center_point {
+        // @Deprecated 기존의 센터
+        sia.common.GeoPoint center = 1;
+        // 4326 기준 센터
+        sia.common.GeoPoint geo_location = 3;
+        // mrgs 기준 센터
+        string mgrs = 4;
+    }
+
+    // 필수, 미터 단위
+    int32 radius = 2;
+}

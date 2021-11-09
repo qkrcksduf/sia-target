@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneAnalysisSummaryRequestV1Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/Period.proto";
+
+message SceneAnalysisSummaryRequestV1 {
+  // 필수
+  repeated sia.common.UUID project_ids = 1;
+  // 필수
+  com.sia.common.Period period = 2;
+
+  // 선택, 없으면 모든 위성
+  string satellite_name = 3;
+}

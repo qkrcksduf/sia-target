@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.common;
+
+option java_multiple_files = true;
+option java_outer_classname = "RegionProto";
+
+message Region {
+  string country_code = 1;
+  string province = 2;
+  string city = 3;
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneIntersectionRequestV1Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/Polygon.proto";
+import "google/protobuf/timestamp.proto";
+
+message SceneIntersectionRequestV1 {
+  //선택
+  sia.common.UUID project_id = 1;
+  //선택
+  google.protobuf.Timestamp scene_imaging_time = 2;
+  com.sia.common.Polygon scene_area = 3;
+  string satellite = 4;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.aoi.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AoiListResponseV1Proto";
+
+import "com/sia/obision/aoi/v1/AoiV1.proto";
+
+message AoiListResponseV1 {
+    repeated com.sia.obision.aoi.v1.AoiV1 aois = 1;
+}

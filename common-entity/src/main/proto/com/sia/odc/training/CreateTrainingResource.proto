@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package com.sia.odc.training;
+
+import "com/sia/odc/inference/InferenceResource.proto";
+import "com/sia/odc/model/Model.proto";
+
+option java_multiple_files = true;
+
+/**
+ * yaml_path: 모델을 실행시킬 때 필요한 yaml 파일의 경로
+ * gpu: 할당된 GPU의 갯수
+ * work_type: GPU가 실행할 인퍼런스 WorkType (자동, 수동, 학습)
+ * model_type: Model의 종류 (탐지, 분류)
+ * node_port: 학습 리소스를 접속 하기위한 Port 정보
+ * uuid: 학습 리소스의 식별자
+ * available_pod_count: 클러스터의 Readiness(준비 완료로 실제로 학습이 가능한) 상태의 pod 개수
+ */
+
+message CreateTrainingResourceRequestProto {
+  string yaml_path = 1;
+  int32 gpu = 2;
+  com.sia.odc.inference.WorkType work_type = 3;
+  com.sia.odc.model.ModelType model_type = 4;
+}
+
+message CreateTrainingResourceResponseProto {
+  string yaml_path = 1;
+  int32 gpu = 2;
+  com.sia.odc.inference.WorkType work_type = 3;
+  com.sia.odc.model.ModelType model_type = 4;
+  int32 node_port = 5;
+  string uuid = 6;
+  int32 available_pod_count = 7;
+}

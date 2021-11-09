@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.labelearth.file;
+
+import "com/sia/labelearth/file/v1/GetDirectoryElementsV1.proto";
+import "com/sia/labelearth/file/v1/GetAllFilesV1.proto";
+import "com/sia/labelearth/file/v1/GetDirectoriesV1.proto";
+
+option java_multiple_files = true;
+
+service FileRouter {
+  rpc getDirectoryElementsV1(v1.GetDirectoryElementsRequestV1Proto) returns (v1.GetDirectoryElementsResponseV1Proto) {}
+
+  rpc getAllFilesV1(v1.GetAllFilesRequestV1Proto) returns (v1.GetAllFilesResponseV1Proto) {}
+
+  rpc getDirectoriesV1(v1.GetDirectoriesRequestV1Proto) returns (v1.GetDirectoriesResponseV1Proto) {}
+}

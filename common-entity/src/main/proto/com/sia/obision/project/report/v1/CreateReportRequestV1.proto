@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateReportRequestV1Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/TimestampRange.proto";
+import "com/sia/obision/project/v1/ReportTypeV1.proto";
+
+/*
+ * 보고서 생성 요청 Message
+ * project_id : 프로젝트 식별자
+ * report_format : 응답으로 받을 보고서의 형식 (ex. 한글파일, PDF 파일)
+ * report_type : 생성하려는 보고서의 기간 타입 (ex. 일일, 주간, 월간 등등)
+ */
+message CreateReportRequestV1 {
+  // 필수
+  sia.common.UUID project_id = 1;
+  //
+  string project_name = 2;
+  // 필수
+  sia.common.TimestampRange scene_time_range = 3;
+  // 필수
+  project.v1.ReportTypeV1 report_type = 4;
+}

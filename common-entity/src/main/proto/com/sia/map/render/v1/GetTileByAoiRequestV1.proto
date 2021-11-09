@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.map.render.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetTileByAoiRequestV1Proto";
+
+import "com/sia/obision/aoi/v1/AoiV1.proto";
+import "com/sia/map/element/v1/TileOptionV1.proto";
+
+message GetTileByAoiRequestV1 {
+  com.sia.obision.aoi.v1.AoiV1 aoi = 1;
+  com.sia.map.element.v1.TileOptionV1 option = 2;
+  int32 rendering_target_size = 3;
+  string rendering_theme = 4;
+}

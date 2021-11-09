@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "SubscribeReportRequestV2Proto";
+
+import "com/sia/common/UUID.proto";
+
+/*
+  백엔드에서 Subscribe 라는 표현을 쓰기로 결정
+ */
+message SubscribeReportRequestV2 {
+  // 필수
+  sia.common.UUID report_id = 2;
+  // 선택
+  sia.common.UUID project_id = 3;
+  // 필수
+  string account_id = 4;
+  // 필수
+  bool subscribe = 5;
+}

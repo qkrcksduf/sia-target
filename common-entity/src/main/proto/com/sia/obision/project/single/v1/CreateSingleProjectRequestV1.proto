@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.sia.obision.project.single.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateSingleProjectRequestV1Proto";
+
+import "com/sia/obision/project/v1/DisclosureScopeV1.proto";
+import "com/sia/obision/project/v1/ParticipantV1.proto";
+import "com/sia/obision/project/v1/ReportConfigV1.proto";
+import "com/sia/obision/project/v1/AnalysisUnitV1.proto";
+
+message CreateSingleProjectRequestV1 {
+    string name = 1;
+    string description = 2;
+    com.sia.obision.project.v1.DisclosureScopeV1 disclosure_scope = 3;
+    bool topPriority = 4;
+    repeated com.sia.obision.project.v1.ParticipantV1 participants = 5;
+    repeated com.sia.obision.project.v1.ReportConfigV1 report_configs = 6;
+    repeated project.v1.AnalysisUnitV1 analysis_units = 7;
+}

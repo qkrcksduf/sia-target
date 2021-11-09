@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.cca.account.message;
+
+option java_outer_classname = "SignInProto";
+option java_multiple_files = true;
+
+message SignInRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message SignInResponse {
+  string email = 1;
+}

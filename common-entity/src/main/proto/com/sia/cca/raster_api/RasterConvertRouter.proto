@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.cca.raster_api;
+
+option java_multiple_files = true;
+
+import "com/sia/cca/raster_api/message/ConvertToPolygon.proto";
+import "com/sia/cca/raster_api/message/ConvertToMask.proto";
+import "com/sia/cca/raster_api/message/Clahe.proto";
+
+service RasterConvertRouter {
+  rpc convertToPolygon (message.ConvertToPolygonRequest) returns (message.ConvertToPolygonResponse) {}
+  rpc convertToMask(message.ConvertToMaskRequest) returns (message.ConvertToMaskResponse) {}
+  rpc clahe(message.ClaheRequest) returns (message.ClaheResponse) {}
+}

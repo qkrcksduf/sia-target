@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.odc.model;
+
+import "com/sia/odc/model/Model.proto";
+
+option java_multiple_files = true;
+
+message BaseModelListResponseProto {
+    repeated BaseModelResponseProto base_model = 1;
+}
+
+message BaseModelResponseProto {
+    int32 id = 1;
+    string name = 2;
+    ModelType type = 3;
+}

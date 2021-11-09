@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/common/UUID.proto";
+
+service AnalysisModuleEventListener {
+  rpc projectDeleted(sia.common.UUID) returns (google.protobuf.Empty) {}
+  rpc projectCreated(sia.common.UUID) returns (google.protobuf.Empty) {}
+
+}

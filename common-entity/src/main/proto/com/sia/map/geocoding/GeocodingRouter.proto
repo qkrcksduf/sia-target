@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.map.geocoding;
+
+option java_multiple_files = true;
+
+import "com/sia/map/geocoding/v1/GeocodingRequestV1.proto";
+import "com/sia/map/geocoding/v1/GeocodingResponseV1.proto";
+
+service GeocodingRouter {
+  rpc requestGeocodingV1 (com.sia.map.geocoding.v1.GeocodingRequestV1) returns (com.sia.map.geocoding.v1.GeocodingResponseV1) {}
+}

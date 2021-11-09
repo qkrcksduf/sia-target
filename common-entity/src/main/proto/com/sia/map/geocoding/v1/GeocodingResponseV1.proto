@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.map.geocoding.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "GeocodingResponseV1Proto";
+
+import "com/sia/map/geocoding/v1/PlanetPointV1.proto";
+
+message GeocodingResponseV1 {
+  repeated PlanetPointV1 points = 1;
+}

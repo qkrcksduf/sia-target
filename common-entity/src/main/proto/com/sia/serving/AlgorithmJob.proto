@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package com.sia.serving;
+
+option java_multiple_files = true;
+option java_outer_classname = "AlgorithmJobProto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/common/IntRange.proto";
+import "com/sia/common/MultiPolygon.proto";
+import "com/sia/serving/PipelineJob.proto";
+import "com/sia/serving/shared/SceneFile.proto";
+import "com/sia/serving/shared/Algorithm.proto";
+import "com/sia/serving/shared/Label.proto";
+import "com/sia/serving/shared/Error.proto";
+
+message AlgorithmJob {
+    string id = 1;
+    shared.Algorithm algorithm = 2;
+    AlgorithmJobStatus current_status = 3;
+    shared.SceneFile scene_file = 4;
+    repeated PipelineJob pipeline_job = 5;
+    repeated AlgorithmJobStatusTimestamp history = 6;
+    int32 priority = 7;
+    shared.Error error = 8;
+    common.MultiPolygon aoi = 9;
+    AlgorithmJobResult result = 10;
+}
+
+message AlgorithmJobQuery {
+    repeated string id = 1;
+    repeated shared.Algorithm algorithm = 2;
+    repeated AlgorithmJobStatus current_status = 3;
+    repeated shared.SceneFile scene_file = 4;
+    sia.common.IntRange priority_range = 5;
+    shared.Error error = 6;
+}
+
+message AlgorithmJobList {
+    repeated AlgorithmJob job = 1;
+}
+
+message AlgorithmJobResult {
+    repeated shared.Label label = 2;
+}
+
+enum AlgorithmJobStatus {
+    STAND_BY = 0;
+    CANCELED = 1;
+    PRE_PROCESSING = 2;
+    PROCESSING = 3;
+    POST_PROCESSING = 4;
+    COMPLETED = 5;
+    ERROR = 6;
+}
+
+
+message AlgorithmJobStatusTimestamp {
+    AlgorithmJobStatus status = 1;
+    google.protobuf.Timestamp timestamp = 2;
+}
+

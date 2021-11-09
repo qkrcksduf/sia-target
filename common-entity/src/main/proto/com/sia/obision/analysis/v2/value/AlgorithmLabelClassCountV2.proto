@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.v2.value;
+
+option java_multiple_files = true;
+option java_outer_classname = "AlgorithmLabelClassCountV2Proto";
+
+import "com/sia/obision/algorithm/v2/entity/AlgorithmV2.proto";
+import "com/sia/obision/analysis/v2/value/LabelClassCountV2.proto";
+
+/**
+    알고리즘별로 LabelClassCount 를 그룹화
+ */
+message AlgorithmLabelClassCountV2 {
+  /**
+    algorithm_field
+    id 기본 제공
+   */
+  algorithm.v2.entity.AlgorithmV2 algorithm = 1;
+  /**
+    count_field
+   */
+  repeated value.LabelClassCountV2 label_class_counts = 2;
+}
+
+message AlgorithmLabelClassCountFieldV2 {
+  /**
+    활성 여부
+   */
+  bool activated = 1;
+  /**
+    algorithm
+   */
+  algorithm.v2.entity.AlgorithmFieldV2 algorithm_field = 2;
+  /**
+    label_class_counts
+   */
+  value.LabelClassCountFieldV2 count_field = 3;
+}

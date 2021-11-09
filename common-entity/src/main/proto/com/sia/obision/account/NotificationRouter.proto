@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package com.sia.obision.account;
+
+option java_multiple_files = true;
+
+import "com/sia/obision/account/v1/StreamNotificationRequestV1.proto";
+import "com/sia/obision/account/v1/NotificationV1.proto";
+import "com/sia/obision/account/v1/NotificationConfigV1.proto";
+import "com/sia/obision/account/v1/GetNotificationRequestV1.proto";
+import "com/sia/obision/account/v1/DeleteAccountNotificationV1.proto";
+import "com/sia/obision/account/v1/NotificationListResponse.proto";
+import "com/sia/obision/account/v1/CreateNotificationRequestV1.proto";
+import "com/sia/obision/account/v1/CreateNotificationResponseV1.proto";
+import "com/sia/obision/account/v1/DeleteAllAccountNotificationV1.proto";
+import "com/sia/common/StringId.proto";
+import "com/sia/common/MongoId.proto";
+import "google/protobuf/empty.proto";
+
+service NotificationRouter {
+  // 사용자 알림 설정 변경 API
+  rpc updateConfigV1(v1.NotificationConfigV1) returns (v1.NotificationConfigV1) {}
+
+  // 사용자 알림 설정 조회 API
+  rpc getNotificationConfigV1(common.StringId) returns (v1.NotificationConfigV1) {}
+
+  // 사용자 알림 저장 API
+  rpc createNotificationV1(v1.CreateNotificationRequestV1) returns (v1.CreateNotificationResponseV1) {}
+
+  // 사용자 알림 목록 조회 API
+  rpc getAllNotificationV1(v1.GetNotificationRequestV1) returns (v1.NotificationListResponseV1) {}
+
+  // 알림에서 특정 사용자만 삭제하는 API
+  rpc deleteAccountNotificationV1(v1.DeleteAccountNotificationV1) returns (google.protobuf.Empty) {}
+
+  // 특정 사용자의 모든 알림 삭제 API
+  rpc deleteAllAccountNotificationV1(v1.DeleteAllAccountNotificationV1) returns (google.protobuf.Empty) {}
+
+  // 알림 삭제 API
+  rpc deleteNotificationV1(common.MongoId) returns (google.protobuf.Empty) {}
+
+  // 알림 Stream API
+  rpc streamNotificationV1(v1.StreamNotificationRequestV1) returns (stream v1.NotificationV1) {}
+}

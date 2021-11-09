@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateNotificationRequestV1Proto";
+
+import "com/sia/obision/account/v1/NotificationTypeV1.proto";
+import "com/sia/obision/account/v1/NotificationV1.proto";
+
+message CreateNotificationRequestV1 {
+  // 알림의 타입
+  NotificationTypeV1 notification_type = 1;
+  // 알림 타입에 따라 화면을 이동하기 위한 세부 정보
+  map<string, string> detail_info = 2;
+  // 알림을 받아야하는 사용자 이름 목록
+  repeated string account_id_list = 3;
+  // 알림 내용 타입
+  NotificationContentTypeV1 content_type = 4;
+}

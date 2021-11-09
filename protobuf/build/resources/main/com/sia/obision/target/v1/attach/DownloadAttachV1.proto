@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.attach;
+
+option java_multiple_files = true;
+option java_outer_classname = "DownloadAttachV1Proto";
+
+import "com/sia/common/UUID.proto";
+
+message DownloadAttachRequestV1 {
+  common.UUID attachId = 1;
+}
+
+message DownloadAttachResponseV1 {
+  bytes file = 1;
+}

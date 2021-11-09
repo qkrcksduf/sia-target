@@ -1,0 +1,12 @@
+syntax = "proto2";
+
+package com.sia.odc.common;
+
+message Point {
+    required double x=1;
+    required double y=2;
+}
+
+message MultiPoint {
+    repeated Point point = 1;
+}

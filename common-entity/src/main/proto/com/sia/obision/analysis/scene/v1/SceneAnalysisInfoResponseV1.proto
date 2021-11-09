@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneAnalysisInfoResponseV1Proto";
+
+import "com/sia/obision/analysis/scene/v1/SceneAnalysisSummaryResponseV1.proto";
+import "com/sia/obision/analysis/status/v1/SceneAnalysisStatusV1.proto";
+import "com/sia/obision/analysis/scene/v1/ProjectSceneAnalysisResultResponseV1.proto";
+import "com/sia/obision/scene/v1/SceneV1.proto";
+
+message SceneAnalysisInfoResponseV1 {
+  // 필수
+  repeated ProjectSceneAnalysisResultResponseV1 analysis_results = 1;
+  // 필수
+  repeated SceneAnalysisSummaryV1 analysis_summaries = 2;
+  // 필수
+  repeated status.v1.SceneAnalysisStatusV1 analysis_status = 3;
+  // 필수
+  repeated obision.scene.v1.SceneV1 scenes = 4;
+}

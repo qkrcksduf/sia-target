@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package com.sia.labelearth.label_class;
+
+import "com/sia/labelearth/label_class/v1/GetLabelClassesV1.proto";
+import "com/sia/labelearth/label_class/v1/SaveLabelClassesV1.proto";
+import "com/sia/labelearth/label_class/v1/DeleteLabelClassesV1.proto";
+import "com/sia/labelearth/label_class/v1/UpdateLabelClassColorV1.proto";
+import "com/sia/labelearth/label_class/v1/GetLabelClassesByClassIdV1.proto";
+import "com/sia/labelearth/label_class/v1/GetLabelClassesByDatasetIdV1.proto";
+import "com/sia/labelearth/label_class/v1/GetLabelClassesBySceneIdV1.proto";
+import "com/sia/labelearth/label_class/v1/UpdateLabelClassV1.proto";
+
+option java_multiple_files = true;
+
+service LabelClassRouter {
+  //Deprecated
+  rpc getLabelClassesV1(v1.GetLabelClassesRequestV1Proto)
+      returns (v1.GetLabelClassesResponseV1Proto) {}
+
+  rpc saveLabelClassesV1(v1.SaveLabelClassesRequestV1Proto)
+      returns (v1.SaveLabelClassesResponseV1Proto) {}
+
+  rpc deleteLabelClassesV1(v1.DeleteLabelClassesRequestV1Proto)
+      returns (v1.DeleteLabelClassesResponseV1Proto) {}
+
+  rpc updateLabelClassColorV1(v1.UpdateLabelClassColorRequestV1Proto)
+      returns (v1.UpdateLabelClassColorResponseV1Proto) {}
+
+  rpc getLabelClassesByClassIdV1(v1.GetLabelClassesByClassIdRequestV1Proto)
+      returns (v1.GetLabelClassesResponseV1Proto) {}
+
+  rpc getLabelClassesByDatasetIdV1(v1.GetLabelClassesByDatasetIdRequestV1Proto)
+      returns (v1.GetLabelClassesResponseV1Proto) {}
+
+  rpc getLabelClassesBySceneIdV1(v1.GetLabelClassesBySceneIdRequestV1Proto)
+      returns (v1.GetLabelClassesResponseV1Proto) {}
+
+  rpc updateLabelClassV1(v1.UpdateLabelClassRequestV1Proto)
+      returns (v1.UpdateLabelClassResponseV1Proto) {}
+}

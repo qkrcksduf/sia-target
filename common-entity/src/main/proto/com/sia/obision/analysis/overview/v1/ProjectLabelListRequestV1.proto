@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.overview.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "ProjectLabelListRequestV1Proto";
+
+import "com/sia/common/SortDirection.proto";
+import "com/sia/common/Paging.proto";
+import "com/sia/common/Period.proto";
+import "com/sia/common/DoubleRange.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/common/MongoId.proto";
+
+import "com/sia/obision/common/Region.proto";
+import "com/sia/obision/common/LabelClassWithParent.proto";
+
+message ProjectLabelListRequestV1 {
+  // 필수
+  sia.common.UUID project_id = 1;
+
+  // 선택 : 모두 없으면 모든 영상
+  oneof target {
+    // 선택, 없으면 모든 영상
+    sia.common.MongoId scene_id = 2;
+
+    // 선택
+    com.sia.common.Period scene_time_range = 3;
+  }
+
+
+  // 선택, 기본값 : 이름
+  LabelSortFieldV1 sort_field = 4;
+  // 선택, 기본 선택 : ASC
+  sia.common.SortDirection sort_direction = 5;
+
+  // 선택, 기본 : 모두
+  sia.common.Paging paging = 6;
+
+
+  // 선택, 없으면 전체
+  repeated obision.common.Region regions = 7;
+  // 선택, 없으면 전체
+  repeated obision.common.LabelClassWithParent label_class_ids = 8;
+
+  // 선택, 없으면 모두
+  sia.common.DoubleRange width_range = 9;
+  // 선택, 없으면 모두
+  sia.common.DoubleRange height_range = 10;
+  // 선택, 없으면 모두
+  sia.common.DoubleRange confidence_range = 11;
+}
+
+
+// 추가로 이미지 제외한 것들도 필요
+
+
+enum LabelSortFieldV1{
+  CLASS_NAME = 0;
+  WIDTH = 1;
+  HEIGHT = 2;
+  CONFIDENCE = 3;
+  IMAGINE_TIME = 4;
+}

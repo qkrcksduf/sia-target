@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.cca.scene.message;
+
+option java_outer_classname = "PeriodInferenceProto";
+option java_multiple_files = true;
+
+import "com/sia/common/TimestampRange.proto";
+
+message PeriodInferenceRequest {
+  com.sia.common.TimestampRange time_range = 1;
+}

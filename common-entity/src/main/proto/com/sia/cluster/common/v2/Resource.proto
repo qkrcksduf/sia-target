@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package com.sia.cluster.common.v2;
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.common.v2";
+
+message EnvironmentVariable {
+    string key = 1;
+    string value = 2;
+}
+
+message Resource {
+    string image = 1;
+    uint32 replicas = 2;
+    uint32 available = 3;
+    repeated string command = 4;
+    repeated string args = 5;
+    repeated uint32 ports = 6;
+    repeated EnvironmentVariable envs = 7;
+    string service_name = 8;
+    repeated uint32 node_ports = 9;
+}
+
+message ScheduleResourceRequest {
+    string image = 1;
+    uint32 replicas = 2;
+    repeated string command = 3;
+    repeated string args = 4;
+    repeated uint32 ports = 5;
+    repeated EnvironmentVariable envs = 6;
+}
+
+message CreateResourceRequest {
+    // Deprecated
+    string image = 1;
+    uint32 replicas = 2;
+    repeated string command = 3;
+    repeated string args = 4;
+    repeated uint32 ports = 5;
+    repeated EnvironmentVariable envs = 6;
+}
+
+message RescaleResourceRequest {
+    uint32 replicas = 1;
+}
+
+message UpdateResourceRequest {
+    string image = 1;
+    uint32 replicas = 2;
+    repeated string command = 3;
+    repeated string args = 4;
+    repeated uint32 ports = 5;
+    repeated EnvironmentVariable envs = 6;
+}

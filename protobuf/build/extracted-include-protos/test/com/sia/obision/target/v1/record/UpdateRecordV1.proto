@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.record;
+
+option java_multiple_files = true;
+option java_outer_classname = "UpdateRecordProtoV1";
+
+import "com/sia/common/UUID.proto";
+
+message UpdateRecordRequestV1 {
+  com.sia.common.UUID id = 1;
+  string targetName = 2;
+  string contents = 3;
+  bool isEmergency = 5;
+}

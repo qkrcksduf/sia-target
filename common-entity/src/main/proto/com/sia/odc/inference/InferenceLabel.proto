@@ -1,0 +1,26 @@
+syntax = "proto2";
+
+package com.sia.odc.inference;
+
+import "com/sia/odc/common/Point.proto";
+import "com/sia/odc/label/MatchingType.proto";
+
+option java_outer_classname = "InferenceLabelProto";
+
+message InferenceLabel {
+    required int32 class_id = 1;
+    optional int32 class2_id = 2;
+    optional int32 class3_id = 3;
+    required com.sia.odc.common.Point center = 4;
+    required double width = 5;
+    required double height = 6;
+    required double angle = 7;
+    required com.sia.odc.common.Point location = 8;
+    required double confidence = 9;
+    required double confidence_t1 = 10;
+    required double confidence_t2 = 11;
+    required double confidence_t3 = 12;
+    optional bytes image = 13;
+    required com.sia.odc.label.MatchingType matching = 14;
+    required string scene_id = 15;
+}

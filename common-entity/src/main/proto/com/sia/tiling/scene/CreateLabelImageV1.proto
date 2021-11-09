@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.tiling.scene;
+
+import "com/sia/common/Polygon.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateLabelImageV1Proto";
+
+message CreateLabelImageRequestV1 {
+  string scene_path = 1;
+  repeated common.Polygon polygon = 2;
+}
+
+message CreateLabelImageResponseV1 {
+  repeated string pngBase64String = 1;
+}

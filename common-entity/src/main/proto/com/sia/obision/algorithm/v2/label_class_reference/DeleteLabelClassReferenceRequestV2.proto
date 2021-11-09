@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm.v2.label_class_reference;
+
+option java_multiple_files = true;
+option java_outer_classname = "DeleteLabelClassReferenceRequestV2Proto";
+
+import "com/sia/obision/algorithm/v2/entity/LabelClassReferenceV2.proto";
+
+/*
+  LabelClassReference 를 제거할 때 사용
+ */
+message DeleteLabelClassReferenceRequestV2 {
+  repeated string label_class_reference_ids = 1;
+}

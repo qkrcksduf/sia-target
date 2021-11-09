@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.labelearth.annotation_label.v1.value;
+
+//option java_multiple_files = true;
+option java_outer_classname = "AnnotationLabelImageV1Proto";
+
+message AnnotationLabelImageV1 {
+  string label_id = 1;
+  string label_image = 2;
+}

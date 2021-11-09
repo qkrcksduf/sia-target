@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SaveDraftReportConfigRequestV1Proto";
+
+import "com/sia/obision/project/report/v1/DraftReportTimeType.proto";
+
+
+message SaveDraftReportConfigRequestV1 {
+  string account_id = 1;
+  string name = 2;
+  repeated string aoi_location_property_key = 3;
+  map<string, string> aoi_location_property = 4;
+  string secret_level = 5;
+  string footer_content = 6;
+  string article = 7;
+  DraftReportTimeType time_type = 8;
+}
+

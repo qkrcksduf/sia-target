@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v3.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "ReportGenerationConfigV3Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/common/UUID.proto";
+
+message ReportGenerationConfigV3 {
+  common.UUID id = 1;
+  google.protobuf.Timestamp next_generation_time = 2;
+  ReportGenerationTypeV3 type = 3;
+}
+
+enum ReportGenerationTypeV3 {
+    REPORT_GENERATION_TYPE_NONE = 0;
+    DAILY = 1;
+}

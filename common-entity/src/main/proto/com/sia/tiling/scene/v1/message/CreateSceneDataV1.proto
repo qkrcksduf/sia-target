@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.tiling.scene.v1.message;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateSceneDataV1Proto";
+
+import "com/sia/tiling/common/Scene.proto";
+
+message CreateSceneDataRequestV1 {
+  repeated SceneDataV1 sceneData = 1;
+}
+
+message CreateSceneDataResponseV1 {
+  repeated com.sia.tiling.common.Scene scene = 1;
+}
+
+message SceneDataV1 {
+  // 필수
+  string scene_path = 1;
+
+  // 옵션 - 영상의 유효일수 지정 (default = 30일) 유효일수 경과시 영상 삭제
+  int32 expire_date = 2;
+}

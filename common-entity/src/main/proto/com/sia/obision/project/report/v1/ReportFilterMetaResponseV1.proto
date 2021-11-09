@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "ReportFilterMetaResponseV1Proto";
+
+import "com/sia/obision/common/Region.proto";
+import "com/sia/obision/common/LabelClassWithParent.proto";
+
+message ReportFilterMetaResponseV1 {
+  // 필수
+  repeated obision.common.Region regions = 1;
+  // 필수
+  repeated string satellite_names = 2;
+  // 필수
+  repeated obision.common.LabelClassWithParent label_class_ids = 3;
+}

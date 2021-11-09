@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v2.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "ParticipantV1Proto";
+
+import "com/sia/obision/account/v1/AccountV1.proto";
+import "com/sia/obision/project/v1/ProjectPermissionV1.proto";
+import "com/sia/common/UUID.proto";
+
+message ParticipantV2 {
+    sia.common.UUID id = 1;
+    /**
+        base_field
+        기본 정보
+     */
+    v1.ProjectPermissionV1 permission = 3;
+    /**
+        account_field
+        계정 정보
+        id 기본 제공
+     */
+    account.v1.AccountV1 account = 2;
+}
+
+message ParticipantAllFieldV2 {
+    bool id_field = 1;
+    bool base_field = 2;
+    account.v1.AccountFieldV1 account_field = 3;
+}
+
+message ParticipantFieldV2 {
+    bool base_field = 1;
+    account.v1.AccountFieldV1 account_field = 2;
+}

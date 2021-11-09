@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.labelearth.scene.v1;
+
+import "com/sia/labelearth/scene/v1/entity/SceneV1.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "GetSceneProto";
+
+message GetSceneRequestV1Proto {
+  string scene_id = 1;
+}
+
+message GetSceneResponseV1Proto {
+  v1.entity.SceneV1 scene = 1;
+}

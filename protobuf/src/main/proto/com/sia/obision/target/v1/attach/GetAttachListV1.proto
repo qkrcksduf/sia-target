@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.attach;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetAttachListV1Proto";
+
+import "com/sia/obision/target/v1/attach/AttachV1.proto";
+
+message GetAttachListResponseV1 {
+  repeated Attach attach = 1;
+}

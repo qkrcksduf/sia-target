@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.cca.log.message;
+
+option java_outer_classname = "UpdateAllLogByLevelProto";
+option java_multiple_files = true;
+
+import "com/sia/cca/log/message/Log.proto";
+
+message UpdateAllLogByLevelRequest {
+  repeated LogLevelProto level = 1;
+}
+

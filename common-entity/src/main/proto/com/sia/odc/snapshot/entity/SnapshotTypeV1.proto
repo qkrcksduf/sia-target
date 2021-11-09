@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.odc.snapshot.entity;
+
+option java_outer_classname = "SnapshotRequestProto";
+
+enum SnapshotTypeV1 {
+    NULL_TYPE = 0;
+    TRAINING = 1;
+    VALIDATION = 2;
+}

@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneAnalysisByRequestV1Proto";
+
+import "com/sia/common/SortDirection.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/common/Region.proto";
+import "com/sia/common/Paging.proto";
+
+message SceneAnalysisByRequestV1 {
+  // 필수
+  repeated sia.common.UUID project_ids = 1;
+  // 지역명 목록
+  repeated com.sia.obision.common.Region regions = 2;
+  // 위성명 목록
+  repeated string satellite_names = 3;
+  //
+  com.sia.common.Paging paging = 4;
+  // 정렬 기준
+  SceneAnalysisSortFieldV1 sort_field = 5;
+  // 정렬 방향
+  sia.common.SortDirection sort_direction = 6;
+}
+
+enum SceneAnalysisSortFieldV1{
+  OBJECT_TYPE = 0;
+  CONFIDENCE = 1;
+  WIDTH = 2;
+  HEIGHT = 3;
+  STATUS = 4;
+}

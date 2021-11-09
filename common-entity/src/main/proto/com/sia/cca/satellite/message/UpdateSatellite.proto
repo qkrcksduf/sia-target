@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.cca.satellite.message;
+
+option java_outer_classname = "UpdateSatelliteProto";
+option java_multiple_files = true;
+
+message UpdateSatelliteRequest {
+  string id = 1;
+  string name = 2;
+}
+
+message UpdateSatelliteResponse {
+  string id = 1;
+  string name = 2;
+}

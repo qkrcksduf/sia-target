@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+package com.sia.cluster.common.v4alpha2;
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.common.v4alpha2";
+
+import "com/sia/cluster/common/v4alpha2/DeleteResult.proto";
+import "com/sia/cluster/common/v4alpha2/NodeAffinity.proto";
+import "com/sia/cluster/common/v4alpha2/Resource.proto";
+import "com/sia/cluster/common/v4alpha2/Volume.proto";
+
+message ObjectSet {
+    string namespace = 1;
+    string name = 2;
+    string image = 3;
+    uint32 replicas = 4;
+    repeated string command = 5;
+    repeated string args = 6;
+    repeated uint32 ports = 7;
+    map<string, string> envs = 8;
+    Resource resource = 9;
+    repeated Volume volumes = 10;
+    uint32 available = 11;
+    string service_name = 12; // 다른 네임스페이스에서도 접근 가능한 svc 이름이어야 함. "{.svc.name}.{.svc.namespace}.svc"
+    map<string, string> labels = 13;
+    repeated NodeAffinity node_affinities = 14;
+}
+
+message GetObjectSetRequest {
+    string namespace = 1;
+    string name = 2;
+}
+
+message ListObjectSetRequest {
+    // 비어있는 값은 무시됨. 값이 있는 경우에는 filter로 작동
+    string namespace = 1; // Optional
+    map<string, string> labels = 2; // Optional
+}
+
+message ListObjectSetResponse {
+    repeated ObjectSet object_sets = 1;
+}
+
+message ScheduleObjectSetRequest {
+    string namespace = 1;
+    string name = 2;
+    string image = 3;
+    uint32 replicas = 4;
+    repeated string command = 5;
+    repeated string args = 6;
+    repeated uint32 ports = 7;
+    map<string, string> envs = 8;
+    Resource resource = 9;
+    repeated Volume volumes = 10;
+    map<string, string> labels = 11;
+    repeated NodeAffinity node_affinities = 12;
+}
+
+message UpdateObjectSetRequest {
+    // 모두 비어있지 않은 값으로 보내줘야 함. Put이 아닌 Update임.
+    string namespace = 1;
+    string name = 2;
+    string image = 3;
+    uint32 replicas = 4;
+    repeated string command = 5;
+    repeated string args = 6;
+    repeated uint32 ports = 7;
+    map<string, string> envs = 8;
+    Resource resource = 9;
+    repeated Volume volumes = 10;
+    map<string, string> labels = 11;
+    repeated NodeAffinity node_affinities = 12;
+}
+
+message DeleteObjectSetRequest {
+    string namespace = 1;
+    string name = 2;
+}
+
+message DeleteObjectSetResponse {
+    repeated DeleteResult delete_results = 1;
+}

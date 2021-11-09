@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package com.sia.odc.evaluation;
+
+import "com/sia/odc/evaluation/ValidationLabel.proto";
+
+option java_outer_classname = "SceneEvaluationResultProto";
+
+message SceneEvaluationResult {
+    repeated com.sia.odc.evaluation.ValidationLabel matching = 1;
+}

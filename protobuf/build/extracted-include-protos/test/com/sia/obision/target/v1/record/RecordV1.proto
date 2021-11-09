@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.record;
+
+option java_multiple_files = true;
+option java_outer_classname = "RecordV1Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/obision/target/v1/attach/AttachV1.proto";
+import "com/sia/common/UUID.proto";
+
+message Record {
+  common.UUID recordId = 1;
+  string targetId = 2;
+  string targetName = 3;
+  string contents = 4;
+  repeated attach.Attach attach = 5;
+  google.protobuf.Timestamp createdTime = 6;
+  string creator = 7;
+  bool isFavoriteTarget = 8;
+  bool isFavoriteRecord = 9;
+  bool isEmergency = 10;
+}
+

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.cluster.p4.v1temp1;
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.p4.v1temp1";
+
+message Model {
+    uint32 id = 1;
+    string name = 2;
+    string version = 3;
+    string filename = 4;
+    string account_id = 5;
+    ModelType model_type = 6;
+    repeated uint32 class_id = 7;
+}
+
+enum ModelType {
+    NULL_TYPE = 0;
+    DETECTION = 1;
+    CLASSIFICATION = 2;
+}

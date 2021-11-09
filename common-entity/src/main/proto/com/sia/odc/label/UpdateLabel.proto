@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package com.sia.odc.label;
+
+import "com/sia/odc/common/Point.proto";
+import "com/sia/odc/label/MatchingType.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+
+message UpdateLabelRequestProto {
+  string id = 1;
+  int32 class_id = 4;
+  int32 inference_class_id = 5;
+  int32 inference_class2_id = 6;
+  int32 inference_class3_id = 7;
+  int32 task_id = 8;
+  com.sia.odc.common.Point center = 9;
+  double width = 10;
+  double height = 11;
+  double angle = 12;
+  com.sia.odc.common.Point location = 13;
+  double confidence = 14;
+  double confidence_t1 = 15;
+  double confidence_t2 = 16;
+  double confidence_t3 = 17;
+  bytes image = 18;
+  MatchingType matching = 19;
+  google.protobuf.Timestamp create_date = 20;
+}
+
+message UpdateLabelListRequestProto {
+  string account_id = 3;
+  string scene_id = 2;
+  repeated UpdateLabelRequestProto labels = 1;
+}

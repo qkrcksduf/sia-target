@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.project.realtime.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "RealtimeProjectListResponseV1Proto";
+
+import "com/sia/obision/project/realtime/v1/RealtimeProjectV1.proto";
+
+message RealtimeProjectListResponseV1 {
+    repeated RealtimeProjectV1 projects = 1;
+}

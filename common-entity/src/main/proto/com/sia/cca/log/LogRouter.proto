@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.sia.cca.log;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/cca/log/message/GetAllLogBy.proto";
+import "com/sia/cca/log/message/GetAllLogCountBy.proto";
+import "com/sia/cca/log/message/GetLogStatics.proto";
+import "com/sia/cca/log/message/SaveLog.proto";
+import "com/sia/cca/log/message/UpdateLogById.proto";
+import "com/sia/cca/log/message/UpdateAllLogByLevel.proto";
+
+service LogRouter {
+  rpc save(message.SaveLogRequest) returns (google.protobuf.Empty) {}
+
+  rpc updateLogById(message.UpdateLogByIdRequest) returns (google.protobuf.Empty) {}
+
+  rpc updateAllLogByLevel(message.UpdateAllLogByLevelRequest) returns (google.protobuf.Empty) {}
+
+  rpc getAllLogBy (message.GetAllLogByRequest) returns (message.GetAllLogByResponse) {}
+
+  rpc getAllLogCountBy (message.GetAllLogCountByRequest) returns (message.GetAllLogCountByResponse) {}
+
+  rpc getLogStatics (message.GetLogStaticsRequest) returns (message.GetLogStaticsResponse) {}
+}

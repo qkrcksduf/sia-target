@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateCustomReportRequestV1Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/TimestampRange.proto";
+import "com/sia/obision/project/v1/ReportTypeV1.proto";
+
+/*
+ * 맞춤 보고서 생성 요청 Message
+ * kr_report_name: 국문 보고서 이름
+ * en_report_name: 영문 보고서 이름
+ * period: 영상촬영시각 범위
+ * mission_id: 보고서에 출력하고자하는 미션 분석 종류
+ */
+message CreateCustomReportRequestV1 {
+  // 둘 중 하나는 필수, 둘 다 있을 수 있음
+  string kr_report_name = 1;
+  string en_report_name = 2;
+
+  // 필수
+  com.sia.common.TimestampRange period = 3;
+
+  // 필수
+  com.sia.common.UUID mission_id = 4;
+}

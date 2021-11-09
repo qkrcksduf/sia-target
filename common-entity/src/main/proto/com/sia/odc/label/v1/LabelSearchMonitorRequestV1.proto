@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.sia.odc.label.v1;
+
+import "com/sia/odc/label/entity/OrderTypeV1.proto";
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/label/MatchingType.proto";
+import "com/sia/odc/common/Point.proto";
+import "com/sia/common/SortDirection.proto";
+
+option java_multiple_files = true;
+
+message LabelSearchMonitorRequestV1 {
+    google.protobuf.Timestamp start_time = 1;
+    google.protobuf.Timestamp end_time = 2;
+    entity.OrderTypeV1 order_type = 3;
+    com.sia.common.SortDirection sort_direction = 4;
+    string scene_id_keyword = 5;
+    double longitude = 6;
+    double latitude = 7;
+    double radius = 8;
+    double min_height = 9;
+    double max_height = 10;
+    double min_width = 11;
+    double max_width = 12;
+    string label_id = 13;
+    int32 limit = 14;
+    repeated int32 class_ids = 15;
+    double min_confidence = 16;
+    double max_confidence = 17;
+    repeated MatchingType matching_types = 18;
+}

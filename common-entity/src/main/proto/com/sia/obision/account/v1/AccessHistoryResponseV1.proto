@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AccessHistoryResponseV1Proto";
+
+import "com/sia/obision/account/v1/AccessHistoryV1.proto";
+
+message AccessHistoryResponseV1 {
+    string account_id = 1;
+    repeated AccessHistoryV1 accessHistories = 2;
+}

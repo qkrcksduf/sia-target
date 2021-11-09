@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.cluster.common.v4beta1;
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.common.v4beta1";
+
+message Resource {
+    map<string, string> requests = 1; // 올 수 있는 key: memory, cpu, nvidia.com/gpu, huge-pages, ...
+    map<string, string> limits = 2; // 올 수 있는 key: memory, cpu, nvidia.com/gpu, huge-pages, ...
+}

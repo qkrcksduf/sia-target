@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelInfoListResponseV1Proto";
+
+import "com/sia/obision/analysis/v1/LabelInfoV1.proto";
+
+message LabelInfoListResponseV1 {
+  repeated analysis.v1.LabelInfoV1 label_info = 1;
+}

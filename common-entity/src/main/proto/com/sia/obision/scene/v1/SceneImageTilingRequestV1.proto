@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneImageTilingRequestV1Proto";
+
+message SceneImageTilingRequestV1 {
+  repeated string path = 1;
+}

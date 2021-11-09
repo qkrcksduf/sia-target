@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AlgorithmV1Proto";
+
+import "com/sia/obision/common/LabelClassWithParent.proto";
+import "com/sia/common/Color.proto";
+
+message AlgorithmV1 {
+    string id = 1;
+    string name = 2;
+    bool is_activated = 3;
+    sia.common.Color color = 5;
+    string image_name = 7;
+    repeated obision.common.LabelClassWithParent label_class_ids = 4;
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.odc.task;
+
+/*
+ * SHOW_NUM : 객체에 숫자를 표시함.
+ * HIDE_NUM : 객체에 숫자를 표시 안함.
+ */
+
+option java_multiple_files = true;
+
+enum ReportObjectTypeProto {
+    SHOW_NUM = 0;
+    HIDE_NUM = 1;
+} 

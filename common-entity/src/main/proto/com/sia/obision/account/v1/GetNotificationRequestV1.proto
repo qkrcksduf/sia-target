@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetNotificationRequestV1Proto";
+
+import "com/sia/common/MongoId.proto";
+import "com/sia/common/Paging.proto";
+
+message GetNotificationRequestV1 {
+  // 사용자 ID
+  string account_id = 1;
+  // 페이징 정보
+  com.sia.common.Paging paging = 2;
+  // 알림 ID로 필터, 알림 ID는 만들어진 시간에 따라 값이 부여되는데 요청할 때 알림 ID 값 이후의 값을 불러옴.
+  com.sia.common.MongoId notification_id = 3;
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateAlgorithmV2Proto";
+
+import "com/sia/obision/algorithm/v2/entity/LabelClassV2.proto";
+import "com/sia/serving/ImportAlgorithm.proto";
+
+message CreateAlgorithmRequestV2 {
+    // 알고리즘 이름
+    string name = 1;
+    // 서빙에서 사용하는 알고리즘 식별자
+    string serving_id = 2;
+    // display_name, depth, algorithm_id, parent, delegate_id는 채우지 말 것 - 2021.10.12 기준
+    repeated entity.LabelClassV2 label_classes = 3;
+}
+
+message CreateAlgorithmResponseV2 {
+    string serving_id = 1;
+    serving.ImportAlgorithmStatus status = 2;
+}

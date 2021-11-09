@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package com.sia.obision.project.realtime.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "UpdateRealtimeProjectRequestV1Proto";
+
+import "com/sia/obision/project/v1/DisclosureScopeV1.proto";
+import "com/sia/obision/project/v1/ProjectStatusV1.proto";
+import "com/sia/obision/project/v1/ParticipantV1.proto";
+import "com/sia/obision/project/v1/OoiV1.proto";
+import "com/sia/obision/project/v1/AnalysisUnitV1.proto";
+
+import "com/sia/common/UUID.proto";
+
+message UpdateRealtimeProjectRequestV1 {
+    // 필수
+    sia.common.UUID id = 1;
+
+    // 선택
+    Explanation explanation = 2;
+    // 선택
+    com.sia.obision.project.v1.ProjectStatusV1 status = 3;
+    // 선택
+    com.sia.obision.project.v1.DisclosureScopeV1 disclosure_scope = 4;
+    // 선택
+    AnalysisUnitList analysis_units = 5;
+    // 선택
+    ParticipantList participants = 6;
+    // 선택
+    OoiList oois = 7;
+}
+
+message Explanation {
+    string name = 1;
+    string description = 2;
+}
+
+message ParticipantList {
+    repeated project.v1.ParticipantV1 participants = 1;
+}
+
+message OoiList {
+    repeated project.v1.OoiV1 oois = 1;
+}
+
+message AnalysisUnitList {
+    repeated project.v1.AnalysisUnitV1 analysis_units = 1;
+}
+

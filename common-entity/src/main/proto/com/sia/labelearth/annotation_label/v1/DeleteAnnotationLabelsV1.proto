@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.labelearth.annotation_label.v1;
+
+import "com/sia/labelearth/annotation_label/v1/entity/AnnotationLabelV1.proto";
+import "com/sia/labelearth/assignment_account/v1/entity/AssignmentAccountV1.proto";
+
+option java_outer_classname = "DeleteAnnotationLabelsV1Proto";
+option java_multiple_files = true;
+
+message DeleteAnnotationLabelsRequestV1Proto {
+  assignment_account.v1.entity.AssignmentAccountV1 assigned_account = 1;
+  repeated v1.entity.AnnotationLabelV1 labels = 2;
+}
+
+message DeleteAnnotationLabelsResponseV1Proto {
+  repeated v1.entity.AnnotationLabelV1 labels = 1;
+}

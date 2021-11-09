@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.map.element.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "TileOptionV1Proto";
+
+message TileOptionV1 {
+  string style = 1;
+  string imageType = 2;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.record;
+
+option java_multiple_files = true;
+option java_outer_classname = "RecordSortPropertyV1Proto";
+
+enum RecordSortProperty {
+  DEFAULT = 0;
+  TARGET_NAME = 1;
+  CREATED_TIME = 2;
+}

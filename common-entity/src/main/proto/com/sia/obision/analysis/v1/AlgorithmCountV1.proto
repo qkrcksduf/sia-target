@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AlgorithmCountV1Proto";
+
+message AlgorithmCountV1 {
+  // 필수
+  string algorithm_id = 1;
+  // 필수
+  int32 count = 2;
+}

@@ -1,0 +1,145 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v2.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneV2Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/common/Polygon.proto";
+import "com/sia/common/MongoId.proto";
+import "com/sia/obision/common/Region.proto";
+import "com/sia/obision/scene/v1/SceneStatusV1.proto";
+import "com/sia/obision/analysis/v2/value/AlgorithmLabelClassCountV2.proto";
+import "com/sia/obision/project/v2/entity/ProjectV2.proto";
+import "com/sia/obision/aoi/v2/value/AoiCoverageV2.proto";
+import "com/sia/obision/analysis/v2/value/ReviewerV2.proto";
+import "com/sia/obision/project/v1/GetProjectNameByV1.proto";
+import "com/sia/common/UUID.proto";
+
+message SceneV2 {
+
+    sia.common.MongoId id = 1;
+
+    SceneInfoV2 info = 2;
+
+    SceneMetaV2 meta = 3;
+
+    com.sia.common.Polygon area = 4;
+
+    SceneAnalysisInfoV2 analysis_info = 5;
+
+    SceneAnalysisStatisticsV2 analysis_statistics = 6;
+
+    /**
+        project_field
+        project_id 기본 제공
+     */
+    repeated project.v2.entity.ProjectV2 projects = 8;
+
+    repeated sia.common.UUID project_ids = 10;
+
+    repeated sia.common.UUID aoi_ids = 11;
+
+    /**
+        기본 제공 : false
+        요청시 account 를 제공한 요청에 한하여 작동 가능
+     */
+    bool isFavorite = 9;
+}
+
+message SceneFieldV2 {
+    bool info_field = 1;
+    bool meta_field = 2;
+    bool area_field = 3;
+    SceneAnalysisInfoFieldV2 analysis_info_field = 4;
+    SceneAnalysisStatisticsFieldV2 analysis_statistics_field = 5;
+    project.v2.entity.ProjectFieldV2 project_field = 6;
+    bool project_ids_field = 7;
+    bool aoi_ids_field = 8;
+}
+
+/**
+    info_field
+    기본 정보
+ */
+message SceneInfoV2 {
+    string satellite_name = 4;
+    google.protobuf.Timestamp imaging_time = 5;
+    obision.common.Region region = 6;
+}
+
+/**
+    meta_field
+    메타 정보
+ */
+message SceneMetaV2 {
+    int32 width = 2;
+    int32 height = 3;
+    double gsdX = 4;
+    double gsdY = 5;
+    int32 depth = 6;
+    string projection = 7;
+    repeated double geo_transforms = 8;
+    string path = 9;
+}
+
+
+/**
+    analysis_info_field
+    판독 관련 정보
+ */
+message SceneAnalysisInfoV2 {
+    /**
+        base_field
+        기본 정보
+     */
+    scene.v1.SceneStatusV1 status = 1;
+    google.protobuf.Timestamp inferred_time = 2;
+    google.protobuf.Timestamp reviewed_time = 3;
+    // 0 ~ 1 사이값
+    double cloud_coverage = 6;
+    // 0 ~ 1 사이값
+    double avg_aoi_coverage = 4;
+    /**
+        aoi_coverage_field
+        각 aoi 별 coverage 값
+        기본적인 정보 제공, 추가 정보 필요시 field 활용
+     */
+    repeated aoi.v2.value.AoiCoverageV2 aoi_coverages = 5;
+    /**
+        reviewer_field
+        검수자 정보
+        기본적인 정보를 제공하나, 추가 정보 필요시 field 활용
+     */
+    repeated analysis.v2.value.ReviewerV2 reviewers = 7;
+}
+
+message SceneAnalysisInfoFieldV2 {
+    /**
+        활성화 여부
+     */
+    bool activated = 1;
+    bool aoi_coverage_field = 3;
+    analysis.v2.value.ReviewerFieldV2 reviewer_field = 4;
+}
+
+/**
+    analysis_statistics_field
+    판독 결과 정보
+ */
+message SceneAnalysisStatisticsV2 {
+    /**
+        count_field
+     */
+    repeated analysis.v2.value.AlgorithmLabelClassCountV2 algorithm_label_class_counts = 2;
+}
+
+message SceneAnalysisStatisticsFieldV2 {
+    /**
+        활성화 여부
+     */
+    bool activated = 1;
+    analysis.v2.value.AlgorithmLabelClassCountFieldV2 algorithm_count_field = 2;
+    // todo :: aoi 별로도 구분 필요?
+}

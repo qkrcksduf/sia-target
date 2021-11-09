@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm.v2.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelClassReferenceV2Proto";
+
+import "com/sia/common/UUID.proto";
+
+message LabelClassReferenceV2 {
+  string id = 1;
+  com.sia.common.UUID class_id = 2;
+  string name = 3;
+  string description = 4;
+  string image = 5;
+}
+
+message LabelClassReferenceFieldV2 {
+  bool activated = 1;
+  bool id_field = 2;
+  bool class_id_field = 3;
+  bool name_field = 4;
+  bool description_field = 5;
+  bool image_field = 6;
+}

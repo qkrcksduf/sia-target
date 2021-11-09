@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package com.sia.odc.inference;
+
+import "com/sia/odc/patch/Patch.proto";
+
+option java_outer_classname = "InferenceRequestProto";
+
+message InferenceRequest {
+    required string path = 1;
+    required int32 task_id = 2;
+    repeated com.sia.odc.patch.PatchArea patches = 3;
+}

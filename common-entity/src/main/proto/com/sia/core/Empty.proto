@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package com.sia.core;
+
+option java_multiple_files = true;
+
+message EmptyProto {}

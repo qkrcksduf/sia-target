@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.sia.cluster.monitoring.v1beta1;
+
+import "com/sia/cluster/monitoring/v1beta1/GpuMetric.proto";
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.monitoring.v1beta1";
+
+message GpuInfo {
+  string uuid = 1;
+  uint32 card_order = 2;
+  string node_name = 3;
+  GpuMetric metric = 4;
+  map<string, string> pod_labels = 5;
+}
+
+message LoadGpuInfoResponse {
+  repeated GpuInfo gpu_info = 1;
+}
+

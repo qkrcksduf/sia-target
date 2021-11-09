@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package com.sia.odc.model;
+
+import "com/sia/odc/snapshot/SnapshotResponse.proto";
+import "com/sia/odc/account/Account.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+
+message ModelProto {
+    int32 id = 7;
+    string name = 1;
+    string version = 2;
+    string filename = 3;
+    string account_id = 4;
+    ModelType model_type = 5;
+    repeated int32 class_id = 6;
+}
+
+message ModelResponseProto {
+    ModelProto model = 1;
+    repeated com.sia.odc.snapshot.SnapshotResponseProto snapshot = 2;
+    repeated string tag = 3;
+    google.protobuf.Timestamp created_time = 4;
+    com.sia.odc.account.Account creator = 5;
+    repeated string class_name = 6;
+    float loss = 7;
+    int32 progress = 8;
+    string estimation_time = 9;
+    ModelStatusProto status = 10;
+    string score = 11;
+    bool is_high_priority = 12;
+}
+
+message ModelListResponseProto {
+    repeated ModelResponseProto model = 1;
+}
+
+enum ModelStatusProto {
+    NULL_STATUS = 0;
+    IDLE = 1;
+    WAITING = 2;
+    TRAINING_DATA_BUILD_PROGRESS = 3;
+    TRAINING_PROGRESS = 4;
+    VALIDATION_PROGRESS = 5;
+    CANCELED = 6;
+    COMPLETED = 7;
+    VALIDATION = 8;
+}
+
+enum ModelType {
+    NULL_TYPE = 0;
+    DETECTION = 1;
+    CLASSIFICATION = 2;
+}
+
+message DetectionModelScore {
+    int32 recall = 1;
+    int32 precision = 2;
+    int32 f1 = 3;
+}
+
+message ClassificationModelScore {
+    int32 top1_accuracy = 1;
+    int32 top3_accuracy = 2;
+}

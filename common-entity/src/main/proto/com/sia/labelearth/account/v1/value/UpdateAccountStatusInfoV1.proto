@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.labelearth.account.v1.value;
+
+import "com/sia/labelearth/account/v1/entity/AccountStatusV1.proto";
+
+//option java_multiple_files = true;
+option java_outer_classname = "UpdateAccountStatusInfoV1Proto";
+
+message UpdateAccountStatusInfoV1 {
+  string account_id = 1;
+  v1.entity.AccountStatusV1 status = 2;
+}

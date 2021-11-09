@@ -1,0 +1,18 @@
+syntax = "proto2";
+
+package com.sia.odc.scene;
+
+import "com/sia/odc/common/Polygon.proto";
+
+option java_outer_classname = "RegionProto";
+
+message Region {
+    required com.sia.odc.common.MultiPolygon multi_polygon = 1;
+    required string country = 2;
+    required string province = 3;
+    required string city = 4;
+}
+
+message RegionList {
+    repeated Region regions = 1;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneImageMetaListResponseV1Proto";
+
+import "com/sia/obision/scene/v1/SceneImageMetaV1.proto";
+
+message SceneImageMetaListResponseV1 {
+  repeated com.sia.obision.scene.v1.SceneImageMetaV1 metas = 1;
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AccountPermissionV1Proto";
+
+enum AccountPermissionV1 {
+    // 업데이트 하지 않는 경우
+    ACCOUNT_PERMISSION_NONE = 0;
+    ADMIN = 1;
+    MEMBER = 2;
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.sia.cca.cloud.message;
+
+option java_outer_classname = "CloudProto";
+option java_multiple_files = true;
+
+import "com/sia/common/Polygon.proto";
+
+message CloudResponse {
+  com.sia.common.Polygon exterior = 1;
+  repeated com.sia.common.Polygon interior = 2;
+  CloudClassProto cloud_class = 3;
+}
+
+enum CloudClassProto {
+  CLEAR = 0;
+  THICK_CLOUD = 1;
+  THIN_CLOUD = 2;
+  CLOUD_SHADOW = 3;
+}

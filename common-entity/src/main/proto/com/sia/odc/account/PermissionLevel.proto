@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.odc.account;
+
+option java_outer_classname = "PermissionLevelProto";
+
+enum PermissionLevel {
+    NULL = 0;
+    ANNOTATOR = 1; // 어노테이터
+    VALIDATOR = 2; // 검수자
+    ADMIN = 3; // 관리자
+    ANALYST = 4; // 판독관
+    MEMBER = 5;  // 구성원
+}

@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.image;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+
+import "com/sia/obision/scene/v1/SceneImageTilingRequestV1.proto";
+import "com/sia/obision/scene/v1/SceneImageMetaListRequestV1.proto";
+import "com/sia/obision/scene/v1/SceneImageMetaListResponseV1.proto";
+import "com/sia/obision/scene/v1/SceneImageTileRequestV1.proto";
+import "com/sia/obision/scene/v1/SceneImageTileResponseV1.proto";
+
+// 타일링 서버로 분리되면서 더 이상 사용하지 않음.
+service SceneImageRouter {
+  rpc generateSceneImageTile(com.sia.obision.scene.v1.SceneImageTilingRequestV1)
+      returns (google.protobuf.Empty) {}
+
+  rpc getSceneImageTileV1(com.sia.obision.scene.v1.SceneImageTileRequestV1)
+      returns (com.sia.obision.scene.v1.SceneImageTileResponseV1) {}
+
+  rpc getSceneImageMetaV1(com.sia.obision.scene.v1.SceneImageMetaListRequestV1)
+      returns (com.sia.obision.scene.v1.SceneImageMetaListResponseV1) {}
+}

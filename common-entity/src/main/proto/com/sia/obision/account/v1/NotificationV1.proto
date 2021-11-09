@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "NotificationV1Proto";
+
+import "com/sia/common/MongoId.proto";
+import "com/sia/obision/account/v1/NotificationTypeV1.proto";
+import "google/protobuf/timestamp.proto";
+
+message NotificationV1 {
+  // 알림의 ID
+  sia.common.MongoId id = 1;
+  // 알림의 내용
+  string content = 2;
+  // 알림의 타입
+  NotificationTypeV1 notification_type = 3;
+  // 알림의 세부 정보
+  map<string, string> detail_info = 4;
+  // 알림 내용의 유형
+  NotificationContentTypeV1 content_type = 5;
+  // 알림이 만들어진 날짜
+  google.protobuf.Timestamp created_time = 6;
+}
+
+// map에 enum 값이 들어가지 않아 해당 enum 값을 String으로 넣는 형식으로 진행
+enum NotificationRoutingKeyV1 {
+  // 프로젝트 ID, LIST는 ","로 구분
+  PROJECT_ID_LIST = 0;
+  // 프로젝트 이름
+  PROJECT_NAME = 1;
+  // 작업 수행자 이름
+  PERFORMER = 2;
+  // 사용자 이름
+  USERNAME = 3;
+  // 객체 유형명
+  OBJECT_NAME = 4;
+  // 숫자 (N)
+  NUMBER = 5;
+  // Error Code
+  ERROR_CODE = 6;
+  // 영상명
+  SCENE_ID = 7;
+  // 촬영 일시 UNIX_TIMESTAMP 값으로 LONG 값
+  IMAGING_TIME = 8;
+  // 촬영 지역
+  IMAGING_REGION = 9;
+  // 탐지 범위
+  DETECTION_RANGE = 10;
+  // 구름 범위
+  CLOUD_RANGE = 11;
+  // 프로젝트 ID, NAME 목록 JSON 형식
+  PROJECT_ID_AND_NAME_JSON = 12;
+}
+
+// 알림에 들어 갈 내용이 무엇일지에 대한 유형
+enum NotificationContentTypeV1 {
+  // 프로젝트 초대됨
+  PROJECT_INVITED = 0;
+  // 프로젝트 끝남.
+  PROJECT_CLOSED = 1;
+  // 인퍼런스 에러
+  INFERENCE_ERROR = 2;
+  // 인퍼런스 성공
+  INFERENCE_SUCCESS = 3;
+  // 보고서 생성
+  REPORT_CREATE_COMPLETED = 4;
+  // 프로젝트 종료 기한
+  PROJECT_CLOSED_DEADLINE = 5;
+}

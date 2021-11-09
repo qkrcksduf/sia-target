@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.sia.labelearth.scene;
+
+import "com/sia/labelearth/scene/v1/CreateScenesV1.proto";
+import "com/sia/labelearth/scene/v1/GetSceneV1.proto";
+import "com/sia/labelearth/scene/v1/SearchScenesV1.proto";
+import "com/sia/labelearth/scene/v1/GetCountSearchScenesV1.proto";
+
+option java_multiple_files = true;
+
+service SceneRouter {
+  rpc getSceneV1(v1.GetSceneRequestV1Proto) returns (v1.GetSceneResponseV1Proto) {}
+
+  rpc searchScenesV1(v1.SearchScenesRequestV1Proto) returns (v1.SearchScenesResponseV1Proto){}
+
+  rpc getCountSearchScenesV1(v1.GetCountSearchScenesRequestV1Proto) returns (v1.GetCountSearchScenesResponseV1Proto) {}
+
+  rpc createScenesV1(v1.CreateScenesRequestV1Proto) returns (v1.CreateScenesResponseV1Proto) {}
+}
+

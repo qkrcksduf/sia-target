@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.overview.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "OverviewSceneListRequestV1Proto";
+
+import "com/sia/common/Period.proto";
+import "com/sia/common/GeoPoint.proto";
+import "com/sia/common/SortDirection.proto";
+import "com/sia/common/IntRange.proto";
+import "com/sia/common/Paging.proto";
+import "com/sia/obision/scene/v1/SceneStatusV1.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/common/TimeZone.proto";
+
+import "com/sia/obision/common/Region.proto";
+import "com/sia/obision/common/LabelClassWithParent.proto";
+
+message OverviewSceneListRequestV1 {
+    // 필수
+    sia.common.UUID project_id = 1;
+
+    // 필수
+    com.sia.common.Period scene_time_range = 2;
+    // 필수
+    com.sia.common.IntRange aoi_coverage_range = 3;
+
+
+    // 필수
+    com.sia.common.Paging paging = 4;
+    // 선택, 기본값 : IMAGING_TIME
+    v1.SceneListSortField sort_field = 13;
+    // 선택, 기본 : DESC
+    com.sia.common.SortDirection sort_direction = 14;
+    // 선택, 기본값 : false, true면 객체가 탐지되지 않은 영상 필터링
+    bool zero_detected_scene_filter = 16;
+
+
+    // 선택
+    string satellite_name = 5;
+    // 선택, 없으면 전체
+    repeated obision.common.Region regions = 6;
+    // 선택, 없으면 전체
+    LabelClassFilter label_class_filter = 7;
+    // 선택
+    repeated com.sia.obision.scene.v1.SceneStatusV1 status = 8;
+    // 선택
+    com.sia.common.GeoPoint location = 9;
+    // 선택, 미터 단위
+    int32 radius = 10;
+    // 선택
+    string keyword = 17;
+    // 선택, 즐겨찾기를 불러오기 위해 필요
+    string account_id = 19;
+    // 선택
+    bool only_favorite = 20;
+    // 선택
+    bool only_today_inferred = 22;
+
+    // 선택, 기본 : 서버 기본값
+    sia.common.TimeZone timezone = 21;
+}
+
+message LabelClassFilter {
+    // 기본값: false, true 시 객체 미탐지 포함
+    bool has_nothing = 1;
+    // 필수
+    repeated obision.common.LabelClassWithParent label_class_id = 2;
+}
+
+enum SceneListSortField {
+    IMAGING_TIME = 0;
+    PROGRESS = 1;
+    SCENE_ID = 2;
+    REGION = 4;
+    AOI_COVERAGE = 5;
+    OBJECT = 6;
+    SATELLITE = 7;
+}

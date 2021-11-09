@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.boot.account.grpc;
+
+import "com/sia/boot/account/Id.proto";
+import "com/sia/boot/account/Account.proto";
+import "com/sia/boot/account/SignIn.proto";
+import "com/sia/boot/account/SignUp.proto";
+
+option java_multiple_files = true;
+
+service AccountRouter {
+  rpc getAccountByIdV1(StringId) returns (AccountResponseProto) { }
+  rpc signInV1(SignInRequestProto) returns (SignInResponseProto) { }
+  rpc signUpV1(SignUpRequestProto) returns (SignUpResponseProto) { }
+}

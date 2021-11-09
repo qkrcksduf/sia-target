@@ -6,13 +6,13 @@ import com.sia.obision.project.repo.target.TargetRepository
 
 object TargetService {
 
-    fun exists(id: String) {
+    fun checkExistTarget(id: String) {
         injector().get<TargetRepository>().use {
             if (it.exists(id)) {
-                val message = "target already exists"
+                val message = "표적을 생성할 수 없습니다. 이미 존재하는 표적 ID 입니다."
+//                val message = "$id already exists"
                 throw IdDuplicationException(message)
             }
         }
     }
-
 }

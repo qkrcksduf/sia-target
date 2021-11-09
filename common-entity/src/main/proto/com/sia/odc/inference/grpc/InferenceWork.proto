@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.odc.inference.grpc;
+
+import "google/protobuf/empty.proto";
+import "com/sia/odc/inference/InferenceResource.proto";
+import "com/sia/odc/inference/InferenceRequest.proto";
+import "com/sia/odc/inference/InferenceResult.proto";
+import "com/sia/odc/evaluation/SceneEvaluationRequest.proto";
+import "com/sia/odc/evaluation/SceneEvaluationResult.proto";
+
+service InferenceWorkRequest {
+    rpc is_alive(google.protobuf.Empty) returns (google.protobuf.Empty) {}
+    rpc get_uuid(google.protobuf.Empty) returns (uuid) {}
+    rpc do_inference (com.sia.odc.inference.InferenceRequest) returns (com.sia.odc.inference.InferenceResult) {}
+    rpc do_evaluation (com.sia.odc.evaluation.SceneEvaluationRequest) returns (com.sia.odc.evaluation.SceneEvaluationResult) {}
+    rpc do_nms (com.sia.odc.inference.InferenceResult) returns (com.sia.odc.inference.InferenceResult) {}
+}
+

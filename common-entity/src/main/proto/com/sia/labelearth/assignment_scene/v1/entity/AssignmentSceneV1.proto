@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.labelearth.assignment_scene.v1.entity;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/labelearth/scene/v1/entity/SceneV1.proto";
+import "com/sia/labelearth/assignment_scene/v1/entity/AssignmentSceneStatusV1.proto";
+
+//option java_multiple_files = true;
+option java_outer_classname = "AssignmentSceneV1Proto";
+
+message AssignmentSceneV1 {
+  string dataset_id = 1;
+  scene.v1.entity.SceneV1 scene = 2;
+  string overall_comment = 3;
+  AssignmentSceneStatusV1 status = 4;
+  google.protobuf.Timestamp last_changed = 5;
+}

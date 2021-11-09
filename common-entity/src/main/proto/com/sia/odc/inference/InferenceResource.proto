@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package com.sia.odc.inference;
+
+option java_multiple_files = true;
+
+message heartbeat {
+}
+
+message uuid {
+    string uuid = 1;
+}
+
+enum WorkType {
+    NULL = 0;
+    AUTO = 1;
+    MANUAL = 2;
+    TRAIN = 3;
+}
+
+// TODO 자동과 수동으로 나뉘어야함
+message InferenceResource {
+    string uuid = 1; // response
+    int32 node_port = 2; // response
+    repeated string command = 4; // _
+    string task = 5; // request, response
+    int32 replica = 6; // request, response
+    int32 available = 7; // response
+    WorkType type = 8; // req
+    string registry = 9; // _
+    string repository = 10; // _
+    string tag = 3; // _
+}
+
+message InferenceResources {
+    repeated InferenceResource resources = 1;
+}
+

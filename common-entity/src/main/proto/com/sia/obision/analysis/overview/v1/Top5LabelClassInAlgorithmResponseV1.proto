@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.overview.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "Top5LabelClassInAlgorithmResponseV1Proto";
+
+import "com/sia/obision/analysis/v1/LabelCountV1.proto";
+
+message Top5LabelClassInAlgorithmResponseV1 {
+  // 필수
+  repeated Top5LabelClass top5_label_classes = 1;
+}
+
+message Top5LabelClass {
+  // 필수
+  string algorithm_id = 1;
+  // 필수
+  repeated analysis.v1.LabelCountV1 label_counts = 2;
+}

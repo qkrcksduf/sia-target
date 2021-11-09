@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v3.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "MissionV3Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/project/v3/entity/MissionReportFormatV3.proto";
+import "com/sia/obision/project/v3/entity/AnalysisUnitV3.proto";
+
+message MissionV3 {
+    common.UUID id = 1;
+    string name = 2;
+    repeated common.UUID aoi_ids = 3;
+    MissionReportFormatV3 mission_report_format = 4;
+    repeated string algorithm_ids = 5;
+    repeated AnalysisUnitV3 analysis_units = 6;
+}

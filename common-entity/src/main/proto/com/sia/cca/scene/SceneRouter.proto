@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package com.sia.cca.scene;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/cca/scene/message/GetAllSceneBy.proto";
+import "com/sia/cca/scene/message/GetAllSceneCountBy.proto";
+import "com/sia/cca/scene/message/GetInferredStatics.proto";
+import "com/sia/cca/scene/message/GetSceneById.proto";
+import "com/sia/cca/scene/message/GetSceneByOrder.proto";
+import "com/sia/cca/scene/message/InferenceByStatus.proto";
+import "com/sia/cca/scene/message/UpdateCloud.proto";
+import "com/sia/cca/scene/message/Inference.proto";
+
+
+service SceneRouter {
+  rpc getAllSceneBy (message.GetAllSceneByRequest) returns (message.GetAllSceneByResponse) {}
+
+  rpc getAllSceneCountBy (message.GetAllSceneCountByRequest) returns (message.GetAllSceneCountByResponse) {}
+
+  rpc getInferredStatics (message.GetInferredStaticsRequest) returns (message.GetInferredStaticsResponse) {}
+
+  rpc getInferredStaticsStream (message.GetInferredStaticsRequest)
+      returns (stream message.GetInferredStaticsResponse) {}
+
+  rpc getSceneById (message.GetSceneByIdRequest) returns (message.GetSceneByIdResponse) {}
+
+  rpc getSceneByOrder (message.GetSceneByOrderRequest) returns (message.GetSceneByOrderResponse) {}
+
+  rpc inferenceByStatus (message.InferenceByStatusRequest) returns (google.protobuf.Empty) {}
+
+  rpc updateCloud (message.UpdateCloudRequest) returns (google.protobuf.Empty) {}
+
+  rpc inference (message.PeriodInferenceRequest) returns (google.protobuf.Empty) {}
+}

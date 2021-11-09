@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "com/sia/odc/task/ReportSettingType.proto";
+import "com/sia/odc/task/DetailViewType.proto";
+import "com/sia/odc/task/ReportIcon.proto";
+import "com/sia/odc/task/ReportObjectType.proto";
+
+package com.sia.odc.task;
+
+option java_multiple_files = true;
+
+message ReportFormatResponseProto {
+  string report_name = 1;
+  string eng_report_name = 10;
+  int32 base_map_id = 2;
+  ReportTypeProto report_type = 3;
+  ReportIconProto not_filmed_icon = 4;
+  string column_name = 5;
+  string eng_column_name = 11;
+  bool is_detail_view_on = 6;
+  DetailViewTypeProto detail_view_type = 7;
+  bool is_report_generation = 8;
+  ReportObjectTypeProto object_type = 9;
+  bool is_object_redundancy_check = 13;
+  bool is_eng_report_generation = 12;
+}

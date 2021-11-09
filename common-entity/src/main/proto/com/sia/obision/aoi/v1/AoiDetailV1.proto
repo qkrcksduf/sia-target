@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.obision.aoi.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AoiDetailV1Proto";
+
+import "com/sia/common/MultiPolygon.proto";
+import "com/sia/common/UUID.proto";
+
+message AoiDetailV1 {
+    // 필수
+    sia.common.UUID id = 1;
+    // 필수
+    string name = 2;
+    // 필수
+    com.sia.common.MultiPolygon area=3;
+    // 필수
+    string creator = 4;
+    // 필수
+    string district = 5;
+    // 필수
+    repeated string project_names = 6;
+}

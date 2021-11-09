@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "NotificationListResponseV1Proto";
+
+import "com/sia/obision/account/v1/NotificationV1.proto";
+
+message NotificationListResponseV1 {
+  repeated NotificationV1 notifications = 1;
+}

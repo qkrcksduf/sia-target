@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.map.element.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "MetaTileV1Proto";
+
+message MetaTileV1 {
+  int32 x = 1;
+  int32 y = 2;
+  int32 z = 3;
+}

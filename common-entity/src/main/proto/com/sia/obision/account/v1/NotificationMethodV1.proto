@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "NotificationMethodV1Proto";
+
+/**
+ * 알림 방식.
+ *
+ * 클라이언트에서 어떤 방식으로 사용자에게 알림을 보여줄지에 대한 방식
+ *
+ */
+
+enum NotificationMethodV1 {
+    // 업데이트 하지 않는 경우
+    NOTIFICATION_METHOD_NONE = 0;
+    // 사용자 OS에 맞춰 데스크탑이 푸쉬하는 방식
+    PUSH = 1;
+    // 클라이언트의 우측 상단에 배너로 나타나는 방식
+    BANNER = 2;
+    // 알림이 따로 없고 데이터만 저장하는 방식
+    NONE = 3;
+}

@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package com.sia.cms.scene.message;
+
+option java_outer_classname = "CmsSceneProto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/cca/scene/message/Scene.proto";
+
+message CmsSceneResponse {
+  string product_id = 1;
+  string cloud_avg = 2;
+  com.sia.cca.scene.message.ImagingModeProto imaging_mode = 3;
+  // 카탈로그가 만들어진 시간
+  google.protobuf.Timestamp create_date = 4;
+  string satname = 5;
+  double orbitnumber = 6;
+  double roll_tilt_angle = 7;
+  double yaw_tilt_angle = 8;
+  double pitch_tilt_angle = 9;
+  double center_lat = 10;
+  double center_lon = 11;
+  double upleft_lat = 12;
+  double upleft_lon = 13;
+  double upright_lat = 14;
+  double upright_lon = 15;
+  double lowleft_lat = 16;
+  double lowleft_lon = 17;
+  double lowright_lat = 18;
+  double lowright_lon = 19;
+  string securitylevel = 20;
+  string prc_station = 21;
+  string bandselection = 22;
+  string rcv_station = 23;
+  string browlocation = 24;
+//  com.sia.common.MultiPolygon polygon = 23;
+}

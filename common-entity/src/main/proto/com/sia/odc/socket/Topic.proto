@@ -1,0 +1,37 @@
+syntax = "proto2";
+
+package com.sia.odc.socket;
+
+/*
+ * ERROR: 에러
+ * CONNECTION: 웹소켓 연결
+ * TOPIC_REGISTRATION: 토픽 등록
+ * INFERENCE_RESULT: 인퍼런스 완료, 실시간 알림과 자동 판독 화면의 완료 영상을 호출할 때 사용
+ * REPORT_CREATE_RESULT: 맞춤 보고서를 생성한 것에 대한 알림
+ * TASK_UPDATE: 태스크 업데이트 알림
+ * MODEL_STATUS_UPDATE: 학습 중에 모델의 상태가 변경될 때 알림
+ * MODEL_TRAINING_UPDATE: 학습 및 평가 중에 모델의 상태 변화 알림
+ * INFERENCE_PROGRESS: 인퍼런스 중 인퍼런스 진행 상태 변경을 알림
+ * INFERENCE_WAITING: 인퍼런스 중 대기 인퍼런스가 생성됬음을 알림
+ * INFERENCE_COMPLETED: 인퍼런스 중 대기 인퍼런스가 생성됬음을 알림
+ */
+
+option java_outer_classname = "TopicProto";
+
+enum TopicType {
+    ERROR = 1; // string
+    CONNECTION = 2; // string
+    TOPIC_REGISTRATION = 3; // string
+    INFERENCE_RESULT = 4;  // "com.sia.odc.inference.InferecneResult.proto" InferenceNotification
+    REPORT_CREATE_RESULT = 5; // "com/sia/odc/inference/PeriodicReport.proto" PeriodicReportCreateResult
+    TASK_UPDATE = 6; // "com.sia.odc.task.UpdateTaskTopic.proto UpdateTaskTopicProto
+    MODEL_STATUS_UPDATE = 7; // com.sia.odc.training.TrainingMonitor.proto TrainingMonitoringMessage
+    MODEL_TRAINING_UPDATE = 8; // com.sia.odc.training.TrainingMonitor.proto TrainingMonitoringMessage
+    INFERENCE_PROGRESS = 9; // ""
+    INFERENCE_WAITING = 10; // ""
+    INFERENCE_COMPLETED = 11; // ""
+}
+
+message TopicList {
+    repeated com.sia.odc.socket.TopicType topic_types = 1;
+}

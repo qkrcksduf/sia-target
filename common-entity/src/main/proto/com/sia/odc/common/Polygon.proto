@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.odc.common;
+
+import "com/sia/odc/common/Point.proto";
+
+message Polygon {
+    repeated com.sia.odc.common.Point point = 1;
+}
+
+message MultiPolygon {
+    repeated Polygon polygon = 1;
+}

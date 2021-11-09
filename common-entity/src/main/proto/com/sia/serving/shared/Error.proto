@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.serving.shared;
+
+option java_multiple_files = true;
+option java_outer_classname = "ErrorProto";
+
+message Error {
+    oneof error_oneof {
+        ReTriableError re_triable_error = 1;
+        UnReTriableError un_re_triable_error = 2;
+    }
+}
+
+enum ReTriableError {
+    REQUEST_TIMEOUT = 0;
+    RESOURCE_TIMEOUT = 1;
+
+}
+
+enum UnReTriableError {
+    FILE_CRASHED = 0;
+}
+

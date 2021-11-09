@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.sia.serving;
+
+option java_multiple_files = true;
+
+
+enum ImportAlgorithmStatus {
+    IMPORT_ALGORITHM_FAIL = 0;
+    IMPORT_ALGORITHM_SUCCESS = 1;
+    UNKNOWN_MODEL_ID = 2;
+    ALGORITHM_ALREADY_EXIST = 3;
+}
+
+message ImportAlgorithmRequest {
+    string algorithm_name = 1;
+    string det_model_id = 2;
+    string cls_model_id = 3;
+    string version = 4;
+}
+
+message ImportAlgorithmResponse {
+    string algorithm_id = 1;
+    ImportAlgorithmStatus status = 2;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.labelearth.annotation_label.v1.entity;
+
+//option java_multiple_files = true;
+option java_outer_classname = "AnnotationLabelErrorTypeV1Proto";
+
+enum AnnotationLabelErrorTypeV1 {
+    WRONG_CLASS = 0;
+    WRONG_ROUNDING_BOX = 1;
+    ETC = 2;
+}

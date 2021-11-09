@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.sia.boot.account;
+
+import "com/sia/boot/account/AccountRole.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "SignUpProto";
+
+message SignUpRequestProto {
+  string id = 1;
+  string name = 2;
+  string password = 3;
+  AccountRoleProto role = 4;
+}
+
+message SignUpResponseProto {
+  string id = 1;
+  string name = 2;
+  AccountRoleProto role = 3;
+}

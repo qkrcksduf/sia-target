@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.map.element.v1;
+
+import "com/sia/common/PixelPoint.proto";
+import "com/sia/common/Point.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "BaseMapTileV1Proto";
+
+message BaseMapTileV1 {
+    bytes img = 1;
+    common.Point min_latlon = 2;
+    common.Point max_latlon = 3;
+    common.PixelPoint min_tile = 4;
+    int32 zoom = 5;
+}

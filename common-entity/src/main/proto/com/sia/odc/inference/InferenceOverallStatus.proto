@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.odc.inference;
+
+option java_multiple_files = true;
+
+message InferenceOverallStatusResponseProto {
+  int32 total_count = 1;
+  int32 completed_count = 2;
+  int32 processing_count = 3;
+  int32 waiting_count = 4;
+}

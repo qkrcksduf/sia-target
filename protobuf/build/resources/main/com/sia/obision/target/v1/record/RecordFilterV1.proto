@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.record;
+
+option java_multiple_files = true;
+option java_outer_classname = "RecordFilterV1Proto";
+
+import "com/sia/common/TimestampRange.proto";
+import "com/sia/common/Paging.proto";
+import "com/sia/common/SortDirection.proto";
+import "com/sia/obision/target/v1/FilterPropertyV1.proto";
+import "com/sia/obision/target/v1/record/RecordSortPropertyV1.proto";
+import "com/sia/obision/target/v1/record/RecordV1.proto";
+import "com/sia/obision/target/v1/record/RecordSelectOptionV1.proto";
+
+message RecordFilterRequestV1 {
+  FilterProperty filterProperty = 1;
+  RecordSelectOption selectOption = 2;
+  com.sia.common.SortDirection sortDirection = 3;
+  RecordSortProperty recordSortProperty = 4;
+  com.sia.common.Paging paging = 5;
+}
+
+message RecordFilterResponseV1 {
+  repeated Record record = 1;
+  int32 totalCount = 2;
+}

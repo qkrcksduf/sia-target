@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "NotificationConfigV1Proto";
+
+import "com/sia/obision/account/v1/NotificationTypeV1.proto";
+import "com/sia/obision/account/v1/NotificationMethodV1.proto";
+
+message NotificationConfigV1 {
+  // 사용자 ID, 필수
+  string account_id = 1;
+  // 사용자 알림 방식, 필수 or 선택
+  NotificationMethodV1 method = 2;
+  // 알림 받을 알림의 종류, 필수 or 선택
+  repeated NotificationTypeV1 types = 3;
+}

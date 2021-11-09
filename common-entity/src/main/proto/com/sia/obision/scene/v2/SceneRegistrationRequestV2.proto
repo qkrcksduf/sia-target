@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneRegistrationRequestV2Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/GeoPoint.proto";
+
+/**
+  영상 보정 요청
+  보정된 영상이 새로 생기고, 새로운 영상처럼 인퍼런스를 시작한다.
+ */
+message SceneRegistrationRequestV2 {
+  // 보정할 영상
+  string scene_id = 1;
+  // 보정 좌표
+  sia.common.GeoPoint left_top = 2;
+}

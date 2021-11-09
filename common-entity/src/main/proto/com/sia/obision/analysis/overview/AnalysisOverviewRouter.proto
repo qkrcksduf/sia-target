@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.overview;
+
+option java_multiple_files = true;
+
+import "com/sia/obision/analysis/overview/v1/OverviewSceneListRequestV1.proto";
+import "com/sia/obision/analysis/overview/v1/OverviewSceneListResponseV1.proto";
+import "com/sia/obision/analysis/overview/v1/OoiTrendRequestV1.proto";
+import "com/sia/obision/analysis/overview/v1/OoiTrendResponseV1.proto";
+import "com/sia/obision/analysis/overview/v1/SceneLabelCountRequestV1.proto";
+import "com/sia/obision/analysis/overview/v1/SceneLabelCountResponseV1.proto";
+import "com/sia/obision/analysis/overview/v1/NewlyDetectedRequestV1.proto";
+import "com/sia/obision/analysis/overview/v1/NewlyDetectedResponseV1.proto";
+import "com/sia/obision/analysis/overview/v1/Top5LabelClassInAlgorithmRequestV1.proto";
+import "com/sia/obision/analysis/overview/v1/Top5LabelClassInAlgorithmResponseV1.proto";
+import "com/sia/obision/analysis/overview/v1/MostChangedAoiRequestV1.proto";
+import "com/sia/obision/analysis/overview/v1/MostChangedAoiResponseV1.proto";
+import "com/sia/obision/analysis/overview/v1/FilterMetaRequestV1.proto";
+import "com/sia/obision/analysis/overview/v1/SceneFilterMetaResponseV1.proto";
+import "com/sia/obision/analysis/overview/v1/LabelFilterMetaResponseV1.proto";
+import "com/sia/obision/analysis/overview/v1/ProjectLabelListRequestV1.proto";
+import "com/sia/obision/analysis/overview/v1/ProjectLabelListResponseV1.proto";
+import "com/sia/obision/analysis/overview/v1/ManageSceneFavoriteRequestV1.proto";
+
+import "google/protobuf/empty.proto";
+
+service AnalysisOverviewRouter {
+  rpc getOverviewSceneListV1(v1.OverviewSceneListRequestV1) returns (v1.OverviewSceneListResponseV1) {}
+  rpc getOoiTrendV1(v1.OoiTrendRequestV1) returns (v1.OoiTrendResponseV1) {}
+  rpc getSceneLabelCountV1(v1.SceneLabelCountRequestV1) returns (v1.SceneLabelCountResponseV1) {}
+  rpc getNewlyDetectedV1(v1.NewlyDetectedRequestV1) returns (v1.NewlyDetectedResponseV1) {}
+  rpc getTop5LabelClassInAlgorithmV1(v1.Top5LabelClassInAlgorithmRequestV1)
+      returns (v1.Top5LabelClassInAlgorithmResponseV1) {}
+  rpc getMostChangedAoiV1(v1.MostChangedAoiRequestV1) returns (v1.MostChangedAoiResponseV1) {}
+
+  rpc getProjectLabelListV1(v1.ProjectLabelListRequestV1) returns (v1.ProjectLabelListResponseV1) {}
+
+  rpc getSceneFilterMetaV1(v1.FilterMetaRequestV1) returns (v1.SceneFilterMetaResponseV1) {}
+  rpc getLabelFilterMetaV1(v1.FilterMetaRequestV1) returns (v1.LabelFilterMetaResponseV1) {}
+
+  rpc manageSceneFavoriteV1(v1.ManageSceneFavoriteRequestV1) returns (google.protobuf.Empty) {}
+}

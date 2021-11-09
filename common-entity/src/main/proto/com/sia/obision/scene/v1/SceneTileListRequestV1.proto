@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneTileRequestV1Proto";
+
+import "com/sia/common/MultiPolygon.proto";
+
+message SceneTileListRequestV1 {
+    string scene_id = 1;
+    com.sia.common.MultiPolygon area = 2;
+}

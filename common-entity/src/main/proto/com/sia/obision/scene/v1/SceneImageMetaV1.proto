@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneImageMetaV1Proto";
+
+import "com/sia/common/Polygon.proto";
+import "com/sia/common/MongoId.proto";
+
+message SceneImageMetaV1 {
+  sia.common.MongoId scene_id = 10;
+  string projection = 1;
+  com.sia.common.Polygon extent = 2;
+  repeated double geo_transforms = 3;
+  repeated int32 widths = 4;
+  repeated int32 heights = 5;
+  repeated int32 min_pixel = 6;
+  repeated int32 max_pixel = 7;
+  repeated int32 min_2percent_pixel = 8;
+  repeated int32 max_2percent_pixel = 9;
+}

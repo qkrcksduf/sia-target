@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v2.value;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneAoiV2Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/MultiPolygon.proto";
+
+message SceneAoiV2 {
+    sia.common.UUID aoi_id = 1;
+    sia.common.MultiPolygon intersect_polygon = 2;
+    /*
+        GEO, MGRS 좌표
+     */
+    map<string, string> location_properties = 3;
+}

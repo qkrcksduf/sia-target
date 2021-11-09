@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package com.sia.cluster.common.v4alpha;
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.common.v4alpha";
+
+message Resource {
+    string namespace = 1;
+    string name = 2;
+    string image = 3;
+    uint32 replicas = 4;
+    repeated string command = 5;
+    repeated string args = 6;
+    repeated uint32 ports = 7;
+    map<string, string> envs = 8;
+    map<string, string> resource_limits = 9; // 올 수 있는 key: memory, cpu, nvidia.com/gpu, huge-pages, ...
+    uint32 available = 10;
+    string service_name = 11; // 다른 네임스페이스에서도 접근 가능한 svc 이름이어야 함. "{.svc.name}.{.svc.namespace}.svc"
+}
+
+message GetResourceRequest {
+    string namespace = 1;
+    string name = 2;
+}
+
+message ScheduleResourceRequest {
+    string namespace = 1;
+    string name = 2;
+    string image = 3;
+    uint32 replicas = 4;
+    repeated string command = 5;
+    repeated string args = 6;
+    repeated uint32 ports = 7;
+    map<string, string> envs = 8;
+    map<string, string> resource_limits = 9; // 올 수 있는 key: memory, cpu, nvidia.com/gpu, huge-pages, ...
+}
+
+message RescaleResourceRequest {
+    string namespace = 1;
+    string name = 2;
+    uint32 replicas = 3;
+}
+
+message UpdateResourceRequest {
+    // 모두 비어있지 않은 값으로 보내줘야 함. Put이 아닌 Update임.
+    string namespace = 1;
+    string name = 2;
+    string image = 3;
+    uint32 replicas = 4;
+    repeated string command = 5;
+    repeated string args = 6;
+    repeated uint32 ports = 7;
+    map<string, string> envs = 8;
+    map<string, string> resource_limits = 9; // 올 수 있는 key: memory, cpu, nvidia.com/gpu, huge-pages, ...
+}
+
+message DeleteResourceRequest {
+    string namespace = 1;
+    string name = 2;
+}

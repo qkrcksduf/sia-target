@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "OverviewReportListResponseV1Proto";
+
+import "com/sia/obision/project/report/v1/ReportInfoV1.proto";
+
+message OverviewReportListResponseV1 {
+    // 필수
+    repeated v1.ReportInfoV1 report_infos = 1;
+    // 필수
+    int32 today_created_report_count = 2;
+    // 필수
+    int32 total_report_count = 3;
+}

@@ -1,0 +1,106 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v2.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "ProjectV2Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/obision/project/v2/entity/ParticipantV2.proto";
+import "com/sia/obision/project/v1/ReportConfigV1.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/project/v2/entity/AnalysisUnitV2.proto";
+import "com/sia/obision/project/v1/ProjectStatusV1.proto";
+
+
+message ProjectV2 {
+    // 기본 제공
+    sia.common.UUID id = 2;
+
+    /**
+        base_field
+        기본 정보
+     */
+    ProjectTypeV2 type = 3;
+    google.protobuf.Timestamp created_time = 4;
+    // optional
+    google.protobuf.Timestamp last_modified_time = 5;
+
+    /*
+        프로젝트 상태 / realtime 에서만 존재
+     */
+    v1.ProjectStatusV1 status = 8;
+
+    /**
+        explanation_field
+        설명 정보
+     */
+    string name = 6;
+    string description = 7;
+
+
+
+    /**
+        analysis_field
+        분석 단위 설정
+     */
+    repeated v2.entity.AnalysisUnitV2 analysis_units = 9;
+
+    /**
+        participant_field
+        참여자 설정
+        field 없을 시 설정하지 않음
+     */
+    repeated v2.entity.ParticipantV2 participants = 10;
+
+    /**
+        report_field
+        보고서 설정
+     */
+    repeated v1.ReportConfigV1 report_configs = 11;
+
+    /**
+        ooi 설정
+     */
+
+}
+
+enum ProjectTypeV2 {
+    Nothing = 0;
+    RealtimeProject = 1;
+    SingleProject = 2;
+}
+
+/**
+    id 가 기본적으로 포함되어 있지 않을 때 사용
+ */
+message ProjectAllFieldV2 {
+    bool id_field = 1;
+    bool base_field = 2;
+    bool explanation_field = 3;
+    AnalysisUnitAllFieldV2 analysis_field = 4;
+    ParticipantAllFieldV2 participant_field = 5;
+    bool report_field = 6;
+}
+
+/**
+    id가 기본값일때 사용
+ */
+message ProjectFieldV2 {
+    /**
+        활성 여부 (현재 사용하지 않음)
+     */
+    bool activated = 1;
+    /**
+        type, created_time, disclosure_scope
+        last_modified_time, status
+     */
+    bool base_field = 2;
+    /**
+        name, description
+     */
+    bool explanation_field = 3;
+    AnalysisUnitAllFieldV2 analysis_field = 4;
+    ParticipantAllFieldV2 participant_field = 5;
+    bool report_field = 6;
+}

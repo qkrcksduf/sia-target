@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetAlgorithmResponseV2Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/algorithm/v2/entity/AlgorithmV2.proto";
+
+message GetAlgorithmResponseV2 {
+  repeated v2.entity.AlgorithmV2 algorithms = 2;
+}

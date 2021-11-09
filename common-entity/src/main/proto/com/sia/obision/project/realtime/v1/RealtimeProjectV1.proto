@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package com.sia.obision.project.realtime.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "RealtimeProjectV1Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/common/Period.proto";
+import "com/sia/obision/project/v1/ParticipantV1.proto";
+import "com/sia/obision/project/v1/ProjectStatusV1.proto";
+import "com/sia/obision/project/v1/ReportConfigV1.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/project/v1/AnalysisUnitV1.proto";
+
+message RealtimeProjectV1 {
+    sia.common.UUID id = 1;
+    string name = 2;
+    string description = 3;
+    repeated com.sia.obision.project.v1.ParticipantV1 participants = 4;
+    repeated sia.common.UUID ooi_ids = 5;
+    com.sia.obision.project.v1.ProjectStatusV1 status = 6;
+    google.protobuf.Timestamp created_time = 7;
+    bool analyze_old = 8;
+    google.protobuf.Timestamp last_modified_time = 9;
+    repeated com.sia.obision.project.v1.ReportConfigV1 report_configs = 10;
+    repeated project.v1.AnalysisUnitV1 analysis_units = 11;
+}

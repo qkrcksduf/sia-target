@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v2.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "AccountV2Proto";
+
+import "com/sia/obision/account/v1/AccountPermissionV1.proto";
+import "google/protobuf/timestamp.proto";
+
+message AccountV2 {
+    string id=1;
+    /**
+        base_field
+     */
+    string first_name=2;
+    string last_name=3;
+    account.v1.AccountPermissionV1 permission = 8;
+    /*
+        편집시 입력하지 않음
+     */
+    string name=4;
+    google.protobuf.Timestamp created_time = 9;
+
+    /**
+        detail_field
+     */
+    string email=5;
+    string organization=6;
+    string position=7;
+
+    /**
+        image_field
+     */
+    bytes image = 10;
+}
+
+message AccountFieldV2 {
+    /**
+        id
+     */
+    bool activated = 1;
+    /**
+        first_name
+        last_name
+        permission
+        name
+        created_time
+     */
+    bool base_field = 2;
+    /**
+        email
+        organization
+        position
+     */
+    bool detail_field = 3;
+    /**
+        image
+     */
+    bool image_field = 4;
+}

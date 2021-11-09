@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package com.sia.tiling.router;
+
+option java_multiple_files = true;
+
+import "com/sia/tiling/scene/CreateLabelImageV1.proto";
+import "com/sia/tiling/scene/GetSceneData.proto";
+import "com/sia/tiling/scene/GetSceneThumbnails.proto";
+import "com/sia/tiling/scene/SaveSceneData.proto";
+import "com/sia/tiling/scene/RegistrationSceneRequest.proto";
+
+service SceneRouter {
+    /*
+        Label Image 생성 API
+     */
+    rpc createLabelImageV1(scene.CreateLabelImageRequestV1)
+        returns (scene.CreateLabelImageResponseV1) {}
+
+    /*
+        썸네일(256x256) 가져오는 API
+     */
+    rpc getSceneThumbnails (scene.GetSceneThumbnailsRequest)
+        returns (scene.GetSceneThumbnailsResponse) {}
+
+    /*
+        영상 최초 입력 시, 영상에 대한 정보를 저장하는 API
+        + 썸네일 생성, 영상 이미지 메타 생성 수행
+    */
+    rpc saveSceneData (scene.SaveSceneDataRequest)
+        returns (scene.SaveSceneDataResponse) {}
+
+    /*
+        영상에 대한 정보 조회 API
+     */
+    rpc getSceneData (scene.GetSceneDataRequest)
+        returns (scene.GetSceneDataResponse) {}
+
+    /*
+        영상 수동 정합 API (백엔드에서만 사용!!)
+     */
+    rpc registrationScene(scene.RegistrationSceneRequest)
+        returns (scene.GetSceneDataResponse) {}
+}

@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package com.sia.obision.aoi;
+
+option java_multiple_files = true;
+
+import "com/sia/obision/aoi/v1/AoiListRequestV1.proto";
+import "com/sia/obision/aoi/v2/AoiListRequestV2.proto";
+import "com/sia/obision/aoi/v1/AoiListResponseV1.proto";
+import "com/sia/obision/aoi/v2/AoiListResponseV2.proto";
+import "com/sia/obision/aoi/v1/AoiIntersectRequestV1.proto";
+import "com/sia/obision/aoi/v1/AoiIntersectResponseV1.proto";
+import "com/sia/obision/aoi/v1/AoiBriefListRequestV1.proto";
+import "com/sia/obision/aoi/v1/AoiBriefListResponseV1.proto";
+import "com/sia/obision/aoi/v1/AoiCreateRequestV1.proto";
+import "com/sia/obision/aoi/v1/AoiDetailResponseV1.proto";
+import "com/sia/obision/aoi/v2/AoiCreateRequestV2.proto";
+import "com/sia/obision/aoi/v2/entity/AoiV2.proto";
+import "com/sia/common/UUID.proto";
+import "google/protobuf/empty.proto";
+
+service AoiRouter {
+    // deprecated, getAoiListV2 사용 바람.
+    rpc getAoiListV1 (com.sia.obision.aoi.v1.AoiListRequestV1) returns (com.sia.obision.aoi.v1.AoiListResponseV1) {}
+    rpc getAoiListV2 (com.sia.obision.aoi.v2.AoiListRequestV2) returns (com.sia.obision.aoi.v2.AoiListResponseV2) {}
+    rpc getAoiBriefListV1 (v1.AoiBriefListRequestV1) returns (v1.AoiBriefListResponseV1) {}
+    rpc getAoiIntersect (com.sia.obision.aoi.v1.AoiIntersectRequestV1)
+        returns (com.sia.obision.aoi.v1.AoiIntersectResponseV1) {}
+    // deprecated, createAoiV2 사용 바람.
+    rpc createAoiV1 (v1.AoiCreateRequestV1) returns (v1.AoiDetailResponseV1) {}
+    rpc createAoiV2 (v2.AoiCreateRequestV2) returns (com.sia.common.UUID) {}
+    rpc updateAoiV2 (v2.entity.AoiV2) returns (com.sia.common.UUID) {}
+    rpc deleteAoiV2 (com.sia.common.UUID) returns (google.protobuf.Empty) {}
+}

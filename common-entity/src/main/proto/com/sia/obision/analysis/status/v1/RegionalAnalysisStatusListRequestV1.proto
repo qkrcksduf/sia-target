@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.status.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "RegionalAnalysisStatusListRequestV1Proto";
+
+import "com/sia/obision/aoi/v1/AoiV1.proto";
+
+message RegionalAnalysisStatusListRequestV1 {
+    repeated string scene_id = 1;
+    repeated com.sia.obision.aoi.v1.AoiV1 aoi = 2;
+    repeated string algorithm_id = 3;
+}

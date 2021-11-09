@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.odc.training.grpc;
+
+import "google/protobuf/empty.proto";
+import "com/sia/odc/training/TrainingMonitor.proto";
+
+option java_multiple_files = true;
+
+/*
+ * is_alive : 헬스체크
+ * get_monitoring_stream : 현재 학습 모니터링 스트림 오픈
+ */
+
+service TrainingMonitorRouter {
+    rpc is_alive(google.protobuf.Empty) returns (google.protobuf.Empty) {}
+    rpc get_monitoring_stream(google.protobuf.Empty) returns (stream TrainingMonitoringMessage) {}
+}

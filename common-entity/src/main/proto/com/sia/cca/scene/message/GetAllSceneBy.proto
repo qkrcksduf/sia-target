@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package com.sia.cca.scene.message;
+
+option java_outer_classname = "GetAllSceneByProto";
+option java_multiple_files = true;
+
+import "com/sia/common/TimestampRange.proto";
+import "com/sia/common/DoubleRange.proto";
+import "com/sia/common/SortDirection.proto";
+import "com/sia/cca/scene/message/Scene.proto";
+import "com/sia/common/Paging.proto";
+
+message GetAllSceneByRequest {
+  // 필수
+  com.sia.common.Paging paging = 12;
+  // 선택
+  repeated string satellite = 1;
+  // 선택
+  com.sia.common.TimestampRange imaging_date_range = 2;
+  // 선택
+  repeated SceneStatusProto status = 3;
+  // 선택
+  repeated int32 grade = 4;
+  // 선택
+  bool is_manual = 16;
+  // 선택
+  repeated ImagingModeProto imaging_mode = 5;
+  // 선택
+  com.sia.common.DoubleRange orbit_range = 6;
+  // 선택
+  com.sia.common.DoubleRange roll_tilt_range = 7;
+  // 선택
+  com.sia.common.DoubleRange pitch_tilt_range = 8;
+  // 선택
+  com.sia.common.DoubleRange yaw_tilt_range = 9;
+  // 선택
+  com.sia.common.DoubleRange latitude_range = 10;
+  // 선택
+  com.sia.common.DoubleRange longitude_range = 11;
+  // 선택
+  com.sia.common.SortDirection sort_direction = 13;
+  // 선택
+  ScenePropertyProto property = 14;
+  // 선택
+  bool is_period = 15;
+}
+
+message GetAllSceneByResponse {
+  repeated SceneResponse scene = 1;
+}

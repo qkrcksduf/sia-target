@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.sia.cca.log.message;
+
+option java_outer_classname = "GetAllLogCountByProto";
+option java_multiple_files = true;
+
+import "com/sia/common/TimestampRange.proto";
+import "com/sia/cca/log/message/Log.proto";
+import "com/sia/common/Paging.proto";
+
+message GetAllLogCountByRequest {
+  // 선택
+  repeated LogLevelProto level = 1;
+  // 선택
+  com.sia.common.TimestampRange created_date_range = 2;
+  // 선택
+  repeated ModuleProto module = 3;
+  // 필수
+  LogStatusProto status = 4;
+}
+
+message GetAllLogCountByResponse {
+  int32 count = 1;
+}

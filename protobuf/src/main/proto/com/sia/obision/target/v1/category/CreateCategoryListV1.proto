@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.category;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateCategoryListV1Proto";
+
+import "com/sia/obision/target/v1/category/CreateCategoryV1.proto";
+
+message CreateCategoryListRequestV1 {
+  repeated CreateCategoryRequestV1 category = 1;
+}
+
+message CreateCategoryListResponseV1 {
+  repeated CreateCategoryResponseV1 category = 1;
+}

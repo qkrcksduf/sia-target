@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.attach;
+
+option java_multiple_files = true;
+option java_outer_classname = "AttachV1Proto";
+
+import "com/sia/common/UUID.proto";
+
+message Attach {
+  com.sia.common.UUID id = 1;
+  string fileName = 2;
+  int32 size = 3;
+  FileExtension fileExtension = 4;
+}
+
+enum FileExtension {
+  DEFAULT = 0;
+  CSV = 1;
+  PDF = 2;
+  HWP = 3;
+  TXT = 4;
+  SHP = 5;
+  JPG = 6;
+  PNG = 7;
+  PPT = 8;
+  ZIP = 9;
+}

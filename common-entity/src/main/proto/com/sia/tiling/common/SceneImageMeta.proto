@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.sia.tiling.common;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneImageMetaProto";
+
+import "com/sia/common/Polygon.proto";
+
+message SceneImageMeta {
+  string scene_id = 1;
+  string projection = 2;
+  com.sia.common.Polygon extent = 3;
+  repeated double geo_transforms = 4;
+  repeated int32 widths = 5;
+  repeated int32 heights = 6;
+  repeated int32 min_pixel = 7;
+  repeated int32 max_pixel = 8;
+  repeated int32 min_2percent_pixel = 9;
+  repeated int32 max_2percent_pixel = 10;
+}

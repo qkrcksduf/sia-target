@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.odc.label.v2;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/label/entity/LabelClassV2.proto";
+
+option java_multiple_files = true;
+
+message GetLabelClassesResponseV2 {
+    repeated entity.LabelClassV2 label_classes = 1;
+}

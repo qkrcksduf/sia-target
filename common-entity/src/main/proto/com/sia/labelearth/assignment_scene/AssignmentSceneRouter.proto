@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package com.sia.labelearth.assignment_scene;
+
+import "com/sia/labelearth/assignment_scene/v1/AssignScenesV1.proto";
+import "com/sia/labelearth/assignment_scene/v1/UnassignScenesV1.proto";
+import "com/sia/labelearth/assignment_scene/v1/AcceptAssignedScenesV1.proto";
+import "com/sia/labelearth/assignment_scene/v1/RejectAssignedScenesV1.proto";
+import "com/sia/labelearth/assignment_scene/v1/GetAssignedSceneV1.proto";
+import "com/sia/labelearth/assignment_scene/v1/SubmitAssignedSceneV1.proto";
+import "com/sia/labelearth/assignment_scene/v1/GetAssignedScenesV1.proto";
+import "com/sia/labelearth/assignment_scene/v1/GetSceneByAssignedSceneV1.proto";
+
+option java_multiple_files = true;
+
+service AssignmentSceneRouter {
+  rpc assignScenesV1(v1.AssignScenesRequestV1Proto)
+      returns (v1.AssignScenesResponseV1Proto) {}
+
+  rpc unassignScenesV1(v1.UnassignScenesRequestV1Proto)
+      returns (v1.UnassignScenesResponseV1Proto) {}
+
+  rpc acceptAssignedScenesV1(v1.AcceptAssignedScenesRequestV1Proto)
+      returns (v1.AcceptAssignedScenesResponseV1Proto) {}
+
+  rpc rejectAssignedScenesV1(v1.RejectAssignedScenesRequestV1Proto)
+      returns (v1.RejectAssignedScenesResponseV1Proto) {}
+
+  rpc getAssignedSceneV1(v1.GetAssignedSceneRequestV1Proto)
+      returns (v1.GetAssignedSceneResponseV1Proto) {}
+
+  rpc getAssignedScenesV1(v1.GetAssignedScenesRequestV1Proto)
+      returns (v1.GetAssignedScenesResponseV1Proto) {}
+
+  rpc getSceneByAssignedSceneV1(v1.GetSceneByAssignedSceneRequestV1Proto)
+      returns (v1.GetSceneByAssignedSceneResponseV1Proto) {}
+
+  rpc submitAssignedSceneV1(v1.SubmitAssignedSceneRequestV1Proto)
+      returns (v1.SubmitAssignedSceneResponseV1Proto) {}
+}

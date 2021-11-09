@@ -10,25 +10,24 @@ import javax.persistence.*
 @Table(name = "target")
 data class Target(
 
-    @Id  
+    @Id
     val id: String,
     val name: String,
-    val mgrs: String?,
-    @Column(columnDefinition = "geometry('Point', 4326)")  
-    val geography: Point?,
-    val jdpi: String?,
-    val be: String?,
-    val isAoiRegistered: Boolean? = false,
-    var isFavorite: Boolean? = false,
+    val mgrs: String? = null,
+    @Column(columnDefinition = "geometry('Point', 4326)")
+    val geography: Point? = null,
+    val jdpi: String? = null,
+    val be: String? = null,
+    val isAoiRegistered: Boolean = false,
+    var isFavorite: Boolean = false,
     val createdTime: Timestamp = now().toTimestamp(),
 
-    @ManyToOne  
-    @JoinColumn(name = "category")  
+    @ManyToOne
+    @JoinColumn(name = "category")
     var category: Category,
 
-    @ManyToOne  
-    @JoinColumn(name = "record")  
-    val record: Record? = null
+    @OneToMany(mappedBy = "target", cascade = [CascadeType.REMOVE], fetch = FetchType.LAZY)
+    val recordList: List<Record> = emptyList()
 ) {
     fun changeIsFavorite(isFavorite: Boolean) {
         this.isFavorite = isFavorite

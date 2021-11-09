@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "ProjectTypeV1Proto";
+
+enum ProjectTypeV1 {
+  REALTIME_PROJECT = 0;
+  SINGLE_PROJECT = 1;
+  BATCH_PROJECT = 2;
+}

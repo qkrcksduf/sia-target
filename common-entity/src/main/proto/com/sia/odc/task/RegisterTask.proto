@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "com/sia/odc/aoi/RegisterAoi.proto";
+import "com/sia/odc/task/Task.proto";
+
+package com.sia.odc.task;
+
+option java_multiple_files = true;
+
+message RegisterTaskRequestProto {
+  string task_name = 2;
+  com.sia.odc.aoi.RegisterAoiRequestProto register_aoi_request = 3;
+  repeated int32 model_ids = 4;
+  ReportType report_type = 5;
+  //ToDo Shape 파일 추가
+}
+
+message RegisterTaskResponseProto {
+  int32 id = 1;
+  string task_name = 2;
+  com.sia.odc.aoi.RegisterAoiResponseProto register_aoi_response = 3;
+  repeated int32 model_ids = 4;
+  ReportType report_type = 5;
+}

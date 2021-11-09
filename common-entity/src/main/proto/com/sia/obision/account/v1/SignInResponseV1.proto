@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SignInResponseV1Proto";
+
+import "com/sia/obision/account/v1/AccountPermissionV1.proto";
+
+message SignInResponseV1 {
+    string id = 1;
+    AccountPermissionV1 permission = 2;
+}

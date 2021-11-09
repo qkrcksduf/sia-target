@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "AnalyzeProjectRequestV2Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/MultiPolygon.proto";
+import "com/sia/common/TimestampRange.proto";
+
+message AnalyzeProjectRequestV2 {
+    // 필수
+    sia.common.UUID project_id = 1;
+    // 필수
+    repeated string satellites = 2;
+    repeated AnalyzeMission analyze_unit = 3;
+
+    repeated AnalyzeAoiPolygon aoi_polygons = 4;
+}
+
+message AnalyzeMission {
+    // 범위, 시간, 위성
+    sia.common.UUID mission_id = 1;
+    sia.common.UUID algorithm_id = 2;
+    repeated sia.common.TimestampRange time_range = 3;
+    repeated sia.common.UUID aoi_ids = 4;
+}
+
+message AnalyzeAoiPolygon {
+    sia.common.UUID aoi_id = 1;
+    sia.common.MultiPolygon polygon = 2;
+}

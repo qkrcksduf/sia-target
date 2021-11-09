@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "FilterPropertyV1Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/TimestampRange.proto";
+
+message FilterProperty {
+  repeated com.sia.common.UUID categoryId = 1;
+  com.sia.common.TimestampRange timeRange = 2;
+}

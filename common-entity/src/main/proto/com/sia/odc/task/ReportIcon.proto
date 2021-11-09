@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.odc.task;
+
+/*
+ * NONE : 미선택
+ * AIRPLANE : 비행기 모양
+ * CAR : 차량 모양
+ * TRAIN : 열차 모양
+ */
+
+option java_multiple_files = true;
+
+enum ReportIconProto {
+  NONE_ICON = 0;
+  AIRPLANE_ICON = 1;
+  CAR_ICON = 2;
+  TRAIN_ICON = 3;
+}

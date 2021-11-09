@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateSceneReportRequestV1Proto";
+
+import "com/sia/common/Polygon.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/common/MongoId.proto";
+
+message CreateSceneReportRequestV1 {
+    sia.common.UUID project_id = 1;
+    sia.common.MongoId scene_id = 2;
+    com.sia.common.Polygon scene_polygon = 3;
+    sia.common.UUID algorithm_id = 4;
+}

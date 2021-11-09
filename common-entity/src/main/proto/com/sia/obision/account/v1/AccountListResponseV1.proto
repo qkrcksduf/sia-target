@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AccountListResponceV1Proto";
+
+import "com/sia/obision/account/v1/AccountV1.proto";
+
+message AccountListResponseV1 {
+    repeated AccountV1 accounts = 1;
+}

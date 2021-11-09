@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.cluster.serving.grpc;
+
+import "google/protobuf/empty.proto";
+import "com/sia/cluster/serving/MLPipeline.proto";
+
+service MLPipeline {
+  rpc get_all_status (google.protobuf.Empty) returns (serving.MLPipelineAllStatus) {}
+  rpc get_status (serving.MLPipeline) returns (serving.MLPipeline) {}
+  rpc schedule (serving.MLPipeline) returns (serving.MLPipeline) {}
+  rpc update (serving.MLPipeline) returns (serving.MLPipeline) {}
+  rpc rescale (serving.MLPipeline) returns (serving.MLPipeline) {}
+  rpc delete (serving.MLPipeline) returns (serving.MLPipeline) {}
+}

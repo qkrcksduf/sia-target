@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.labelearth.label_class.v1.entity;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/common/Color.proto";
+
+//option java_multiple_files = true;
+option java_outer_classname = "LabelClassV1Proto";
+
+message LabelClassV1 {
+    string id = 1;
+    string parent_id = 2;
+    string name = 3;
+    google.protobuf.Timestamp create_date = 4;
+    string merge_class_id = 5;
+    common.Color presentation_color = 6;
+    string dataset_id = 7;
+    string description = 8;
+    // optional. GetLabelClassesByDatasetId의 Response에서만 사용.
+    int32 label_count = 9;
+}

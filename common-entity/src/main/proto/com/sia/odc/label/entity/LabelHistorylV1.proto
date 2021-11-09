@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package com.sia.odc.label.entity;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/label/MatchingType.proto";
+import "com/sia/odc/common/Point.proto";
+import "com/sia/common/SortDirection.proto";
+
+option java_multiple_files = true;
+
+message LabelHistoryV1 {
+    string label_id = 1;
+    string scene_id = 2;
+    string creator = 3;
+    google.protobuf.Timestamp created_time = 4;
+    google.protobuf.Timestamp scene_time = 5;
+    string validator = 6;
+    google.protobuf.Timestamp validated_time = 7;
+    string modifier = 8;
+    google.protobuf.Timestamp modified_time = 9;
+    string level1 = 10;
+    string level2 = 11;
+    string level3 = 12;
+    MatchingType matching = 13;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.obision.target;
+
+option java_multiple_files = true;
+
+import "com/sia/obision/target/v1/attach/UploadAttachV1.proto";
+import "com/sia/obision/target/v1/attach/DownloadAttachV1.proto";
+import "com/sia/obision/target/v1/attach/DeleteAttachV1.proto";
+import "google/protobuf/empty.proto";
+
+service AttachRouter {
+
+  rpc uploadAttach(v1.attach.UploadAttachRequestV1) returns (v1.attach.UploadAttachResponseV1) {}
+  rpc downloadAttach(v1.attach.DownloadAttachRequestV1) returns (v1.attach.DownloadAttachResponseV1) {}
+  rpc deleteAttach(v1.attach.DeleteAttachRequestV1) returns (google.protobuf.Empty) {}
+
+}

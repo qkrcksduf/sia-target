@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.sia.serving.shared;
+
+option java_multiple_files = true;
+option java_outer_classname = "DagProto";
+
+import "com/sia/serving/shared/Model.proto";
+
+message DAG {
+    string algorithm_id = 1;
+    Graph graph = 2;
+}
+
+message Graph {
+    repeated Node nodes = 1;
+}
+
+message Node {
+    Model model = 1;
+    repeated string input_model_id = 2;
+    repeated string output_model_id = 3;
+}

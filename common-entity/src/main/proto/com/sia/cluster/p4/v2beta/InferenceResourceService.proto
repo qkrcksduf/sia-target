@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package com.sia.cluster.p4.v2beta;
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.p4.v2beta";
+
+import "google/protobuf/empty.proto";
+import "com/sia/cluster/p4/v2beta/InferenceResource.proto";
+
+
+service InferenceResourceService {
+    rpc ListInferenceResource (google.protobuf.Empty) returns (stream InferenceResource) {
+
+    }
+    rpc GetInferenceResource (GetInferenceResourceRequest) returns (InferenceResource) {
+
+    }
+    rpc ScheduleInferenceResource (ScheduleInferenceResourceRequest) returns (InferenceResource) {
+
+    }
+    rpc RescaleInferenceResource (RescaleInferenceResourceRequest) returns (InferenceResource) {
+
+    }
+    rpc UpdateInferenceResource (UpdateInferenceResourceRequest) returns (InferenceResource) {
+
+    }
+    rpc DeleteInferenceResource (DeleteInferenceResourceRequest) returns (google.protobuf.Empty) {
+
+    }
+}

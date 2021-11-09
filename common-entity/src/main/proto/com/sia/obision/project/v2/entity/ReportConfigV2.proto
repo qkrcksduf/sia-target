@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v2.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "ReportConfigV2Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/obision/project/v1/ReportTypeV1.proto";
+
+message ReportConfigV2 {
+  google.protobuf.Timestamp next_generation_time = 1;
+  com.sia.obision.project.v1.ReportTypeV1 type = 2;
+}

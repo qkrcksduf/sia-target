@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v3;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetProjectByV3Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/project/v3/entity/MissionV3.proto";
+import "com/sia/obision/project/v2/entity/ParticipantV2.proto";
+import "com/sia/obision/project/v1/DisclosureScopeV1.proto";
+import "com/sia/obision/project/v3/entity/ProjectV3.proto";
+import "com/sia/common/DayOfWeek.proto";
+
+message GetProjectByRequestV3 {
+    repeated common.UUID project_ids = 1;
+    string account_id = 2;
+}
+
+message GetProjectByResponseV3 {
+    repeated entity.ProjectV3 project = 1;
+}

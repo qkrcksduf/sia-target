@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.project.single.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SingleProjectListRequestV1Proto";
+
+import "com/sia/common/UUID.proto";
+
+message SingleProjectListRequestV1 {
+    string user_id = 1;
+    repeated com.sia.common.UUID project_ids = 2;
+}

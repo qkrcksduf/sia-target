@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.labelearth.assignment_scene.v1;
+
+import "com/sia/labelearth/assignment_scene/v1/entity/AssignmentSceneV1.proto";
+import "com/sia/labelearth/scene/v1/entity/SceneV1.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "GetSceneByAssignedSceneV1Proto";
+
+message GetSceneByAssignedSceneRequestV1Proto {
+  assignment_scene.v1.entity.AssignmentSceneV1 assigned_scene = 1;
+}
+
+message GetSceneByAssignedSceneResponseV1Proto {
+  scene.v1.entity.SceneV1 scene = 1;
+}

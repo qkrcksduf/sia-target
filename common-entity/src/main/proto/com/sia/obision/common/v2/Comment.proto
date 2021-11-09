@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.sia.obision.common.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "CommentV2Proto";
+
+message CommentV2 {
+  // id
+  // account
+  // create time
+  // last modify time
+  repeated CommentContentV2 content = 2;
+  CommentV2 child = 3;
+}
+
+message CommentContentV2 {
+  oneof content {
+    string plain_text = 1;
+    // account mention = 2;
+    // labelClass = 3;
+    // algorithm =4;
+    // 등등
+  }
+}

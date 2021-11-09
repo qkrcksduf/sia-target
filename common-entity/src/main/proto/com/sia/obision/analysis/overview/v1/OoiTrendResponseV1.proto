@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.overview.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "OoiTrendResponseV1Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/common/UUID.proto";
+
+message OoiTrendResponseV1 {
+    // 필수
+    repeated OoiTrendV1 ooi_trends = 1;
+}
+
+message OoiTrendV1 {
+    // 필수
+    google.protobuf.Timestamp time = 1;
+    // 필수
+    repeated TrendV1 trends = 2;
+}
+
+message TrendV1 {
+    // 필수
+    common.UUID label_class_id = 1;
+    // 필수
+    repeated AoiCount aoi_counts = 2;
+}
+
+message AoiCount {
+    common.UUID aoi_id = 1;
+    int32 count = 2;
+}

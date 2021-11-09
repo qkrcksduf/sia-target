@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.scene;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/obision/analysis/scene/v1/SceneAnalysisRequestV1.proto";
+import "com/sia/obision/analysis/scene/v1/SceneAnalysisResultListRequestV1.proto";
+import "com/sia/obision/analysis/scene/v1/SceneAnalysisResultListResponseV1.proto";
+import "com/sia/obision/analysis/scene/v1/ProjectSceneAnalysisResultRequestV1.proto";
+import "com/sia/obision/analysis/scene/v1/ProjectSceneAnalysisResultResponseV1.proto";
+import "com/sia/obision/analysis/scene/v1/ProjectLatestInferenceSceneRequestV1.proto";
+import "com/sia/obision/analysis/scene/v1/ProjectLatestInferenceSceneResponseV1.proto";
+import "com/sia/obision/analysis/scene/v1/SceneAnalysisSummaryRequestV1.proto";
+import "com/sia/obision/analysis/scene/v2/SceneAnalysisRequestV2.proto";
+import "com/sia/obision/analysis/scene/v1/SceneAnalysisSummaryResponseV1.proto";
+import "com/sia/obision/analysis/scene/v2/SceneAnalysisSummaryResponseV2.proto";
+import "com/sia/obision/analysis/scene/v2/SceneAnalysisResponseV2.proto";
+import "com/sia/obision/analysis/scene/v1/SceneAnalysisInfoRequestV1.proto";
+import "com/sia/obision/analysis/scene/v1/SceneAnalysisInfoResponseV1.proto";
+import "com/sia/obision/analysis/scene/v1/LabelClassCountRequestV1.proto";
+import "com/sia/obision/analysis/scene/v1/LabelClassCountResponseV1.proto";
+import "com/sia/obision/analysis/scene/v1/ProjectAnalysisRequestV1.proto";
+import "com/sia/obision/analysis/scene/v1/LabelInfoListRequestV1.proto";
+import "com/sia/obision/analysis/scene/v1/LabelInfoListResponseV1.proto";
+import "com/sia/obision/analysis/scene/v1/SceneAnalysisByRequestV1.proto";
+import "com/sia/obision/analysis/scene/v1/SceneAnalysisByResponseV1.proto";
+import "com/sia/obision/analysis/scene/v1/SceneListByRequestV1.proto";
+import "com/sia/obision/analysis/scene/v1/SceneListByResponseV1.proto";
+
+
+service SceneAnalysisRouter {
+
+  rpc increaseSceneAnalysisPriorityV1(com.sia.obision.analysis.scene.v1.SceneAnalysisRequestV1)
+      returns (google.protobuf.Empty) {}
+
+  rpc analyzeSceneV1(com.sia.obision.analysis.scene.v1.SceneAnalysisRequestV1) returns (google.protobuf.Empty) {}
+
+  rpc analyzeProjectV1(v1.ProjectAnalysisRequestV1) returns (google.protobuf.Empty) {}
+
+  rpc getSceneAnalysisResultListV1(com.sia.obision.analysis.scene.v1.SceneAnalysisResultListRequestV1)
+      returns (com.sia.obision.analysis.scene.v1.SceneAnalysisResultListResponseV1) {}
+
+  rpc getProjectSceneAnalysisResultV1(com.sia.obision.analysis.scene.v1.ProjectSceneAnalysisResultRequestV1)
+      returns (com.sia.obision.analysis.scene.v1.ProjectSceneAnalysisResultResponseV1) {}
+
+  rpc getProjectLatestInferenceSceneV1(com.sia.obision.analysis.scene.v1.ProjectLatestInferenceSceneRequestV1)
+      returns (com.sia.obision.analysis.scene.v1.ProjectLatestInferenceSceneResponseV1) {}
+
+  rpc getSceneAnalysisSummaryV1(com.sia.obision.analysis.scene.v1.SceneAnalysisSummaryRequestV1)
+      returns (com.sia.obision.analysis.scene.v1.SceneAnalysisSummaryResponseV1) {}
+
+  rpc getSceneAnalysisSummaryV2(com.sia.obision.analysis.scene.v1.SceneAnalysisSummaryRequestV1)
+      returns (com.sia.obision.analysis.scene.v2.SceneAnalysisSummaryResponseV2) {}
+
+  rpc getSceneAnalysisV2(com.sia.obision.analysis.scene.v2.SceneAnalysisRequestV2)
+      returns (com.sia.obision.analysis.scene.v2.SceneAnalysisResponseV2) {}
+
+  rpc streamSceneAnalysisInfo(v1.SceneAnalysisInfoRequestV1)
+      returns (stream v1.SceneAnalysisInfoResponseV1) {}
+
+  rpc getLabelClassCountV1(v1.LabelClassCountRequestV1) returns (v1.LabelClassCountResponseV1) {}
+
+  rpc getLabelInfoListV1(v1.LabelInfoListRequestV1) returns (v1.LabelInfoListResponseV1) {}
+
+  // 영상의 라벨 목록 조회 API
+  rpc getSceneAnalysisByV1(v1.SceneAnalysisByRequestV1) returns (v1.SceneAnalysisByResponseV1) {}
+
+  // 영상 목록 조회 API
+  rpc getSceneListByV1(v1.SceneListByRequestV1) returns (v1.SceneListByResponseV1) {}
+
+}

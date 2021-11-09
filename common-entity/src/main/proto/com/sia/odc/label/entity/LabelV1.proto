@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.sia.odc.label.entity;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/label/MatchingType.proto";
+import "com/sia/odc/common/Point.proto";
+import "com/sia/common/SortDirection.proto";
+
+option java_multiple_files = true;
+
+message LabelV1 {
+    string label_id = 1;
+    string scene_id = 2;
+    double confidence = 3;
+    MatchingType matching = 4;
+    double width = 5;
+    double height = 6;
+    com.sia.odc.common.Point location = 7;
+    google.protobuf.Timestamp create_date = 8;
+    int32 class_id = 14;
+    int32 inference_class_id = 15;
+    string inference_class_name = 9;
+    string inference_class2_name = 10;
+    string inference_class3_name = 11;
+    google.protobuf.Timestamp scene_time = 12;
+    string satellite = 13;
+    double angle = 16;
+    double center_x = 17;
+    double center_y = 18;
+    int32 task_id = 19;
+}

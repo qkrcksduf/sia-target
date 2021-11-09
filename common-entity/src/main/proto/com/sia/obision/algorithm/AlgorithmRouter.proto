@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/obision/algorithm/v1/AlgorithmListResponseV1.proto";
+import "com/sia/obision/algorithm/v2/label_class_reference/CreateLabelClassReferenceRequestV2.proto";
+import "com/sia/obision/algorithm/v2/label_class_reference/GetLabelClassReferenceRequestV2.proto";
+import "com/sia/obision/algorithm/v2/label_class_reference/GetLabelClassReferenceResponseV2.proto";
+import "com/sia/obision/algorithm/v2/label_class_reference/DeleteLabelClassReferenceRequestV2.proto";
+import "com/sia/obision/algorithm/v2/UpdateLabelClassV2.proto";
+import "com/sia/obision/algorithm/v2/MergeLabelClassV2.proto";
+import "com/sia/obision/algorithm/v2/UnMergeLabelClassV2.proto";
+import "com/sia/obision/algorithm/v2/GetAlgorithmLabelClassV2.proto";
+
+import "com/sia/obision/algorithm/v2/GetLabelClassRequestV2.proto";
+import "com/sia/obision/algorithm/v2/GetLabelClassResponseV2.proto";
+import "com/sia/obision/algorithm/v2/GetAlgorithmRequestV2.proto";
+import "com/sia/obision/algorithm/v2/GetAlgorithmResponseV2.proto";
+import "com/sia/obision/algorithm/v2/UpdateMergeClassNameV2.proto";
+import "com/sia/obision/algorithm/v2/CreateAlgorithmV2.proto";
+
+import "com/sia/common/UUID.proto";
+
+service AlgorithmRouter {
+    // Description
+    rpc getAllAlgorithmV1 (google.protobuf.Empty)
+        returns (com.sia.obision.algorithm.v1.AlgorithmListResponseV1) {}
+
+    // AlgorithmV2 api
+    rpc getAlgorithmListV2(v2.GetAlgorithmRequestV2) returns (v2.GetAlgorithmResponseV2) {}
+    rpc getLabelClassListV2(v2.GetLabelClassRequestV2) returns (v2.GetLabelClassResponseV2) {}
+
+    /*
+        LabelClassReference apis
+     */
+    rpc createLabelClassReferenceV2 (v2.label_class_reference.CreateLabelClassReferenceRequestV2)
+        returns (google.protobuf.Empty) {}
+    rpc getLabelClassReferenceV2 (v2.label_class_reference.GetLabelClassReferenceRequestV2)
+        returns (v2.label_class_reference.GetLabelClassReferenceResponseV2) {}
+    rpc deleteLabelClassReferenceV2 (v2.label_class_reference.DeleteLabelClassReferenceRequestV2)
+        returns (google.protobuf.Empty) {}
+
+    rpc updateLabelClassV2 (v2.UpdateLabelClassRequestV2) returns (common.UUID) {}
+
+    rpc mergeLabelClassV2 (v2.MergeLabelClassRequestV2) returns (common.UUID) {}
+
+    rpc unMergeLabelClassV2 (v2.UnMergeLabelClassRequestV2) returns (v2.UnMergeLabelClassResponseV2) {}
+
+    rpc getAlgorithmLabelClassV2 (v2.GetAlgorithmLabelClassRequestV2) returns (v2.GetAlgorithmLabelClassResponseV2) {}
+
+    rpc updateMergeClassNameV2(v2.UpdateMergeClassNameRequestV2) returns (common.UUID) {}
+
+    rpc createAlgorithmClassV2(v2.CreateAlgorithmRequestV2) returns (v2.CreateAlgorithmResponseV2) {}
+}

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.sia.labelearth.account;
+
+import "google/protobuf/empty.proto";
+import "com/sia/labelearth/account/v1/SignInV1.proto";
+import "com/sia/labelearth/account/v1/SignUpV1.proto";
+import "com/sia/labelearth/account/v1/UpdatePasswordV1.proto";
+import "com/sia/labelearth/account/v1/GetAllAccountsV1.proto";
+import "com/sia/labelearth/account/v1/UpdateAccountRolesV1.proto";
+import "com/sia/labelearth/account/v1/UpdateAccountStatusV1.proto";
+
+option java_multiple_files = true;
+
+service AccountRouter {
+  rpc signInV1(v1.SignInRequestV1Proto) returns (v1.SignInResponseV1Proto) {}
+
+  rpc signUpV1(v1.SignUpRequestV1Proto) returns (v1.SignUpResponseV1Proto) {}
+
+  rpc updatePasswordV1(v1.UpdatePasswordRequestV1Proto) returns (google.protobuf.Empty) {}
+
+  rpc getAllAccountsV1(google.protobuf.Empty) returns (v1.GetAllAccountsResponseV1Proto) {}
+
+  rpc updateAccountRolesV1(v1.UpdateAccountRolesRequestV1Proto) returns (v1.UpdateAccountRolesResponseV1Proto) {}
+
+  rpc updateAccountStatusV1(v1.UpdateAccountStatusRequestV1Proto) returns (v1.UpdateAccountStatusResponseV1Proto) {}
+}

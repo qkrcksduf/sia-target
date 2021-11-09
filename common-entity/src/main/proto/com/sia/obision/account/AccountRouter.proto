@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package com.sia.obision.account;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/obision/account/v1/SignInRequestV1.proto";
+import "com/sia/obision/account/v1/SignInResponseV1.proto";
+import "com/sia/obision/account/v1/SignUpRequestV1.proto";
+import "com/sia/obision/account/v1/SignUpResponseV1.proto";
+import "com/sia/obision/account/v1/AccountListResponseV1.proto";
+import "com/sia/obision/account/v1/AccountRequestV1.proto";
+import "com/sia/obision/account/v1/AccountV1.proto";
+import "com/sia/obision/account/v1/UpdateAccountRequestV1.proto";
+import "com/sia/obision/account/v1/GetAllAccountRequestV1.proto";
+import "com/sia/common/StringId.proto";
+
+import "com/sia/obision/account/v2/UpdateAccountV2.proto";
+
+service AccountRouter {
+  rpc signUpV1 (com.sia.obision.account.v1.SignUpRequestV1)
+      returns (com.sia.obision.account.v1.SignUpResponseV1) {}
+
+  rpc signInV1 (com.sia.obision.account.v1.SignInRequestV1)
+      returns (com.sia.obision.account.v1.SignInResponseV1) {} // todo getAccount 한번더 해야하기 불편하다
+
+  rpc getAccountV1 (com.sia.obision.account.v1.AccountRequestV1)
+      returns (com.sia.obision.account.v1.AccountV1) {}
+
+  rpc getAllAccountV1 (com.sia.obision.account.v1.GetAllAccountRequestV1)
+      returns (com.sia.obision.account.v1.AccountListResponseV1) {}
+
+  rpc updateAccountV1 (com.sia.obision.account.v1.UpdateAccountRequestV1)
+      returns (com.sia.obision.account.v1.AccountV1) {}
+
+  rpc deleteV1 (com.sia.common.StringId) returns (google.protobuf.Empty) {}
+
+  rpc updateAccountV2 (v2.UpdateAccountRequestV2) returns (v2.UpdateAccountResponseV2) {}
+}

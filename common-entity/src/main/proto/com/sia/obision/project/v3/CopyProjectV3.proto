@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v3;
+
+option java_multiple_files = true;
+option java_outer_classname = "CopyProjectV3Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/project/v3/entity/ProjectV3.proto";
+
+message CopyProjectRequestV3 {
+    common.UUID original_project_id = 1;
+    string name = 2;
+    ProjectCopyTypeV3 type = 3;
+}
+
+message CopyProjectResponseV3 {
+    entity.ProjectV3 project = 1;
+}
+
+enum ProjectCopyTypeV3 {
+    ONLY_CONFIG = 0;
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.serving;
+
+option java_multiple_files = true;
+
+import "com/sia/serving/MLPipelineResource.proto";
+
+service MLPipelineResourceRouter {
+    rpc get (MLPipelineResource)
+        returns (MLPipelineResource) {}
+    rpc schedule (MLPipelineResource)
+        returns (MLPipelineResource) {}
+    rpc delete (MLPipelineResource)
+        returns (MLPipelineResource) {}
+}

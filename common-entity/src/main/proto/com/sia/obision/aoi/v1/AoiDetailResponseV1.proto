@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.aoi.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AoiDetailResponseV1Proto";
+
+import "com/sia/obision/aoi/v1/AoiDetailV1.proto";
+
+message AoiDetailResponseV1 {
+  AoiDetailV1 aoi_detail = 1;
+}

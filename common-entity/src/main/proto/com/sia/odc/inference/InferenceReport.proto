@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package com.sia.odc.inference;
+
+option java_outer_classname = "InferenceReportProto";
+
+message InferenceReport {
+    required bytes contents = 1;
+}
+
+message InferenceReportName {
+    required int32 id = 1;
+    required string name = 2;
+    required int32 taskId = 3;
+}

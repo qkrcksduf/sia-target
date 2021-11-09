@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.odc.label.entity;
+
+option java_multiple_files = true;
+
+enum OrderTypeV1 {
+    SCENE_ID = 0;
+    LEVEL1 = 1;
+    LEVEL2 = 2;
+    LEVEL3 = 3;
+    SATELLITE_NAME = 4;
+    LONGITUDE = 5;
+    LATITUDE = 6;
+    CONFIDENCE = 7;
+    MATCHING_TYPE = 8;
+    WIDTH = 9;
+    HEIGHT = 10;
+    LABEL_ID = 11;
+    LABELING_TIME = 12;
+    IMAGING_TIME = 13;
+}

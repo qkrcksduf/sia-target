@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.odc.label.v1;
+
+import "com/sia/odc/label/entity/LabelHistorylV1.proto";
+
+option java_multiple_files = true;
+
+message LabelHistorySearchResponseV1 {
+    int64 total_label_history_count = 1;
+    repeated entity.LabelHistoryV1 label_histories = 2;
+}

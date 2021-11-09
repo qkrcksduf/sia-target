@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.sia.odc.task;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/model/Model.proto";
+
+option java_multiple_files = true;
+
+message TaskSearchMonitor {
+  int32 id = 1;
+  string name = 2;
+  string eng_name = 5;
+  repeated ModelInTaskProto models = 3;
+  google.protobuf.Timestamp create_time = 4;
+}
+
+message TaskSearchMonitorList {
+  repeated TaskSearchMonitor tasks = 1;
+}
+
+message ModelInTaskProto {
+  string model_name = 1;
+  com.sia.odc.model.ModelType model_type = 2;
+}

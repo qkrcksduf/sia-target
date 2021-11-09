@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.sia.obision.project.realtime.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateRealtimeProjectV2Proto";
+
+import "com/sia/obision/project/v1/DisclosureScopeV1.proto";
+import "com/sia/obision/project/v2/entity/ParticipantV2.proto";
+import "com/sia/obision/project/v1/OoiV1.proto";
+import "com/sia/obision/project/v2/entity/ReportConfigV2.proto";
+import "com/sia/obision/project/v1/AnalysisUnitV1.proto";
+
+message CreateRealtimeProjectRequestV2 {
+  string name = 1;
+  string description = 2;
+  com.sia.obision.project.v1.DisclosureScopeV1 disclosure_scope = 3;
+  repeated com.sia.obision.project.v2.entity.ParticipantV2 participants = 4;
+  repeated com.sia.obision.project.v1.OoiV1 oois = 5;
+  bool is_analyze_old = 6;
+  repeated com.sia.obision.project.v2.entity.ReportConfigV2 report_configs = 7;
+  repeated project.v1.AnalysisUnitV1 analysis_units = 8;
+}

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/obision/project/report/v1/CreateSceneReportRequestV1.proto";
+import "com/sia/obision/project/report/v1/CreateCustomReportRequestV1.proto";
+import "com/sia/obision/project/report/v1/OverviewReportListRequestV1.proto";
+import "com/sia/obision/project/report/v1/OverviewReportListResponseV1.proto";
+import "com/sia/obision/project/report/v1/FilterMetaRequestV1.proto";
+import "com/sia/obision/project/report/v1/ReportFilterMetaResponseV1.proto";
+import "com/sia/obision/project/report/v1/ManageReportFavoriteRequestV1.proto";
+import "com/sia/obision/project/report/v1/GetReportFileRequestV1.proto";
+import "com/sia/obision/project/report/v1/GetReportFileResponseV1.proto";
+import "com/sia/obision/project/report/v1/CreateReportRequestV1.proto";
+import "com/sia/obision/project/report/v1/CreateReportResponseV1.proto";
+import "com/sia/obision/project/report/v2/GetReportAllByV2.proto";
+import "com/sia/obision/project/report/v2/DeleteReportRequestV2.proto";
+import "com/sia/obision/project/report/v2/SubscribeReportRequestV2.proto";
+
+service ReportRouter {
+  rpc createSceneReportV1 (v1.CreateSceneReportRequestV1) returns (google.protobuf.Empty) {}
+
+  rpc getOverviewReportList(v1.OverviewReportListRequestV1) returns (v1.OverviewReportListResponseV1) {}
+
+  rpc getReportFilterMetaV1(v1.FilterMetaRequestV1) returns (v1.ReportFilterMetaResponseV1) {}
+
+  rpc manageReportFavoriteV1(v1.ManageReportFavoriteRequestV1) returns (google.protobuf.Empty) {}
+
+  rpc getReportFileV1 (v1.GetReportFileRequestV1) returns (v1.GetReportFileResponseV1) {}
+
+  rpc createReportV1 (v1.CreateReportRequestV1) returns (v1.CreateReportResponseV1) {}
+
+  rpc getReportByV2(v2.GetReportAllByRequestV2) returns (v2.GetReportAllByResponseV2) {}
+
+  rpc deleteReportV2(v2.DeleteReportRequestV2) returns (google.protobuf.Empty) {}
+
+  rpc subscribeReportV2(v2.SubscribeReportRequestV2) returns (google.protobuf.Empty) {}
+
+  rpc createCustomReportV1(v1.CreateCustomReportRequestV1) returns (google.protobuf.Empty) {}
+}

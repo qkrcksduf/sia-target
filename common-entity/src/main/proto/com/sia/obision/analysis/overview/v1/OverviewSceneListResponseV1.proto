@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.overview.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "OverviewSceneListResponseV1Proto";
+
+import "com/sia/obision/analysis/overview/v1/SceneStatisticsV1.proto";
+
+message OverviewSceneListResponseV1 {
+  // 필수
+  repeated v1.SceneStatisticsV1 scene_statistics = 1;
+  // 필수
+  int32 today_inferred_scene_count = 2;
+  // 필수
+  int32 today_reviewed_scene_count = 3;
+  // 필수
+  int32 total_scene_count = 4;
+
+}

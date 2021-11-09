@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.labelearth.assignment_account;
+
+import "com/sia/labelearth/assignment_account/v1/AssignAccountsV1.proto";
+import "com/sia/labelearth/assignment_account/v1/UnassignAccountsV1.proto";
+import "com/sia/labelearth/assignment_account/v1/GetAssignableAccountsV1.proto";
+import "com/sia/labelearth/assignment_account/v1/GetAssignedAccountsV1.proto";
+
+option java_multiple_files = true;
+
+service AssignmentAccountRouter {
+  rpc assignAccountsV1(v1.AssignAccountsRequestV1Proto) returns
+      (v1.AssignAccountsResponseV1Proto) {}
+
+  rpc unassignAccountsV1(v1.UnassignAccountsRequestV1Proto) returns
+      (v1.UnassignAccountsResponseV1Proto) {}
+
+  rpc getAssignableAccountsV1(v1.GetAssignableAccountsRequestV1Proto) returns
+      (v1.GetAssignableAccountsResponseV1Proto) {}
+
+  rpc getAssignedAccountsV1(v1.GetAssignedAccountsRequestV1Proto) returns
+      (v1.GetAssignedAccountsResponseV1Proto) {}
+}

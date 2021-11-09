@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.attach;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateAttachV1Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/target/v1/attach/AttachV1.proto";
+
+message CreateAttachRequestV1 {
+  com.sia.common.UUID recordId = 1;
+  bytes file = 2 ;
+  string fileName = 3;
+  int32 size = 4;
+  FileExtension fileExtension = 5;
+}

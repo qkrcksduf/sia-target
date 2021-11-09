@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package com.sia.cca.inference.message;
+
+option java_multiple_files = true;
+
+import "com/sia/cca/cloud/message/Cloud.proto";
+
+/*
+ 이미지의 데이터 타입
+ */
+enum Type {
+    // 있으면 안됨.
+    NONE = 0;
+    // 8bit 이미지
+    UINT_8 = 1;
+    // 16bit 이미지
+    UINT_16 = 2;
+}
+
+message InferenceRequest {
+    string scene_id = 1;
+    bytes image = 2;
+    uint32 width = 3;
+    uint32 height = 4;
+    uint32 channel = 5;
+    Type data_type = 6;
+}
+
+message InferenceResponse {
+    string scene_id = 1;
+    repeated com.sia.cca.cloud.message.CloudResponse cloud = 2;
+    string mask = 3;
+}

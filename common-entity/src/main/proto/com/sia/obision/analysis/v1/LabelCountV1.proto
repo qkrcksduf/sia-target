@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelCountV1Proto";
+
+import "com/sia/obision/common/LabelClassWithParent.proto";
+
+message LabelCountV1 {
+  // 필수
+  obision.common.LabelClassWithParent class_id = 1;
+  // 특정 부분에서만 사용
+  string class_name = 3;
+  // 필수
+  int32 count = 2;
+}

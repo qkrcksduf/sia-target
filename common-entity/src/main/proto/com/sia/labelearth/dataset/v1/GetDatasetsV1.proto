@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.labelearth.dataset.v1;
+
+import "com/sia/labelearth/account/v1/entity/AccountRoleV1.proto";
+import "com/sia/labelearth/dataset/v1/value/SummarizedDatasetV1.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "GetDatasetsV1Proto";
+
+message GetDatasetsRequestV1Proto {
+    string account_id = 1;
+    account.v1.entity.AccountRoleV1 role = 2;
+}
+
+message GetDatasetsResponseV1Proto {
+    repeated v1.value.SummarizedDatasetV1 datasets = 1;
+}

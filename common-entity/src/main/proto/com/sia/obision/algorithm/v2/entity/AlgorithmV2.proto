@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm.v2.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "AlgorithmV2Proto";
+
+import "com/sia/common/MongoId.proto";
+import "com/sia/obision/algorithm/v2/entity/LabelClassV2.proto";
+import "com/sia/common/Color.proto";
+import "google/protobuf/timestamp.proto";
+
+message AlgorithmV2 {
+    sia.common.MongoId id = 2;
+
+    /**
+        base_field
+        기본 정보
+     */
+    string name = 3;
+    bool is_activated = 4;
+    sia.common.Color color = 6;
+    string image_name = 7;
+    google.protobuf.Timestamp updated_time = 8;
+
+    /**
+        label_class_field
+        라벨 클래스 정보
+     */
+    repeated entity.LabelClassV2 label_classes = 5;
+
+}
+
+message AlgorithmFieldV2 {
+    bool base_field = 1;
+    entity.LabelClassFieldV2 label_class_field = 2;
+}

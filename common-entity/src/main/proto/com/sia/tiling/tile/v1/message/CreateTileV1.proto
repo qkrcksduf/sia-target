@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.tiling.tile.v1.message;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateTileV1Proto";
+
+message CreateTileRequestV1 {
+  // 필수
+  string scene_id = 1;
+
+  // 우선순위 (default = false)
+  bool isHighPriority = 2;
+}

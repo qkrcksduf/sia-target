@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.sia.serving.shared;
+
+option java_multiple_files = true;
+option java_outer_classname = "PatchProto";
+
+import "com/sia/common/Point.proto";
+import "com/sia/serving/shared/SceneMeta.proto";
+
+enum Type {
+    uint16 = 0;
+    uint8 = 1;
+}
+
+message Patch {
+    // todo: Add geometry information of scene. @dohoon.kim
+    bytes image = 1;
+    uint32 width = 2;
+    uint32 height = 3;
+    uint32 channel = 4;
+    Type dtype = 5;
+    com.sia.common.Point left_top_point = 6;
+    com.sia.serving.shared.SceneMeta scene_meta = 7;
+}

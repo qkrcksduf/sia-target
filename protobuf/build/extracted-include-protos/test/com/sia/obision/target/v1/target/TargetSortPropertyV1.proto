@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.target;
+
+option java_multiple_files = true;
+option java_outer_classname = "TargetSortPropertyV1Proto";
+
+enum TargetSortProperty {
+  DEFAULT = 0;
+  TARGET_ID = 1;
+  TARGET_NAME = 2;
+  CREATED_TIME = 3;
+}

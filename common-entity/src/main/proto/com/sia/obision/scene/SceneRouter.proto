@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package com.sia.obision.scene;
+
+option java_multiple_files = true;
+
+import "com/sia/obision/scene/v1/SceneListRequestV1.proto";
+import "com/sia/obision/scene/v1/SceneListResponseV1.proto";
+import "com/sia/obision/scene/v1/SceneMetaRequestV1.proto";
+import "com/sia/obision/scene/v1/SceneMetaResponseV1.proto";
+import "com/sia/obision/scene/v1/SceneTileListRequestV1.proto";
+import "com/sia/obision/scene/v1/SceneTileListResponseV1.proto";
+import "google/protobuf/empty.proto";
+import "com/sia/obision/scene/v1/SatelliteNameResponseV1.proto";
+import "com/sia/obision/scene/v2/SceneListV2.proto";
+import "com/sia/obision/scene/v1/SceneSaveByPathRequestV1.proto";
+import "com/sia/obision/scene/v2/delete_scene/DeleteSceneRequestV2.proto";
+import "com/sia/obision/scene/v2/ProjectLabelClassCountRequestV2.proto";
+import "com/sia/obision/scene/v2/ProjectLabelClassCountResponseV2.proto";
+import "com/sia/obision/scene/v2/SceneRegistrationRequestV2.proto";
+
+service SceneRouter {
+  rpc getSceneListV1 (com.sia.obision.scene.v1.SceneListRequestV1)
+      returns (com.sia.obision.scene.v1.SceneListResponseV1) {}
+
+  rpc getSceneMetaV1 (com.sia.obision.scene.v1.SceneMetaRequestV1)
+      returns (com.sia.obision.scene.v1.SceneMetaResponseV1) {}
+
+  rpc getSceneTileListV1(com.sia.obision.scene.v1.SceneTileListRequestV1)
+      returns (com.sia.obision.scene.v1.SceneTileListResponseV1) {}
+
+  rpc getAllSatelliteNameV1(google.protobuf.Empty)
+      returns (com.sia.obision.scene.v1.SatelliteNameResponseV1) {}
+
+  rpc getSceneListV2(scene.v2.SceneListRequestV2)
+      returns (scene.v2.SceneListResponseV2) {}
+
+  rpc saveByPathV1(scene.v1.SceneSaveByPathRequestV1) returns (google.protobuf.Empty) {}
+
+  rpc deleteSceneV2(scene.v2.delete_scene.DeleteSceneRequestV2) returns (google.protobuf.Empty) {}
+
+  rpc getProjectLabelClassCountV2(v2.ProjectLabelClassCountRequestV2) returns (v2.ProjectLabelClassCountResponseV2) {}
+
+  rpc sceneRegistrationV2(v2.SceneRegistrationRequestV2) returns (google.protobuf.Empty) {}
+}

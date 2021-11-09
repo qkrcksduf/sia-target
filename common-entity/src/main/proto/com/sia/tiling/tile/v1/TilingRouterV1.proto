@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.tiling.tile.v1;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/tiling/tile/v1/message/CreateTileV1.proto";
+
+service TilingRouterV1 {
+  /*
+      영상 타일링 수행 및 이미지 메타데이터 생성 API
+   */
+  rpc createTileV1 (message.CreateTileRequestV1) returns (google.protobuf.Empty) {}
+}

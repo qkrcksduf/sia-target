@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.odc.gpu.grpc;
+
+import "google/protobuf/empty.proto";
+import "com/sia/odc/gpu/GPUMetrics.proto";
+
+service GPUMetricsRequest {
+    rpc load_metrics(google.protobuf.Empty) returns (GPUMetrics) {}
+}
+
+

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "FilterMetaRequestV1Proto";
+
+import "com/sia/common/UUID.proto";
+
+message FilterMetaRequestV1 {
+  // 필수
+  sia.common.UUID project_id = 1;
+}

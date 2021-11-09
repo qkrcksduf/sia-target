@@ -47,6 +47,19 @@ allprojects {
             }
             dependsOn(processResources)
         }
+
+        compileTestKotlin {
+            kotlinOptions {
+                freeCompilerArgs = listOf("-Xjsr305=strict")
+                jvmTarget = "11"
+            }
+        }
+    }
+
+    configurations.forEach {
+        if (it.name.toLowerCase().contains("proto")) {
+            it.attributes.attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage::class.java, "java-runtime"))
+        }
     }
 
     dependencies {

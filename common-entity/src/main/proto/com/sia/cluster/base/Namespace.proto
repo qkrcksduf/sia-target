@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package com.sia.cluster.base;
+
+option java_multiple_files = true;
+option java_outer_classname = "TimestampProto";
+
+import "google/protobuf/timestamp.proto";
+
+message Namespace {
+    string name = 1;
+    Status status = 2;
+    google.protobuf.Timestamp created_at = 3;
+}
+
+message ListNamespaceRequest {
+    string keyword = 1;
+}
+
+message ListNamespaceResponse {
+    repeated Namespace namespaces = 1;
+}
+
+message GetNamespaceRequest {
+    string name = 1;
+}
+
+message CreateNamespaceRequest {
+    string name = 1;
+}
+
+message DeleteNamespaceRequest {
+    string name = 1;
+}
+
+enum Status {
+    NotFound = 0;
+    NotReady = 1;
+    Active = 2;
+    Terminating = 3;
+}

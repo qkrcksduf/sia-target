@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelListV2Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/MongoId.proto";
+import "com/sia/common/SortDirection.proto";
+import "com/sia/common/Paging.proto";
+import "com/sia/common/DoubleRange.proto";
+import "com/sia/common/Extent.proto";
+import "com/sia/common/TimestampRange.proto";
+
+import "com/sia/obision/analysis/v2/entity/LabelStatusV2.proto";
+import "com/sia/obision/analysis/v2/entity/LabelV2.proto";
+
+
+message LabelListRequestV2 {
+  LabelListRequestFilterV2 filter = 1;
+  LabelListRequestExcludeFilterV2 exclude = 2;
+
+  sia.common.SortDirection sort_direction = 3;
+  LabelListSortTargetV2 sort_target = 4;
+  sia.common.Paging paging = 5;
+  LabelListFieldV2 field = 6;
+}
+
+message LabelListResponseV2 {
+  repeated entity.LabelV2 labels = 1;
+  int32 total_count = 2;
+}
+
+message LabelListRequestFilterV2 {
+  repeated sia.common.MongoId label_ids = 3;
+  repeated sia.common.MongoId scene_ids = 4;
+  repeated sia.common.UUID project_ids = 5;
+  repeated sia.common.UUID aoi_ids = 6;
+  repeated string satellite_names = 7;
+  repeated v2.entity.LabelStatusV2 status = 8;
+  sia.common.DoubleRange confidence_range = 9;
+  sia.common.DoubleRange meter_width_range = 10;
+  sia.common.DoubleRange meter_height_range = 11;
+  sia.common.Extent extent = 12;
+  string keyword = 13;
+  repeated sia.common.UUID class_ids = 14;
+  sia.common.TimestampRange time_range = 15;
+}
+
+message LabelListRequestExcludeFilterV2 {
+  repeated string scene_ids = 1;
+}
+
+message LabelListFieldV2 {
+  entity.LabelFieldV2 label_field = 2;
+}
+
+
+enum LabelListSortTargetV2 {
+  LABEL_ID = 0;
+  ClASS_ID = 1;
+  WIDTH = 2;
+  HEIGHT = 3;
+  CONFIDENCE = 4;
+  IMAGINE_TIME = 5;
+}

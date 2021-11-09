@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.status.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneAnalysisStatusV1Proto";
+
+import "com/sia/obision/analysis/v1/LabelCountV1.proto";
+import "com/sia/obision/analysis/v1/LabelBriefV1.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/common/MongoId.proto";
+
+message SceneAnalysisStatusV1 {
+  // 필수
+  sia.common.UUID project_id = 1;
+  // 필수
+  sia.common.MongoId scene_id = 2;
+  // 필수
+  string algorithm_id = 3;
+  // 필수
+  float progress = 4;
+  // 필수
+  int32 estimated_remain_sec = 5;
+  // 필수
+  repeated analysis.v1.LabelCountV1 label_counts = 7;
+  // 필수
+  repeated analysis.v1.LabelBriefV1 label_briefs = 8;
+}

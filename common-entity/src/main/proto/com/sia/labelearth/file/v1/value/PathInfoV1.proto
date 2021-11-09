@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.labelearth.file.v1.value;
+
+//option java_multiple_files = true;
+option java_outer_classname = "PathInfoV1Proto";
+
+message PathInfoV1 {
+  string file_path = 1;
+  string file_name = 2;
+}

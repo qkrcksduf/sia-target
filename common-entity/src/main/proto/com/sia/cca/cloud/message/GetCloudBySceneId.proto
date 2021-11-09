@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.cca.cloud.message;
+
+option java_outer_classname = "GetCloudBySceneIdProto";
+option java_multiple_files = true;
+
+import "com/sia/cca/cloud/message/Cloud.proto";
+
+message GetCloudBySceneIdRequest {
+  string sceneId = 1;
+}
+
+message GetCloudBySceneIdResponse {
+  repeated CloudResponse cloud = 1;
+}

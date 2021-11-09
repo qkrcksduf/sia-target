@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.v2.value;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelClassCountV2Proto";
+
+import "com/sia/obision/algorithm/v2/entity/LabelClassV2.proto";
+
+/**
+    각 라벨 클래스 별 개수
+ */
+message LabelClassCountV2 {
+  // todo :: class_id 로 바꿀 예정
+  algorithm.v2.entity.LabelClassV2 label_class = 1;
+  int32 count = 2;
+}
+
+message LabelClassCountFieldV2 {
+  /**
+    해당 정보가 필요한지 여부
+   */
+  bool activated = 1;
+  /**
+    label_class todo :: bool
+   */
+  algorithm.v2.entity.LabelClassFieldV2 label_class_field = 2;
+}

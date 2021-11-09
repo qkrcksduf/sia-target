@@ -1,0 +1,30 @@
+syntax = "proto2";
+
+package com.sia.odc.inference;
+
+import "com/sia/odc/inference/InferenceLabel.proto";
+import "com/sia/odc/inference/InferenceReport.proto";
+import "com/sia/odc/scene/Scene.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_outer_classname = "InferenceResultProto";
+
+message InferenceResult {
+    repeated com.sia.odc.inference.InferenceLabel labels = 1;
+}
+
+message InferenceNotification {
+    required string region = 1;
+    required com.sia.odc.scene.ScenePath scene = 2;
+    required InferenceReportName report = 3;
+    repeated LabelClassCount label_class = 4;
+    required google.protobuf.Timestamp inference_time = 5;
+    required google.protobuf.Timestamp scene_time = 6;
+    required string taskName = 7;
+}
+
+message LabelClassCount {
+    required int32 id = 1;
+    optional string name = 2;
+    optional int32 count = 3;
+}

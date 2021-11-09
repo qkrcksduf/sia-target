@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package com.sia.map.geocoding.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "LocationRequestV1Proto";
+
+message LocationRequestV1 {
+  int64 id = 1;
+}

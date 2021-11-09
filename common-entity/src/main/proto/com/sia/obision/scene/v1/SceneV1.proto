@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneV1Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/common/Polygon.proto";
+import "com/sia/common/MongoId.proto";
+import "com/sia/obision/common/Region.proto";
+
+message SceneV1 {
+    // 필수
+    sia.common.MongoId id = 1;
+    // 필수
+    com.sia.common.Polygon extent = 3;
+    // 필수
+    string satellite_name = 4;
+    // 필수
+    google.protobuf.Timestamp imaging_time = 5;
+    // 필수
+    obision.common.Region region = 6;
+}

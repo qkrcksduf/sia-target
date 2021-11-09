@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v3;
+
+option java_multiple_files = true;
+option java_outer_classname = "UpdateProjectV3Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/project/v1/DisclosureScopeV1.proto";
+import "com/sia/obision/project/v2/entity/ParticipantV2.proto";
+import "com/sia/obision/project/v3/entity/MissionV3.proto";
+import "com/sia/obision/project/v3/entity/ReportGenerationConfigV3.proto";
+import "com/sia/obision/project/v3/entity/ProjectV3.proto";
+import "com/sia/common/DayOfWeek.proto";
+import "com/sia/obision/project/v1/ProjectStatusV1.proto";
+
+message UpdateProjectRequestV3 {
+    common.UUID id = 1;
+    string name = 2;
+    entity.ProjectTypeV3 type = 3;
+    common.DayOfWeek batch_period = 4;
+    repeated string satellite_names = 5;
+    repeated entity.MissionV3 create_missions = 6;
+    repeated entity.MissionV3 update_missions = 7;
+    repeated common.UUID delete_mission_ids = 8;
+    // deprecated 값을 넣어도 무시함
+    repeated v2.entity.ParticipantV2 create_participants = 9;
+    com.sia.obision.project.v1.DisclosureScopeV1 disclosure_scope = 10;
+    repeated v3.entity.ReportGenerationConfigV3 create_report_generation_configs = 11;
+    repeated v3.entity.ReportGenerationConfigV3 update_report_generation_configs = 12;
+    repeated common.UUID delete_report_generation_config_ids = 13;
+    v1.ProjectStatusV1 status = 14;
+    repeated v2.entity.ParticipantV2 participants = 15;
+}
+
+message UpdateProjectResponseV3 {
+    entity.ProjectV3 project = 1;
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.overview.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "OoiTrendRequestV1Proto";
+
+import "com/sia/common/Period.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/common/TimeZone.proto";
+
+message OoiTrendRequestV1 {
+    // 필수
+    common.UUID project_id = 1;
+    // 필수
+    common.Period period = 2;
+    // 필수
+    repeated common.UUID ooi_ids = 3;
+    // 선택, 기본 : 서버 기본값
+    common.TimeZone timezone = 4;
+}

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v2.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "ReportV2Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/TimestampRange.proto";
+import "com/sia/obision/project/v1/ReportTypeV1.proto";
+import "google/protobuf/timestamp.proto";
+import "com/sia/obision/project/v3/entity/ProjectV3.proto";
+
+message ReportV2 {
+  common.UUID id = 1;
+  project.v1.ReportTypeV1 type = 2;
+  string report_name = 3;
+  string report_name_kr = 10;
+  string report_name_en = 11;
+  string project_name = 4;
+  google.protobuf.Timestamp created_time = 5;
+  repeated com.sia.common.TimestampRange scene_time_range = 6;
+  string aoi_name = 7;
+  string object_count = 8;
+  bool isFavorite = 9;
+}

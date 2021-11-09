@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.sia.cluster.p4.v2beta;
+
+import "com/sia/cluster/p4/v2beta/Common.proto";
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.p4.v2beta";
+
+
+message GPUMetric {
+    string id = 1; // gpu's uuid
+    string node_ip = 2; // node's ip
+    uint32 order = 3; // gpu's order in the node
+    float usage = 4; //
+    float mem_used = 5;
+    float mem_free = 6;
+    uint32 task = 7;
+    WorkType type = 8;
+    bool is_train = 9;
+}

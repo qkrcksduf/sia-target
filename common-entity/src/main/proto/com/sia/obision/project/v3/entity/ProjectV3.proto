@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v3.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "ProjectV3Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/project/v3/entity/MissionV3.proto";
+import "com/sia/obision/project/v3/entity/ReportGenerationConfigV3.proto";
+import "com/sia/obision/project/v2/entity/ParticipantV2.proto";
+import "com/sia/obision/project/v1/DisclosureScopeV1.proto";
+import "com/sia/obision/project/v1/ProjectStatusV1.proto";
+import "com/sia/common/DayOfWeek.proto";
+import "google/protobuf/timestamp.proto";
+
+message ProjectV3 {
+    // 기본 제공
+    common.UUID id = 1;
+    string name = 2;
+    ProjectTypeV3 type = 3;
+    common.DayOfWeek batch_period = 4;
+    repeated string satellite_name = 5;
+    repeated MissionV3 missions = 6;
+    repeated v2.entity.ParticipantV2 participants = 7;
+    com.sia.obision.project.v1.DisclosureScopeV1 disclosure_scope = 8;
+    repeated ReportGenerationConfigV3 report_generation_configs = 9;
+    v1.ProjectStatusV1 status = 10;
+    google.protobuf.Timestamp created_time = 11;
+    google.protobuf.Timestamp last_modified_time = 12;
+}
+
+enum ProjectTypeV3 {
+    PROJECT_TYPE_NONE = 0;
+    REALTIME_PROJECT = 1;
+    SINGLE_PROJECT = 2;
+    BATCH_PROJECT = 3;
+}

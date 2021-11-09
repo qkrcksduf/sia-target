@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.sia.labelearth.account.v1;
+
+import "com/sia/labelearth/account/v1/entity/AccountRoleV1.proto";
+import "com/sia/labelearth/account/v1/entity/AccountStatusV1.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "SignInV1Proto";
+
+message SignInRequestV1Proto {
+  string id = 1;
+  string password = 2;
+}
+
+message SignInResponseV1Proto {
+  string id = 1;
+  string name = 2;
+  repeated v1.entity.AccountRoleV1 roles = 3;
+  v1.entity.AccountStatusV1 status = 4;
+}

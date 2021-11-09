@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AlgorithmListResponseV1Proto";
+
+import "com/sia/obision/algorithm/v1/AlgorithmV1.proto";
+
+message AlgorithmListResponseV1 {
+    repeated AlgorithmV1 algorithms = 1;
+}

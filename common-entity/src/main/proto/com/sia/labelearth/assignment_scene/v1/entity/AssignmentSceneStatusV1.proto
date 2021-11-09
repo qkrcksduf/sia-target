@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.labelearth.assignment_scene.v1.entity;
+
+//option java_multiple_files = true;
+option java_outer_classname = "AssignmentSceneStatusV1Proto";
+
+enum AssignmentSceneStatusV1 {
+    READY = 0;
+    ANNOTATING = 1;
+    ANNOTATED = 2;
+    REVIEWING = 3;
+    REJECTED = 4;
+    ACCEPTED = 5;
+}

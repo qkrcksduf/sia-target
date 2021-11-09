@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v3;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetAllProjectResponseV3Proto";
+
+import "com/sia/common/UUID.proto";
+
+message GetAllProjectResponseV3 {
+//    repeated entity.ProjectV3 project = 1;
+  repeated sia.common.UUID project_ids = 1;
+  repeated string project_names = 2;
+}

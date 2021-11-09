@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package com.sia.scheduler;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "com/sia/scheduler/JobResource.proto";
+
+option java_multiple_files = true;
+option go_package = "common-entity/com/sia/scheduler";
+
+
+service JobScheduleRouter{
+    rpc run (com.sia.scheduler.JobResource)
+        returns (com.sia.scheduler.JobResource) {}
+
+    rpc load_all_jobs(com.sia.scheduler.JobListRequest)
+        returns (com.sia.scheduler.JobListResponse) {}
+
+    rpc remove(com.sia.scheduler.JobDeleteRequest)
+        returns (com.sia.scheduler.JobDeleteResponse) {}
+
+    rpc prune(com.sia.scheduler.JobPruneRequest)
+        returns (com.sia.scheduler.JobDeleteResponse) {}
+
+    rpc logs(com.sia.scheduler.JobLogsRequest)
+        returns (stream google.protobuf.StringValue) {}
+
+    rpc load_all_ports(google.protobuf.Empty)
+        returns (com.sia.scheduler.JobPortResponse) {}
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.sia.odc.model;
+
+import "com/sia/odc/snapshot/SnapshotRequest.proto";
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/label/LabelClass.proto";
+
+option java_multiple_files = true;
+
+message ModelLearningHistoryResponse {
+  int32 id = 1;
+  string name = 2;
+  repeated string scene_id = 3;
+  repeated com.sia.odc.label.LabelClassResponseProto labelClass = 4;
+  google.protobuf.Timestamp created_time = 5;
+  string score = 6;
+  com.sia.odc.snapshot.SnapshotType snapshot_type = 7;
+}
+
+message ModelLearningHistoryListResponse {
+  repeated ModelLearningHistoryResponse histories = 1;
+}

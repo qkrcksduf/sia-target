@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v2.delete_scene;
+
+option java_multiple_files = true;
+option java_outer_classname = "DeleteSceneRequestV2Proto";
+
+import "com/sia/common/UUID.proto";
+
+/**
+  영상 삭제 요청
+  project_id 가 있을 시
+    해당 프로젝트에 해당되는 영상을 보이지 않도록 설정
+  project_id 가 없을 시
+    해당 영상을 영구히 삭제 - 모든 프로젝트에서 삭제
+ */
+message DeleteSceneRequestV2 {
+  // 삭제할 영상 목록
+  repeated string scene_ids = 1;
+  /*
+    삭제할 대상 프로젝트
+    없을 경우 영상 영구 삭제
+   */
+  sia.common.UUID project_id = 2;
+}

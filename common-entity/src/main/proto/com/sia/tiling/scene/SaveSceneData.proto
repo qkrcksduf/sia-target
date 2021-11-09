@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.sia.tiling.scene;
+
+option java_multiple_files = true;
+option java_outer_classname = "SaveSceneDataProto";
+
+import "com/sia/tiling/common/Scene.proto";
+
+message SaveSceneDataRequest {
+  repeated SceneData sceneData = 1;
+}
+
+message SaveSceneDataResponse {
+  repeated com.sia.tiling.common.Scene scene = 1;
+}
+
+message SceneData {
+  // 필수
+  string scene_path = 1;
+
+  // 옵션 - 영상의 유효일수 지정 (default = 30일) 유효일수 경과시 영상 삭제
+  int32 expire_date = 2;
+
+  // 옵션 - 타일링 여부 옵션 (default = 타일 생성, cancel_tiling 값을 true로 지정시 SceneInfo, Meta 정보만 등록)
+  bool cancel_tiling = 3;
+}

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.overview.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneStatisticsV1Proto";
+
+import "com/sia/common/MongoId.proto";
+import "google/protobuf/timestamp.proto";
+import "com/sia/obision/scene/v1/SceneStatusV1.proto";
+
+import "com/sia/obision/analysis/v1/AlgorithmCountV1.proto";
+import "com/sia/obision/common/Region.proto";
+
+message SceneStatisticsV1 {
+  // 필수
+  sia.common.MongoId scene_id = 1;
+  // 필수
+  obision.scene.v1.SceneStatusV1 status = 2;
+  // 필수
+  google.protobuf.Timestamp imaging_time = 3;
+  // 필수
+  obision.common.Region region = 4;
+  // 필수
+  double aoi_coverage = 5;
+  // 필수
+  string satellite_name = 6;
+  // 필수
+  repeated analysis.v1.AlgorithmCountV1 algorithm_counts = 7;
+  // 필수
+  bool is_favorite = 8;
+}

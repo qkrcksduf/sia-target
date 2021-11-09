@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "DeleteLabelRequestV2Proto";
+
+import "com/sia/common/UUID.proto";
+
+message DeleteLabelRequestV2 {
+  // 삭제할 라벨 아이디
+  repeated sia.common.UUID label_id = 2;
+  // 선택
+  sia.common.UUID project_id = 3;
+}
+

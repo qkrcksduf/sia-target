@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.cms.scene.message;
+
+option java_outer_classname = "InferCmsSceneByProto";
+option java_multiple_files = true;
+
+import "com/sia/common/TimestampRange.proto";
+
+message InferCmsSceneByRequest {
+  // 선택
+  com.sia.common.TimestampRange create_date_range = 1;
+}

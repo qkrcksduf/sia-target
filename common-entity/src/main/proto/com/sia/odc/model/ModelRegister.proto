@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package com.sia.odc.model;
+
+import "com/sia/odc/model/Model.proto";
+import "com/sia/odc/aoi/Aoi.proto";
+
+option java_multiple_files = true;
+
+message DetectionModelRegisterRequestProto {
+    string name = 1;
+    com.sia.odc.model.ModelType type = 2;
+    repeated string tag = 3;
+    int32 gpu_count = 4;
+    bool is_high_priority = 5;
+    int32 training_snapshot_id = 6;
+    int32 validation_snapshot_id = 7;
+    DetectionParameterProto parameter = 8;
+    string creator = 9;
+}
+
+message ClassificationModelRegisterRequestProto {
+    string name = 1;
+    com.sia.odc.model.ModelType type = 2;
+    repeated string tag = 3;
+    int32 gpu_count = 4;
+    bool is_high_priority = 5;
+    int32 training_snapshot_id = 6;
+    ClassificationParameterProto parameter = 8;
+    string creator = 9;
+}
+
+message ClassificationParameterProto {
+    int32 base_model_id = 1;
+    int32 learning_iteration = 2;
+    float learning_rate = 3;
+    float input_image_padding = 4;
+    int32 batch_size = 5;
+}
+
+message DetectionParameterProto {
+    int32 base_model_id = 1;
+    int32 learning_iteration = 2;
+    float learning_rate = 3;
+    PreprocessTypeProto preprocess = 4;
+    int32 patch_image_size = 5;
+    int32 patch_image_margin = 6;
+    float iou = 7;
+    int32 batch_size = 8;
+    int32 remove_object_min_width = 9;
+    int32 remove_object_min_height = 10;
+    int32 remove_object_max_width = 11;
+    int32 remove_object_max_height = 12;
+    bool remove_object_outside_aoi = 13;
+    com.sia.odc.aoi.Aoi aoi = 14;
+}
+
+enum PreprocessTypeProto {
+    NULL_PREPROCESS = 0;
+    MIN_MAX_BRIGHTNESS_CONTRAST = 1;
+    ADOPTIVE_BRIGHTNESS_CONTRAST = 2;
+    MIN_MAX_BRIGHTNESS_CONTRAST_DOUBLE_IMAGE_SIZE = 3;
+}

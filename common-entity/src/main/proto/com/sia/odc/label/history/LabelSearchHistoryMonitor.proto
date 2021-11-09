@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package com.sia.odc.label.history;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/label/MatchingType.proto";
+import "com/sia/common/SortDirection.proto";
+
+option java_multiple_files = true;
+
+message LabelSearchHistoryMonitorProto {
+  google.protobuf.Timestamp start_time = 1;
+  google.protobuf.Timestamp end_time = 2;
+  LabelHistoryOrderType order_type = 3;
+  com.sia.common.SortDirection sort_direction = 4;
+  LabelHistoryWorkType work_type = 5;
+  string worker = 6;
+  string scene_id_keyword = 7;
+  repeated int32 class_ids = 8;
+  string label_id = 9;
+  int32 limit = 10;
+}
+
+enum LabelHistoryOrderType {
+  SCENE_ID = 0;
+  IMAGING_TIME = 1;
+  LABEL_ID = 2;
+  LEVEL1 = 3;
+  LEVEL2 = 4;
+  LEVEL3 = 5;
+  WORKER = 6;
+  CREATE_TIME = 7;
+  MODIFIER = 8;
+  MODIFIED_TIME = 9;
+}
+
+enum LabelHistoryWorkType {
+  TOTAL = 0;
+  CREATION = 1;
+  VALIDATION = 2;
+  MODIFIED = 3;
+}
+

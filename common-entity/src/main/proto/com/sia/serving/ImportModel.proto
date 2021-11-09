@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.sia.serving;
+
+option java_multiple_files = true;
+
+import "com/sia/serving/shared/Model.proto";
+
+
+enum ImportModelStatus {
+    IMPORT_MODEL_FAIL = 0 ;
+    IMPORT_MODEL_SUCCESS = 1;
+    DIRECTORY_NOT_FOUND = 2;
+    MODEL_FILE_NOT_FOUND = 3;
+    CONFIG_FILE_NOT_FOUND = 4;
+}
+
+message ImportModelRequest {
+    shared.Model model = 1;
+}
+
+message ImportModelResponse {
+    string model_id = 1;
+    ImportModelStatus status = 2;
+}

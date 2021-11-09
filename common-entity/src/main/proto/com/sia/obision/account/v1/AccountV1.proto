@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AccountV1Proto";
+
+import "com/sia/obision/account/v1/AccountPermissionV1.proto";
+import "google/protobuf/timestamp.proto";
+
+message AccountV1 {
+    string id=1;
+    string first_name=2;
+    string last_name=3;
+    string name=4;
+    string email=5;
+    string organization=6;
+    string position=7;
+    AccountPermissionV1 permission = 8;
+    google.protobuf.Timestamp created_time = 9;
+    google.protobuf.Timestamp last_access = 10;
+}
+
+message AccountFieldV1 {
+    // id 제외 전부
+    bool base_field = 1;
+}
+
+message AccountAllFieldV1 {
+    bool id_field = 1;
+    bool base_field = 2;
+}

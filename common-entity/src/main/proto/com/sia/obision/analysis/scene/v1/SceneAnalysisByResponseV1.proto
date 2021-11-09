@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneAnalysisByResponseV1Proto";
+
+import "com/sia/obision/analysis/v1/LabelGroupV1.proto";
+
+message SceneAnalysisByResponseV1 {
+  // 필수
+  repeated analysis.v1.LabelGroupV1 label_groups = 1;
+}

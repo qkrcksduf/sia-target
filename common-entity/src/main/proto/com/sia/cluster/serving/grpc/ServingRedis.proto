@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.cluster.serving.grpc;
+
+import "google/protobuf/empty.proto";
+import "com/sia/cluster/serving/ServingRedis.proto";
+
+service ServingRedis {
+    rpc get_all_status (google.protobuf.Empty) returns (serving.ServingRedisAllStatus) {}
+    rpc get_status (serving.ServingRedis) returns (serving.ServingRedis) {}
+    rpc schedule (serving.ServingRedis) returns (serving.ServingRedis) {}
+    rpc update (serving.ServingRedis) returns (serving.ServingRedis) {}
+    rpc rescale (serving.ServingRedis) returns (serving.ServingRedis) {}
+    rpc delete (serving.ServingRedis) returns (serving.ServingRedis) {}
+}

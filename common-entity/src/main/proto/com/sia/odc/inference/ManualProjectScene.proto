@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.sia.odc.inference.manualproject;
+
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+
+message ManualProjectSceneResponseProto {
+  string id = 1;
+  string satellite_name = 2;
+  double latitude = 3;
+  double longitude = 4;
+  string region = 5;
+  google.protobuf.Timestamp scene_time = 6;
+  repeated ClassNameCount top_class_name_count = 7;
+  string scene_path = 8;
+}
+
+message ClassNameCount {
+  string name = 1;
+  int32 count = 2;
+}
+
+message ManualProjectSceneListResponseProto {
+  repeated ManualProjectSceneResponseProto scenes = 1;
+}

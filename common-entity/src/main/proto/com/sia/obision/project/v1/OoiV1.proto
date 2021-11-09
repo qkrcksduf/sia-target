@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "OoiV1Proto";
+
+message OoiV1 {
+    // Create의 경우를 제외하고 필수
+    string id = 1;
+    // 필수
+    string class_id = 2;
+    // 필수
+    string class_name = 3;
+    // 필수
+    repeated string aoi_id = 4;
+}

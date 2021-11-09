@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AnalysisUnitV1Proto";
+
+import "com/sia/common/Period.proto";
+import "com/sia/obision/aoi/v1/AoiV1.proto";
+
+import "com/sia/common/UUID.proto";
+
+message AnalysisUnitV1 {
+    // 선택
+    sia.common.UUID id = 1;
+    // 필수
+    repeated aoi.v1.AoiV1 aois = 2;
+    // 필수
+    repeated string algorithm_ids = 3;
+    // 필수
+    sia.common.Period analysis_period = 4;
+    // 선택, 기본: 전체
+    repeated string satellite_names = 5;
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.odc.label.entity;
+
+import "google/protobuf/timestamp.proto";
+
+option java_multiple_files = true;
+
+message LabelClassV2 {
+    string id = 1;
+    string parent_id = 2;
+    string name = 3;
+    google.protobuf.Timestamp create_date = 4;
+    string merge_class_id = 5;
+    bool is_hiding = 6;
+    bool is_merged = 7;
+}

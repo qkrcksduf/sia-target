@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package com.sia.odc.image;
+
+option java_outer_classname = "RawImageProto";
+
+message RawImage {
+    required int32 width = 1;
+    required int32 height = 2;
+    repeated int32 r = 3;
+    repeated int32 g = 4;
+    repeated int32 b = 5;
+}

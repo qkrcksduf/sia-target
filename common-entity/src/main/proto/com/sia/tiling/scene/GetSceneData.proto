@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.tiling.scene;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetSceneDataProto";
+
+import "com/sia/tiling/common/Scene.proto";
+
+message GetSceneDataRequest {
+  // 필수
+  repeated string scene_id = 1;
+}
+
+message GetSceneDataResponse {
+  // 영상 데이터
+  repeated com.sia.tiling.common.Scene scene = 1;
+}

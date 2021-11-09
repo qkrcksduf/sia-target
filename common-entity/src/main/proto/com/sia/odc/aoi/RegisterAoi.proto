@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.odc.aoi;
+
+import "com/sia/odc/aoi/Aoi.proto";
+
+option java_multiple_files = true;
+option java_package="com.sia.odc.aoi";
+
+message RegisterAoiRequestProto {
+  int32 id=1;
+  string aoi_name=2;
+  com.sia.odc.aoi.AoiPolygonList polygon=3;
+  string create_user_id=4;
+}
+
+message RegisterAoiResponseProto {
+  int32 id=1;
+}

@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package com.sia.odc.inference;
+
+message PeriodicReportZoomResponseProto {
+  double zoom = 1;
+  bool is_eng_report_existed = 2;
+}

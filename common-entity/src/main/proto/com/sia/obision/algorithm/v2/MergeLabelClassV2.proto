@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "MergeLabelClassV2Proto";
+
+import "com/sia/common/UUID.proto";
+
+message MergeLabelClassRequestV2 {
+  repeated common.UUID class_ids = 1;
+  string merge_class_name = 2;
+}

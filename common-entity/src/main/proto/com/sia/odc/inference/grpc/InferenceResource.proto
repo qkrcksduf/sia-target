@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.odc.inference.grpc;
+
+import "google/protobuf/empty.proto";
+import "com/sia/odc/inference/InferenceResource.proto";
+
+option java_multiple_files = true;
+
+service InferenceResourceRequest {
+  rpc get_all_status (google.protobuf.Empty) returns (InferenceResources) {}
+  rpc get_status (InferenceResource) returns (InferenceResource) {}
+  rpc create (InferenceResource) returns (InferenceResource) {}
+  rpc update (InferenceResource) returns (InferenceResource) {}
+  rpc rescale (InferenceResource) returns (InferenceResource) {}
+  rpc delete (InferenceResource) returns (InferenceResource) {}
+}

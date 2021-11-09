@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.obision.common;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelClassWithParentProto";
+
+import "com/sia/common/UUID.proto";
+
+message LabelClassWithParent {
+  com.sia.common.UUID id = 1;
+  int32 level = 2;
+  repeated LabelClassWithLevel parents = 3;
+}
+
+message LabelClassWithLevel {
+  sia.common.UUID id = 1;
+  int32 level = 2;
+}

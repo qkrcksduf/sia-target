@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneIntersectionResponseV1Proto";
+
+import "com/sia/obision/project/v1/SimpleAoiV1.proto";
+import "com/sia/obision/project/v1/ProjectIntersectionV1.proto";
+
+message SceneIntersectionResponseV1 {
+  repeated project.v1.ProjectIntersectionV1 intersected_projects = 1;
+  repeated com.sia.obision.project.v1.SimpleAoiV1 aoi_polygons = 3;
+}

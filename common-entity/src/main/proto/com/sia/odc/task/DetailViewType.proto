@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package com.sia.odc.task;
+
+option java_multiple_files = true;
+
+enum DetailViewTypeProto {
+    BASIC = 0;
+    GRAPH = 1;
+}

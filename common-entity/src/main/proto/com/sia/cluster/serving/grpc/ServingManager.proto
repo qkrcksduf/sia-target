@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.cluster.serving.grpc;
+
+import "google/protobuf/empty.proto";
+import "com/sia/cluster/serving/ServingManager.proto";
+
+service ServingManager {
+    rpc get_all_status (google.protobuf.Empty) returns (serving.ServingManagerAllStatus) {}
+    rpc get_status (serving.ServingManager) returns (serving.ServingManager) {}
+    rpc schedule (serving.ServingManager) returns (serving.ServingManager) {}
+    rpc update (serving.ServingManager) returns (serving.ServingManager) {}
+    rpc rescale (serving.ServingManager) returns (serving.ServingManager) {}
+    rpc delete (serving.ServingManager) returns (serving.ServingManager) {}
+}

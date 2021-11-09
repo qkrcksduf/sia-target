@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.sia.odc.assignment;
+
+import "com/sia/odc/account/PermissionLevel.proto";
+import "com/sia/odc/scene/Scene.proto";
+
+option java_outer_classname = "AssignmentProto";
+
+message AssignScene {
+    int32 dataset_id = 1;
+    repeated com.sia.odc.scene.Scene scene = 2;
+}
+
+message AssignAccount {
+    int32 dataset_id = 1;
+    string account_id = 2;
+    repeated com.sia.odc.account.PermissionLevel role = 3;
+}
+
+message AssignAccountList {
+    repeated AssignAccount assignAccount = 1;
+}

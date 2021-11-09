@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.account;
+
+option java_multiple_files = true;
+
+import "com/sia/obision/account/v1/AccessHistoryRequestV1.proto";
+import "com/sia/obision/account/v1/AccessHistoryResponseV1.proto";
+
+service AccessHistoryRouter {
+    rpc getAccessHistoryV1 (com.sia.obision.account.v1.AccessHistoryRequestV1)
+        returns (com.sia.obision.account.v1.AccessHistoryResponseV1) {}
+}

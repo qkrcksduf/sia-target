@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package com.sia.cca.satellite.message;
+
+option java_outer_classname = "DeleteSatelliteProto";
+option java_multiple_files = true;
+
+message DeleteSatelliteRequest {
+  string id = 1;
+}

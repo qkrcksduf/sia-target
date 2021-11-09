@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.cca.scene.message;
+
+option java_outer_classname = "UpdateCloudProto";
+option java_multiple_files = true;
+
+message UpdateCloudRequest {
+  string scene_id = 1;
+  string mask = 2;
+}

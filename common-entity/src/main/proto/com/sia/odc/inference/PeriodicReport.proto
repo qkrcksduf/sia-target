@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package com.sia.odc.inference;
+
+import "google/protobuf/timestamp.proto";
+
+option java_outer_classname = "PeriodicReportProto";
+
+message PeriodicReport {
+    int32 id = 1;
+    google.protobuf.Timestamp create_time = 2;
+    google.protobuf.Timestamp start_time = 3;
+    google.protobuf.Timestamp end_time = 4;
+    string task_name = 5;
+    int32 detected_scene_count = 6;
+    string scene_period = 7;
+    com.sia.odc.inference.PeriodType period_type = 8;
+    repeated string detected_region = 9;
+    repeated string undetected_region = 10;
+    repeated string satellites = 11;
+    string report_name = 12;
+    double zoom = 13;
+    bool is_eng_report_existed = 14;
+}
+
+message PeriodicReportDuplication {
+    int32 count = 1;
+    string report_name = 2;
+}
+
+message PeriodicReportList {
+    repeated PeriodicReport report = 1;
+    PeriodicReportCount counts = 2;
+}
+
+message PeriodicReportCount {
+    int32 total = 1;
+    int32 daily = 2;
+    int32 time = 3;
+    int32 custom = 4;
+    int32 scene = 5;
+}
+
+message PeriodicReportCreateResult {
+    string name = 1;
+    PeriodicReportCount counts = 2;
+}
+
+enum PeriodType {
+    NONE = 0;
+    DAILY = 1;
+    TIME = 2;
+    CUSTOM = 3;
+    SCENE = 4;
+}

@@ -2,16 +2,16 @@ package com.sia.obision.target
 
 import com.google.protobuf.Empty
 import com.sia.obision.target.TargetRouterGrpc.getServiceDescriptor
-import com.sia.obision.target.v1.BookMarkRequestV1
-import com.sia.obision.target.v1.CreateTargetListRequestV1
-import com.sia.obision.target.v1.CreateTargetRequestV1
-import com.sia.obision.target.v1.DeleteTargetListRequestV1
-import com.sia.obision.target.v1.DeleteTargetRequestV1
-import com.sia.obision.target.v1.TargetFilterRequestV1
-import com.sia.obision.target.v1.TargetFilterResponseV1
-import com.sia.obision.target.v1.TargetSearchRequestV1
-import com.sia.obision.target.v1.TargetSearchResponseV1
-import com.sia.obision.target.v1.UpdateTargetRequestV1
+import com.sia.obision.target.v1.target.CreateTargetListRequestV1
+import com.sia.obision.target.v1.target.CreateTargetRequestV1
+import com.sia.obision.target.v1.target.DeleteTargetListRequestV1
+import com.sia.obision.target.v1.target.DeleteTargetRequestV1
+import com.sia.obision.target.v1.target.TargetBookMarkRequestV1
+import com.sia.obision.target.v1.target.TargetFilterRequestV1
+import com.sia.obision.target.v1.target.TargetFilterResponseV1
+import com.sia.obision.target.v1.target.TargetSearchRequestV1
+import com.sia.obision.target.v1.target.TargetSearchResponseV1
+import com.sia.obision.target.v1.target.UpdateTargetRequestV1
 import io.grpc.CallOptions
 import io.grpc.CallOptions.DEFAULT
 import io.grpc.Channel
@@ -71,7 +71,7 @@ object TargetRouterGrpcKt {
     @JvmStatic
     get() = TargetRouterGrpc.getDeleteTargetListMethod()
 
-  val bookMarkMethod: MethodDescriptor<BookMarkRequestV1, Empty>
+  val bookMarkMethod: MethodDescriptor<TargetBookMarkRequestV1, Empty>
     @JvmStatic
     get() = TargetRouterGrpc.getBookMarkMethod()
 
@@ -216,7 +216,7 @@ object TargetRouterGrpcKt {
      *
      * @return The single response from the server.
      */
-    suspend fun bookMark(request: BookMarkRequestV1): Empty = unaryRpc(
+    suspend fun bookMark(request: TargetBookMarkRequestV1): Empty = unaryRpc(
       channel,
       TargetRouterGrpc.getBookMarkMethod(),
       request,
@@ -340,7 +340,7 @@ object TargetRouterGrpcKt {
      *
      * @param request The request from the client.
      */
-    open suspend fun bookMark(request: BookMarkRequestV1): Empty = throw
+    open suspend fun bookMark(request: TargetBookMarkRequestV1): Empty = throw
         StatusException(UNIMPLEMENTED.withDescription("Method com.sia.obision.target.TargetRouter.bookMark is unimplemented"))
 
     final override fun bindService(): ServerServiceDefinition = builder(getServiceDescriptor())

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneListByRequestV1Proto";
+
+import "com/sia/common/SortDirection.proto";
+import "com/sia/obision/scene/v1/SceneStatusV1.proto";
+import "com/sia/common/Paging.proto";
+import "com/sia/common/TimestampRange.proto";
+
+message SceneListByRequestV1 {
+  // 영상의 상태 (검수 중, 검수 전)
+  obision.scene.v1.SceneStatusV1 status = 1;
+  // 영상의 시간 범위
+  com.sia.common.TimestampRange scene_date_range = 4;
+  // 정렬의 순서
+  sia.common.SortDirection sort_direction = 2;
+  // 페이징
+  com.sia.common.Paging paging = 3;
+  // 미객체 탐지 유무
+  bool is_detected = 5;
+}

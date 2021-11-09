@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+package com.sia.odc.monitoring;
+
+option java_outer_classname = "FileMonitorConfigProto";
+
+message FileMonitorConfig {
+    required string monitor_dir_path = 1;
+}

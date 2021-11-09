@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.serving;
+
+option java_multiple_files = true;
+option java_outer_classname = "PipelineManagerProto";
+
+import "com/sia/serving/shared/Algorithm.proto";
+
+message PipelineManagerResource {
+    string id = 1;
+    shared.Algorithm algorithm = 2;
+    uint32 replicas = 3;
+    uint32 available = 4;
+    string domain_name = 5;
+    uint32 port = 6;
+}

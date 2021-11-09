@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.status.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "RegionalAnalysisStatusV1Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/common/ProgressStatus.proto";
+import "com/sia/obision/aoi/v1/AoiV1.proto";
+
+message RegionalAnalysisStatusV1 {
+    string scene_id = 1;
+    com.sia.obision.aoi.v1.AoiV1 aoi = 2;
+    string algorithm_id = 3;
+    com.sia.common.ProgressStatus status = 4;
+    google.protobuf.Timestamp analysis_start_time = 5;
+    google.protobuf.Timestamp analysis_end_time = 6;
+}

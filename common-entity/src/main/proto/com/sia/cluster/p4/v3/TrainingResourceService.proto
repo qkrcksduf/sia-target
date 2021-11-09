@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package com.sia.cluster.p4.v3;
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.p4.v3";
+
+import "google/protobuf/empty.proto";
+import "com/sia/cluster/common/v3/Resource.proto";
+
+
+service TrainingResourceService {
+    rpc ListTrainingResource (google.protobuf.Empty) returns (stream common.v3.Resource) {
+
+    }
+    rpc GetTrainingResource (common.v3.GetResourceRequest) returns (common.v3.Resource) {
+
+    }
+    rpc ScheduleTrainingResource (common.v3.ScheduleResourceRequest) returns (common.v3.Resource) {
+
+    }
+    rpc RescaleTrainingResource (common.v3.RescaleResourceRequest) returns (common.v3.Resource) {
+
+    }
+    rpc UpdateTrainingResource (common.v3.UpdateResourceRequest) returns (common.v3.Resource) {
+
+    }
+    rpc DeleteTrainingResource (common.v3.DeleteResourceRequest) returns (google.protobuf.Empty) {
+
+    }
+}

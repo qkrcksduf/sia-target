@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v3;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateProjectV3Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/project/v3/entity/MissionV3.proto";
+import "com/sia/obision/project/v3/entity/ReportGenerationConfigV3.proto";
+import "com/sia/obision/project/v2/entity/ParticipantV2.proto";
+import "com/sia/obision/project/v1/DisclosureScopeV1.proto";
+import "com/sia/obision/project/v3/entity/ProjectV3.proto";
+import "com/sia/common/DayOfWeek.proto";
+
+message CreateProjectRequestV3 {
+    // 기본 제공
+    string name = 1;
+    entity.ProjectTypeV3 type = 2;
+    common.DayOfWeek batch_period = 3;
+    repeated string satellite_names = 4;
+    com.sia.obision.project.v1.DisclosureScopeV1 disclosure_scope = 5;
+    repeated v2.entity.ParticipantV2 participants = 6;
+    repeated entity.MissionV3 missions = 7;
+    repeated v3.entity.ReportGenerationConfigV3 report_generation_configs = 8;
+}
+
+message CreateProjectResponseV3 {
+    entity.ProjectV3 project = 1;
+}

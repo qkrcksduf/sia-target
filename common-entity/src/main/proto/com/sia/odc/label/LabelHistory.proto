@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package com.sia.odc.label;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/label/MatchingType.proto";
+
+option java_multiple_files = true;
+
+message LabelHistoryResponseProto {
+  string label_id = 1;
+  string scene_id = 2;
+  string creator = 3;
+  google.protobuf.Timestamp created_time = 4;
+  google.protobuf.Timestamp scene_time = 5;
+  string validator = 6;
+  google.protobuf.Timestamp validated_time = 7;
+  string modifier = 8;
+  google.protobuf.Timestamp modified_time = 9;
+  string class1_name = 10;
+  string class2_name = 11;
+  string class3_name = 12;
+  MatchingType matching = 13;
+}
+
+message LabelHistoryListResponseProto {
+  repeated LabelHistoryResponseProto labels = 1;
+  int32 total_label_count = 2;
+}

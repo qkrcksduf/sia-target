@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.cluster.serving;
+
+option java_multiple_files = true;
+
+import "com/sia/cluster/common/v1/Resource.proto";
+
+message PipelineManager {
+  string id = 1;
+  cluster.common.v1.Resource resource = 2;
+}
+
+message PipelineManagerAllStatus {
+  repeated PipelineManager pipeline_manager = 1;
+}

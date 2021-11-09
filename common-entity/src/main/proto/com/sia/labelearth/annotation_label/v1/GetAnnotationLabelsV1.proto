@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.labelearth.annotation_label.v1;
+
+import "com/sia/labelearth/annotation_label/v1/entity/AnnotationLabelV1.proto";
+import "com/sia/labelearth/assignment_scene/v1/entity/AssignmentSceneV1.proto";
+
+option java_outer_classname = "GetAnnotationLabelsV1Proto";
+option java_multiple_files = true;
+
+message GetAnnotationLabelsRequestV1Proto {
+  assignment_scene.v1.entity.AssignmentSceneV1 assigned_scene = 1;
+}
+
+message GetAnnotationLabelsResponseV1Proto {
+  repeated v1.entity.AnnotationLabelV1 labels = 1;
+}

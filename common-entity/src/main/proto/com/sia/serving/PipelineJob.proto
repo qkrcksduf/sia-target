@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.serving;
+
+option java_multiple_files = true;
+option java_outer_classname = "PipelineJobProto";
+
+import "com/sia/serving/shared/Patch.proto";
+import "com/sia/serving/shared/Label.proto";
+import "com/sia/serving/shared/Error.proto";
+
+message PipelineJob {
+    string id = 1;
+    shared.Patch patch = 2;
+    repeated shared.Label label = 3;
+    shared.Error error = 4;
+    bool success = 5;
+}

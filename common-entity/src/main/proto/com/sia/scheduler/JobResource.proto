@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package com.sia.scheduler;
+import "com/sia/cluster/common/Resource.proto";
+
+option java_multiple_files = true;
+option go_package = "common-entity/com/sia/scheduler";
+
+
+message JobResource {
+    string name = 1;
+    string user = 2;
+    string mems = 3;
+    string cpus = 4;
+    uint32 gpus = 5;
+    string status = 6;
+    string reason = 7;
+    string age = 8;
+    bool first = 9;
+    repeated string nodes = 10;
+    com.sia.cluster.common.Resource resource = 99;
+}
+
+message JobDeleteRequest {
+    repeated string job_names = 1;
+}
+
+message JobDeleteResponse {
+    map<string, bool> job_delete_map = 1;
+}
+
+message JobPruneRequest {
+    bool failed = 1;
+    bool succeed = 2;
+}
+
+message JobListRequest {
+    bool all = 99;
+}
+
+message JobListResponse{
+    repeated JobResource jobs = 1;
+}
+
+message JobLogsRequest {
+    string job_name = 1;
+    bool follow = 2;
+    uint32 lines = 3;
+}
+
+message JobPortResponse {
+    message Port {
+        string job_name = 1;
+        int32 node_port = 2;
+        int32 container_port = 3;
+    }
+    repeated Port ports = 1;
+}

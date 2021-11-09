@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.odc.label.history.entity;
+
+option java_multiple_files = true;
+
+enum HistoryOrderTypeV1 {
+    HISTORY_DEFAULT = 0;
+    MATCHING_TYPE = 1;
+    SCENE_ID = 2;
+    IMAGING_TIME = 3;
+    LABEL_ID = 4;
+    LEVEL1 = 5;
+    LEVEL2 = 6;
+    LEVEL3 = 7;
+    CREATOR = 8;
+    CREATED_TIME = 9;
+    VALIDATOR = 10;
+    VALIDATED_TIME = 11;
+    MODIFIER = 12;
+    MODIFIED_TIME = 13;
+}

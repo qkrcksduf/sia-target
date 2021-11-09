@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v3.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "ReportInfoV3Proto";
+
+import "com/sia/common/UUID.proto";
+
+message ReportInfoV3 {
+  // 필수
+  sia.common.UUID report_id = 2;
+  // 필수
+  string name = 3;
+}

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.sia.serving.shared;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelProto";
+
+import "com/sia/common/GeoPoint.proto";
+import "com/sia/common/Point.proto";
+import "com/sia/common/MultiPolygon.proto";
+import "com/sia/serving/shared/SceneFile.proto";
+
+message Label {
+    string id = 1;
+    double width = 2;
+    double height = 3;
+    double angle = 4;
+    double score = 5;
+    com.sia.common.Point pixel_location = 6;
+    com.sia.common.GeoPoint geo_location = 7;
+    shared.SceneFile scene = 8;
+    repeated string class_id = 9;
+    repeated double confidence = 10;
+    bytes cropped_image = 11;
+    string base64_image = 12;
+    com.sia.common.MultiPolygon segmentation_polygon = 13;
+}

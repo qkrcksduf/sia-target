@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.labelearth.account.v1;
+
+import "com/sia/labelearth/account/v1/entity/AccountRoleV1.proto";
+import "com/sia/labelearth/account/v1/entity/AccountV1.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "UpdateAccountRolesProto";
+
+message UpdateAccountRolesRequestV1Proto {
+  string account_id = 1;
+  repeated v1.entity.AccountRoleV1 roles = 2;
+}
+
+message UpdateAccountRolesResponseV1Proto {
+  v1.entity.AccountV1 account = 1;
+}

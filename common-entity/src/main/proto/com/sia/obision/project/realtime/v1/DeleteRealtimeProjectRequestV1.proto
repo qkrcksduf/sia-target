@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.project.realtime.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "DeleteRealtimeProjectRequestV1Proto";
+
+import "com/sia/common/UUID.proto";
+
+message DeleteRealtimeProjectRequestV1 {
+    sia.common.UUID realtime_project_id = 1;
+}

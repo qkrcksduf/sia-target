@@ -1,0 +1,140 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.v2.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelV2Proto";
+
+import "google/protobuf/timestamp.proto";
+
+import "com/sia/common/Point.proto";
+import "com/sia/common/GeoPoint.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/common/Region.proto";
+
+import "com/sia/obision/analysis/v2/entity/LabelStatusV2.proto";
+
+/**
+    영상에서 검출되는 라벨 객체
+ */
+message LabelV2 {
+
+    sia.common.UUID id = 2;
+    // 고유 라벨 아이디
+    sia.common.UUID oid = 3;
+
+    repeated sia.common.UUID aoi_ids = 4;
+
+    repeated sia.common.UUID project_ids = 20;
+
+    /**
+        영상 정보
+     */
+    string scene_id = 5;
+    google.protobuf.Timestamp imaging_time = 6;
+    obision.common.Region region = 7;
+    string satellite_name = 21;
+
+    /**
+        라벨의 현재 상태
+     */
+    LabelStatusV2 status = 8;
+    // 사용자 확인 여부
+    bool is_checked = 9;
+    // 신뢰도
+    double confidence = 10;
+    sia.common.UUID algorithm_id = 11;
+    sia.common.UUID class_id = 12;
+
+    // 인퍼런스로 정해진 알고리즘/ 클래스
+    LabelInferredInfoV2 inferred_info = 13;
+    // 라벨의 위치 정보
+    LabelLocationV2 label_location = 14;
+    // 라벨 이미지의 위치 정보
+    LabelImageLocationV2 image_location = 18;
+
+    oneof image {
+        // base64 인코딩된 이미지
+        string base64_image = 15;
+        // 바이너리 이미지
+        bytes byte_image = 16;
+    }
+
+    google.protobuf.Timestamp created_time = 17;
+    google.protobuf.Timestamp last_modified = 19;
+}
+
+message LabelFieldV2 {
+    bool activated = 1;
+    bool id_field = 2;
+    bool oid_field = 3;
+    bool aoi_ids_field = 4;
+    bool project_ids_field = 20;
+
+    bool scene_id_field = 5;
+    bool imaging_time_field = 6;
+    bool region_field = 7;
+    bool satellite_name_field = 21;
+
+    bool status_field = 8;
+    bool is_checked_field = 9;
+    bool confidence_field = 10;
+    bool algorithm_id_field = 11;
+    bool class_id_field = 12;
+
+    bool inferred_info_field = 13;
+    bool location_field = 14;
+    bool image_location_field = 18;
+
+    bool image_field = 15;
+    bool created_time_field = 17;
+    bool last_modified_field = 19;
+}
+
+/**
+    검수 할때
+ */
+message LabelLocationV2 {
+    /*
+        실제 단위 기준
+     */
+    // 지구에서의 위치 좌표 (위경도)
+    com.sia.common.GeoPoint geo_location = 8;
+    // 미터 단위 너비
+    double meter_width = 9;
+    // 미터 단위 폭
+    double meter_height = 10;
+
+    /*
+        픽셀 단위 기준
+     */
+    // 영상에서의 위치 좌표 (픽셀)
+    com.sia.common.Point pixel_location = 11;
+    // 픽셀 단위 너비
+    double pixel_width = 12;
+    // 픽셀 단위 폭
+    double pixel_height = 13;
+    // 각도
+    double angle = 14;
+}
+
+/*
+    4326 좌표계 기준 이미지의 위치
+ */
+message LabelImageLocationV2 {
+    double min_x = 1;
+    double min_y = 2;
+    double max_x = 3;
+    double max_y = 4;
+}
+
+message LabelInferredInfoV2 {
+    // 라벨이 검출된 알고리즘
+    sia.common.UUID algorithm_id = 4;
+    // 분류된 라벨 클래스 (최대 3종류)
+    repeated sia.common.UUID inferred_class_ids = 5;
+    // 판독 신뢰도
+    double detection_score = 6;
+    // 분류 신뢰도 (최대 3종류)
+    repeated double classification_confidences = 7;
+}

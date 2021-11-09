@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.cca.satellite.message;
+
+option java_outer_classname = "GetAllSatelliteProto";
+option java_multiple_files = true;
+
+import "com/sia/cca/satellite/message/Satellite.proto";
+
+message GetAllSatelliteResponse {
+  repeated SatelliteResponseProto satellite = 1;
+}

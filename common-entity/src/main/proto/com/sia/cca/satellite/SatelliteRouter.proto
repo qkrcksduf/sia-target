@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.cca.satellite;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/cca/satellite/message/CreateSatellite.proto";
+import "com/sia/cca/satellite/message/UpdateSatellite.proto";
+import "com/sia/cca/satellite/message/GetAllSatellite.proto";
+import "com/sia/cca/satellite/message/GetAllSatelliteCount.proto";
+import "com/sia/cca/satellite/message/DeleteSatellite.proto";
+
+service SatelliteRouter {
+  rpc createSatellite (message.CreateSatelliteRequest) returns (message.CreateSatelliteResponse) {}
+
+  rpc updateSatellite (message.UpdateSatelliteRequest) returns (message.UpdateSatelliteResponse) {}
+
+  rpc getAllSatellite (google.protobuf.Empty) returns (message.GetAllSatelliteResponse) {}
+
+  rpc getAllSatelliteCount (google.protobuf.Empty) returns (message.GetAllSatelliteCountResponse) {}
+
+  rpc deleteSatellite (message.DeleteSatelliteRequest) returns (google.protobuf.Empty) {}
+}

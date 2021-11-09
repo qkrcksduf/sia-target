@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.cca.inference;
+
+option java_multiple_files = true;
+
+import "com/sia/cca/inference/message/Inference.proto";
+
+service InferenceRouter {
+  rpc run_k3 (stream message.InferenceRequest) returns (stream message.InferenceResponse) {}
+  rpc run_k2 (stream message.InferenceRequest) returns (stream message.InferenceResponse) {}
+}

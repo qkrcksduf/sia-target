@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.record;
+
+option java_multiple_files = true;
+option java_outer_classname = "RecordSearchV1Proto";
+
+import "com/sia/obision/target/v1/record/RecordSelectOptionV1.proto";
+import "com/sia/obision/target/v1/record/RecordSortPropertyV1.proto";
+import "com/sia/obision/target/v1/record/RecordV1.proto";
+import "com/sia/common/SortDirection.proto";
+import "com/sia/common/Paging.proto";
+
+message RecordSearchRequestV1 {
+  RecordSearchProperty searchProperty = 1;
+  RecordSelectOption selectOption = 2;
+  com.sia.common.SortDirection sortDirection = 3;
+  RecordSortProperty recordSortProperty = 4;
+  com.sia.common.Paging paging = 5;
+}
+
+message RecordSearchResponseV1 {
+  repeated Record record = 1;
+  int32 totalCount = 2;
+}
+
+message RecordSearchProperty {
+  string targetName = 1;
+  string creator = 2;
+  string contents = 3;
+}

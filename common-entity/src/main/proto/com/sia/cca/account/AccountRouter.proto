@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.sia.cca.account;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/cca/account/message/SignUp.proto";
+import "com/sia/cca/account/message/SignIn.proto";
+import "com/sia/cca/account/message/UpdateAccount.proto";
+import "com/sia/cca/account/message/DeleteAccount.proto";
+import "com/sia/cca/account/message/GetAllAccountBy.proto";
+import "com/sia/cca/account/message/GetAllAccountCountBy.proto";
+import "com/sia/cca/account/message/GetAccountBy.proto";
+
+service AccountRouter {
+  rpc signUp (message.SignUpRequest) returns (message.SignUpResponse) {}
+
+  rpc signIn (message.SignInRequest) returns (message.SignInResponse) {}
+
+  rpc updateAccount (message.UpdateAccountRequest) returns (message.UpdateAccountResponse) {}
+
+  rpc deleteAccount (message.DeleteAccountRequest) returns (google.protobuf.Empty) {}
+
+  rpc getAllAccountBy (message.GetAllAccountByRequest) returns (message.GetAllAccountByResponse) {}
+
+  rpc getAllAccountCountBy (message.GetAllAccountCountByRequest) returns (message.GetAllAccountCountByResponse) {}
+
+  rpc getAccountBy (message.GetAccountByRequest) returns (message.GetAccountByResponse) {}
+}
+
+

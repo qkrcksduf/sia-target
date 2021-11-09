@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.labelearth.assignment_account.v1;
+
+import "com/sia/labelearth/assignment_account/v1/entity/AssignmentAccountV1.proto";
+
+option java_outer_classname = "AssignAccountsV1Proto";
+option java_multiple_files = true;
+
+message AssignAccountsRequestV1Proto {
+  repeated v1.entity.AssignmentAccountV1 assign_Accounts = 1;
+}
+
+message AssignAccountsResponseV1Proto {
+  repeated v1.entity.AssignmentAccountV1 assigned_Accounts = 1;
+}

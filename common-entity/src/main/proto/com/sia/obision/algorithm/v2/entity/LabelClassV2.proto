@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm.v2.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelClassV2Proto";
+
+import "com/sia/common/UUID.proto";
+
+/**
+    라벨 클래스 객체
+ */
+message LabelClassV2 {
+    sia.common.UUID id = 2;
+    /**
+        base_field
+        기본 정보
+     */
+    string name = 3;
+    string display_name = 12;
+    // 해당 라벨 클래스의 깊이 ( level )
+    int32 depth = 4;
+
+    double meter_width = 8;
+    double meter_height = 9;
+    sia.common.UUID algorithm_id = 11;
+
+    /**
+        상세 제원 정보
+     */
+    map<string, string> specifications = 10;
+
+    /**
+        parent_field
+        부모 정보
+     */
+    /*
+        이 라벨 클래스의 부모 라벨 클래스
+        사용자 지정시 해당 라벨 클래스
+     */
+    LabelClassV2 parent = 5;
+
+    sia.common.UUID delegate_id = 6;
+
+    /**
+        original_field
+        원래의 정보
+            original: 원래의 라벨 클래스
+            original_parent: 원래의 부모 클래스
+     */
+
+    /*
+        이 라벨 클래스가 사용자에 의해 생성되었을 경우, 원래의 라벨 클래스
+        delegate 가 없는 경우 null
+     */
+//    LabelClassV2 original = 6;
+    /*
+        사용자가 부모 라벨 클래스를 지정 시에만 원래의 부모 라벨 클래스
+        custom_parent 가 없는 경우 null
+     */
+//    LabelClassV2 original_parent = 7;
+    string serving_id = 13;
+}
+
+/**
+    ParentInfo = 계층 정보
+    OriginalInfo - 원래의 정보
+ */
+message LabelClassFieldV2 {
+    bool activated = 1;
+    bool id_field = 2;
+    bool name_field = 3;
+    bool display_name_field = 12;
+    bool depth_field = 4;
+    bool algorithm_id_field = 11;
+    bool meter_width_field = 8;
+    bool meter_height_field = 9;
+    bool specifications_field = 10;
+    bool parent_field = 5;
+    bool delegate_id_field = 13;
+    bool original_field = 6;
+    bool original_parent_field = 7;
+}
+
+/**
+ * LabelClassV2의 specifications 상세 제원 정보의 키값
+ * 실제로는 소문자로 들어가 있음.
+ */
+enum SPECIFICATIONS_KEY {
+    // 제조사
+    MANUFACTURER = 0;
+    // 제조년도
+    YEAR_OF_MANUFACTURE = 1;
+    // 대표 이미지
+    REPRESENTATIVE_IMAGE = 2;
+}
+

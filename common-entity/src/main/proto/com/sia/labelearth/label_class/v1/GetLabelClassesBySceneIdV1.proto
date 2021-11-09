@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package com.sia.labelearth.label_class.v1;
+
+option java_outer_classname = "GetLabelClassesBySceneIdV1Proto";
+option java_multiple_files = true;
+
+message GetLabelClassesBySceneIdRequestV1Proto {
+  string scene_id = 1;
+}

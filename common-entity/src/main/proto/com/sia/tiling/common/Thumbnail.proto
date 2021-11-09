@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.tiling.common;
+
+option java_outer_classname = "ThumbnailProto";
+
+message Thumbnail {
+  string scene_id = 1;
+  string pngBase64String = 2;
+  int32 width = 3;
+  int32 height = 4;
+}

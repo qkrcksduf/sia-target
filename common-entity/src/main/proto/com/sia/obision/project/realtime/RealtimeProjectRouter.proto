@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package com.sia.obision.project.realtime;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/obision/project/realtime/v1/CreateRealtimeProjectRequestV1.proto";
+import "com/sia/obision/project/realtime/v1/CreateRealtimeProjectResponseV1.proto";
+import "com/sia/obision/project/realtime/v2/CreateRealtimeProjectV2.proto";
+import "com/sia/obision/project/realtime/v1/RealtimeProjectListRequestV1.proto";
+import "com/sia/obision/project/realtime/v1/RealtimeProjectListResponseV1.proto";
+import "com/sia/obision/project/realtime/v1/UpdateRealtimeProjectRequestV1.proto";
+import "com/sia/obision/project/realtime/v1/UpdateRealtimeProjectResponseV1.proto";
+import "com/sia/obision/project/realtime/v1/DeleteRealtimeProjectRequestV1.proto";
+import "com/sia/obision/project/realtime/v1/CopyRealtimeProjectRequestV1.proto";
+import "com/sia/obision/project/realtime/v1/CopyRealtimeProjectResponseV1.proto";
+import "com/sia/common/UUID.proto";
+
+service RealtimeProjectRouter {
+  // deprecated
+  rpc createProjectV1 (com.sia.obision.project.realtime.v1.CreateRealtimeProjectRequestV1)
+      returns (com.sia.obision.project.realtime.v1.CreateRealtimeProjectResponseV1) {}
+
+  // deprecated
+  rpc createV2(com.sia.obision.project.realtime.v2.CreateRealtimeProjectRequestV2)
+      returns (sia.common.UUID) {}
+
+  // deprecated
+  rpc getProjectListV1 (com.sia.obision.project.realtime.v1.RealtimeProjectListRequestV1)
+      returns (com.sia.obision.project.realtime.v1.RealtimeProjectListResponseV1) {}
+
+  // deprecated
+  rpc updateProjectV1 (com.sia.obision.project.realtime.v1.UpdateRealtimeProjectRequestV1)
+      returns (com.sia.obision.project.realtime.v1.UpdateRealtimeProjectResponseV1) {}
+
+  // deprecated
+  rpc deleteProjectV1(com.sia.obision.project.realtime.v1.DeleteRealtimeProjectRequestV1)
+      returns (google.protobuf.Empty) {}
+
+  // deprecated
+  rpc copyProjectV1(v1.CopyRealtimeProjectRequestV1) returns (v1.CopyRealtimeProjectResponseV1) {}
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "ParticipantV1Proto";
+
+import "com/sia/obision/project/v1/ProjectPermissionV1.proto";
+import "com/sia/common/UUID.proto";
+
+message ParticipantV1 {
+    // Create의 경우를 제외하고 필수
+    sia.common.UUID id = 1;
+    // 필수
+    string account_id = 2;
+    // 필수
+    string account_name = 3;
+    // 필수
+    ProjectPermissionV1 permission = 4;
+}

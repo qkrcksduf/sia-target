@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.aoi.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AoiIntersectRequestV1Proto";
+
+import "com/sia/common/Polygon.proto";
+
+message AoiIntersectRequestV1 {
+    com.sia.common.Polygon polygon = 1;
+}

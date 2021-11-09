@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.labelearth.scene.v1;
+
+import "com/sia/labelearth/scene/v1/entity/SceneV1.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "SearchScenesV1Proto";
+
+message SearchScenesRequestV1Proto {
+  string keyword = 1;
+  int32 page = 2;
+}
+
+message SearchScenesResponseV1Proto {
+  repeated v1.entity.SceneV1 scene = 1;
+}

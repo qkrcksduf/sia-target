@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package com.sia.odc.evaluation;
+
+import "com/sia/odc/evaluation/ReferenceLabel.proto";
+import "com/sia/odc/evaluation/ValidationLabel.proto";
+
+option java_outer_classname = "SceneEvaluationRequestProto";
+
+message SceneEvaluationRequest {
+    repeated com.sia.odc.evaluation.ReferenceLabel reference = 1;
+    repeated com.sia.odc.evaluation.ValidationLabel inference = 2;
+}

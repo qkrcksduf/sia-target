@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm.v2.label_class_reference;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateLabelClassReferenceRequestV2Proto";
+
+import "com/sia/obision/algorithm/v2/entity/LabelClassReferenceV2.proto";
+
+/*
+  LabelClassReference 를 생성할 때 사용
+  각 엔티티에 id 제외 항목 입력, class_id 필수
+
+ */
+message CreateLabelClassReferenceRequestV2 {
+
+  repeated v2.entity.LabelClassReferenceV2 label_class_references = 1;
+}

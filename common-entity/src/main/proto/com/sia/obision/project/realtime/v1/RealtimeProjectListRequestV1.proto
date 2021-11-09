@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.project.realtime.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "RealtimeProjectListRequestV1Proto";
+
+import "com/sia/common/UUID.proto";
+
+message RealtimeProjectListRequestV1 {
+    string user_id = 1;
+    repeated com.sia.common.UUID project_ids = 2;
+    bool aoi_polygon_inactivate = 3;
+}

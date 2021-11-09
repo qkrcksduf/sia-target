@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.tiling.scene.v1;
+
+option java_multiple_files = true;
+
+import "com/sia/tiling/scene/v1/message/CreateSceneDataV1.proto";
+
+service SceneRouterV1 {
+    /*
+        영상 기본 정보 생성 API
+     */
+    rpc createSceneDataV1(message.CreateSceneDataRequestV1) returns (message.CreateSceneDataResponseV1) {}
+
+}

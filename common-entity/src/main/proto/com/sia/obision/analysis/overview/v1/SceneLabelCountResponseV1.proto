@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.overview.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneLabelCountResponseV1Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/obision/analysis/v1/LabelCountGroupV1.proto";
+import "com/sia/common/MongoId.proto";
+
+message SceneLabelCountResponseV1 {
+  // 필수
+  repeated SceneLabelCountV1 scene_label_counts = 1;
+}
+
+message SceneLabelCountV1 {
+  // 필수
+  sia.common.MongoId scene_id = 1;
+  // 필수
+  google.protobuf.Timestamp imaging_time = 2;
+  // 필수
+  repeated analysis.v1.LabelCountGroupV1 label_count_groups = 3;
+}

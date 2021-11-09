@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelClassCountResponseV1Proto";
+
+import "com/sia/obision/analysis/v1/LabelV1.proto";
+import "com/sia/obision/analysis/v1/LabelCountV1.proto";
+
+message LabelClassCountResponseV1 {
+  // 필수
+  repeated analysis.v1.LabelCountV1 label_counts = 1;
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.target;
+
+option java_multiple_files = true;
+option java_outer_classname = "TargetBookMartV1Proto";
+
+message TargetBookMarkRequestV1 {
+  string targetId = 1;
+  bool isFavorite = 2;
+}

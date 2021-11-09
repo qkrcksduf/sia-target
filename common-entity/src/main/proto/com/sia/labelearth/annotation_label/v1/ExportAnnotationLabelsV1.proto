@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.labelearth.annotation_label.v1;
+
+option java_outer_classname = "ExportAnnotationLabelsV1Proto";
+option java_multiple_files = true;
+
+message ExportAnnotationLabelsRequestV1Proto {
+  string dataset_id = 1;
+}
+
+message ExportAnnotationLabelsResponseV1Proto {
+  bytes data = 1;
+}

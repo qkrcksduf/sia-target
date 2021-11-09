@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "AoiLabelClassCountListV2";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/TimestampRange.proto";
+import "com/sia/obision/aoi/v2/entity/AoiV2.proto";
+import "com/sia/obision/analysis/v2/value/LabelClassCountV2.proto";
+
+message AoiLabelClassCountListRequestV2 {
+  repeated sia.common.UUID project_ids = 1;
+  sia.common.TimestampRange time_range = 2;
+  repeated string satellite_names = 3;
+
+  AoiLabelClassCountFieldV2 field = 4;
+}
+
+message AoiLabelClassCountListResponseV2 {
+  repeated AoiLabelClassCountV2 aoi_label_class_counts = 1;
+}
+
+message AoiLabelClassCountV2 {
+  aoi.v2.entity.AoiV2 aoi = 1;
+  int32 total_count = 2;
+  repeated v2.value.LabelClassCountV2 label_class_counts = 3;
+}
+
+message AoiLabelClassCountFieldV2 {
+  bool activated = 1;
+  aoi.v2.entity.AoiFieldV2 aoi_field = 2;
+  bool total_count_field = 3;
+  v2.value.LabelClassCountFieldV2 label_class_count_field = 4;
+}

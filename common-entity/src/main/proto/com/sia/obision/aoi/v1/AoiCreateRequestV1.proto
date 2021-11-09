@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.aoi.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AoiCreateRequestV1Proto";
+
+import "com/sia/common/MultiPolygon.proto";
+
+message AoiCreateRequestV1 {
+  string name = 2;
+  com.sia.common.MultiPolygon area=3;
+  string creator = 4;
+}

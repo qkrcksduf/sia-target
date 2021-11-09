@@ -1,163 +1,217 @@
 package com.sia.obision.project.application.target
 
 import com.sia.core.dependencyinjection.injector
+import com.sia.obision.project.application.target.CategoryService.findCategory
 import com.sia.obision.project.converter.target.toEntity
 import com.sia.obision.project.converter.target.toParam
 import com.sia.obision.project.converter.target.toProto
-import com.sia.obision.project.domain.TargetService.exists
+import com.sia.obision.project.domain.TargetService.checkExistTarget
 import com.sia.obision.project.entity.target.Target
 import com.sia.obision.project.exception.BadRequestException
-import com.sia.obision.project.exception.CategoryNotFoundException
+import com.sia.obision.project.exception.IdDuplicationException
 import com.sia.obision.project.exception.TargetNotFoundException
 import com.sia.obision.project.param.target.TargetFilterParam
 import com.sia.obision.project.param.target.TargetSearchParam
-import com.sia.obision.project.repo.target.CategoryRepository
 import com.sia.obision.project.repo.target.TargetRepository
 import com.sia.obision.project.util.checkEmpty
-import com.sia.obision.target.v1.*
+import com.sia.obision.project.util.specialCharacterCheck
+import com.sia.obision.target.v1.target.*
+import org.hibernate.NonUniqueObjectException
 import java.lang.IllegalArgumentException
+import javax.transaction.Transactional
 
 object TargetService {
 
-  fun createTarget(request: CreateTargetRequestV1) {
-    val targetParam = request.toParam()
-    exists(targetParam.id)
-    if (checkEmpty(
-        targetParam.id,
-        targetParam.name,
-        targetParam.categoryId.toString())
-    ) throw BadRequestException("id, name, category must exist")
-
-    val targetRepository = injector().get<TargetRepository>()
-    val categoryRepository = injector().get<CategoryRepository>()
-
-    val category = try {
-      categoryRepository.use {
-        it.findOne(targetParam.categoryId)
-      }
-    } catch (e: NoSuchElementException) {
-      throw CategoryNotFoundException("category does not exist")
+    fun findTarget(name: String): Target {
+        injector().get<TargetRepository>().use {
+            return it.findByName(name) ?: throw TargetNotFoundException("target does not exist")
+        }
     }
 
-    val target = Target(
-      id = targetParam.id,
-      name = targetParam.name,
-      mgrs = targetParam.mgrs,
-      geography = targetParam.geography,
-      be = targetParam.be,
-      jdpi = targetParam.jdpi,
-      category = category
-    )
+    fun createTarget(request: CreateTargetRequestV1) {
+        if (checkEmpty(
+                request.id,
+                request.name,
+                request.categoryId.toString()
+            )
+        ) throw BadRequestException("id, name, category must exist")
+        specialCharacterCheck(request.id, request.name)
 
-    targetRepository.use {
-      it.save(target)
+        val targetParam = request.toParam()
+        checkExistTarget(targetParam.id)
+
+        val targetRepository = injector().get<TargetRepository>()
+        val category = findCategory(targetParam.categoryId)
+
+        val target = Target(
+            id = targetParam.id,
+            name = targetParam.name,
+            mgrs = targetParam.mgrs,
+            geography = targetParam.geography,
+            be = targetParam.be,
+            jdpi = targetParam.jdpi,
+            category = category
+        )
+
+        targetRepository.use {
+            it.save(target)
+        }
     }
-  }
 
-  fun createTargetList(request: CreateTargetListRequestV1) {
-    request.targetList.forEach(::createTarget)
-  }
+    @Transactional
+    fun createTargetList(request: CreateTargetListRequestV1) {
+        val targetList = mutableListOf<Target>()
+        val targetRepository = injector().get<TargetRepository>()
 
-  fun bookMark(request: BookMarkRequestV1) {
-    val targetRepository = injector().get<TargetRepository>()
+        request.targetList.forEach {
+            if (checkEmpty(
+                    it.id,
+                    it.name,
+                    it.categoryId.toString()
+                )
+            ) throw BadRequestException("id, name, category must exist")
+            specialCharacterCheck(it.id, it.name)
 
-    if (checkEmpty(request.targetId)) throw BadRequestException("id must exist")
-    try {
-      targetRepository.use {
-        val target = it.findOne(request.targetId)
-        target.changeIsFavorite(request.isFavorite)
-        it.save(target)
-      }
-    } catch (e: NoSuchElementException) {
-      throw TargetNotFoundException("target does not exist")
+            val targetParam = it.toParam()
+            checkExistTarget(targetParam.id)
+
+            val category = findCategory(targetParam.categoryId)
+            val target = Target(
+                id = targetParam.id,
+                name = targetParam.name,
+                mgrs = targetParam.mgrs,
+                geography = targetParam.geography,
+                be = targetParam.be,
+                jdpi = targetParam.jdpi,
+                category = category
+            )
+            targetList.add(target)
+
+            val hashTarget = targetList.map { it.id }.toHashSet()
+            if (targetList.size != hashTarget.size) {
+                val message = "표적을 생성할 수 없습니다. 이미 존재하는 표적 ID 입니다."
+                throw IdDuplicationException(message)
+            }
+        }
+        targetRepository.save(targetList)
     }
-  }
 
-  fun deleteTarget(request: DeleteTargetRequestV1) {
-    if (checkEmpty(request.id)) throw BadRequestException("id must exist")
-    val targetRepository = injector().get<TargetRepository>()
-
-    try {
-      targetRepository.use {
-        it.delete(request.id)
-      }
-    } catch (e: IllegalArgumentException) {
-      throw TargetNotFoundException("target does not exist")
+    fun bookMark(request: TargetBookMarkRequestV1) {
+        val targetRepository = injector().get<TargetRepository>()
+        if (checkEmpty(request.targetId)) throw BadRequestException("id must exist")
+        try {
+            targetRepository.use {
+                val target = it.findOne(request.targetId)
+                target.changeIsFavorite(request.isFavorite)
+                it.save(target)
+            }
+        } catch (e: NoSuchElementException) {
+            throw TargetNotFoundException("${request.targetId} does not exist")
+        }
     }
-  }
 
-  fun deleteTargetList(request: DeleteTargetListRequestV1) {
-    request.idList.forEach(::deleteTarget)
-  }
+    fun deleteTarget(request: DeleteTargetRequestV1) {
+        if (checkEmpty(request.id)) throw BadRequestException("id must exist")
+        val targetRepository = injector().get<TargetRepository>()
 
-  fun updateTarget(request: UpdateTargetRequestV1) {
-    val targetParam = request.toParam()
-    if (checkEmpty(
-        targetParam.currentId,
-        targetParam.newId,
-        targetParam.name)
-    ) throw BadRequestException("id, name must exist")
-    exists(targetParam.newId)
-
-    val targetRepository = injector().get<TargetRepository>()
-    val categoryRepository = injector().get<CategoryRepository>()
-
-    try {
-      val category = categoryRepository.use {
-        it.findOne(targetParam.categoryId)
-      }
-
-      val target = Target(
-        id = targetParam.newId,
-        name = targetParam.name,
-        mgrs = targetParam.mgrs,
-        geography = targetParam.geography,
-        be = targetParam.be,
-        jdpi = targetParam.jdpi,
-        category = category
-      )
-      targetRepository.use {
-        it.delete(targetParam.currentId)
-        it.save(target)
-      }
-    } catch (e: NoSuchElementException) {
-      throw CategoryNotFoundException("category does not exist")
+        try {
+            targetRepository.use {
+                it.delete(request.id)
+            }
+        } catch (e: IllegalArgumentException) {
+            throw TargetNotFoundException("target does not exist")
+        }
     }
-  }
 
-  fun targetSearch(request: TargetSearchRequestV1): TargetSearchResponseV1 {
-    val targetRepository = injector().get<TargetRepository>()
-
-    val targetSearchParam = TargetSearchParam(
-      searchProperty = request.searchProperty.toParam(),
-      paging = request.paging.toParam(),
-      isFavorite = request.isFavorite,
-      targetSortProperty = request.targetSortProperty.toEntity(),
-      sortDirection = request.sortDirection.toEntity()
-    )
-    //    targetRepository.use {
-    //      it.findAll().forEach {
-    //        println("targetId: ${it.id}, name: ${it.name}, geography: ${it.geography}")
-    //      }
-    targetRepository.use {
-      it.targetSearch(targetSearchParam).forEach {
-        println("targetId: ${it.targetId}, targetName: ${it.name}, categoryId: ${null}, mainCategory: ${it.mainCategory}, middleCategory: ${it.middleCategory}, subCategory: ${it.subCategory}")
-      }
+    @Transactional
+    fun deleteTargetList(request: DeleteTargetListRequestV1) {
+        request.idList.forEach(::deleteTarget)
     }
-    return TargetSearchResponseV1.getDefaultInstance()
-  }
 
-  fun targetFilter(request: TargetFilterRequestV1): TargetFilterResponseV1 {
-    val targetFilterParam = TargetFilterParam(
-      filterProperty = request.filterProperty.toParam(),
-      paging = request.paging.toParam(),
-      targetSortProperty = request.targetSortProperty.toParam(),
-      sortDirection = request.sortDirection.toProto()
-    )
-    return TargetFilterResponseV1.getDefaultInstance()
-  }
+    @Suppress("ThrowsCount")
+    fun updateTarget(request: UpdateTargetRequestV1) {
+        if (checkEmpty(
+                request.currentId,
+                request.name,
+                request.categoryId.toString()
+            )
+        ) throw BadRequestException("currentId, name, categoryId must exist")
+        specialCharacterCheck(request.newId, request.name)
+
+        val targetParam = request.toParam()
+
+        if (targetParam.newId != null) {
+            checkExistTarget(targetParam.newId)
+        }
+
+        val category = findCategory(targetParam.categoryId)
+
+        try {
+            val target = injector().get<TargetRepository>().use {
+                it.findOne(targetParam.currentId)
+            }
+
+            val updateTarget = target.copy(
+                id = targetParam.newId ?: targetParam.currentId,
+                name = targetParam.name,
+                mgrs = targetParam.mgrs,
+                geography = targetParam.geography,
+                be = targetParam.be,
+                jdpi = targetParam.jdpi,
+                category = category
+            )
+
+            injector().get<TargetRepository>().use {
+                it.delete(targetParam.currentId)
+                it.save(updateTarget)
+            }
+        } catch (e: NoSuchElementException) {
+            throw TargetNotFoundException("target does not exist")
+        }
+    }
+
+    fun targetSearch(request: TargetSearchRequestV1): TargetSearchResponseV1 {
+        QlrmService.test()
+        val targetRepository = injector().get<TargetRepository>()
+        val targetSearchProto = TargetSearchResponseV1.newBuilder()
+
+        specialCharacterCheck(request.searchProperty.id, request.searchProperty.name)
+
+        val targetSearchParam = TargetSearchParam(
+            searchProperty = request.searchProperty.toParam(),
+            paging = request.paging.toParam(),
+            isFavorite = request.isFavorite,
+            targetSortProperty = request.targetSortProperty.toEntity(),
+            sortDirection = request.sortDirection.toEntity()
+        )
+
+        targetRepository.use {
+            targetSearchProto.totalCount = it.getSearchTotalCount(targetSearchParam)
+            it.targetSearch(targetSearchParam)
+        }.forEach {
+            targetSearchProto.addTarget(it.toProto())
+        }
+        return targetSearchProto.build()
+    }
+
+    fun targetFilter(request: TargetFilterRequestV1): TargetFilterResponseV1 {
+        val targetRepository = injector().get<TargetRepository>()
+        val targetFilterProto = TargetFilterResponseV1.newBuilder()
+
+        val targetFilterParam = TargetFilterParam(
+            filterProperty = request.filterProperty.toParam(),
+            isFavorite = request.selectOption.isFavorite,
+            targetSortProperty = request.targetSortProperty.toEntity(),
+            sortDirection = request.sortDirection.toEntity(),
+            paging = request.paging.toParam()
+        )
+
+        targetRepository.use {
+            targetFilterProto.totalCount = it.getFilterTotalCount(targetFilterParam)
+            it.targetFilter(targetFilterParam)
+        }.forEach {
+            targetFilterProto.addTarget(it.toProto())
+        }
+        return targetFilterProto.build()
+    }
 }
-
-
-
-

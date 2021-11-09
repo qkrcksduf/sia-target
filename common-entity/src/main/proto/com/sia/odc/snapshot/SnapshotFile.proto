@@ -1,0 +1,13 @@
+syntax = "proto2";
+
+package com.sia.odc.snapshot;
+
+import "com/sia/odc/evaluation/ReferenceLabel.proto";
+
+option java_outer_classname = "SnapshotFileProto";
+option java_multiple_files = true;
+
+message SnapshotFile {
+    required int32 snapshot_id = 1;
+    repeated com.sia.odc.evaluation.ReferenceLabel labels = 2;
+}

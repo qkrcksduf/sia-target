@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package com.sia.cluster.p4.v1;
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.p4.v1";
+
+import "google/protobuf/empty.proto";
+import "com/sia/cluster/common/v2/Resource.proto";
+import "com/sia/cluster/p4/v1/Common.proto";
+import "com/sia/cluster/p4/v1/Model.proto";
+
+service TrainingResourceService {
+    rpc ScheduleTrainingResource (ScheduleTrainingResourceRequest) returns (TrainingResource) {
+
+    }
+    rpc DeleteTrainingResource (DeleteTrainingResourceRequest) returns (google.protobuf.Empty) {
+
+    }
+}
+
+message TrainingResource {
+    string id = 1;
+    cluster.common.v2.Resource resource = 2;
+    string yaml_path = 3;
+    uint32 gpu = 4;
+    ModelType model_type = 5;
+    WorkType work_type = 6;
+}
+
+message ScheduleTrainingResourceRequest {
+    cluster.common.v2.ScheduleResourceRequest schedule_resource_request = 1;
+    string yaml_path = 2;
+    uint32 gpu = 3;
+    ModelType model_type = 4;
+    WorkType work_type = 5;
+}
+
+message DeleteTrainingResourceRequest {
+    string id = 1;
+}

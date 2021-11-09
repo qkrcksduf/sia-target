@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "DeleteReportRequestV2Proto";
+
+import "com/sia/common/UUID.proto";
+
+message DeleteReportRequestV2 {
+  repeated sia.common.UUID report_ids = 1;
+  sia.common.UUID project_id = 2;
+}

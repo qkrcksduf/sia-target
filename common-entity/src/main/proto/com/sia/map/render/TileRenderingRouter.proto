@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.sia.map.render;
+
+option java_multiple_files = true;
+
+import "com/sia/map/render/v1/AoiRenderingRequestV1.proto";
+import "com/sia/map/render/v1/LevelRenderingRequestV1.proto";
+import "com/sia/map/render/v1/TileRenderingRequestV1.proto";
+import "com/sia/map/render/v1/TileRenderingResponseV1.proto";
+import "google/protobuf/empty.proto";
+
+service TileRenderingRouter {
+    rpc requestAoiRenderingV1 (com.sia.map.render.v1.AoiRenderingRequestV1) returns (google.protobuf.Empty) {}
+
+    rpc requestLevelRenderingV1 (com.sia.map.render.v1.LevelRenderingRequestV1) returns (google.protobuf.Empty) {}
+
+    rpc requestTileRenderingV1 (com.sia.map.render.v1.TileRenderingRequestV1)
+        returns (com.sia.map.render.v1.TileRenderingResponseV1) {}
+}

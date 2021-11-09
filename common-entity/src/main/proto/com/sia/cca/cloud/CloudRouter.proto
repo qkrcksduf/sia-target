@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.cca.cloud;
+
+option java_multiple_files = true;
+
+import "com/sia/cca/cloud/message/GetCloudBySceneId.proto";
+
+service CloudRouter {
+  rpc getCloudBySceneId (message.GetCloudBySceneIdRequest) returns (message.GetCloudBySceneIdResponse) {}
+}

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.overview.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "MostChangedAoiResponseV1Proto";
+
+import "com/sia/common/UUID.proto";
+
+message MostChangedAoiResponseV1 {
+  // 선택
+  ChangeOfAoiV1 increased_aoi = 1;
+  // 선택
+  ChangeOfAoiV1 decreased_aoi = 2;
+}
+
+message ChangeOfAoiV1 {
+  // 필수
+  common.UUID aoi_id = 1;
+  // 필수
+  double changedRatio = 2;
+  // 필수
+  int32 changedValue = 3;
+}

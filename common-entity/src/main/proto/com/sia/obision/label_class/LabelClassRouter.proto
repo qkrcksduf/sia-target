@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.obision.label_class;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/obision/label_class/v1/LabelClassListRequestV1.proto";
+import "com/sia/obision/label_class/v1/LabelClassListResponseV1.proto";
+import "com/sia/obision/label_class/v1/LabelClassListWithTopLevelClassRequestV1.proto";
+import "com/sia/obision/label_class/v1/LabelClassListWithTopLevelClassResponseV1.proto";
+
+service LabelClassRouter {
+  rpc getAllLabelClassListV1 (google.protobuf.Empty)
+      returns (com.sia.obision.label_class.v1.LabelClassListResponseV1) {}
+
+  rpc getLabelClassListWithParentV1 (com.sia.obision.label_class.v1.LabelClassListRequestV1)
+      returns (com.sia.obision.label_class.v1.LabelClassListResponseV1) {}
+
+  rpc getLabelClassListWithTopLevelClassV1 (com.sia.obision.label_class.v1.LabelClassListWithTopLevelClassRequestV1)
+      returns (com.sia.obision.label_class.v1.LabelClassListWithTopLevelClassResponseV1) {}
+}

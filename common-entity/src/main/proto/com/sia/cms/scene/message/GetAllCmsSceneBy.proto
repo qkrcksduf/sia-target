@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.sia.cms.scene.message;
+
+option java_outer_classname = "GetAllCmsSceneByProto";
+option java_multiple_files = true;
+
+import "com/sia/common/TimestampRange.proto";
+import "com/sia/cms/scene/message/CmsScene.proto";
+import "com/sia/common/Paging.proto";
+
+message GetAllCmsSceneByRequest {
+  // 필수
+  com.sia.common.TimestampRange create_date_range = 1;
+  // 필수
+  com.sia.common.Paging paging = 2;
+}
+
+message GetAllCmsSceneByResponse {
+  repeated CmsSceneResponse cms_scene = 1;
+}

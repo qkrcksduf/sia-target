@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.labelearth.annotation_label.v1.value;
+
+import "com/sia/labelearth/label_class/v1/entity/LabelClassV1.proto";
+
+//option java_multiple_files = true;
+option java_outer_classname = "AnnotationLabelStatisticV1Proto";
+
+message AnnotationLabelStatisticV1 {
+  label_class.v1.entity.LabelClassV1 label_class = 1;
+  int32 annotation_label_count = 2;
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.cca.log.message;
+
+option java_outer_classname = "SaveLogProto";
+option java_multiple_files = true;
+
+import "com/sia/cca/log/message/Log.proto";
+import "google/protobuf/timestamp.proto";
+
+message SaveLogRequest {
+  LogLevelProto level = 2;
+  string message = 3;
+  ModuleProto module = 4;
+  google.protobuf.Timestamp created_date = 5;
+}

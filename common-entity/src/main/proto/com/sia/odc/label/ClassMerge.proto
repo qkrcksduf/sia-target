@@ -1,0 +1,11 @@
+syntax = "proto2";
+
+package com.sia.odc.label;
+
+option java_outer_classname = "ClassMergeProto";
+
+message ClassMerge {
+    repeated int32 src_class_id = 1;
+    optional int32 parent_id = 2;
+    required string tgt_class_name = 3;
+}

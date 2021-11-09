@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.cluster.serving.grpc;
+
+import "google/protobuf/empty.proto";
+import "com/sia/cluster/serving/PipelineManager.proto";
+
+service PipelineManager {
+  rpc get_all_status (google.protobuf.Empty) returns (serving.PipelineManagerAllStatus) {}
+  rpc get_status (serving.PipelineManager) returns (serving.PipelineManager) {}
+  rpc schedule (serving.PipelineManager) returns (serving.PipelineManager) {}
+  rpc update (serving.PipelineManager) returns (serving.PipelineManager) {}
+  rpc rescale (serving.PipelineManager) returns (serving.PipelineManager) {}
+  rpc delete (serving.PipelineManager) returns (serving.PipelineManager) {}
+}

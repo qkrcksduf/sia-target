@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.v2.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelStatusV2Proto";
+
+/**
+    라벨의 현재 상태
+    0,1 -> 정상
+    2 ~ 4 -> 수정
+    5 -> 삭제 (임시 삭제)
+    6 -> (클래스를) 알 수 없음
+    7 -> 추가
+    8 -> 추가된것을 삭제
+ */
+enum LabelStatusV2 {
+    /**
+     *  모델이 Inference 한 결과를 검토 하지 않음.
+     */
+    UNVIEW = 0;
+    /**
+     *  모델이 Inference 한 결과를 사람이 검토하거나 Reference Label 과 비교하여 정답(True Positive)임을 확인
+     *  오비전에서는 기본 상태가 TP 또는 검수 완료시 UNVIEW 상태의 라벨을 TP 로 변환
+     */
+    TP = 1;
+    /**
+     *  모델이 Inference 한 결과를 사람이 검토하거나 Reference Label 과 비교하여 오답(False Positive)임을 확인
+     *  FP_LOC 과 FP_CLS 모두에 해당하는 경우, 또는 애매한 경우 (+ 사용자가 직접 지정한 경우) FP 로 표현
+     */
+    FP = 2;
+    /**
+     *  모델이 Inference 한 결과를 사람이 검토하거나 Reference Label 과 비교하여 오답(False Positive)임을 확인
+     *  물체가 있는 것을 탐지하였으나, 객체의 위치 또는 크기를 정확하게 탐지하지 못한 경우
+     */
+    FP_LOC = 3;
+    /**
+     *  모델이 Inference 한 결과를 사람이 검토하거나 Reference Label 과 비교하여 오답(False Positive)임을 확인
+     *  Classification 에서의 FP는 클래스를 잘못 결정한 경우이다.
+     */
+    FP_CLS = 4;
+    /**
+     *  모델이 Inference 하여 객체가 생성되었으나, 사람이 검토하여 아님을 확인했을 경우
+     *  객체가 없는데 탐지한 경우 - 삭제 처리
+     */
+    FP_DEL = 5;
+    /**
+        특정 불가
+        사용자가 특정 클래스로 정의하지 못한 경우
+     */
+    UNKNOWN = 6;
+    /**
+     *  Inference 에 의해 생성되지 않았지만 사람이 검토하였을때 새로 생성된 객체.
+     *  모델이 탐지하지 못한 경우
+     */
+    FN = 7;
+    /**
+     *  사람이 새로 생성한 객체를 삭제한 상태 (FN을 제거한 상황)
+     *  FP_DEL과 다른 점으로는 검수 완료 시 FP_DEL은 서버에 그 라벨에 대한 정보를 저장하는 반면 DEL은 완전히 제거
+     */
+    DEL = 8;
+}

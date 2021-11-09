@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package com.sia.labelearth.dataset.v1.entity;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/labelearth/assignment_scene/v1/entity/AssignmentSceneV1.proto";
+import "com/sia/labelearth/assignment_account/v1/entity/AssignmentAccountV1.proto";
+import "com/sia/labelearth/dataset/v1/entity/DatasetProgressStatusV1.proto";
+import "com/sia/labelearth/annotation_label/v1/value/AnnotationLabelStatisticV1.proto";
+
+//option java_multiple_files = true;
+option java_outer_classname = "DatasetV1Proto";
+
+message DatasetV1 {
+    string id = 1;
+    string name = 2;
+    google.protobuf.Timestamp start_date = 3;
+    google.protobuf.Timestamp end_date = 4;
+    DatasetProgressStatusV1 status = 5;
+    bool urgent = 6;
+    string description = 7;
+    repeated assignment_account.v1.entity.AssignmentAccountV1 managers = 8;
+    repeated assignment_account.v1.entity.AssignmentAccountV1 annotators = 9;
+    repeated assignment_account.v1.entity.AssignmentAccountV1 reviewers = 10;
+    repeated assignment_scene.v1.entity.AssignmentSceneV1 assigned_scenes = 11;
+    repeated annotation_label.v1.value.AnnotationLabelStatisticV1 annotation_label_statistics = 12;
+}

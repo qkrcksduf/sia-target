@@ -4,4 +4,4 @@ import io.grpc.Status
 import io.grpc.StatusException
 
 class CategoryNotFoundException(description: String? = null) :
-    StatusException(Status.INVALID_ARGUMENT.withDescription(description))
+    StatusException(Status.NOT_FOUND.withDescription(description))

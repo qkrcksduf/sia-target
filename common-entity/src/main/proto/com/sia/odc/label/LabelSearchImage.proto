@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package com.sia.odc.label;
+
+import "com/sia/odc/label/MatchingType.proto";
+
+option java_multiple_files = true;
+
+message LabelSearchImageRequestProto {
+  repeated string label_id = 1;
+}
+
+message LabelSearchImageResponseProto {
+  string label_id = 1;
+  string scene_id = 2;
+  string class1_name = 3;
+  string class2_name = 4;
+  string class3_name = 5;
+  double confidence = 6;
+  MatchingType matching = 7;
+  double width = 8;
+  double height = 9;
+  bytes image = 10;
+}
+
+message LabelSearchImageListResponseProto {
+  repeated LabelSearchImageResponseProto labels = 1;
+}

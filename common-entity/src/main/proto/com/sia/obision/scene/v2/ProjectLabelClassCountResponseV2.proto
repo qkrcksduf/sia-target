@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "ProjectLabelClassCountResponseV2Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/analysis/v2/value/LabelClassCountV2.proto";
+
+message ProjectLabelClassCountResponseV2 {
+  string scene_id = 1;
+  repeated ProjectLabelClassCountV2 project_label_class_counts = 2;
+}
+
+message ProjectLabelClassCountV2 {
+  sia.common.UUID project_id = 1;
+  repeated analysis.v2.value.LabelClassCountV2 label_class_counts = 2;
+}

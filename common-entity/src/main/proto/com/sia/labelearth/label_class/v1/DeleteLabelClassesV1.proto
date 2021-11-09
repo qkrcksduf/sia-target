@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.labelearth.label_class.v1;
+
+import "com/sia/labelearth/label_class/v1/entity/LabelClassV1.proto";
+
+option java_outer_classname = "DeleteLabelClassesV1Proto";
+option java_multiple_files = true;
+
+message DeleteLabelClassesRequestV1Proto {
+    repeated v1.entity.LabelClassV1 classes = 1;
+}
+
+message DeleteLabelClassesResponseV1Proto {
+    repeated v1.entity.LabelClassV1 classes = 1;
+}

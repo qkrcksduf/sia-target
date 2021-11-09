@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm.v2.label_class_reference;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetLabelClassReferenceRequestV2Proto";
+
+import "com/sia/obision/algorithm/v2/entity/LabelClassReferenceV2.proto";
+import "com/sia/common/UUID.proto";
+
+/*
+  LabelClassReference 를 가져올 때 사용
+  class_id 필수
+ */
+message GetLabelClassReferenceRequestV2 {
+  // 필수
+  com.sia.common.UUID class_id = 1;
+  v2.entity.LabelClassReferenceFieldV2 field = 2;
+}

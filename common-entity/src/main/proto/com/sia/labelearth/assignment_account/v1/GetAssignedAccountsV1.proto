@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.labelearth.assignment_account.v1;
+
+import "com/sia/labelearth/assignment_account/v1/value/AssignmentAccountStatisticV1.proto";
+
+option java_outer_classname = "GetAssignedAccountsV1Proto";
+option java_multiple_files = true;
+
+message GetAssignedAccountsRequestV1Proto {
+  string dataset_id = 1;
+}
+
+message GetAssignedAccountsResponseV1Proto {
+  repeated assignment_account.v1.value.AssignmentAccountStatisticV1 assignment_account_statistics = 1;
+}

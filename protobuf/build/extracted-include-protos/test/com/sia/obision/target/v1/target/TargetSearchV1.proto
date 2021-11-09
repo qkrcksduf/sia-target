@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.target;
+
+option java_multiple_files = true;
+option java_outer_classname = "TargetSearchV1Proto";
+
+import "com/sia/common/Paging.proto";
+import "com/sia/common/SortDirection.proto";
+import "com/sia/obision/target/v1/target/TargetSortPropertyV1.proto";
+import "com/sia/obision/target/v1/target/TargetV1.proto";
+
+message TargetSearchRequestV1 {
+  TargetSearchProperty searchProperty = 1;
+  bool isFavorite = 2;
+  com.sia.common.SortDirection sortDirection = 3;
+  TargetSortProperty targetSortProperty = 4;
+  com.sia.common.Paging paging = 5;
+}
+
+message TargetSearchResponseV1 {
+  repeated Target target = 1;
+  int32 totalCount = 2;
+}
+
+message TargetSearchProperty {
+  string id = 1;
+  string name = 2;
+  string category = 3;
+}

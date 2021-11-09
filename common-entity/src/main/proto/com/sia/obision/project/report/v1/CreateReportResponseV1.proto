@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateReportResponseV1Proto";
+
+import "com/sia/obision/project/v1/ReportFormatV1.proto";
+import "com/sia/obision/project/v1/ReportTypeV1.proto";
+
+message CreateReportResponseV1 {
+  bytes pdf = 1;
+  bytes hwp = 2;
+}

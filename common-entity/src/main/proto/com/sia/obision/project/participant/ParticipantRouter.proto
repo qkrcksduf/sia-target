@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.obision.project.participant;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/obision/project/participant/v1/GetParticipantV1.proto";
+import "com/sia/obision/project/participant/v1/UpdateParticipantV1.proto";
+import "com/sia/obision/project/participant/v1/DeleteParticipantV1.proto";
+
+service ParticipantRouter {
+  rpc getParticipantV1 (com.sia.obision.project.participant.v1.GetParticipantRequestV1)
+      returns (com.sia.obision.project.participant.v1.GetParticipantResponseV1) {}
+  rpc updateParticipantV1 (com.sia.obision.project.participant.v1.UpdateParticipantRequestV1)
+      returns (com.sia.obision.project.participant.v1.UpdateParticipantResponseV1) {}
+  rpc deleteV1(com.sia.obision.project.participant.v1.DeleteParticipantRequestV1)
+      returns (google.protobuf.Empty) {}
+}

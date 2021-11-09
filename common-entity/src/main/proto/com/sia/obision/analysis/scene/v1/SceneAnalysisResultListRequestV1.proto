@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneAnalysisResultListRequestV1Proto";
+
+import "com/sia/common/MongoId.proto";
+
+message SceneAnalysisResultListRequestV1 {
+  // 필수
+  repeated sia.common.MongoId scene_ids = 1;
+}

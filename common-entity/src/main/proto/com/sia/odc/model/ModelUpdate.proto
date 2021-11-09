@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package com.sia.odc.model;
+
+import "com/sia/odc/model/Model.proto";
+import "com/sia/odc/model/ModelRegister.proto";
+
+option java_multiple_files = true;
+
+message DetectionModelUpdateRequestProto {
+    ModelProto model = 1;
+    ModelType type = 2;
+    repeated string tag = 3;
+    int32 gpu_count = 4;
+    bool is_high_priority = 5;
+    int32 training_snapshot_id = 6;
+    int32 validation_snapshot_id = 7;
+    DetectionParameterProto parameter = 8;
+    string creator = 9;
+}
+
+message ClassificationModelUpdateRequestProto {
+    ModelProto model = 1;
+    ModelType type = 2;
+    repeated string tag = 3;
+    int32 gpu_count = 4;
+    bool is_high_priority = 5;
+    int32 training_snapshot_id = 6;
+    ClassificationParameterProto parameter = 8;
+    string creator = 9;
+}

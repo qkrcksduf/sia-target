@@ -2,14 +2,14 @@ package com.sia.obision.target
 
 import com.google.protobuf.Empty
 import com.sia.obision.target.CategoryRouterGrpc.getServiceDescriptor
-import com.sia.obision.target.v1.CreateCategoryListRequestV1
-import com.sia.obision.target.v1.CreateCategoryListResponseV1
-import com.sia.obision.target.v1.CreateCategoryRequestV1
-import com.sia.obision.target.v1.CreateCategoryResponseV1
-import com.sia.obision.target.v1.DeleteCategoryListRequestV1
-import com.sia.obision.target.v1.DeleteCategoryRequestV1
-import com.sia.obision.target.v1.GetCategoryListResponseV1
-import com.sia.obision.target.v1.UpdateCategoryRequestV1
+import com.sia.obision.target.v1.category.CreateCategoryListRequestV1
+import com.sia.obision.target.v1.category.CreateCategoryListResponseV1
+import com.sia.obision.target.v1.category.CreateCategoryRequestV1
+import com.sia.obision.target.v1.category.CreateCategoryResponseV1
+import com.sia.obision.target.v1.category.DeleteCategoryListRequestV1
+import com.sia.obision.target.v1.category.DeleteCategoryRequestV1
+import com.sia.obision.target.v1.category.GetCategoryListResponseV1
+import com.sia.obision.target.v1.category.UpdateCategoryRequestV1
 import io.grpc.CallOptions
 import io.grpc.CallOptions.DEFAULT
 import io.grpc.Channel

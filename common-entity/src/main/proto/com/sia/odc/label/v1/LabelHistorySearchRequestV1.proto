@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.odc.label.v1;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/label/entity/HistoryOrderTypeV1.proto";
+import "com/sia/odc/label/entity/WorkTypeV1.proto";
+import "com/sia/common/SortDirection.proto";
+
+option java_multiple_files = true;
+
+message LabelHistorySearchRequestV1 {
+    google.protobuf.Timestamp start_time = 1;
+    google.protobuf.Timestamp end_time = 2;
+    entity.WorkTypeV1 work_type = 3;
+    string worker = 4;
+    string scene_id_keyword = 5;
+    repeated int32 class_ids = 6;
+    history.entity.HistoryOrderTypeV1 order_type = 7;
+    com.sia.common.SortDirection sort_direction = 8;
+    int32 limit = 9;
+}

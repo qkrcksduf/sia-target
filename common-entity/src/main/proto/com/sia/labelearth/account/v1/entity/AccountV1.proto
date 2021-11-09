@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.labelearth.account.v1.entity;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/labelearth/account/v1/entity/AccountRoleV1.proto";
+import "com/sia/labelearth/account/v1/entity/AccountStatusV1.proto";
+
+//option java_multiple_files = true;
+option java_outer_classname = "AccountV1Proto";
+
+message AccountV1 {
+  string id = 1;
+  string name = 2;
+  google.protobuf.Timestamp created_time = 3;
+  google.protobuf.Timestamp last_access_time = 4;
+  AccountStatusV1 status = 5;
+  repeated AccountRoleV1 roles = 6;
+}

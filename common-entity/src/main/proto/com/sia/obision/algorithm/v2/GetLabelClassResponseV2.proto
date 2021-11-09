@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.algorithm.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetLabelClassResponseV2Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/algorithm/v2/entity/LabelClassV2.proto";
+
+message GetLabelClassResponseV2 {
+  // 선택, 없으면 전체
+  repeated v2.entity.LabelClassV2 label_classes = 2;
+}

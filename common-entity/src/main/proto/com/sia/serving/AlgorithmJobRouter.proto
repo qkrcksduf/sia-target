@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package com.sia.serving;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/serving/AlgorithmJob.proto";
+
+service AlgorithmJobRouter {
+    rpc run (AlgorithmJob)
+        returns (AlgorithmJob) {}
+
+    rpc get (AlgorithmJobQuery)
+        returns (AlgorithmJobList) {}
+
+    rpc get_all (google.protobuf.Empty)
+        returns (AlgorithmJobList) {}
+
+    rpc result (AlgorithmJob)
+        returns (AlgorithmJob) {}
+
+    rpc monitor (AlgorithmJob)
+        returns (stream AlgorithmJob) {}
+
+    rpc monitor_v2 (AlgorithmJob)
+        returns (stream AlgorithmJob) {}
+
+    rpc cancel (AlgorithmJob)
+        returns (google.protobuf.Empty) {}
+}

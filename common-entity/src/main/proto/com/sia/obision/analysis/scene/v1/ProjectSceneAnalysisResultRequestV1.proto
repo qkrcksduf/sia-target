@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "ProjectSceneAnalysisResultRequestV1Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/MongoId.proto";
+
+message ProjectSceneAnalysisResultRequestV1 {
+    // 필수
+    sia.common.MongoId scene_id = 1;
+    // 필수
+    sia.common.UUID project_id = 2;
+}

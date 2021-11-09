@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "ProjectStatusV1Proto";
+
+/*
+ * CLOSED : 프로젝트가 완료되거나 강제 종료된 상태
+ * PAUSED : 프로젝트를 일시정지한 상태
+ * ACTIVATED : 프로젝트가 활성화된 상태
+ */
+
+enum ProjectStatusV1 {
+    ANY = 0;
+    CLOSED = 1;
+    PAUSED = 2;
+    ACTIVATED = 3;
+}

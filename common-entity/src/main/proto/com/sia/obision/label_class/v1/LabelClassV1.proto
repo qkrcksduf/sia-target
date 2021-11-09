@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.obision.label_class.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelClassV1Proto";
+
+import "com/sia/common/UUID.proto";
+import "google/protobuf/timestamp.proto";
+
+message LabelClassV1 {
+    sia.common.UUID id = 1;
+    string name = 2;
+    sia.common.UUID parent_id = 3;
+    google.protobuf.Timestamp create_date = 4;
+    sia.common.UUID merged_id = 5;
+    int32 level = 6;
+}

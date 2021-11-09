@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package com.sia.labelearth.scene.v1.entity;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/common/Polygon.proto";
+
+//option java_multiple_files = true;
+option java_outer_classname = "SceneV1Proto";
+
+message SceneV1 {
+    string id = 1;
+    string path = 2;
+    string name = 3;
+    int32 width = 4;
+    int32 height = 5;
+    double gsd_x = 6;
+    double gsd_y = 7;
+    google.protobuf.Timestamp scene_time = 8;
+    google.protobuf.Timestamp upload_time = 9;
+    int32 depth = 10;
+    com.sia.common.Polygon extent = 11;
+    string region = 12;
+    string projection = 13;
+    string projection_ref = 14;
+    repeated string geo_transform = 15;
+    string satellite_name = 16;
+}

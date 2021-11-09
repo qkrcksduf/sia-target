@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.labelearth.label_class.v1;
+
+import "com/sia/labelearth/label_class/v1/entity/LabelClassV1.proto";
+
+option java_outer_classname = "UpdateLabelClassV1Proto";
+option java_multiple_files = true;
+
+message UpdateLabelClassRequestV1Proto {
+  v1.entity.LabelClassV1 label_class = 1;
+}
+
+message UpdateLabelClassResponseV1Proto {
+  v1.entity.LabelClassV1 label_class = 1;
+}

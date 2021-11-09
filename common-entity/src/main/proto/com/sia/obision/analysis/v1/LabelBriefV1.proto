@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelBriefV1Proto";
+
+import "com/sia/common/GeoPoint.proto";
+import "google/protobuf/timestamp.proto";
+import "com/sia/obision/common/LabelClassWithParent.proto";
+
+message LabelBriefV1 {
+  // 필수
+  obision.common.LabelClassWithParent class_id = 2;
+  // 필수
+  com.sia.common.GeoPoint geo_location = 3;
+  // 필수
+  google.protobuf.Timestamp imaging_time = 12;
+}

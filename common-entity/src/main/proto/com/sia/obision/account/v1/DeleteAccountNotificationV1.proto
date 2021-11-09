@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "DeleteAccountNotificationV1Proto";
+
+import "com/sia/common/MongoId.proto";
+
+message DeleteAccountNotificationV1 {
+  // 사용자 ID
+  string account_id = 1;
+  // 알림의 ID
+  repeated sia.common.MongoId ids = 2;
+}

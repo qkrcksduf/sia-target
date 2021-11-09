@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.serving.shared;
+
+option java_multiple_files = true;
+option java_outer_classname = "ClassProto";
+
+
+// Algorithm 에서 나오는 class
+message Class {
+    string id = 1;
+    string name = 2;
+}

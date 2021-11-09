@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.cms.scene;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/cms/scene/message/GetAllCmsSceneBy.proto";
+import "com/sia/cms/scene/message/InferCmsSceneBy.proto";
+
+service CmsSceneRouter {
+  rpc getAllCmsSceneBy (message.GetAllCmsSceneByRequest) returns (message.GetAllCmsSceneByResponse) {}
+
+  rpc inferCmsSceneBy (message.InferCmsSceneByRequest) returns  (google.protobuf.Empty) {}
+}

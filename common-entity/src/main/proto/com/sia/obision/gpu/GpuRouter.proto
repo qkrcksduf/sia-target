@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.gpu;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/obision/gpu/SetGpuSize.proto";
+import "com/sia/obision/gpu/GetGpuSize.proto";
+
+service GpuRouter {
+  rpc setGpuSize(gpu.SetGpuSizeRequest) returns (google.protobuf.Empty) {}
+  rpc getGpuSize(google.protobuf.Empty) returns (gpu.GetGpuSizeResponse) {}
+}

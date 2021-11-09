@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package com.sia.cluster.common.v3;
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.common.v3";
+
+message Resource {
+    string id = 1;
+    string image = 2;
+    uint32 replicas = 3;
+    repeated string command = 4;
+    repeated string args = 5;
+    repeated uint32 ports = 6;
+    map<string, string> envs = 7;
+    map<string, string> resource_limits = 8; // 올 수 있는 key: memory, cpu, nvidia.com/gpu
+    uint32 available = 9;
+    string service_name = 10;
+    repeated uint32 node_ports = 11;
+}
+
+message GetResourceRequest {
+    string id = 1;
+}
+
+message ScheduleResourceRequest {
+    string image = 1;
+    uint32 replicas = 2;
+    repeated string command = 3;
+    repeated string args = 4;
+    repeated uint32 ports = 5;
+    map<string, string> envs = 6;
+    map<string, string> resource_limits = 7; // 올 수 있는 key: memory, cpu, nvidia.com/gpu
+}
+
+message RescaleResourceRequest {
+    string id = 1;
+    uint32 replicas = 2;
+}
+
+message UpdateResourceRequest {
+    // 모두 비어있지 않은 값으로 보내줘야 함. Put이 아닌 Update임.
+     string id = 1;
+    string image = 2;
+    uint32 replicas = 3;
+    repeated string command = 4;
+    repeated string args = 5;
+    repeated uint32 ports = 6;
+    map<string, string> envs = 7;
+    map<string, string> resource_limits = 8; // 올 수 있는 key: memory, cpu, nvidia.com/gpu
+}
+
+message DeleteResourceRequest {
+    string id = 1;
+}

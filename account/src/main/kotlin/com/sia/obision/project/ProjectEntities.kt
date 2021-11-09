@@ -8,5 +8,6 @@ fun getProjectEntities(): List<KClass<out Any>> = listOf(
   Target::class,
   Category::class,
   Record::class,
-  Attach::class
+  Attach::class,
+  QlrmTest::class
 )

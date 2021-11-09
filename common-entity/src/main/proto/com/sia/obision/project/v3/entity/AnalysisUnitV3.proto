@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.project.v3.entity;
+
+option java_multiple_files = true;
+option java_outer_classname = "AnalysisUnitV3Proto";
+
+import "com/sia/common/Period.proto";
+import "com/sia/common/UUID.proto";
+
+message AnalysisUnitV3 {
+    sia.common.UUID id = 1;
+    sia.common.Period analysis_period = 2;
+}

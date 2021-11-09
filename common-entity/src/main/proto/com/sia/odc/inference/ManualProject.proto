@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package com.sia.odc.inference.manualproject;
+
+import "com/sia/odc/aoi/Aoi.proto";
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/task/Task.proto";
+
+option java_multiple_files = true;
+
+message ManualProject {
+  int64 id = 1;
+  string project_name = 2;
+  com.sia.odc.aoi.Aoi aoi = 3;
+  com.sia.odc.task.TaskIdName task_id_name = 4;
+  repeated string scene_ids = 5;
+  Access access = 6;
+  string account_id = 7;
+  google.protobuf.Timestamp create_time = 8;
+  int32 progress = 9;
+  Status status = 10;
+  repeated string model_names = 11;
+}
+
+message ManualProjectList {
+  repeated ManualProject manual_project_list = 1;
+}
+
+enum Access {
+  PUBLIC = 0;
+  PRIVATE = 1;
+}
+
+enum Status {
+  NULL = 0;
+  IDLE = 1;
+  WAITING = 2;
+  PROGRESS = 3;
+  COMPLETED = 4;
+  CANCELED = 5;
+}

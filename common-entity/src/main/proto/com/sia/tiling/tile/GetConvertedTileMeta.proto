@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package com.sia.tiling.tile;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetConvertedTileMetaProto";
+
+import "com/sia/common/Point.proto";
+
+message GetConvertedTileMetaRequest {
+  // 필수
+  string scene_id = 1;
+}
+
+message GetConvertedTileMetaResponse {
+  // Zoom List에 0~19 Level의 List가 존재
+  repeated ZoomData zoom_data = 1;
+}
+
+message ZoomData {
+  // List에 ConvertedCoordinate들이 존재
+  repeated ProjectionCoordinate coordinates = 1;
+}
+
+message ProjectionCoordinate {
+  int32 tile_x = 1;
+  int32 tile_y = 2;
+  double top_left_x = 3;
+  double top_left_y = 4;
+  double top_right_x = 5;
+  double top_right_y = 6;
+  double bot_left_x = 7;
+  double bot_left_y = 8;
+  double bot_right_x = 9;
+  double bot_right_y = 10;
+}

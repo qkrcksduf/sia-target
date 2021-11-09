@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.odc.label;
+
+option java_outer_classname = "MatchingTypeProto";
+
+enum MatchingType {
+    NULL = 0;
+    DET = 1;
+    UNVIEW = 2;
+    TP = 3;
+    FP = 4;
+    FP_LOC = 5;
+    FP_CLS = 6;
+    FN = 7;
+}

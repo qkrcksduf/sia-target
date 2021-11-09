@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.project.single.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SingleProjectListResponseV1Proto";
+
+import "com/sia/obision/project/single/v1/SingleProjectV1.proto";
+
+message SingleProjectListResponseV1 {
+    repeated SingleProjectV1 projects = 1;
+}

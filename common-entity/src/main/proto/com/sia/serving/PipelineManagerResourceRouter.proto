@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.serving;
+
+option java_multiple_files = true;
+
+import "com/sia/serving/PipelineManagerResource.proto";
+
+service PipelineManagerResourceRouter {
+    rpc get (PipelineManagerResource)
+        returns (PipelineManagerResource) {}
+    rpc delete (PipelineManagerResource)
+        returns (PipelineManagerResource) {}
+}

@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package com.sia.odc.account;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/account/PermissionLevel.proto";
+
+option java_outer_classname = "AccountProto";
+
+message Account {
+    string id=1;
+    string name=2;
+    google.protobuf.Timestamp create_date=3;
+    google.protobuf.Timestamp last_login=4;
+    com.sia.odc.account.PermissionLevel permission=5;
+    bool deleted=6;
+    int32 total_patches=7;
+    int32 total_labels=8;
+    int32 total_hours=9;
+    string passwd=10;
+}
+
+message AssignedDataset {
+    string id = 1;
+    string name = 2;
+    com.sia.odc.account.PermissionLevel role = 3;
+}
+
+message AccountWithAssignedDatasets {
+    Account account = 1;
+    repeated AssignedDataset assigned_dataset = 2;
+}
+
+message AccountListWithAssignedDatasets {
+    repeated AccountWithAssignedDatasets accounts_with_assigned_datasets = 1;
+}
+
+message SignUp {
+    string id=1;
+    string name=2;
+    string passwd=3;
+    com.sia.odc.account.PermissionLevel permission=7;
+}
+
+message AccountList {
+    repeated Account account = 1;
+}
+
+message SignIn {
+    string id = 1;
+    string passwd = 2;
+}

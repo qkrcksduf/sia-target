@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.overview.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelFilterMetaResponseV1Proto";
+
+import "com/sia/obision/common/Region.proto";
+import "com/sia/obision/common/LabelClassWithParent.proto";
+import "com/sia/common/UUID.proto";
+
+message LabelFilterMetaResponseV1 {
+  // 필수
+  repeated common.Region regions = 1;
+  // 사용하지 않음
+  repeated common.LabelClassWithParent label_class_ids = 3;
+
+  repeated sia.common.UUID aoi_ids = 8;
+  repeated sia.common.UUID project_ids = 9;
+  repeated string satellite_names = 10;
+
+  // 필수
+  double minWidth = 4;
+  // 필수
+  double maxWidth = 5;
+  // 필수
+  double minHeight = 6;
+  // 필수
+  double maxHeight = 7;
+}

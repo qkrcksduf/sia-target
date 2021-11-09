@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.v2.value;
+
+option java_multiple_files = true;
+option java_outer_classname = "ReviewerV2Proto";
+
+import "com/sia/obision/account/v1/AccountV1.proto";
+import "com/sia/obision/project/v2/entity/ProjectV2.proto";
+import "google/protobuf/timestamp.proto";
+
+/**
+    검수자 정보
+ */
+message ReviewerV2 {
+  /**
+    account_field
+    검수자
+   */
+  account.v1.AccountV1 reviewer = 1;
+  /**
+    project_field
+    검수한 프로젝트 정보
+   */
+  project.v2.entity.ProjectV2 review_project = 2;
+  google.protobuf.Timestamp review_time = 3;
+}
+
+message ReviewerFieldV2 {
+  /**
+    이 정보가 필요한지 여부
+   */
+  bool activated = 1;
+  /**
+    reviewer
+   */
+  account.v1.AccountFieldV1 account_field = 2;
+  /**
+    review_project
+   */
+  project.v2.entity.ProjectFieldV2 project_field = 3;
+}

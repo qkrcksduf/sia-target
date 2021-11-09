@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.tiling.scene;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetSceneThumbnailsProto";
+
+import "com/sia/tiling/common/Thumbnail.proto";
+
+message GetSceneThumbnailsRequest {
+  // 필수
+  repeated string scene_id = 1;
+}
+
+message GetSceneThumbnailsResponse {
+  repeated com.sia.tiling.common.Thumbnail thumbnails = 1;
+}

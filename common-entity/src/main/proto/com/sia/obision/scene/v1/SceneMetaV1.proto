@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package com.sia.obision.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneMetaV1Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/common/Polygon.proto";
+
+import "com/sia/common/MongoId.proto";
+import "com/sia/obision/common/Region.proto";
+import "com/sia/obision/scene/v2/value/SceneAoiV2.proto";
+
+message SceneMetaV1 {
+    sia.common.MongoId scene_id = 1;
+    com.sia.common.Polygon extent = 3;
+    string satellite_name = 4;
+    google.protobuf.Timestamp imaging_time = 5;
+    google.protobuf.Timestamp imaging_start_time = 6;
+    google.protobuf.Timestamp imaging_end_time = 7;
+    obision.common.Region region = 8;
+    string sensor = 9;
+    string mode = 10;
+//    double resolution_meter = 11;
+    double resolution_meter_x = 11;
+    double resolution_meter_y = 17;
+    double incidence_angle = 12;
+    string orbit_direction = 13;
+    string look_direction = 14;
+    string polarization = 15;
+    // ToDo 삭제해야할 수도 있음.
+    string path = 16;
+    repeated v2.value.SceneAoiV2 scene_aois = 18;
+}

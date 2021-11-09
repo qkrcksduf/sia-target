@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.sia.cca.scene.message;
+
+option java_outer_classname = "GetInferredStaticsProto";
+option java_multiple_files = true;
+
+import "com/sia/common/TimestampRange.proto";
+
+message GetInferredStaticsRequest {
+  // 선택
+  com.sia.common.TimestampRange created_date_range = 1;
+}
+
+message GetInferredStaticsResponse {
+  int32 wait_count = 1;
+  int32 success_count = 2;
+  int32 failed_count = 3;
+  int32 skip_count = 4;
+  int32 exception_count = 5;
+  int32 progress_count = 6;
+  int32 total = 7;
+}

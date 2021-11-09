@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.overview.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "ProjectLabelListResponseV1Proto";
+
+import "com/sia/obision/analysis/v1/LabelV1.proto";
+
+message ProjectLabelListResponseV1 {
+  repeated analysis.v1.LabelV1 labels = 1;
+
+  int32 total_label_count = 2;
+}

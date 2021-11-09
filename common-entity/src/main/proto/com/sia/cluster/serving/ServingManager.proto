@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.cluster.serving;
+
+option java_multiple_files = true;
+
+import "com/sia/cluster/common/v1/Resource.proto";
+
+message ServingManager {
+  string id = 1;
+  cluster.common.v1.Resource resource = 2;
+}
+
+message ServingManagerAllStatus {
+  repeated ServingManager serving_manager = 1;
+}

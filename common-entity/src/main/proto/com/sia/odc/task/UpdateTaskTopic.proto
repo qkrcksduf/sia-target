@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package com.sia.odc.task;
+
+option java_multiple_files = true;
+
+message UpdateTaskTopicProto {
+    string isUpdate = 1;
+}

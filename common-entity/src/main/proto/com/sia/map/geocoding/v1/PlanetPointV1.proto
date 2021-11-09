@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.map.geocoding.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "PlanetPointV1Proto";
+
+import "com/sia/map/geocoding/v1/TagV1.proto";
+import "com/sia/common/Point.proto";
+
+message PlanetPointV1 {
+  int64 id = 1;
+  repeated TagV1 tags = 2;
+  com.sia.common.Point point = 3;
+}

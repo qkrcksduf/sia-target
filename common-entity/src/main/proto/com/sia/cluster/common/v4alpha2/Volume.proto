@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.cluster.common.v4alpha2;
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.common.v4alpha2";
+
+message Volume {
+    string pvc_name = 1;
+    string sub_path = 2;
+    string mount_path = 3;
+    bool read_only = 4;
+}

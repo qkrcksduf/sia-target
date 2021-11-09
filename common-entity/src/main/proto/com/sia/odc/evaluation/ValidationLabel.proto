@@ -1,0 +1,32 @@
+syntax = "proto2";
+
+package com.sia.odc.evaluation;
+
+import "com/sia/odc/evaluation/ReferenceLabel.proto";
+import "com/sia/odc/common/Point.proto";
+import "com/sia/odc/label/MatchingType.proto";
+
+option java_outer_classname = "ValidationLabelProto";
+
+message ValidationLabel {
+    optional com.sia.odc.evaluation.ReferenceLabel reference = 1;
+    required int32 class_id = 2;
+    optional int32 class2_id = 3;
+    optional int32 class3_id = 4;
+    required com.sia.odc.common.Point center = 5;
+    required double width = 6;
+    required double height = 7;
+    required double angle = 8;
+    required com.sia.odc.common.Point location = 9;
+    required double confidence = 10;
+    optional double confidence_t1 = 11;
+    optional double confidence_t2 = 12;
+    optional double confidence_t3 = 13;
+    optional bytes image = 14;
+    required com.sia.odc.label.MatchingType matching = 15;
+    required string scene_id = 16;
+}
+
+message ValidationLabelList {
+    repeated ValidationLabel labels = 1;
+}

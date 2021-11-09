@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package com.sia.boot.person.grpc;
+
+import "com/sia/boot/person/Person.proto";
+import "com/sia/core/Empty.proto";
+
+service PersonRouter {
+    rpc getPersonByName(PersonRequestProto) returns (com.sia.core.EmptyProto) { }
+}

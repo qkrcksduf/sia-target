@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package com.sia.odc.model;
+
+import "com/sia/odc/model/Model.proto";
+import "com/sia/odc/model/ModelRegister.proto";
+import "com/sia/odc/snapshot/SnapshotResponse.proto";
+
+option java_multiple_files = true;
+
+message DetectionModelInfoResponseProto {
+    ModelProto model = 1;
+    repeated string tags = 2;
+    int32 gpu_count = 3;
+    bool is_high_priority = 4;
+    com.sia.odc.snapshot.SnapshotResponseProto training_snapshot = 5;
+    com.sia.odc.snapshot.SnapshotResponseProto validation_snapshot = 6;
+    DetectionParameterProto parameter = 7;
+}
+
+message ClassificationModelInfoResponseProto {
+    ModelProto model = 1;
+    repeated string tags = 2;
+    int32 gpu_count = 3;
+    bool is_high_priority = 4;
+    com.sia.odc.snapshot.SnapshotResponseProto training_snapshot = 5;
+    ClassificationParameterProto parameter = 7;
+}
+
+message ModelOverallStatusResponseProto {
+    int32 total_model_count = 1;
+    int32 waiting_model_count = 2;
+    int32 processing_model_count = 3;
+    int32 completed_model_count = 4;
+    int32 total_learning_gpu_count = 5;
+    int32 using_learning_gpu_count = 6;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.labelearth.annotation_label.v1.entity;
+
+//option java_multiple_files = true;
+option java_outer_classname = "AnnotationLabelStatusV1Proto";
+
+enum AnnotationLabelStatusV1{
+    ANNOTATED = 0;
+    REJECTED = 1;
+    ACCEPTED = 2;
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.sia.cca.account.message;
+
+option java_outer_classname = "SignUpProto";
+option java_multiple_files = true;
+
+import "com/sia/cca/account/message/Account.proto";
+
+message SignUpRequest {
+  string name = 4;
+  string email = 1;
+  string password = 2;
+  AccountRoleProto role = 3;
+}
+
+message SignUpResponse {
+  string name = 4;
+  string email = 1;
+  AccountRoleProto role = 3;
+}

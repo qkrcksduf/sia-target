@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.labelearth.file.v1;
+
+import "com/sia/labelearth/file/v1/value/FileInfoV1.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "GetDirectoriesV1Proto";
+
+
+message GetDirectoriesRequestV1Proto {
+  string directory_path = 1;
+}
+
+message GetDirectoriesResponseV1Proto {
+  repeated v1.value.FileInfoV1 directory_info = 1;
+}

@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package com.sia.cluster.common.v4beta1;
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.common.v4beta1";
+
+// 다음 글에 있는 설명을 인용함.
+// https://github.com/kubernetes-client/python/blob/master/kubernetes/docs/V1Toleration.md
+message Toleration {
+
+    // Effect indicates the taint effect to match.
+    // Empty means match all taint effects.
+    // When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.
+    string effect = 1;
+
+    // The taint key that the toleration applies to.
+    // Empty means match all taint keys.
+    // If the key is empty, operator must be Exists; this combination means to match all values and keys.
+    string key = 2;
+
+    // Operator represents a key's relationship to the value.
+    // Valid operators are Exists and Equal.
+    // Defaults to Equal.
+    // Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.
+    string operator = 3;
+
+    // TolerationSeconds represents the period of time the toleration (which must be of effect NoExecute, otherwise the field is ignored) tolerates the taint.
+    // By default, it is not set, which means tolerate the taint forever (do not evict).
+    // Zero and negative values will be treated as 0 (evict immediately) by the system.
+    // 매우 중요. 빈 값은 null, 0 이하의 수는 모두 "즉시 축출"
+    string toleration_seconds = 4;
+
+    // Value is the taint value the toleration matches to.
+    // If the operator is Exists, the value should be empty, otherwise just a regular string.
+    string value = 5;
+
+}

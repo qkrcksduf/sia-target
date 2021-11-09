@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.odc.tag;
+
+option java_multiple_files = true;
+
+message TagProto {
+    int32 id = 1;
+    string name = 2;
+}
+
+message TagListResponseProto {
+    repeated TagProto tag = 1;
+}

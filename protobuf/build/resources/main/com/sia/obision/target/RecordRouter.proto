@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.obision.target;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/obision/target/v1/record/CreateRecordV1.proto";
+import "com/sia/obision/target/v1/record/UpdateRecordV1.proto";
+import "com/sia/obision/target/v1/record/DeleteRecordV1.proto";
+import "com/sia/obision/target/v1/record/RecordBookMarkV1.proto";
+import "com/sia/obision/target/v1/record/RecordFilterV1.proto";
+import "com/sia/obision/target/v1/record/RecordSearchV1.proto";
+
+service RecordRouter {
+
+  rpc createRecord(v1.record.CreateRecordRequestV1) returns (v1.record.CreateRecordResponseV1) {}
+  rpc updateRecord(v1.record.UpdateRecordRequestV1) returns (google.protobuf.Empty) {}
+  rpc deleteRecord(v1.record.DeleteRecordRequestV1) returns (google.protobuf.Empty) {}
+  rpc bookMark(v1.record.RecordBookMarkRequestV1) returns (google.protobuf.Empty) {}
+  rpc recordFilter(v1.record.RecordFilterRequestV1) returns (v1.record.RecordFilterResponseV1) {}
+  rpc recordSearch(v1.record.RecordSearchRequestV1) returns (v1.record.RecordSearchResponseV1) {}
+
+}

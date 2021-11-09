@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelCountGroupV1Proto";
+
+import "com/sia/obision/analysis/v1/LabelCountV1.proto";
+
+message LabelCountGroupV1 {
+  // 필수
+  string algorithm_id = 1;
+  // 필수
+  repeated analysis.v1.LabelCountV1 label_counts = 2;
+}

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.sia.cluster.base.grpc;
+
+import "google/protobuf/empty.proto";
+import "com/sia/cluster/base/Namespace.proto";
+
+service Namespace {
+    rpc list_namespaces (cluster.base.ListNamespaceRequest)  returns (cluster.base.ListNamespaceResponse) {
+
+    }
+
+    rpc get_namespace (cluster.base.GetNamespaceRequest) returns (cluster.base.Namespace) {
+
+    }
+
+    rpc create_namespace (cluster.base.CreateNamespaceRequest) returns (cluster.base.Namespace) {
+
+    }
+
+    rpc delete_namespace (cluster.base.DeleteNamespaceRequest) returns (google.protobuf.Empty) {
+
+    }
+}

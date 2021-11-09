@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.odc.label.v1;
+
+import "com/sia/odc/label/entity/LabelV1.proto";
+
+option java_multiple_files = true;
+
+message LabelSearchMonitorResponseV1 {
+    repeated entity.LabelV1 labels = 1;
+    int32 total_label_count = 2;
+}

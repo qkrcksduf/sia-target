@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package com.sia.cluster.common.v4alpha2;
+
+option java_multiple_files = true;
+option java_package = "com.sia.cluster.common.v4alpha2";
+
+message NodeAffinity {
+    NodeAffinityType type = 1;
+    uint32 weight = 2; // type=PREFERRED의 경우에만 적용됨. 1~100
+    string key = 3;
+    NodeAffinityOperator operator = 4;
+    repeated string values = 5;
+}
+
+enum NodeAffinityType {
+    REQUIRED = 0;
+    PREFERRED = 1;
+}
+
+enum NodeAffinityOperator {
+    In = 0;
+    NotIn = 1;
+    Exists = 2;
+    DoesNotExist = 3;
+    Gt = 4;
+    Lt = 5;
+}

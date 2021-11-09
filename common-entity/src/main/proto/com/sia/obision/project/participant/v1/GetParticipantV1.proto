@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.obision.project.participant.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetParticipantV1Proto";
+
+import "com/sia/obision/project/v1/ParticipantV1.proto";
+
+message GetParticipantRequestV1 {
+  string id = 1;
+}
+
+message GetParticipantResponseV1 {
+  com.sia.obision.project.v1.ParticipantV1 participant = 1;
+}

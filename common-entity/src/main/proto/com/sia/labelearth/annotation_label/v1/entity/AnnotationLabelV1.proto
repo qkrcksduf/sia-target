@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package com.sia.labelearth.annotation_label.v1.entity;
+
+import "com/sia/common/Polygon.proto";
+import "com/sia/labelearth/annotation_label/v1/entity/AnnotationLabelErrorTypeV1.proto";
+import "com/sia/labelearth/annotation_label/v1/entity/AnnotationLabelStatusV1.proto";
+import "com/sia/labelearth/annotation_label/v1/entity/LabelPolygonTypeV1.proto";
+import "com/sia/labelearth/label_class/v1/entity/LabelClassV1.proto";
+
+option java_outer_classname = "AnnotationLabelV1Proto";
+//option java_multiple_files = true;
+
+message AnnotationLabelV1 {
+    string id = 1;
+    string annotator_id = 2;
+    string reviewer_id = 3;
+    label_class.v1.entity.LabelClassV1 label_class = 4;
+    string dataset_id = 5;
+    com.sia.common.Polygon polygon = 6;
+    LabelPolygonTypeV1 label_polygon_type= 7;
+    double angle = 8;
+    double width = 9;
+    double height = 10;
+    string image = 11;
+    string scene_id = 12;
+    AnnotationLabelErrorTypeV1 error_type = 13;
+    string comment = 14;
+    AnnotationLabelStatusV1 status = 15;
+}

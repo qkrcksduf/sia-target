@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package com.sia.cca.account.message;
+
+option java_outer_classname = "DeleteAccountProto";
+option java_multiple_files = true;
+
+message DeleteAccountRequest {
+  string email = 1;
+}

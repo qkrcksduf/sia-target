@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.kvision;
+
+option java_multiple_files = true;
+option java_outer_classname = "KSaveLabelProto";
+
+import "com/sia/serving/shared/Label.proto";
+
+message KSaveLabelRequest {
+  repeated serving.shared.Label labels = 1;
+  string scene_id = 2;
+  string serving_algorithm_id = 3;
+}

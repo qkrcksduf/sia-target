@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package com.sia.cca.scene.message;
+
+option java_outer_classname = "SceneProto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+message SceneResponse {
+  string product_id = 1;
+  SceneStatusProto status = 2;
+  int32 auto_grade = 3;
+  int32 manual_grade = 4;
+  int32 auto_cloud_avg = 5;
+  int32 manual_cloud_avg = 6;
+  // 영상의 촬영 시간
+  google.protobuf.Timestamp imaging_date = 7;
+  // 카탈로그가 만들어진 시
+  google.protobuf.Timestamp created_date = 8;
+  // 모델에 의해 운량 등급이 처리된 시간
+  google.protobuf.Timestamp ccas_processing_date = 9;
+  string satellite = 10;
+  ImagingModeProto imaging_mode = 11;
+  double orbit = 12;
+  double roll = 13;
+  double pitch = 14;
+  double yaw_tilt = 15;
+  double latitude = 16;
+  double longitude = 17;
+  int32 width = 25;
+  int32 height = 26;
+  string image_base_64 = 18;
+  string thumbnail = 24;
+  bool is_revision = 19;
+  string security_level = 20;
+  string prc_station = 21;
+  string band_selection = 23;
+  string rcv_station = 22;
+  string mask = 27;
+}
+
+enum SceneStatusProto {
+  WAIT = 0;
+  SUCCESS = 1;
+  FAILED = 2;
+  EXCEPTION = 3;
+  SKIP = 4;
+}
+
+enum ImagingModeProto {
+  STRIP = 0;
+  STEREO = 1;
+  ARBITRARY = 2;
+}
+
+enum ScenePropertyProto {
+  IMAGING_DATE = 0;
+  GRADE = 1;
+  PRODUCT_ID = 2;
+  SATELLITE = 3;
+}

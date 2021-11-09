@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetReportFileRequestV1Proto";
+
+import "com/sia/obision/project/v1/ReportFormatV1.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/common/Language.proto";
+
+message GetReportFileRequestV1 {
+  sia.common.UUID report_id = 1;
+  project.v1.ReportFormatV1 report_format = 2;
+  sia.common.Language lang = 3;
+}

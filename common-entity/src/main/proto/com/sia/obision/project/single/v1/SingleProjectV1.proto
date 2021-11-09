@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package com.sia.obision.project.single.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "SingleProjectV1Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/obision/project/v1/ParticipantV1.proto";
+import "com/sia/obision/project/v1/ReportConfigV1.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/project/v1/AnalysisUnitV1.proto";
+
+message SingleProjectV1 {
+    // 필수
+    sia.common.UUID id = 1;
+    // 필수
+    string name = 2;
+    // 필수
+    string description = 3;
+    // 필수
+    repeated com.sia.obision.project.v1.ParticipantV1 participants = 4;
+    google.protobuf.Timestamp created_time = 5;
+    google.protobuf.Timestamp last_modified_time = 6;
+    // 필수
+    repeated com.sia.obision.project.v1.ReportConfigV1 report_configs = 7;
+    // 필수
+    repeated project.v1.AnalysisUnitV1 analysis_units = 8;
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.sia.obision.project.realtime.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "CopyRealtimeProjectRequestV1Proto";
+
+import "com/sia/obision/project/v1/ParticipantV1.proto";
+import "com/sia/common/UUID.proto";
+
+
+message CopyRealtimeProjectRequestV1 {
+    sia.common.UUID original_project_id = 1;
+    string name = 2;
+    string description = 3;
+    com.sia.obision.project.v1.ParticipantV1 owner = 4;
+    CopyTypeV1 copy_type = 5;
+}
+
+enum CopyTypeV1 {
+    ALL = 0;
+    ONLY_CONFIG = 1;
+}

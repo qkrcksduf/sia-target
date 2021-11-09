@@ -14,27 +14,27 @@ public final class TargetRouterGrpc {
   public static final String SERVICE_NAME = "com.sia.obision.target.TargetRouter";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.CreateTargetRequestV1,
+  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.CreateTargetRequestV1,
       com.google.protobuf.Empty> getCreateTargetMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "createTarget",
-      requestType = com.sia.obision.target.v1.CreateTargetRequestV1.class,
+      requestType = com.sia.obision.target.v1.target.CreateTargetRequestV1.class,
       responseType = com.google.protobuf.Empty.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.CreateTargetRequestV1,
+  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.CreateTargetRequestV1,
       com.google.protobuf.Empty> getCreateTargetMethod() {
-    io.grpc.MethodDescriptor<com.sia.obision.target.v1.CreateTargetRequestV1, com.google.protobuf.Empty> getCreateTargetMethod;
+    io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.CreateTargetRequestV1, com.google.protobuf.Empty> getCreateTargetMethod;
     if ((getCreateTargetMethod = TargetRouterGrpc.getCreateTargetMethod) == null) {
       synchronized (TargetRouterGrpc.class) {
         if ((getCreateTargetMethod = TargetRouterGrpc.getCreateTargetMethod) == null) {
           TargetRouterGrpc.getCreateTargetMethod = getCreateTargetMethod =
-              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.CreateTargetRequestV1, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.target.CreateTargetRequestV1, com.google.protobuf.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "createTarget"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.CreateTargetRequestV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.target.CreateTargetRequestV1.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setSchemaDescriptor(new TargetRouterMethodDescriptorSupplier("createTarget"))
@@ -45,27 +45,27 @@ public final class TargetRouterGrpc {
     return getCreateTargetMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.CreateTargetListRequestV1,
+  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.CreateTargetListRequestV1,
       com.google.protobuf.Empty> getCreateTargetListMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "createTargetList",
-      requestType = com.sia.obision.target.v1.CreateTargetListRequestV1.class,
+      requestType = com.sia.obision.target.v1.target.CreateTargetListRequestV1.class,
       responseType = com.google.protobuf.Empty.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.CreateTargetListRequestV1,
+  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.CreateTargetListRequestV1,
       com.google.protobuf.Empty> getCreateTargetListMethod() {
-    io.grpc.MethodDescriptor<com.sia.obision.target.v1.CreateTargetListRequestV1, com.google.protobuf.Empty> getCreateTargetListMethod;
+    io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.CreateTargetListRequestV1, com.google.protobuf.Empty> getCreateTargetListMethod;
     if ((getCreateTargetListMethod = TargetRouterGrpc.getCreateTargetListMethod) == null) {
       synchronized (TargetRouterGrpc.class) {
         if ((getCreateTargetListMethod = TargetRouterGrpc.getCreateTargetListMethod) == null) {
           TargetRouterGrpc.getCreateTargetListMethod = getCreateTargetListMethod =
-              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.CreateTargetListRequestV1, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.target.CreateTargetListRequestV1, com.google.protobuf.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "createTargetList"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.CreateTargetListRequestV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.target.CreateTargetListRequestV1.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setSchemaDescriptor(new TargetRouterMethodDescriptorSupplier("createTargetList"))
@@ -76,29 +76,29 @@ public final class TargetRouterGrpc {
     return getCreateTargetListMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.TargetSearchRequestV1,
-      com.sia.obision.target.v1.TargetSearchResponseV1> getTargetSearchMethod;
+  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.TargetSearchRequestV1,
+      com.sia.obision.target.v1.target.TargetSearchResponseV1> getTargetSearchMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "targetSearch",
-      requestType = com.sia.obision.target.v1.TargetSearchRequestV1.class,
-      responseType = com.sia.obision.target.v1.TargetSearchResponseV1.class,
+      requestType = com.sia.obision.target.v1.target.TargetSearchRequestV1.class,
+      responseType = com.sia.obision.target.v1.target.TargetSearchResponseV1.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.TargetSearchRequestV1,
-      com.sia.obision.target.v1.TargetSearchResponseV1> getTargetSearchMethod() {
-    io.grpc.MethodDescriptor<com.sia.obision.target.v1.TargetSearchRequestV1, com.sia.obision.target.v1.TargetSearchResponseV1> getTargetSearchMethod;
+  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.TargetSearchRequestV1,
+      com.sia.obision.target.v1.target.TargetSearchResponseV1> getTargetSearchMethod() {
+    io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.TargetSearchRequestV1, com.sia.obision.target.v1.target.TargetSearchResponseV1> getTargetSearchMethod;
     if ((getTargetSearchMethod = TargetRouterGrpc.getTargetSearchMethod) == null) {
       synchronized (TargetRouterGrpc.class) {
         if ((getTargetSearchMethod = TargetRouterGrpc.getTargetSearchMethod) == null) {
           TargetRouterGrpc.getTargetSearchMethod = getTargetSearchMethod =
-              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.TargetSearchRequestV1, com.sia.obision.target.v1.TargetSearchResponseV1>newBuilder()
+              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.target.TargetSearchRequestV1, com.sia.obision.target.v1.target.TargetSearchResponseV1>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "targetSearch"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.TargetSearchRequestV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.target.TargetSearchRequestV1.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.TargetSearchResponseV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.target.TargetSearchResponseV1.getDefaultInstance()))
               .setSchemaDescriptor(new TargetRouterMethodDescriptorSupplier("targetSearch"))
               .build();
         }
@@ -107,29 +107,29 @@ public final class TargetRouterGrpc {
     return getTargetSearchMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.TargetFilterRequestV1,
-      com.sia.obision.target.v1.TargetFilterResponseV1> getTargetFilterMethod;
+  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.TargetFilterRequestV1,
+      com.sia.obision.target.v1.target.TargetFilterResponseV1> getTargetFilterMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "targetFilter",
-      requestType = com.sia.obision.target.v1.TargetFilterRequestV1.class,
-      responseType = com.sia.obision.target.v1.TargetFilterResponseV1.class,
+      requestType = com.sia.obision.target.v1.target.TargetFilterRequestV1.class,
+      responseType = com.sia.obision.target.v1.target.TargetFilterResponseV1.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.TargetFilterRequestV1,
-      com.sia.obision.target.v1.TargetFilterResponseV1> getTargetFilterMethod() {
-    io.grpc.MethodDescriptor<com.sia.obision.target.v1.TargetFilterRequestV1, com.sia.obision.target.v1.TargetFilterResponseV1> getTargetFilterMethod;
+  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.TargetFilterRequestV1,
+      com.sia.obision.target.v1.target.TargetFilterResponseV1> getTargetFilterMethod() {
+    io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.TargetFilterRequestV1, com.sia.obision.target.v1.target.TargetFilterResponseV1> getTargetFilterMethod;
     if ((getTargetFilterMethod = TargetRouterGrpc.getTargetFilterMethod) == null) {
       synchronized (TargetRouterGrpc.class) {
         if ((getTargetFilterMethod = TargetRouterGrpc.getTargetFilterMethod) == null) {
           TargetRouterGrpc.getTargetFilterMethod = getTargetFilterMethod =
-              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.TargetFilterRequestV1, com.sia.obision.target.v1.TargetFilterResponseV1>newBuilder()
+              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.target.TargetFilterRequestV1, com.sia.obision.target.v1.target.TargetFilterResponseV1>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "targetFilter"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.TargetFilterRequestV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.target.TargetFilterRequestV1.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.TargetFilterResponseV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.target.TargetFilterResponseV1.getDefaultInstance()))
               .setSchemaDescriptor(new TargetRouterMethodDescriptorSupplier("targetFilter"))
               .build();
         }
@@ -138,27 +138,27 @@ public final class TargetRouterGrpc {
     return getTargetFilterMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.UpdateTargetRequestV1,
+  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.UpdateTargetRequestV1,
       com.google.protobuf.Empty> getUpdateTargetMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "updateTarget",
-      requestType = com.sia.obision.target.v1.UpdateTargetRequestV1.class,
+      requestType = com.sia.obision.target.v1.target.UpdateTargetRequestV1.class,
       responseType = com.google.protobuf.Empty.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.UpdateTargetRequestV1,
+  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.UpdateTargetRequestV1,
       com.google.protobuf.Empty> getUpdateTargetMethod() {
-    io.grpc.MethodDescriptor<com.sia.obision.target.v1.UpdateTargetRequestV1, com.google.protobuf.Empty> getUpdateTargetMethod;
+    io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.UpdateTargetRequestV1, com.google.protobuf.Empty> getUpdateTargetMethod;
     if ((getUpdateTargetMethod = TargetRouterGrpc.getUpdateTargetMethod) == null) {
       synchronized (TargetRouterGrpc.class) {
         if ((getUpdateTargetMethod = TargetRouterGrpc.getUpdateTargetMethod) == null) {
           TargetRouterGrpc.getUpdateTargetMethod = getUpdateTargetMethod =
-              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.UpdateTargetRequestV1, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.target.UpdateTargetRequestV1, com.google.protobuf.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "updateTarget"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.UpdateTargetRequestV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.target.UpdateTargetRequestV1.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setSchemaDescriptor(new TargetRouterMethodDescriptorSupplier("updateTarget"))
@@ -169,27 +169,27 @@ public final class TargetRouterGrpc {
     return getUpdateTargetMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.DeleteTargetRequestV1,
+  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.DeleteTargetRequestV1,
       com.google.protobuf.Empty> getDeleteTargetMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "deleteTarget",
-      requestType = com.sia.obision.target.v1.DeleteTargetRequestV1.class,
+      requestType = com.sia.obision.target.v1.target.DeleteTargetRequestV1.class,
       responseType = com.google.protobuf.Empty.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.DeleteTargetRequestV1,
+  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.DeleteTargetRequestV1,
       com.google.protobuf.Empty> getDeleteTargetMethod() {
-    io.grpc.MethodDescriptor<com.sia.obision.target.v1.DeleteTargetRequestV1, com.google.protobuf.Empty> getDeleteTargetMethod;
+    io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.DeleteTargetRequestV1, com.google.protobuf.Empty> getDeleteTargetMethod;
     if ((getDeleteTargetMethod = TargetRouterGrpc.getDeleteTargetMethod) == null) {
       synchronized (TargetRouterGrpc.class) {
         if ((getDeleteTargetMethod = TargetRouterGrpc.getDeleteTargetMethod) == null) {
           TargetRouterGrpc.getDeleteTargetMethod = getDeleteTargetMethod =
-              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.DeleteTargetRequestV1, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.target.DeleteTargetRequestV1, com.google.protobuf.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "deleteTarget"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.DeleteTargetRequestV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.target.DeleteTargetRequestV1.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setSchemaDescriptor(new TargetRouterMethodDescriptorSupplier("deleteTarget"))
@@ -200,27 +200,27 @@ public final class TargetRouterGrpc {
     return getDeleteTargetMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.DeleteTargetListRequestV1,
+  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.DeleteTargetListRequestV1,
       com.google.protobuf.Empty> getDeleteTargetListMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "deleteTargetList",
-      requestType = com.sia.obision.target.v1.DeleteTargetListRequestV1.class,
+      requestType = com.sia.obision.target.v1.target.DeleteTargetListRequestV1.class,
       responseType = com.google.protobuf.Empty.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.DeleteTargetListRequestV1,
+  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.DeleteTargetListRequestV1,
       com.google.protobuf.Empty> getDeleteTargetListMethod() {
-    io.grpc.MethodDescriptor<com.sia.obision.target.v1.DeleteTargetListRequestV1, com.google.protobuf.Empty> getDeleteTargetListMethod;
+    io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.DeleteTargetListRequestV1, com.google.protobuf.Empty> getDeleteTargetListMethod;
     if ((getDeleteTargetListMethod = TargetRouterGrpc.getDeleteTargetListMethod) == null) {
       synchronized (TargetRouterGrpc.class) {
         if ((getDeleteTargetListMethod = TargetRouterGrpc.getDeleteTargetListMethod) == null) {
           TargetRouterGrpc.getDeleteTargetListMethod = getDeleteTargetListMethod =
-              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.DeleteTargetListRequestV1, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.target.DeleteTargetListRequestV1, com.google.protobuf.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "deleteTargetList"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.DeleteTargetListRequestV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.target.DeleteTargetListRequestV1.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setSchemaDescriptor(new TargetRouterMethodDescriptorSupplier("deleteTargetList"))
@@ -231,27 +231,27 @@ public final class TargetRouterGrpc {
     return getDeleteTargetListMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.BookMarkRequestV1,
+  private static volatile io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.TargetBookMarkRequestV1,
       com.google.protobuf.Empty> getBookMarkMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "bookMark",
-      requestType = com.sia.obision.target.v1.BookMarkRequestV1.class,
+      requestType = com.sia.obision.target.v1.target.TargetBookMarkRequestV1.class,
       responseType = com.google.protobuf.Empty.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.BookMarkRequestV1,
+  public static io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.TargetBookMarkRequestV1,
       com.google.protobuf.Empty> getBookMarkMethod() {
-    io.grpc.MethodDescriptor<com.sia.obision.target.v1.BookMarkRequestV1, com.google.protobuf.Empty> getBookMarkMethod;
+    io.grpc.MethodDescriptor<com.sia.obision.target.v1.target.TargetBookMarkRequestV1, com.google.protobuf.Empty> getBookMarkMethod;
     if ((getBookMarkMethod = TargetRouterGrpc.getBookMarkMethod) == null) {
       synchronized (TargetRouterGrpc.class) {
         if ((getBookMarkMethod = TargetRouterGrpc.getBookMarkMethod) == null) {
           TargetRouterGrpc.getBookMarkMethod = getBookMarkMethod =
-              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.BookMarkRequestV1, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<com.sia.obision.target.v1.target.TargetBookMarkRequestV1, com.google.protobuf.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "bookMark"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.sia.obision.target.v1.BookMarkRequestV1.getDefaultInstance()))
+                  com.sia.obision.target.v1.target.TargetBookMarkRequestV1.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setSchemaDescriptor(new TargetRouterMethodDescriptorSupplier("bookMark"))
@@ -312,56 +312,56 @@ public final class TargetRouterGrpc {
 
     /**
      */
-    public void createTarget(com.sia.obision.target.v1.CreateTargetRequestV1 request,
+    public void createTarget(com.sia.obision.target.v1.target.CreateTargetRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateTargetMethod(), responseObserver);
     }
 
     /**
      */
-    public void createTargetList(com.sia.obision.target.v1.CreateTargetListRequestV1 request,
+    public void createTargetList(com.sia.obision.target.v1.target.CreateTargetListRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateTargetListMethod(), responseObserver);
     }
 
     /**
      */
-    public void targetSearch(com.sia.obision.target.v1.TargetSearchRequestV1 request,
-        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.TargetSearchResponseV1> responseObserver) {
+    public void targetSearch(com.sia.obision.target.v1.target.TargetSearchRequestV1 request,
+        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.target.TargetSearchResponseV1> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getTargetSearchMethod(), responseObserver);
     }
 
     /**
      */
-    public void targetFilter(com.sia.obision.target.v1.TargetFilterRequestV1 request,
-        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.TargetFilterResponseV1> responseObserver) {
+    public void targetFilter(com.sia.obision.target.v1.target.TargetFilterRequestV1 request,
+        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.target.TargetFilterResponseV1> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getTargetFilterMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateTarget(com.sia.obision.target.v1.UpdateTargetRequestV1 request,
+    public void updateTarget(com.sia.obision.target.v1.target.UpdateTargetRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateTargetMethod(), responseObserver);
     }
 
     /**
      */
-    public void deleteTarget(com.sia.obision.target.v1.DeleteTargetRequestV1 request,
+    public void deleteTarget(com.sia.obision.target.v1.target.DeleteTargetRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteTargetMethod(), responseObserver);
     }
 
     /**
      */
-    public void deleteTargetList(com.sia.obision.target.v1.DeleteTargetListRequestV1 request,
+    public void deleteTargetList(com.sia.obision.target.v1.target.DeleteTargetListRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getDeleteTargetListMethod(), responseObserver);
     }
 
     /**
      */
-    public void bookMark(com.sia.obision.target.v1.BookMarkRequestV1 request,
+    public void bookMark(com.sia.obision.target.v1.target.TargetBookMarkRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getBookMarkMethod(), responseObserver);
     }
@@ -372,56 +372,56 @@ public final class TargetRouterGrpc {
             getCreateTargetMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.sia.obision.target.v1.CreateTargetRequestV1,
+                com.sia.obision.target.v1.target.CreateTargetRequestV1,
                 com.google.protobuf.Empty>(
                   this, METHODID_CREATE_TARGET)))
           .addMethod(
             getCreateTargetListMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.sia.obision.target.v1.CreateTargetListRequestV1,
+                com.sia.obision.target.v1.target.CreateTargetListRequestV1,
                 com.google.protobuf.Empty>(
                   this, METHODID_CREATE_TARGET_LIST)))
           .addMethod(
             getTargetSearchMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.sia.obision.target.v1.TargetSearchRequestV1,
-                com.sia.obision.target.v1.TargetSearchResponseV1>(
+                com.sia.obision.target.v1.target.TargetSearchRequestV1,
+                com.sia.obision.target.v1.target.TargetSearchResponseV1>(
                   this, METHODID_TARGET_SEARCH)))
           .addMethod(
             getTargetFilterMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.sia.obision.target.v1.TargetFilterRequestV1,
-                com.sia.obision.target.v1.TargetFilterResponseV1>(
+                com.sia.obision.target.v1.target.TargetFilterRequestV1,
+                com.sia.obision.target.v1.target.TargetFilterResponseV1>(
                   this, METHODID_TARGET_FILTER)))
           .addMethod(
             getUpdateTargetMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.sia.obision.target.v1.UpdateTargetRequestV1,
+                com.sia.obision.target.v1.target.UpdateTargetRequestV1,
                 com.google.protobuf.Empty>(
                   this, METHODID_UPDATE_TARGET)))
           .addMethod(
             getDeleteTargetMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.sia.obision.target.v1.DeleteTargetRequestV1,
+                com.sia.obision.target.v1.target.DeleteTargetRequestV1,
                 com.google.protobuf.Empty>(
                   this, METHODID_DELETE_TARGET)))
           .addMethod(
             getDeleteTargetListMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.sia.obision.target.v1.DeleteTargetListRequestV1,
+                com.sia.obision.target.v1.target.DeleteTargetListRequestV1,
                 com.google.protobuf.Empty>(
                   this, METHODID_DELETE_TARGET_LIST)))
           .addMethod(
             getBookMarkMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                com.sia.obision.target.v1.BookMarkRequestV1,
+                com.sia.obision.target.v1.target.TargetBookMarkRequestV1,
                 com.google.protobuf.Empty>(
                   this, METHODID_BOOK_MARK)))
           .build();
@@ -444,7 +444,7 @@ public final class TargetRouterGrpc {
 
     /**
      */
-    public void createTarget(com.sia.obision.target.v1.CreateTargetRequestV1 request,
+    public void createTarget(com.sia.obision.target.v1.target.CreateTargetRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateTargetMethod(), getCallOptions()), request, responseObserver);
@@ -452,7 +452,7 @@ public final class TargetRouterGrpc {
 
     /**
      */
-    public void createTargetList(com.sia.obision.target.v1.CreateTargetListRequestV1 request,
+    public void createTargetList(com.sia.obision.target.v1.target.CreateTargetListRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateTargetListMethod(), getCallOptions()), request, responseObserver);
@@ -460,23 +460,23 @@ public final class TargetRouterGrpc {
 
     /**
      */
-    public void targetSearch(com.sia.obision.target.v1.TargetSearchRequestV1 request,
-        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.TargetSearchResponseV1> responseObserver) {
+    public void targetSearch(com.sia.obision.target.v1.target.TargetSearchRequestV1 request,
+        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.target.TargetSearchResponseV1> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getTargetSearchMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void targetFilter(com.sia.obision.target.v1.TargetFilterRequestV1 request,
-        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.TargetFilterResponseV1> responseObserver) {
+    public void targetFilter(com.sia.obision.target.v1.target.TargetFilterRequestV1 request,
+        io.grpc.stub.StreamObserver<com.sia.obision.target.v1.target.TargetFilterResponseV1> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getTargetFilterMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void updateTarget(com.sia.obision.target.v1.UpdateTargetRequestV1 request,
+    public void updateTarget(com.sia.obision.target.v1.target.UpdateTargetRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateTargetMethod(), getCallOptions()), request, responseObserver);
@@ -484,7 +484,7 @@ public final class TargetRouterGrpc {
 
     /**
      */
-    public void deleteTarget(com.sia.obision.target.v1.DeleteTargetRequestV1 request,
+    public void deleteTarget(com.sia.obision.target.v1.target.DeleteTargetRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteTargetMethod(), getCallOptions()), request, responseObserver);
@@ -492,7 +492,7 @@ public final class TargetRouterGrpc {
 
     /**
      */
-    public void deleteTargetList(com.sia.obision.target.v1.DeleteTargetListRequestV1 request,
+    public void deleteTargetList(com.sia.obision.target.v1.target.DeleteTargetListRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getDeleteTargetListMethod(), getCallOptions()), request, responseObserver);
@@ -500,7 +500,7 @@ public final class TargetRouterGrpc {
 
     /**
      */
-    public void bookMark(com.sia.obision.target.v1.BookMarkRequestV1 request,
+    public void bookMark(com.sia.obision.target.v1.target.TargetBookMarkRequestV1 request,
         io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getBookMarkMethod(), getCallOptions()), request, responseObserver);
@@ -523,56 +523,56 @@ public final class TargetRouterGrpc {
 
     /**
      */
-    public com.google.protobuf.Empty createTarget(com.sia.obision.target.v1.CreateTargetRequestV1 request) {
+    public com.google.protobuf.Empty createTarget(com.sia.obision.target.v1.target.CreateTargetRequestV1 request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateTargetMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.google.protobuf.Empty createTargetList(com.sia.obision.target.v1.CreateTargetListRequestV1 request) {
+    public com.google.protobuf.Empty createTargetList(com.sia.obision.target.v1.target.CreateTargetListRequestV1 request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateTargetListMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sia.obision.target.v1.TargetSearchResponseV1 targetSearch(com.sia.obision.target.v1.TargetSearchRequestV1 request) {
+    public com.sia.obision.target.v1.target.TargetSearchResponseV1 targetSearch(com.sia.obision.target.v1.target.TargetSearchRequestV1 request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getTargetSearchMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.sia.obision.target.v1.TargetFilterResponseV1 targetFilter(com.sia.obision.target.v1.TargetFilterRequestV1 request) {
+    public com.sia.obision.target.v1.target.TargetFilterResponseV1 targetFilter(com.sia.obision.target.v1.target.TargetFilterRequestV1 request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getTargetFilterMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.google.protobuf.Empty updateTarget(com.sia.obision.target.v1.UpdateTargetRequestV1 request) {
+    public com.google.protobuf.Empty updateTarget(com.sia.obision.target.v1.target.UpdateTargetRequestV1 request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateTargetMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.google.protobuf.Empty deleteTarget(com.sia.obision.target.v1.DeleteTargetRequestV1 request) {
+    public com.google.protobuf.Empty deleteTarget(com.sia.obision.target.v1.target.DeleteTargetRequestV1 request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteTargetMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.google.protobuf.Empty deleteTargetList(com.sia.obision.target.v1.DeleteTargetListRequestV1 request) {
+    public com.google.protobuf.Empty deleteTargetList(com.sia.obision.target.v1.target.DeleteTargetListRequestV1 request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getDeleteTargetListMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.google.protobuf.Empty bookMark(com.sia.obision.target.v1.BookMarkRequestV1 request) {
+    public com.google.protobuf.Empty bookMark(com.sia.obision.target.v1.target.TargetBookMarkRequestV1 request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getBookMarkMethod(), getCallOptions(), request);
     }
@@ -595,7 +595,7 @@ public final class TargetRouterGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> createTarget(
-        com.sia.obision.target.v1.CreateTargetRequestV1 request) {
+        com.sia.obision.target.v1.target.CreateTargetRequestV1 request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateTargetMethod(), getCallOptions()), request);
     }
@@ -603,23 +603,23 @@ public final class TargetRouterGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> createTargetList(
-        com.sia.obision.target.v1.CreateTargetListRequestV1 request) {
+        com.sia.obision.target.v1.target.CreateTargetListRequestV1 request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateTargetListMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sia.obision.target.v1.TargetSearchResponseV1> targetSearch(
-        com.sia.obision.target.v1.TargetSearchRequestV1 request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.sia.obision.target.v1.target.TargetSearchResponseV1> targetSearch(
+        com.sia.obision.target.v1.target.TargetSearchRequestV1 request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getTargetSearchMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.sia.obision.target.v1.TargetFilterResponseV1> targetFilter(
-        com.sia.obision.target.v1.TargetFilterRequestV1 request) {
+    public com.google.common.util.concurrent.ListenableFuture<com.sia.obision.target.v1.target.TargetFilterResponseV1> targetFilter(
+        com.sia.obision.target.v1.target.TargetFilterRequestV1 request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getTargetFilterMethod(), getCallOptions()), request);
     }
@@ -627,7 +627,7 @@ public final class TargetRouterGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> updateTarget(
-        com.sia.obision.target.v1.UpdateTargetRequestV1 request) {
+        com.sia.obision.target.v1.target.UpdateTargetRequestV1 request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateTargetMethod(), getCallOptions()), request);
     }
@@ -635,7 +635,7 @@ public final class TargetRouterGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> deleteTarget(
-        com.sia.obision.target.v1.DeleteTargetRequestV1 request) {
+        com.sia.obision.target.v1.target.DeleteTargetRequestV1 request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteTargetMethod(), getCallOptions()), request);
     }
@@ -643,7 +643,7 @@ public final class TargetRouterGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> deleteTargetList(
-        com.sia.obision.target.v1.DeleteTargetListRequestV1 request) {
+        com.sia.obision.target.v1.target.DeleteTargetListRequestV1 request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getDeleteTargetListMethod(), getCallOptions()), request);
     }
@@ -651,7 +651,7 @@ public final class TargetRouterGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> bookMark(
-        com.sia.obision.target.v1.BookMarkRequestV1 request) {
+        com.sia.obision.target.v1.target.TargetBookMarkRequestV1 request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getBookMarkMethod(), getCallOptions()), request);
     }
@@ -684,35 +684,35 @@ public final class TargetRouterGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CREATE_TARGET:
-          serviceImpl.createTarget((com.sia.obision.target.v1.CreateTargetRequestV1) request,
+          serviceImpl.createTarget((com.sia.obision.target.v1.target.CreateTargetRequestV1) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_CREATE_TARGET_LIST:
-          serviceImpl.createTargetList((com.sia.obision.target.v1.CreateTargetListRequestV1) request,
+          serviceImpl.createTargetList((com.sia.obision.target.v1.target.CreateTargetListRequestV1) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_TARGET_SEARCH:
-          serviceImpl.targetSearch((com.sia.obision.target.v1.TargetSearchRequestV1) request,
-              (io.grpc.stub.StreamObserver<com.sia.obision.target.v1.TargetSearchResponseV1>) responseObserver);
+          serviceImpl.targetSearch((com.sia.obision.target.v1.target.TargetSearchRequestV1) request,
+              (io.grpc.stub.StreamObserver<com.sia.obision.target.v1.target.TargetSearchResponseV1>) responseObserver);
           break;
         case METHODID_TARGET_FILTER:
-          serviceImpl.targetFilter((com.sia.obision.target.v1.TargetFilterRequestV1) request,
-              (io.grpc.stub.StreamObserver<com.sia.obision.target.v1.TargetFilterResponseV1>) responseObserver);
+          serviceImpl.targetFilter((com.sia.obision.target.v1.target.TargetFilterRequestV1) request,
+              (io.grpc.stub.StreamObserver<com.sia.obision.target.v1.target.TargetFilterResponseV1>) responseObserver);
           break;
         case METHODID_UPDATE_TARGET:
-          serviceImpl.updateTarget((com.sia.obision.target.v1.UpdateTargetRequestV1) request,
+          serviceImpl.updateTarget((com.sia.obision.target.v1.target.UpdateTargetRequestV1) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_DELETE_TARGET:
-          serviceImpl.deleteTarget((com.sia.obision.target.v1.DeleteTargetRequestV1) request,
+          serviceImpl.deleteTarget((com.sia.obision.target.v1.target.DeleteTargetRequestV1) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_DELETE_TARGET_LIST:
-          serviceImpl.deleteTargetList((com.sia.obision.target.v1.DeleteTargetListRequestV1) request,
+          serviceImpl.deleteTargetList((com.sia.obision.target.v1.target.DeleteTargetListRequestV1) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         case METHODID_BOOK_MARK:
-          serviceImpl.bookMark((com.sia.obision.target.v1.BookMarkRequestV1) request,
+          serviceImpl.bookMark((com.sia.obision.target.v1.target.TargetBookMarkRequestV1) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
           break;
         default:

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.obision.target.v1.target;
+
+option java_multiple_files = true;
+option java_outer_classname = "CreateTargetListV1Proto";
+
+import "com/sia/obision/target/v1/target/CreateTargetV1.proto";
+
+message CreateTargetListRequestV1 {
+  repeated CreateTargetRequestV1 target = 1;
+}

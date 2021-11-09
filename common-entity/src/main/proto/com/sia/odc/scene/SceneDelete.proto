@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.sia.odc.scene;
+
+option java_multiple_files = true;
+
+message SceneDeleteRequestProto {
+    repeated string scene_id = 1;
+    bool force_delete = 2;
+}
+
+message SceneDeleteResponseProto {
+    repeated string auto_inference_job = 1;
+    repeated string manual_inference_job = 2;
+    repeated string task_validation_job = 3;
+    repeated string snapshot = 4;
+    repeated string project = 5;
+    repeated string inference_report = 6;
+    repeated string daily_report = 7;
+    repeated string periodic_report = 8;
+    repeated string custom_report = 9;
+    repeated string auto_label = 10;
+    repeated string manual_label = 11;
+    repeated string validation_label = 12;
+}

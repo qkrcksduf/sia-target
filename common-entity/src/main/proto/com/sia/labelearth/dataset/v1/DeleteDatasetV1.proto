@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.labelearth.dataset.v1;
+
+import "com/sia/labelearth/dataset/v1/entity/DatasetV1.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "DeleteDatasetV1Proto";
+
+message DeleteDatasetRequestV1Proto {
+  string dataset_id = 1;
+}
+
+message DeleteDatasetResponseV1Proto {
+  v1.entity.DatasetV1 dataset = 1;
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.sia.cca.scene.message;
+
+option java_outer_classname = "GetSceneByIdProto";
+option java_multiple_files = true;
+
+import "com/sia/cca/scene/message/Scene.proto";
+
+message GetSceneByIdRequest {
+  // 필수
+  string id = 1;
+}
+
+message GetSceneByIdResponse {
+  SceneResponse scene = 1;
+}

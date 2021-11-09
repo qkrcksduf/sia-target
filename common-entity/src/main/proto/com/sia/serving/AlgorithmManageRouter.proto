@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.sia.serving;
+
+option java_multiple_files = true;
+
+import "com/sia/serving/ImportModel.proto";
+import "com/sia/serving/ImportAlgorithm.proto";
+import "com/sia/serving/GetAlgorithm.proto";
+
+
+service AlgorithmManageRouter {
+    rpc import_model (ImportModelRequest)
+        returns (ImportModelResponse) {}
+    rpc import_algorithm (ImportAlgorithmRequest)
+            returns (ImportAlgorithmResponse) {}
+    rpc get_algorithm (GetAlgorithmRequest)
+            returns (GetAlgorithmResponse) {}
+}

@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "GetReportAllByV2Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/TimestampRange.proto";
+import "com/sia/obision/project/v1/ReportTypeV1.proto";
+import "com/sia/obision/project/v3/entity/ProjectV3.proto";
+import "com/sia/obision/project/report/v2/entity/ReportV2.proto";
+import "com/sia/common/Paging.proto";
+import "com/sia/common/SortDirection.proto";
+
+message GetReportAllByRequestV2 {
+  GetReportAllFilterV2 filter = 1;
+  GetReportAllOptionV2 option = 5;
+  common.Paging paging = 2;
+  common.SortDirection sort_direction = 3;
+  GetReportAllSortTargetV2 sort_target = 4;
+}
+
+message GetReportAllFilterV2 {
+  repeated project.v1.ReportTypeV1 report_types = 1;
+  repeated common.UUID project_ids = 2;
+  repeated common.UUID aoi_ids = 3;
+  // 사용하지 않음
+  repeated common.UUID class_ids = 4;
+  LabelClassFilter label_class_filter = 7;
+  common.TimestampRange scene_time_range = 5;
+  repeated string satellite_names = 6;
+  string keyword = 8;
+}
+
+
+message LabelClassFilter {
+  /*
+    해당 필터가 활성화 되었는지를 확실히 표시
+    true 일 경우에만 이 필터 적용
+   */
+  bool activated = 1;
+  /*
+    true : 아무것도 검출되지 않은 영상 포함
+    기본값 : false
+   */
+  bool contain_nothing_detected = 2;
+  repeated sia.common.UUID label_class_ids = 3;
+}
+
+message GetReportAllOptionV2 {
+  string account_id = 1;
+
+  bool only_subscribe = 2;
+}
+
+enum GetReportAllSortTargetV2 {
+  CREATED_TIME = 0;
+  SCENE_TIME_RANGE = 1;
+}
+
+message GetReportAllByResponseV2 {
+  repeated entity.ReportV2 reports = 1;
+  int64 total_count = 2;
+}

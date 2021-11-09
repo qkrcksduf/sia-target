@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.sia.cca.account.message;
+
+option java_outer_classname = "UpdateAccountProto";
+option java_multiple_files = true;
+
+import "com/sia/cca/account/message/Account.proto";
+
+message UpdateAccountRequest {
+  string name = 4;
+  string email = 1;
+  string new_password = 5;
+  AccountRoleProto role = 3;
+}
+
+message UpdateAccountResponse {
+  string name = 4;
+  string email = 1;
+  AccountRoleProto role = 3;
+}

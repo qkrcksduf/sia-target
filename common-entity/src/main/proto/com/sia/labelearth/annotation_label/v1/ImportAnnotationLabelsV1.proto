@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.sia.labelearth.annotation_label.v1;
+
+option java_outer_classname = "ImportAnnotationLabelsV1Proto";
+option java_multiple_files = true;
+
+message ImportAnnotationLabelsRequestV1Proto {
+  string dataset_id = 1;
+  string scene_id = 2;
+  string account_id = 3;
+  oneof label_file{
+    bytes data = 4;
+    string path = 5;
+  }
+}

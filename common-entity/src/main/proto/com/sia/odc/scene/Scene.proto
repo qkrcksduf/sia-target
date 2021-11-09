@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package com.sia.odc.scene;
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/odc/common/Polygon.proto";
+
+option java_outer_classname = "SceneProto";
+
+message Scene {
+    string id = 1;
+    string path = 2;
+    int32 width = 3;
+    int32 height = 4;
+    double gsd_x = 5;
+    double gsd_y = 6;
+    google.protobuf.Timestamp scene_time = 7;
+    google.protobuf.Timestamp upload_time = 8;
+    int32 depth = 9;
+    com.sia.odc.common.Polygon extent = 10;
+    string region = 11;
+    string projection = 12;
+    string projection_ref = 13;
+    repeated string geo_transform = 14;
+    string satellite_name = 15;
+    int32 total_patches = 16;
+    int32 completed_patches = 17;
+}
+
+message SceneList {
+    repeated Scene scenes = 1;
+}
+
+message SearchResult {
+    string id = 1;
+    string satellite_name = 2;
+    double latitude = 3;
+    double longitude = 4;
+    string region = 5;
+    google.protobuf.Timestamp scene_time = 6;
+    int32 detected_count = 7;
+    string scene_path = 8;
+    repeated ReportTask reportTasks = 9;
+}
+
+message ReportTask {
+    int32 id = 1;
+    int32 labelCount = 2;
+    int32 taskId = 3;
+    string taskName = 4;
+}
+
+message ScenePath {
+    string id = 1;
+    string scene_path = 2;
+}
+
+message SearchResultList {
+    repeated SearchResult scene_list = 1;
+}
+
+message Thumbnail {
+    string pngBase64String = 1;
+}

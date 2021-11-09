@@ -1,0 +1,20 @@
+syntax = "proto2";
+
+package com.sia.odc.evaluation;
+
+import "com/sia/odc/common/Point.proto";
+import "com/sia/odc/label/MatchingType.proto";
+
+option java_outer_classname = "ReferenceLabelProto";
+
+message ReferenceLabel {
+    required int32 class_id = 1;
+    required com.sia.odc.common.Point center = 2;
+    required double width = 3;
+    required double height = 4;
+    required double angle = 5;
+    required com.sia.odc.common.Point location = 6;
+    optional bytes image = 7;
+    required string scene_id = 8;
+    optional com.sia.odc.label.MatchingType matching = 9;
+}

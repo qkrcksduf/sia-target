@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.map.render.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "TileRenderingResponseV1Proto";
+
+import "com/sia/map/element/v1/ImageViewV1.proto";
+
+message TileRenderingResponseV1 {
+  com.sia.map.element.v1.ImageViewV1 tileImage = 1;
+}

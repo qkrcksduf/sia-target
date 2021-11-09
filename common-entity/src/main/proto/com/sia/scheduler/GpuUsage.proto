@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.scheduler;
+
+option java_multiple_files = true;
+option go_package = "common-entity/com/sia/scheduler";
+
+
+message GpuUsage {
+    string node = 1;
+    uint32 total = 2;
+    uint32 available = 3;
+    uint32 used = 4;
+}
+
+message GpuUsageListResponse {
+  repeated GpuUsage usages = 1;
+}

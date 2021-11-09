@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package com.sia.obision.aoi.v2.value;
+
+option java_multiple_files = true;
+option java_outer_classname = "AoiCoverageV2Proto";
+
+import "com/sia/obision/aoi/v2/entity/AoiV2.proto";
+import "com/sia/common/UUID.proto";
+
+message AoiCoverageV2 {
+    /**
+        aoi_field
+        aoi 정보
+        id 기본 제공
+     */
+    sia.common.UUID aoi_id = 1;
+    /**
+        0 ~ 1
+     */
+    double coverage = 2;
+}

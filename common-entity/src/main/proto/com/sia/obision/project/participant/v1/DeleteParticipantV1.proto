@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.sia.obision.project.participant.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "DeleteParticipantV1Proto";
+
+import "com/sia/common/UUID.proto";
+
+message DeleteParticipantRequestV1 {
+  common.UUID project_id = 1;
+  string account_id = 2;
+}

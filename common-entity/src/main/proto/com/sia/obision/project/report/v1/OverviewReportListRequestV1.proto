@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "OverviewReportListRequestV1Proto";
+
+import "com/sia/common/Period.proto";
+import "com/sia/common/SortDirection.proto";
+import "com/sia/common/IntRange.proto";
+import "com/sia/common/Paging.proto";
+import "com/sia/obision/project/v1/ReportTypeV1.proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/common/Extent.proto";
+import "com/sia/obision/common/LabelClassWithParent.proto";
+import "com/sia/obision/common/Region.proto";
+
+message OverviewReportListRequestV1 {
+    // 필수
+    sia.common.UUID project_id = 1;
+    // 선택
+    com.sia.common.Period create_time_range = 2;
+    // 선택
+    com.sia.common.IntRange aoi_coverage_range = 3;
+
+    com.sia.common.IntRange cloud_coverage_range = 4;
+
+    // 선택, 기본 : 전부
+    com.sia.common.Paging paging = 5;
+    // 선택, 기본 : DESC
+    com.sia.common.SortDirection sort_direction = 6;
+    // 선택, 기본 : Created_Time
+    ReportListSortField sort_field = 17;
+
+    // 선택
+    repeated project.v1.ReportTypeV1 report_types = 7;
+    // 선택
+    repeated string satellite_names = 8;
+    // 선택, 없으면 전체
+    repeated obision.common.Region regions = 9;
+    // 선택, 없으면 전체
+    repeated obision.common.LabelClassWithParent label_class_ids = 10;
+    // 선택
+    sia.common.Extent extent = 11;
+
+    // 선택
+    string keyword = 13;
+    // 선택, 즐겨찾기를 불러오기 위해 필요
+    string account_id = 14;
+
+    // 선택
+    bool only_favorite = 15;
+    // 선택
+    bool only_today_created = 18;
+
+    // 선택, 기본 : Asia/Seoul
+    string timezone = 16;
+}
+
+enum ReportListSortField {
+    CREATED_TIME = 0;
+    REPORT_TYPE = 1;
+    REPORT_ID = 2;
+    REGION = 4;
+    OBJECT = 5;
+    SATELLITE = 6;
+    CLOUD_COVERAGE = 7;
+}

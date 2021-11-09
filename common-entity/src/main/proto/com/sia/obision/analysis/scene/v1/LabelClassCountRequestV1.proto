@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.scene.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "LabelClassCountRequestV1Proto";
+
+import "google/protobuf/timestamp.proto";
+import "com/sia/common/UUID.proto";
+
+message LabelClassCountRequestV1 {
+  // 필수
+  google.protobuf.Timestamp max_imaging_time = 1;
+  // 필수
+  sia.common.UUID aoi_id = 2;
+  // 필수
+  sia.common.UUID project_id = 3;
+}

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package com.sia.obision.project;
+
+option java_multiple_files = true;
+
+import "com/sia/obision/project/v1/GetProjectByRequestV1.proto";
+import "com/sia/obision/project/v1/GetProjectByResponseV1.proto";
+import "com/sia/obision/project/v1/GetProjectNameByV1.proto";
+import "com/sia/obision/project/v3/CreateProjectV3.proto";
+import "com/sia/obision/project/v3/GetProjectByV3.proto";
+import "com/sia/obision/project/v3/UpdateProjectV3.proto";
+import "com/sia/obision/project/v3/DeleteProjectV3.proto";
+import "com/sia/obision/project/v3/CopyProjectV3.proto";
+import "com/sia/obision/project/v3/GetAllProject.proto";
+import "com/sia/obision/project/v1/SceneIntersectionRequestV1.proto";
+import "com/sia/obision/project/v1/SceneIntersectionResponseV1.proto";
+import "com/sia/obision/project/v3/UpdateProjectStatusV3.proto";
+import "google/protobuf/empty.proto";
+
+service ProjectRouter {
+  // 프로젝트 목록 조회 API, Deprecated
+  rpc getProjectByV1 (v1.GetProjectByRequestV1) returns (v1.GetProjectByResponseV1) {}
+
+  // 프로젝트 아이디와 이름 목록 조회 API
+  rpc getProjectNameByV1(v1.GetProjectNameByRequestV1) returns (v1.GetProjectNameByResponseV1) {}
+
+  rpc createProjectV3(v3.CreateProjectRequestV3) returns (v3.CreateProjectResponseV3) {}
+
+  rpc getProjectByV3 (v3.GetProjectByRequestV3) returns (v3.GetProjectByResponseV3) {}
+
+  rpc updateProjectByV3 (v3.UpdateProjectRequestV3) returns (v3.UpdateProjectResponseV3) {}
+
+  rpc deleteProjectByV3 (v3.DeleteProjectRequestV3) returns (google.protobuf.Empty) {}
+
+  rpc copyProjectV3 (v3.CopyProjectRequestV3) returns (v3.CopyProjectResponseV3) {}
+
+  rpc getAllProject(google.protobuf.Empty) returns (v3.GetAllProjectResponseV3) {}
+
+  rpc getIntersectedSceneByAoiV1(v1.SceneIntersectionRequestV1) returns (v1.SceneIntersectionResponseV1) {}
+
+  rpc updateProjectStatusByV3(v3.UpdateProjectStatusRequestV3) returns (google.protobuf.Empty) {}
+}

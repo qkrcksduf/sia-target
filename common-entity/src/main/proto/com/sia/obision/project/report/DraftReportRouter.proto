@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.sia.obision.project.report;
+
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+import "com/sia/obision/project/report/v1/CreateDraftReportRequestV1.proto";
+import "com/sia/obision/project/report/v1/CreateDraftReportResponseV1.proto";
+import "com/sia/obision/project/report/v1/SaveDraftReportConfigRequestV1.proto";
+import "com/sia/obision/project/report/v1/GetDraftReportConfigRequestV1.proto";
+import "com/sia/obision/project/report/v1/GetDraftReportConfigResponseV1.proto";
+
+service DraftReportRouter {
+  rpc createDraftReportV1 (v1.CreateDraftReportRequestV1) returns (v1.CreateDraftReportResponseV1) {}
+  rpc saveDraftReportConfigV1 (v1.SaveDraftReportConfigRequestV1) returns (google.protobuf.Empty) {}
+  rpc getDraftReportConfigV1 (v1.GetDraftReportConfigRequestV1) returns (v1.GetDraftReportConfigResponseV1) {}
+}

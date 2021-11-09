@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.sia.labelearth.scene.v1.value;
+
+//option java_multiple_files = true;
+option java_outer_classname = "ThumbnailV1Proto";
+
+message ThumbnailV1 {
+  string scene_id = 1;
+  string pngBase64String = 2;
+}

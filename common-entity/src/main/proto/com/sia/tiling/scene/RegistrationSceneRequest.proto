@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.sia.tiling.scene;
+
+option java_multiple_files = true;
+option java_outer_classname = "RegistrationSceneRequestProto";
+
+message RegistrationSceneRequest {
+  // 필수
+  string scene_id = 1;
+  string registration_scene_path = 2;
+}

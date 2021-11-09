@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.scheduler;
+
+import "google/protobuf/empty.proto";
+import "com/sia/scheduler/GpuUsage.proto";
+
+option java_multiple_files = true;
+option go_package = "common-entity/com/sia/scheduler";
+
+
+service GpuUsageRouter{
+    rpc load_all_gpu_usages (google.protobuf.Empty)
+        returns (com.sia.scheduler.GpuUsageListResponse) {}
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.sia.serving.shared;
+
+option java_multiple_files = true;
+option java_outer_classname = "AlgorithmProto";
+
+import "com/sia/serving/shared/Class.proto";
+import "com/sia/serving/shared/Dag.proto";
+
+message Algorithm {
+    string id = 1;
+    DAG dag = 2;
+    repeated Class algorithmClass = 3; // 추후 알고리즘&클래스 등록 등의 관리에 사용될듯.
+}

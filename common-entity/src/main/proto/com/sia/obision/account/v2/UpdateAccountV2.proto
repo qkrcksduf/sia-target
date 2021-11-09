@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.sia.obision.account.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "UpdateAccountV2Proto";
+
+import "com/sia/obision/account/v2/entity/AccountV2.proto";
+
+message UpdateAccountRequestV2 {
+  repeated UpdateAccountV2 updates = 1;
+  account.v2.entity.AccountFieldV2 response_field = 2;
+}
+
+message UpdateAccountV2 {
+  account.v2.entity.AccountV2 target_account = 1;
+  account.v2.entity.AccountFieldV2 update_field = 2;
+  string old_password = 3;
+  // 편집시에만 입력
+  string new_password = 4;
+}
+
+message UpdateAccountResponseV2 {
+  repeated account.v2.entity.AccountV2 updated_account = 1;
+}

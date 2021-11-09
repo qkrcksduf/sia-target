@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.sia.obision.project.single.v1;
+
+option java_multiple_files = true;
+option java_outer_classname = "AddAnalysisUnitListRequestV1Proto";
+
+import "com/sia/common/UUID.proto";
+import "com/sia/obision/project/v1/AnalysisUnitV1.proto";
+
+message AddAnalysisUnitListRequestV1 {
+    sia.common.UUID single_project_id = 1;
+    repeated project.v1.AnalysisUnitV1 analysis_units = 2;
+}

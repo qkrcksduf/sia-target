@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package com.sia.obision.analysis.scene.v2;
+
+option java_multiple_files = true;
+option java_outer_classname = "SceneAnalysisResponseV2Proto";
+
+
+import "com/sia/common/MongoId.proto";
+import "com/sia/common/UUID.proto";
+import "com/sia/common/Polygon.proto";
+import "com/sia/common/MultiPolygon.proto";
+import "google/protobuf/timestamp.proto";
+import "com/sia/obision/common/Region.proto";
+import "com/sia/obision/analysis/v2/value/LabelClassCountV2.proto";
+import "com/sia/obision/analysis/v2/entity/LabelV2.proto";
+
+message SceneAnalysisResponseV2 {
+  // 필수
+  repeated SceneAnalysisV2 analyses = 1;
+}
+
+message SceneAnalysisV2 {
+  // 필수
+  sia.common.MongoId scene_id = 1;
+  // 필수
+  google.protobuf.Timestamp imaging_time = 2;
+  // 필수
+  string satellite_name = 3;
+  // 필수
+  repeated com.sia.obision.analysis.v2.value.LabelClassCountV2 label_class_count = 4;
+  // 필수
+  obision.common.Region region = 5;
+  // 필수
+  double cloud_percent = 7;
+  // 필수
+  repeated AoiInfoV2 aoi_information = 8;
+  // 필수
+  repeated analysis.v2.entity.LabelV2 labels = 9;
+  // 필수
+  google.protobuf.Timestamp inference_time = 10;
+  // 필수
+  string scene_path = 11;
+  // 필수
+  com.sia.common.Polygon extent = 12;
+}
+
+message AoiInfoV2 {
+  // 필수
+  sia.common.UUID aoi_id = 1;
+  // 필수
+  double coverage = 2;
+  // 필수
+  string aoi_name = 3;
+  // 필수
+  com.sia.common.MultiPolygon polygon = 4;
+}
+

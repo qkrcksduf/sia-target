@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package com.sia.odc.cluster;
+
+option java_outer_classname = "GpuMetricProto";
+option java_package="com.sia.odc.cluster";
+
+message GpuMetricOverallStatus {
+  int32 node_count = 1;
+  int32 gpu_count = 2;
+  int32 assigned_gpu_count = 3;
+  int32 using_gpu_count = 4;
+  GpuUsageStatus gpu_usage_status = 5;
+}
+
+message GpuUsageStatus {
+  int32 auto_allocation = 1;
+  int32 auto_allocation_used = 2;
+  int32 manual_allocation = 3;
+  int32 manual_allocation_used = 4;
+  int32 train_allocation = 5;
+  int32 train_allocation_used = 6;
+}
+
+message GpuMetricGpuStatus {
+  string uuid = 1;
+  string node = 2;
+  int32 number = 3;
+  double gpu_usage_rate = 4;
+  double memory_usage_rate = 5;
+  string task_name = 6;
+  string type = 7;
+}
+
+message GpuMetricsGpuStatus {
+  repeated GpuMetricGpuStatus metrics = 1;
+}
+
+message GpuMetricSeverStatus {
+  string node = 1;
+  int32 auto_count = 2;
+  int32 manual_count = 3;
+  int32 train_count = 4;
+  int32 used_count = 5;
+  int32 unused_count = 6;
+  int32 total_count = 7;
+}
+
+message GpuMetricsSeverStatus {
+  repeated GpuMetricSeverStatus metrics = 1;
+}
