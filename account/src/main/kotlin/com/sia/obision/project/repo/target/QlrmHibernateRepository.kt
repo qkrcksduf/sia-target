@@ -3,8 +3,7 @@ package com.sia.obision.project.repo.target
 import com.sia.core.repository.infra.hibernate.HibernateRepository
 import com.sia.obision.project.entity.target.QlrmTest
 import com.sia.obision.project.param.target.TestParam
-import org.qlrm.mapper.JpaResultMapper
-import org.qlrm.mapper.ResultMapper
+import com.sia.obision.project.qlrm.qlrm.mapper.mapper.JpaResultMapper
 
 class QlrmHibernateRepository : TestRepository, HibernateRepository<QlrmTest, String>(QlrmTest::class) {
     override fun test() {

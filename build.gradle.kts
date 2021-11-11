@@ -27,6 +27,7 @@ allprojects {
             }
         }
     }
+
     allOpen {
         AllOpen.annotationList.forEach {
             annotation(it)

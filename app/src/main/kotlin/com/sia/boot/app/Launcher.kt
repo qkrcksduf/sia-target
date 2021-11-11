@@ -52,6 +52,9 @@ private fun setHibernate(configManager: ConfigManager) {
         .registerAnnotatedClasses(getProjectEntities())
 }
 
+//        "keepalivetimeout",
+//        "maxinboundmessagesize"
+
 private fun setKoin() {
     startKoin {
         modules(
